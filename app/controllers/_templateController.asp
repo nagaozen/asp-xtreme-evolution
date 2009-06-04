@@ -30,7 +30,7 @@
 class ${1:Template}Controller
     
     public sub defaultAction()
-        
+        $0
     end sub
     
 end class

@@ -26,7 +26,85 @@
 ' 
 class ${1:Template}Model
     
+    $0
     
+    ' Function: toXML
+    ' 
+    ' Returns a XML representation of this model.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string) - root node of the recursion
+    ' 
+    ' Returns:
+    ' 
+    '     (string) - XML representation
+    ' 
+    ' Example:
+    ' 
+    ' (start code)
+    ' 
+    ' dim Model : set Model = new ${1:Template}Model
+    ' Response.write(Model.toXML())
+    ' set Model = nothing
+    ' 
+    ' (end code)
+    ' 
+    public function toXML()
+        
+    end function
+    
+    ' Function: toJSON
+    ' 
+    ' Returns a JSON representation of this model.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string) - root node of the recursion
+    ' 
+    ' Returns:
+    ' 
+    '     (string) - JSON representation
+    ' 
+    ' Example:
+    ' 
+    ' (start code)
+    ' 
+    ' dim Model : set Model = new ${1:Template}Model
+    ' Response.write(Model.toJSON())
+    ' set Model = nothing
+    ' 
+    ' (end code)
+    ' 
+    public function toJSON()
+        
+    end function
+    
+    ' Function: toHTML
+    ' 
+    ' Returns a HTML representation of this model.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string) - root node of the recursion
+    ' 
+    ' Returns:
+    ' 
+    '     (string) - HTML representation
+    ' 
+    ' Example:
+    ' 
+    ' (start code)
+    ' 
+    ' dim Model : set Model = new ${1:Template}Model
+    ' Response.write(Model.toHTML())
+    ' set Model = nothing
+    ' 
+    ' (end code)
+    ' 
+    public function toHTML()
+        
+    end function
     
 end class
 
