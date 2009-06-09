@@ -1,4 +1,4 @@
-<!--#include virtual="/app/core/lib/Parsers/markdown.class.asp"-->
+﻿<!--#include virtual="/app/core/lib/Parsers/markdown.class.asp"-->
 <%
 
 '+-----------------------------------------------------------------------------+

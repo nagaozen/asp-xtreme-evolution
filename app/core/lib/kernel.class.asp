@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |
@@ -387,7 +387,7 @@ class Kernel
         set File = Fso.createTextFile(sFilePath, true, false)
         File.writeLine( _ 
             sContent & vbNewLine & _ 
-            "<!--// CACHED FILE => Execution time is less than 1�s (Blazing fast performance) //-->" _ 
+            "<!--// CACHED FILE => Execution time is less than 1µs (Blazing fast performance) //-->" _ 
         )
         File.close
         set File = nothing

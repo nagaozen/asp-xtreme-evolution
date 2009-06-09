@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |
@@ -31,7 +31,7 @@
 ' 
 ' About:
 ' 
-'   - Written by Karl-Johan Sj�gren <http://www.crazybeavers.se/> @ April 2006
+'   - Written by Karl-Johan Sjögren <http://www.crazybeavers.se/> @ April 2006
 '   - Modified and normalized by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ January 2008
 ' 
 class Image

@@ -1,4 +1,4 @@
-A little about the extensions
+﻿A little about the extensions
 -----------------------------
 
 First of all, ASP Xtreme Evolution is based in some extensions, but don't worry it's all free and everything already comes with the package. Although, if you want to check the original projects, here's a list of their sites:

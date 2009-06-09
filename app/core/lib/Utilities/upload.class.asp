@@ -1,4 +1,4 @@
-<%
+ï»¿<%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |
@@ -33,7 +33,7 @@
 ' 
 ' About:
 ' 
-'   - Written by Karl-Johan Sjögren <http://www.crazybeavers.se/> @ June 2006
+'   - Written by Karl-Johan SjÃ¶gren <http://www.crazybeavers.se/> @ June 2006
 '   - Modified and normalized by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ January 2008
 ' 
 class Upload
@@ -227,7 +227,7 @@ end class
 '
 ' About:
 ' 
-'   - Written by Karl-Johan Sjögren <http://www.crazybeavers.se/> @ June 2006
+'   - Written by Karl-Johan SjÃ¶gren <http://www.crazybeavers.se/> @ June 2006
 '   - Modified and normalized by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ January 2008
 ' 
 class Upload_File

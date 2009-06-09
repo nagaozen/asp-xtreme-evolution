@@ -1,4 +1,4 @@
-<%
+ï»¿<%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |
@@ -129,8 +129,8 @@ end function
 ' 
 ' (start code)
 ' 
-' dim aWithAccent : aWithAccent = "àáâãäå"
-' Response.write( sanitize( aWithAccent, array("à", "á", "â", "ã", "ä", "å"), array("a", "a", "a", "a", "a", "a") ) )
+' dim aWithAccent : aWithAccent = "Ã Ã¡Ã¢Ã£Ã¤Ã¥"
+' Response.write( sanitize( aWithAccent, array("Ã ", "Ã¡", "Ã¢", "Ã£", "Ã¤", "Ã¥"), array("a", "a", "a", "a", "a", "a") ) )
 ' 
 ' (end code)
 ' 

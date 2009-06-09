@@ -1,8 +1,8 @@
-<%
+﻿<%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |
-'|Copyright � 2007, 2008 Fabio Zendhi Nagao                                    |
+'|Copyright © 2007, 2008 Fabio Zendhi Nagao                                    |
 '|                                                                             |
 '|ASP Xtreme Evolution is free software: you can redistribute it and/or modify |
 '|it under the terms of the GNU Lesser General Public License as published by  |
