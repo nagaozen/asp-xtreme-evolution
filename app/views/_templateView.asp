@@ -28,9 +28,6 @@
 ' 
 ' Written by ${3:author} <http://${4:url}> @ {5:month} {6:year}
 ' 
-Response.codepage = 65001
-Response.charset  = "UTF-8"
-Response.lcid     = 1033
 
 %>
 $0
