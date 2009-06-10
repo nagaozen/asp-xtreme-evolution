@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/app/core/base.asp"-->
+<!--#include virtual="/app/core/base.asp"-->
 <!--#include virtual="/app/core/lib/kernel.class.asp"-->
 <!--#include virtual="/app/core/singletons.initialize.asp"-->
 <!--#include virtual="/app/models/defaultModel.asp"-->
@@ -52,7 +52,7 @@ class DefaultController
     public sub another()
         dim Model, sHtml
         
-        Session("this").add "h1", "Hi, I'm just anotherView"
+        Session("this").add "h1", "Hi 長尾 (nagao) friend, I'm just anotherView"
         
         set Model = new DefaultModel
         

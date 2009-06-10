@@ -63,17 +63,6 @@ class Kernel
     private sub Class_terminate()
     end sub
     
-    private function sanitize(fsPath)
-        dim invalids, replacements, i
-        invalids     = array("\",":","*","?", """","<",">","|")
-        replacements = array("" ,"" ,"" ,"" , ""  ,"" ,"" ,"")
-        
-        sanitize = fsPath
-        for i = 0 to ubound(invalids)
-            sanitize = replace(sanitize, invalids(i), replacements(i))
-        next
-    end function
-    
     ' Subroutine: initialize
     ' 
     ' Initialize the application configuration, setup the (string)controller,
@@ -162,7 +151,13 @@ class Kernel
         ' Handle cache
         iCache = cacheIndex(Session("controller"), Session("action"))
         if(iCache >= 0) then
-            createFile Server.mapPath( sanitize("/app/cache/__" & Session("controller") & "_" & Session("action") & "_" & join(Session("argv"), "_") & "__.html") ), Session("this").item("Output.value")
+            createFile Server.mapPath( _
+                sanitize( _
+                    strsubstitute("/app/cache/__{0}_{1}_{2}__.html", array(Session("controller"), Session("action"), join(Session("argv"), "_"))), _
+                    array("\",":","*","?", """","<",">","|"), _
+                    array("" ,"" ,"" ,"" , ""  ,"" ,"" ,"") _
+                ) _
+            ), Session("this").item("Output.value")
             Application("Cache.items")(iCache, 2) = Now()
         end if
         
@@ -225,106 +220,21 @@ class Kernel
         if( Sd.count > 0 ) then
             aKeys = Sd.keys
             for i = 0 to Sd.count - 1
-                loadShuttle = loadShuttle & aKeys(i) & "=" & Server.urlEncode(Sd.item(aKeys(i))) & "&"
+                loadShuttle = loadShuttle & ( aKeys(i) & "=" & Server.urlEncode(Sd.item(aKeys(i))) & "&" )
             next
             loadShuttle = mid(loadShuttle, 1, len(loadShuttle) - 1)
         end if
     end function
 
-    ' Function: unloadShuttle
+    ' Subroutine: unloadShuttle
     ' 
-    ' Unload a POST string into a scripting dictionary.
+    ' Unload a POST string into the Session("this") scripting dictionary.
     ' 
-    ' Parameters:
-    ' 
-    '   (string) - Private representation to be decoded
-    ' 
-    ' Returns:
-    ' 
-    '   (scripting dictionary) - The dictionary built with the input string
-    ' 
-    public function unloadShuttle(s)
-        dim aEntries, aEntry, i
-        aEntries = split(s, "&")
-        set unloadShuttle = Server.createObject("Scripting.Dictionary")
-        for i = 0 to uBound(aEntries)
-            aEntry = split(aEntries(i), "=")
-            unloadShuttle.add aEntry(0), urlDecode(aEntry(1))
+    public sub unloadShuttle()
+        dim key : for each key in Request.Form
+            Session("this").add key, Request.Form(key)
         next
-    end function
-
-    ' Function: urlDecode
-    ' 
-    ' For some reason, Microsoft did not include a URL decode function with
-    ' Active Server Pages. Most likely, this was because the decoding of
-    ' querystring variables is done automatically for you when you access the
-    ' querystring object. For us, it's vital to load and unload data in the
-    ' shuttle.
-    ' 
-    ' Parameters:
-    ' 
-    '   (string) - The string to be decoded
-    ' 
-    ' Returns:
-    ' 
-    '   (string) - URL decoded string
-    ' 
-    ' See also:
-    ' 
-    '   <htmlDecode>
-    ' 
-    public function urlDecode(sEncoded)
-        dim aSplit, sOutput, i
-        if(isNull(sEncoded)) then
-            urlDecode = ""
-            exit function
-        end if
-        
-        ' Convert all pluses to spaces
-        sOutput = replace(sEncoded, "+", " ")
-        
-        ' Convert %hexdigits to the character
-        if instr(sOutput, "%") > 0 then
-            aSplit = split(sOutput, "%")
-            sOutput = aSplit(0)
-            for i = 0 to uBound(aSplit) - 1
-                sOutput = sOutput & chr("&H" & left(aSplit(i + 1), 2)) & right(aSplit(i + 1), len(aSplit(i + 1)) - 2)
-            next
-        end if
-        
-        urlDecode = sOutput
-    end function
-
-    ' Function: htmlDecode
-    ' 
-    ' Just like with the urlDecode function described previously, Microsoft, in
-    ' it's infinite wisdom decided not to include an htmlDecode function with
-    ' their Server component.
-    ' 
-    ' Parameters:
-    ' 
-    '   (string) - The string to be decoded
-    ' 
-    ' Returns:
-    ' 
-    '   (string) - HTML decoded string
-    ' 
-    ' See also:
-    ' 
-    '   <urlDecode>
-    ' 
-    function htmlDecode(sEncoded)
-        dim i
-        sEncoded = replace(sEncoded, "&quot;", chr(34))
-        sEncoded = replace(sEncoded, "&lt;"  , chr(60))
-        sEncoded = replace(sEncoded, "&gt;"  , chr(62))
-        sEncoded = replace(sEncoded, "&amp;" , chr(38))
-        sEncoded = replace(sEncoded, "&nbsp;", chr(32))
-        for i = 1 to 255
-            sEncoded = replace(sEncoded, "&#" & i & ";", chr(i))
-        next
-        htmlDecode = sEncoded
-    end function
+    end sub
 
     ' Function: fileExists
     ' 
@@ -340,8 +250,7 @@ class Kernel
     '   false - otherwise
     ' 
     public function fileExists(sFilePath)
-        dim Fso
-        set Fso = Server.createObject("Scripting.FileSystemObject")
+        dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
             fileExists = Fso.fileExists(sFilePath)
         set Fso = nothing
     end function
@@ -384,7 +293,7 @@ class Kernel
     public sub createFile(sFilePath, sContent)
         dim Fso, File
         set Fso = Server.createObject("Scripting.FileSystemObject")
-        set File = Fso.createTextFile(sFilePath, true, false)
+        set File = Fso.createTextFile(sFilePath, true, true)
         File.writeLine( _ 
             sContent & vbNewLine & _ 
             "<!--// CACHED FILE => Execution time is less than 1µs (Blazing fast performance) //-->" _ 

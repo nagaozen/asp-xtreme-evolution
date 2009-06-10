@@ -28,6 +28,7 @@
 ' 
 option explicit 'Forces the developer to declare all variables that will be used
 Response.buffer = true 'Buffer the whole page before sending it to avoid a lot of overhead
+Response.charset = Session("Response.charset") 'Sets charset to the value configured in the global.asa
 
 ' Function: axeInfo
 ' 

@@ -32,6 +32,7 @@
 ' 
 '   <Framework.loadShuttle>, <Framework.computeView>
 ' 
-set Session("this") = Core.unloadShuttle(Request.Form)
+set Session("this") = Server.createObject("Scripting.Dictionary")
+call Core.unloadShuttle()
 
 %>

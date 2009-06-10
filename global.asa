@@ -1,4 +1,4 @@
-﻿<!-- METADATA NAME="Microsoft ActiveX Data Objects 2.5 Library" TYPE="TypeLib" UUID="{00000205-0000-0010-8000-00AA006D2EA4}" -->
+<!-- METADATA NAME="Microsoft ActiveX Data Objects 2.5 Library" TYPE="TypeLib" UUID="{00000205-0000-0010-8000-00AA006D2EA4}" -->
 <!-- METADATA NAME="Microsoft ADO Ext. 2.5 for DDL and Security" TYPE="TypeLib" UUID="{00000600-0000-0010-8000-00AA006D2EA4}" -->
 <script runat="server" language="vbscript">
 
@@ -58,6 +58,11 @@ end sub
 sub Session_onStart
     ' Required to track the execution time
     Session("Request.time") = timer
+    
+    ' These statements affects dynamic strings in all responses in a session. See also <default.asp> for literal strings.
+    Session("Response.charset") = "UTF-8" ' See <base.asp> Response.charset.
+    Session.codePage = 65001 ' UTF-8
+    Session.lcid = 1033 ' en-us
 end sub
 
 sub Session_onEnd

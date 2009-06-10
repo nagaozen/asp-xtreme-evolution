@@ -1,4 +1,10 @@
-﻿<%
+<%@
+
+language = "VBScript"
+codepage = 65001
+lcid     = 1033
+
+%><%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |

@@ -26,6 +26,7 @@
 ' 
 '   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ January 2007
 ' 
+Session("this").removeAll()
 set Session("this") = nothing
 Session.abandon
 

@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/app/core/base.asp"-->
+<!--#include virtual="/app/core/base.asp"-->
 <!--#include virtual="/app/core/lib/kernel.class.asp"-->
 <!--#include virtual="/app/core/singletons.initialize.asp"-->
 <!--#include virtual="/app/core/shuttle.unload.initialize.asp"-->
@@ -28,6 +28,9 @@
 ' 
 ' Written by ${3:author} <http://${4:url}> @ {5:month} {6:year}
 ' 
+Response.codepage = 65001
+Response.charset  = "UTF-8"
+Response.lcid     = 1033
 
 %>
 $0

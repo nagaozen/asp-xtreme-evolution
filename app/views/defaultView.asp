@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/app/core/base.asp"-->
+<!--#include virtual="/app/core/base.asp"-->
 <!--#include virtual="/app/core/lib/kernel.class.asp"-->
 <!--#include virtual="/app/core/singletons.initialize.asp"-->
 <!--#include virtual="/app/core/shuttle.unload.initialize.asp"-->
@@ -28,7 +28,6 @@
 ' 
 ' Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
 ' 
-Response.contentType = "text/xml"
 
 %>
 <xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -37,6 +36,7 @@ Response.contentType = "text/xml"
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">
             <head>
                 <title><%= Session("this").item("title") %></title>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
                 <link rel="icon" type="image/png" href="/assets/default/img/favicon.png" />
                 <link rel="stylesheet" type="text/css" media="screen" href="/assets/default/css/reset-fonts-2.3.1.css" />
                 <link rel="stylesheet" type="text/css" media="screen" href="/assets/default/css/asp-xtreme-evolution.css" />

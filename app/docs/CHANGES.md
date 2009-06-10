@@ -1,4 +1,4 @@
-﻿Version 1.1.0.0
+Version 1.1.0.0
 ---------------
 
 ### Added
@@ -20,6 +20,11 @@
     - ceiling(n)
     - hex2dec(value)
     - dec2hex(value)
+    - [and a lot more basic math functions...](/app/docs/files/app/core/base-math-asp.html)
+* removed functions
+    - urlDecode(s) (reason: that function was not compatible with all types of Encoding)
+    - htmlDecode(s) (reason: never used it)
+    - (private) Kernel.sanitize(s) (reason: using base one instead)
 * new classes
     - [Base64](/app/docs/files/app/core/lib/Utilities/base64-class-asp.html)
     - [Color](/app/docs/files/app/core/lib/Utilities/color-class-asp.html)
@@ -35,12 +40,13 @@
 
 ### Changes
 
+* Moved everything from ANSI to UTF-8. Note: changing the encode is easy as updating `default.asp` and `global.asa`
 * updated classes
     - [JSON](/app/docs/files/app/core/lib/Parsers/json-class-asp.html) (more methods and fixes!)
-* defaultView display CHANGES
-* INSTALL and CHANGES are now written in Markdown syntax.
+* defaultView display `CHANGES.md`
+* `INSTALL.md` and `CHANGES.md` are now written in Markdown syntax.
 * removed Application("Msxml.version") and fixed the version to 6.0.
-* removed iif function from classes.
+* removed iif() from classes.
 * better templates!
 * better documentation! It's updated to use [NaturalDocs v1.4](http://www.naturaldocs.org/ "NaturalDocs"). Of course it still uses [GeSHi](http://qbnz.com/highlighter/ "GeSHi") and [Tidy](http://tidy.sourceforge.net/ "Tidy") too.
 * [SOAP Toolkit](http://www.microsoft.com/downloads/details.aspx?familyid=c943c0dd-ceec-4088-9753-86f052ec8450&displaylang=en "SOAP Toolkit 3.0")
