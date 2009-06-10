@@ -55,7 +55,7 @@ try {
     File.close();
     
     // Save it
-    File = Fso.createTextFile("README.md", true, true);
+    File = Fso.createTextFile("README.md", true, false);
     File.write(readme);
     File.close();
     
