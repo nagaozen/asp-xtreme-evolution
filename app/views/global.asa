@@ -1,0 +1,71 @@
+<!-- METADATA NAME="Microsoft ActiveX Data Objects 2.5 Library" TYPE="TypeLib" UUID="{00000205-0000-0010-8000-00AA006D2EA4}" -->
+<!-- METADATA NAME="Microsoft ADO Ext. 2.5 for DDL and Security" TYPE="TypeLib" UUID="{00000600-0000-0010-8000-00AA006D2EA4}" -->
+<script runat="server" language="vbscript">
+
+'+-----------------------------------------------------------------------------+
+'|This file is part of ASP Xtreme Evolution.                                   |
+'|Copyright (C) 2007, 2008 Fabio Zendhi Nagao                                  |
+'|                                                                             |
+'|ASP Xtreme Evolution is free software: you can redistribute it and/or modify |
+'|it under the terms of the GNU Lesser General Public License as published by  |
+'|the Free Software Foundation, either version 3 of the License, or            |
+'|(at your option) any later version.                                          |
+'|                                                                             |
+'|ASP Xtreme Evolution is distributed in the hope that it will be useful,      |
+'|but WITHOUT ANY WARRANTY; without even the implied warranty of               |
+'|MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                |
+'|GNU Lesser General Public License for more details.                          |
+'|                                                                             |
+'|You should have received a copy of the GNU Lesser General Public License     |
+'|along with ASP Xtreme Evolution.  If not, see <http://www.gnu.org/licenses/>.|
+'+-----------------------------------------------------------------------------+
+
+' File: global.asa
+' 
+' Here we are initializing the timer, defining some constants to be used later
+' and setting a flag requiring to load application.configure.asp.
+' 
+' About:
+' 
+'   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
+' 
+' See also:
+' 
+'   <application.configure.asp>
+
+' Subroutine: Application_onStart
+' 
+' Define Application constants and load the config.xml data into application configuration.
+' 
+sub Application_onStart
+    ' Output standards to be used with indentedTransform
+    Application("Xslt.xhtml") = "<xsl:output method='xml' version='1.0' encoding='UTF-8' omit-xml-declaration='yes' doctype-public='-//W3C//DTD XHTML 1.1//EN' doctype-system='http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd' indent='yes'/>"
+    Application("Xslt.text")  = "<xsl:output method='text' version='1.0' encoding='UTF-8' omit-xml-declaration='yes' indent='yes'/>"
+    Application("Xslt.xml")   = "<xsl:output method='xml' version='1.0' encoding='UTF-8' indent='yes'/>"
+    
+    ' Initial value indicating that the application hasn't been configured yet.
+    Application("isConfigured") = false
+end sub
+
+sub Application_onEnd
+    Application.Contents.removeAll()
+end sub
+
+' Subroutine: Session_onStart
+' 
+' In order to compute the execution time of a request, we need to start a timer.
+' 
+sub Session_onStart
+    ' Required to track the execution time
+    Session("Request.time") = timer
+    
+    ' These statements affects dynamic strings in all responses in a session. See also <default.asp> for literal strings.
+    Session("Response.charset") = "UTF-8" ' See <base.asp> Response.charset.
+    Session.codePage = 65001 ' UTF-8
+    Session.lcid = 1033 ' en-us
+end sub
+
+sub Session_onEnd
+end sub
+
+</script>

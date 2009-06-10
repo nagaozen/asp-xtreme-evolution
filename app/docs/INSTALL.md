@@ -1,4 +1,4 @@
-﻿A little about the extensions
+A little about the extensions
 -----------------------------
 
 First of all, ASP Xtreme Evolution is based in some extensions, but don't worry it's all free and everything already comes with the package. Although, if you want to check the original projects, here's a list of their sites:
@@ -38,7 +38,11 @@ Installation
 
 8. If your server does not support MSXML 6.0 yet, install it. It's available at: /app/bin/msxml6.msi
 
-9. That's it! Open a Web browser and type your domain. The "Welcome!" message should open.
+9. Create an application pool for views.
+
+10. Create an application for /app/views and set it application pool to the one created in step 9.
+
+11. That's it! Open a Web browser and type your domain. The "Welcome!" message should open.
     * To test the inspect mode, just append: ?inspect=true at the end of your domain. Ex.: http://localhost/?inspect=true
     * To test the URL Rewriting Filter, try to access the /defaultController/another/ page. Ex.: http://localhost/defaultController/another/
     * To test the other extensions, try to check if Imager.dll is responding with ?Test=True. Ex.: http://localhost/cgi-bin/Imager.dll?Test=True. If it displays: "The specified file does not exist." it's working. If you are prompted to download the file it's not.

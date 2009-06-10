@@ -130,7 +130,7 @@ class Kernel
         dim Xhr : set Xhr = Server.createObject("MSXML2.ServerXMLHTTP.6.0")
         Xhr.open "POST", strsubstitute("{0}/app/views/{1}.asp", array(Application("uri"), Session("view"))), false
         Xhr.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
-        Xhr.send( Core.loadShuttle(Session("this")) )
+        Xhr.send(Core.loadShuttle(Session("this")))
         computeView = Xhr.responseText
         set Xhr = nothing
     end function
