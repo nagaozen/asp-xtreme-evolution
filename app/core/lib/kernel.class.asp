@@ -102,10 +102,10 @@ class Kernel
             dim iCache, sCachePath
             iCache = cacheIndex(Session("controller"), Session("action"))
             if(iCache >= 0) then
-                sCachePath = "/app/cache/__" & Session("controller") & "_" & Session("action") & "_" & join(Session("argv"), "_") & "__.html"
+                sCachePath = strsubstitute("/app/cache/__{0}_{1}_{2}__.html", array(Session("controller"), Session("action"), join(Session("argv"), "_")))
                 if(fileExists(Server.mapPath(sCachePath))) then
-                    if(dateDiff("h", Application("Cache.items")(iCache, 2), Now()) <= Application("Cache.lifetime")) then
-                        Session.abandon
+                    if(dateDiff("h", Application("Cache.items")(iCache, 2), now()) <= Application("Cache.lifetime")) then
+                        Session.abandon()
                         Server.transfer(sCachePath)
                     end if
                 end if
@@ -117,7 +117,7 @@ class Kernel
         if(fileExists(Server.mapPath(vpController))) then
             Server.execute(vpController)
         else
-            addError("Controller '" & Session("controller") & "' is not available at '" & vpController & "'")
+            addError(strsubstitute("Controller '{0}' is not available at '{1}'", array(Session("controller"), vpController)))
         end if
     end sub
 
@@ -128,7 +128,7 @@ class Kernel
     ' 
     public function computeView()
         dim Xhr : set Xhr = Server.createObject("MSXML2.ServerXMLHTTP.6.0")
-        Xhr.open "POST", Application("uri") & "/app/views/" & Session("view") & ".asp", false
+        Xhr.open "POST", strsubstitute("{0}/app/views/{1}.asp", array(Application("uri"), Session("view"))), false
         Xhr.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
         Xhr.send( Core.loadShuttle(Session("this")) )
         computeView = Xhr.responseText
@@ -215,15 +215,23 @@ class Kernel
     '   (string) - Private representation of the dictionary
     ' 
     public function loadShuttle(Sd)
-        dim aKeys, i
-        loadShuttle = ""
-        if( Sd.count > 0 ) then
-            aKeys = Sd.keys
-            for i = 0 to Sd.count - 1
-                loadShuttle = loadShuttle & ( aKeys(i) & "=" & Server.urlEncode(Sd.item(aKeys(i))) & "&" )
-            next
-            loadShuttle = mid(loadShuttle, 1, len(loadShuttle) - 1)
-        end if
+        if( Sd.count = 0 ) then loadShuttle = "" : exit function
+        
+        dim Stream : set Stream = Server.createObject("ADODB.Stream")
+        Stream.type = adTypeText
+        Stream.mode = adModeReadWrite
+        Stream.open()
+        
+        dim aKeys : aKeys = Sd.keys
+        dim i :for i = 0 to Sd.count - 1
+            Stream.writeText(strsubstitute("&{0}={1}", array(aKeys(i), Server.urlEncode(Sd.item(aKeys(i))))))
+        next
+        
+        Stream.position = 0
+        loadShuttle = mid(Stream.readText(), 2)
+        
+        Stream.close()
+        set Stream = nothing
     end function
 
     ' Subroutine: unloadShuttle
@@ -251,7 +259,7 @@ class Kernel
     ' 
     public function fileExists(sFilePath)
         dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
-            fileExists = Fso.fileExists(sFilePath)
+        fileExists = Fso.fileExists(sFilePath)
         set Fso = nothing
     end function
 
@@ -268,10 +276,9 @@ class Kernel
     '   (string) - The file content
     ' 
     public function loadTextFile(sFilePath)
-        dim Fso, File
-        set Fso = Server.createObject("Scripting.FileSystemObject")
+        dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
         if(Fso.fileExists(sFilePath)) then
-            set File = Fso.openTextFile(sFilePath)
+            dim File : set File = Fso.openTextFile(sFilePath)
             loadTextFile = File.readAll()
             File.close
             set File = nothing
@@ -291,9 +298,8 @@ class Kernel
     '   (string) - File content
     ' 
     public sub createFile(sFilePath, sContent)
-        dim Fso, File
-        set Fso = Server.createObject("Scripting.FileSystemObject")
-        set File = Fso.createTextFile(sFilePath, true, true)
+        dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
+        dim File : set File = Fso.createTextFile(sFilePath, true, true)
         File.writeLine( _ 
             sContent & vbNewLine & _ 
             "<!--// CACHED FILE => Execution time is less than 1µs (Blazing fast performance) //-->" _ 
@@ -318,7 +324,7 @@ class Kernel
     '   (string) - Reference to be used in action or href
     ' 
     public function createLink(sController, sAction)
-        createLink = "/" & sController & "/" & sAction & "/"
+        createLink = strsubstitute("/{0}/{1}/", array(sController, sAction))
     end function
 
     ' Function: str2xml
@@ -360,11 +366,10 @@ class Kernel
     '   (string[]) - An array with the XPath Node.text values
     ' 
     public function getXmlNodeValues(Xml, sXPath)
-        dim sa, Nodelist, Node, i
-        set Nodelist = Xml.selectNodes(sXPath)
-        redim sa(Nodelist.length)
-        i = 0
-        for each Node In Nodelist
+        dim Nodelist : set Nodelist = Xml.selectNodes(sXPath)
+        dim sa : redim sa(Nodelist.length)
+        dim i : i = 0
+        dim Node : for each Node In Nodelist
             sa(i) = Node.text
             i = i + 1
         next
@@ -424,10 +429,8 @@ class Kernel
     ' work: <http://skew.org/xml/stylesheets/reindent/reindent.xsl>
     ' 
     public function indentedTransform(Xml, Xslt, sOutput, sIndent)
-        dim sPoorlyIndented, sReIndent
-        sPoorlyIndented = strictTransform(Xml, Xslt)
-        
-        sReIndent = join(array(_
+        dim sPoorlyIndented : sPoorlyIndented = strictTransform(Xml, Xslt)
+        dim sReIndent : sReIndent = join(array(_
         "<?xml version=""1.0"" encoding=""UTF-8""?>", _
         "<xsl:transform xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" version=""1.0"">", _
         "  " & sOutput, _
@@ -514,9 +517,8 @@ class Kernel
     '   <hasErrors>
     ' 
     public sub addError(sError)
-        dim saErrors, i
-        saErrors = Session("errv")
-        i = uBound(saErrors)
+        dim saErrors : saErrors = Session("errv")
+        dim i : i = uBound(saErrors)
         redim preserve saErrors( i + 1 )
         saErrors(i) = sError
         Session("errv") = saErrors
