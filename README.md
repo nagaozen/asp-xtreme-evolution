@@ -5,7 +5,7 @@ The ASP Xtreme Evolution goal is to be a versatile MVC URL-Friendly base for Cla
 
 License
 -------
-This program is free software: you can redistribute it and/or modify
+﻿This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
@@ -69,6 +69,11 @@ Installation
 Version 1.1.0.0
 ---------------
 
+### Fixes
+
+Mmmm, I really didn't have a track of the fixes 8'( but changed a lot of things 
+for sure.
+
 ### Added
 
 * brand-new logo and favicon
@@ -89,10 +94,6 @@ Version 1.1.0.0
     - hex2dec(value)
     - dec2hex(value)
     - [and a lot more basic math functions...](/app/docs/files/app/core/base-math-asp.html)
-* removed functions
-    - urlDecode(s) (reason: that function was not compatible with all types of Encoding)
-    - htmlDecode(s) (reason: never used it)
-    - (private) Kernel.sanitize(s) (reason: using base one instead)
 * new classes
     - [Base64](/app/docs/files/app/core/lib/Utilities/base64-class-asp.html)
     - [Color](/app/docs/files/app/core/lib/Utilities/color-class-asp.html)
@@ -124,6 +125,13 @@ Version 1.1.0.0
     - enhanced URL-Rewriting
 * a lot of other minor updates to make the Framework better ...
 
+### Removed
+
+* removed functions
+    - Kernel.urlDecode(s) (reason: that function was not compatible with all types of Encoding.)
+    - Kernel.htmlDecode(s) (reason: not required for Kernel.)
+    - Kernel.sanitize(s) (reason: using `base.asp` one instead.)
+
 
 
 Version 1.0.1.1
@@ -145,11 +153,6 @@ Version 1.0.1.1
 Version 1.0.1.0
 ---------------
 
-### Added
-
-* Model, View and Controller Templates.
-* My standard favicon in the Framework pages.
-
 ### Fixes
 
 * Fixed last slash bug for complete URL Rewrite (/Controller/action/args/).
@@ -158,6 +161,11 @@ Version 1.0.1.0
 * Fixed the evil "operation timed out" error creating another Application pool for the view folder. [More info](http://support.microsoft.com/default.aspx?scid=kb;en-us;Q316451).
 * To fix the "80020009" error change AspMaxRequestEntityAllowed parameter in the C:\WINDOWS\system32\inetsrv\MetaBase.xml from 200000 to something between [0, 1073741824] bytes and iisreset.
 * Fixed Memory Leak in the Server View Requests.
+
+### Added
+
+* Model, View and Controller Templates.
+* My standard favicon in the Framework pages.
 
 ### Changes
 

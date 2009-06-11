@@ -59,10 +59,19 @@ try {
     File.write(readme);
     File.close();
     
+    WScript.echo("README.md generation is ... completed");
+    
     File = null;
     Fso = null;
+    
+    // Clean the cache directory
+    var Shell = new ActiveXObject("WScript.Shell");
+    Shell.run("cmd /c del /F/Q app\\cache\\*.*");
+    Shell = null;
+    
+    WScript.echo("app/cache cleaning is ..... completed");
 } catch(e) {
     WScript.echo(e);
 } finally {
-    WScript.echo("README.md update completed");
+    WScript.echo("AXE is ready to be pushed into github");
 }
