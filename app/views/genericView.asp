@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/app/core/base.asp"-->
+<!--#include virtual="/app/core/base.asp"-->
 <!--#include virtual="/app/core/lib/kernel.class.asp"-->
 <!--#include virtual="/app/core/singletons.initialize.asp"-->
 <!--#include virtual="/app/core/shuttle.unload.initialize.asp"-->
