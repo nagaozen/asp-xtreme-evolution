@@ -1,7 +1,7 @@
 ASP Xtreme Evolution
 ====================
 
-The ASP Xtreme Evolution goal is to be a versatile MVC URL-Friendly base for Classic ASP applications with some additional features that are not ASP native. It should implement things that are common to most applications removing the pain of starting a new software and helping you to structure it so that you get things right from the beginning.
+The ASP Xtreme Evolution goal is to be a versatile MVC URL-Friendly base for Classic ASP applications with some additional features that are not ASP native. It should implement things that are common to most applications removing the pain of starting a new software and helping you to structure it so that you get things right from the beginning. Our key concepts are choice and freedom over limiting conventions, polyglotism, sustained quality, extensibility which we try to implement in a clean, maintainable and extensible way.
 
 License
 -------
@@ -17,14 +17,14 @@ GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-A little about the extensions
------------------------------
+A little about the binary extensions
+------------------------------------
 
 First of all, ASP Xtreme Evolution is based in some extensions, but don't worry it's all free and everything already comes with the package. Although, if you want to check the original projects, here's a list of their sites:
 
 * [Microsoft Core XML Services (MSXML) 6.0](http://www.microsoft.com/downloads/details.aspx?FamilyID=993c0bcf-3bcf-4009-be21-27e85e1857b1&displaylang=en)
 * [Ionics Isapi Rewrite Filter](http://www.codeplex.com/IIRF/)
-* [Crazy Beavers : Imager Resizer and Zip](http://www.crazybeavers.se/downloads/)
+* [Crazy Beavers Imager Resizer and Zip](http://www.crazybeavers.se/downloads/)
 
 Installation
 ------------

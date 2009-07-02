@@ -1,11 +1,11 @@
-A little about the extensions
------------------------------
+A little about the binary extensions
+------------------------------------
 
 First of all, ASP Xtreme Evolution is based in some extensions, but don't worry it's all free and everything already comes with the package. Although, if you want to check the original projects, here's a list of their sites:
 
 * [Microsoft Core XML Services (MSXML) 6.0](http://www.microsoft.com/downloads/details.aspx?FamilyID=993c0bcf-3bcf-4009-be21-27e85e1857b1&displaylang=en)
 * [Ionics Isapi Rewrite Filter](http://www.codeplex.com/IIRF/)
-* [Crazy Beavers : Imager Resizer and Zip](http://www.crazybeavers.se/downloads/)
+* [Crazy Beavers Imager Resizer and Zip](http://www.crazybeavers.se/downloads/)
 
 Installation
 ------------
