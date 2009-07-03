@@ -1,0 +1,611 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            StringBuilder - ASP Xtreme Evolution (AXE)
+        </title>
+        <link rel="stylesheet" type="text/css" href="../../../../../styles/main.css" />
+        <script language="JavaScript" src="../../../../../javascript/main.js" type="text/javascript">
+</script>
+        <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
+</script>
+    </head>
+    <body class="ContentPage" onload="NDOnLoad()">
+        <script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {document.write("<div class=" + browserType + ">");if (browserVer) {document.write("<div class=" + browserVer + ">"); }}// -->
+        //]]>
+        </script>
+        <div id="Content">
+            <div class="CClass">
+                <div class="CTopic" id="MainTopic">
+                    <h1 class="CTitle">
+                        <a name="StringBuilder"></a>StringBuilder
+                    </h1>
+                    <div class="CBody">
+                        <p>
+                            While using Response.write is far away faster than concatenating strings, sometimes you need to store the entire output before printing it.&nbsp; That&#8217;s when a special designed string builder class is required.
+                        </p>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br" class="LURL" target="_top">http://zend.lojcomm.com.br</a> @ January 2009
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder">StringBuilder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            While using Response.write is far away faster than concatenating strings, sometimes you need to store the entire output before printing it.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.reset" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">reset</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Clear the string builder data.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.append" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">append</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Add the incoming data to the buffer.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#StringBuilder.toString" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">toString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Reads the entire buffer and return it.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.classType"></a>classType
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class type.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.classVersion"></a>classVersion
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class version.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (float)
+                                </td>
+                                <td class="CDLDescription">
+                                    version
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.reset"></a>reset
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function reset()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Clear the string builder data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.append"></a>append
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public sub append(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    data
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Add the incoming data to the buffer.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    String fragments.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="StringBuilder.toString"></a>toString
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function toString()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Reads the entire buffer and return it.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    concatenated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <pre class="asp" style="font-family:monospace;">
+<span class="kw1">dim</span> Builder <span class="sy0">:</span> <span class="kw1">set</span> Builder <span class="sy0">=</span> <span class="kw2">new</span> StringBuilder
+Builder.<span class="me1">append</span> <span class="st0">"First line"</span> <span class="sy0">&amp;</span> vbNewLine
+Builder.<span class="me1">append</span> <span class="st0">"Second line"</span> <span class="sy0">&amp;</span> vbNewLine
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> Builder.<span class="me1">toString</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">)</span>
+<span class="kw1">set</span> Builder <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Footer">
+            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; &#183;&nbsp; Generated by <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://www.naturaldocs.org">Natural Docs</a>
+        </div>
+        <div id="Menu">
+            <div class="MTitle">
+                ASP Xtreme Evolution (AXE)
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent1')">Framework</a>
+                    <div class="MGroupContent" id="MGroupContent1">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-asp.html">ASP Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-math-asp.html">ASP Math Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../customevent-class-asp.html">CustomEvent</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../kernel-class-asp.html">Kernel</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../unittest-class-asp.html">UnitTest</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent2')">Parsers</a>
+                    <div class="MGroupContent" id="MGroupContent2">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/json-class-asp.html">Json</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/markdown-class-asp.html">Markdown</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent3')">Services</a>
+                    <div class="MGroupContent" id="MGroupContent3">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Services/akismet-class-asp.html">Akismet</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Services/recaptcha-class-asp.html">ReCaptcha</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent4')">Security</a>
+                    <div class="MGroupContent" id="MGroupContent4">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/md5-class-asp.html">MD5</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/rijndael-class-asp.html">Rijndael</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/sha256-class-asp.html">SHA256</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent5')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent5">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="base64-class-asp.html">Base64</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="color-class-asp.html">Color</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="image-class-asp.html">Image</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="paginator-class-asp.html">Paginator</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile" id="MSelected">
+                                StringBuilder
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="template-class-asp.html">Template</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="upload-class-asp.html">Upload</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="zip-class-asp.html">Zip</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent6')">Files</a>
+                    <div class="MGroupContent" id="MGroupContent6">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../default-asp.html">default.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../views/error-asp.html">error.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../views/inspect-asp.html">inspect.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../models/_templateModel-asp.html">app\<wbr />models\<wbr />_templateModel.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent7')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent7">
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/General.html">Everything</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Classes.html">Classes</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Files.html">Files</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Functions.html">Functions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Properties.html">Properties</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><script type="text/javascript">
+//<![CDATA[
+            <!--
+            var searchPanel = new SearchPanel("searchPanel", "HTML", "../../../../../search");
+            -->
+            //]]>
+            </script>
+            <div id="MSearchPanel" class="MSearchPanelInactive">
+                <input type="text" id="MSearchField" value="Search" onfocus="searchPanel.OnSearchFieldFocus(true)" onblur="searchPanel.OnSearchFieldFocus(false)" onkeyup="searchPanel.OnSearchFieldChange()" /><select id="MSearchType" onfocus="searchPanel.OnSearchTypeFocus(true)" onblur="searchPanel.OnSearchTypeFocus(false)" onchange="searchPanel.OnSearchTypeChange()">
+                    <option id="MSearchEverything" selected="selected" value="General">
+                        Everything
+                    </option>
+                    <option value="Classes">
+                        Classes
+                    </option>
+                    <option value="Files">
+                        Files
+                    </option>
+                    <option value="Functions">
+                        Functions
+                    </option>
+                    <option value="Properties">
+                        Properties
+                    </option>
+                </select>
+            </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+            <!--
+            HideAllBut([5, 4, 3, 2], 8);// -->
+            //]]>
+            </script>
+        </div>
+        <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function reset()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Clear the string builder data.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public sub append(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            data
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Add the incoming data to the buffer.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt3">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function toString()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Reads the entire buffer and return it.
+            </div>
+        </div>
+        <div id="MSearchResultsWindow">
+            <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
+        </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script>
+    </body>
+</html>

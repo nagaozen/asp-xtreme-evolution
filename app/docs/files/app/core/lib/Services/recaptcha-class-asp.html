@@ -1,0 +1,845 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            ReCaptcha - ASP Xtreme Evolution (AXE)
+        </title>
+        <link rel="stylesheet" type="text/css" href="../../../../../styles/main.css" />
+        <script language="JavaScript" src="../../../../../javascript/main.js" type="text/javascript">
+</script>
+        <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
+</script>
+    </head>
+    <body class="ContentPage" onload="NDOnLoad()">
+        <script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {document.write("<div class=" + browserType + ">");if (browserVer) {document.write("<div class=" + browserVer + ">"); }}// -->
+        //]]>
+        </script>
+        <div id="Content">
+            <div class="CClass">
+                <div class="CTopic" id="MainTopic">
+                    <h1 class="CTitle">
+                        <a name="ReCaptcha"></a>ReCaptcha
+                    </h1>
+                    <div class="CBody">
+                        <p>
+                            Provides a client for the Carnegie Mellon University reCAPTCHA Web Service.&nbsp; Per the reCAPTCHA site, &#8220;reCAPTCHA is a free CAPTCHA service that helps to digitize books.&#8221;&nbsp; Each reCAPTCHA requires the user to input two words, the first of which is the actual captcha, and the second of which is a word from some scanned text that Optical Character Recognition (OCR) software has been unable to identifiy.&nbsp; The assumption is that if a user correctly provides the first word, the second is likely correctly entered as well, and can be used to improve OCR software for digitizing books.
+                        </p>
+                        <p>
+                            In order to use the reCAPTCHA service, you will need to sign up for an account and register one or more domains with the service in order to generate public and private keys.
+                        </p>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Fabio Zendhi Nagao @ October 2008
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha">ReCaptcha</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Provides a client for the Carnegie Mellon University reCAPTCHA Web Service.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.domainName">domainName</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            reCAPTCHA will only work on this domain and subdomains.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.uriVerify">uriVerify</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            The URL of the reCAPTCHA_verify.asp
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.publicKey">publicKey</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            reCAPTCHA provides a public key to be used in the javascript widget.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.privateKey">privateKey</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            reCAPTCHA provides a private key to be used in the javascript widget.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.theme">theme</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Sets the interface theme.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.lang">lang</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Sets the interface language.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.status">status</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            reCAPTCHA verify returns a second information which is the status id.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.insert" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">insert</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use this subroutine in the document body to insert the reCAPTCHA in your page.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#ReCaptcha.verify" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">verify</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Contacts the reCAPTCHA service and get it&#8217;s response.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.classType"></a>classType
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class type.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.classVersion"></a>classVersion
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class version.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (float)
+                                </td>
+                                <td class="CDLDescription">
+                                    version
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.domainName"></a>domainName
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            reCAPTCHA will only work on this domain and subdomains.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Your site domain (no &#8220;<a href="http://" class="LURL" target="_top">http://</a>&#8221;)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.uriVerify"></a>uriVerify
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            The URL of the reCAPTCHA_verify.asp
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    The URL of the reCAPTCHA_verify.asp
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.publicKey"></a>publicKey
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            reCAPTCHA provides a public key to be used in the javascript widget.&nbsp; If you don&#8217;t have one yet go get it at <a href="http://recaptcha.net/api/getkey" class="LURL" target="_top">http://recaptcha.net/api/getkey</a>.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Your public key
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.privateKey"></a>privateKey
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            reCAPTCHA provides a private key to be used in the javascript widget.&nbsp; If you don&#8217;t have one yet go get it at <a href="http://recaptcha.net/api/getkey" class="LURL" target="_top">http://recaptcha.net/api/getkey</a>.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Your private key
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.theme"></a>theme
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Sets the interface theme.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    { &#8220;red&#8221;, &#8220;white&#8221;, &#8220;blackglass&#8221;, &#8220;clean&#8221;, &#8220;custom&#8221; }
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.lang"></a>lang
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Sets the interface language.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    { &#8220;en&#8221;, &#8220;nl&#8221;, &#8220;fr&#8221;, &#8220;de&#8221;, &#8220;pt&#8221;, &#8220;ru&#8221;, &#8220;es&#8221;, &#8220;tr&#8221; }
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.status"></a>status
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            reCAPTCHA verify returns a second information which is the status id.&nbsp; For more details, please visit <a href="http://recaptcha.net/apidocs/captcha/" class="LURL" target="_top">http://recaptcha.net/apidocs/captcha/</a>
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    status
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.insert"></a>insert
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public sub insert()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Use this subroutine in the document body to insert the reCAPTCHA in your page.
+                        </p>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <pre class="asp" style="font-family:monospace;">
+<span class="kw1">dim</span> Captcha <span class="sy0">:</span> <span class="kw1">set</span> Captcha <span class="sy0">=</span> <span class="kw2">new</span> ReCaptcha
+Captcha.<span class="me1">domainName</span> <span class="sy0">=</span> <span class="st0">"&lt;domain name&gt;"</span>
+Captcha.<span class="me1">uriVerify</span>  <span class="sy0">=</span> <span class="st0">"&lt;reCAPTCHA_verify.asp URL&gt;"</span>
+Captcha.<span class="me1">publicKey</span>  <span class="sy0">=</span> <span class="st0">"&lt;public key&gt;"</span>
+Captcha.<span class="me1">privateKey</span> <span class="sy0">=</span> <span class="st0">"&lt;private key&gt;"</span>
+ 
+<span class="kw1">call</span> Captcha.<span class="me1">insert</span><span class="br0">(</span><span class="br0">)</span>
+ 
+<span class="kw1">set</span> Captcha <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a name="ReCaptcha.verify"></a>verify
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function verify(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sChallenge,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sResponse
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Contacts the reCAPTCHA service and get it&#8217;s response.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    challenge hash
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    user input
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    true if the input is right, false otherwise
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <pre class="asp" style="font-family:monospace;">
+<span class="kw1">dim</span> Captcha <span class="sy0">:</span> <span class="kw1">set</span> Captcha <span class="sy0">=</span> <span class="kw2">new</span> ReCaptcha
+Captcha.<span class="me1">domainName</span> <span class="sy0">=</span> <span class="st0">"&lt;domain name&gt;"</span>
+Captcha.<span class="me1">uriVerify</span>  <span class="sy0">=</span> <span class="st0">"&lt;reCAPTCHA_verify.asp URL&gt;"</span>
+Captcha.<span class="me1">publicKey</span>  <span class="sy0">=</span> <span class="st0">"&lt;public key&gt;"</span>
+Captcha.<span class="me1">privateKey</span> <span class="sy0">=</span> <span class="st0">"&lt;private key&gt;"</span>
+ 
+<span class="kw1">if</span><span class="br0">(</span> Captcha.<span class="me1">verify</span><span class="br0">(</span> <span class="kw1">cstr</span><span class="br0">(</span><span class="kw1">Request</span>.<span class="kw3">Form</span><span class="br0">(</span><span class="st0">"challenge"</span><span class="br0">)</span><span class="br0">)</span>, <span class="kw1">cstr</span><span class="br0">(</span><span class="kw1">Request</span>.<span class="kw3">Form</span><span class="br0">(</span><span class="st0">"response"</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">)</span> <span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"Human access"</span><span class="br0">)</span>
+<span class="kw1">else</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"Robot access"</span><span class="br0">)</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+ 
+<span class="kw1">set</span> Captcha <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Footer">
+            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; &#183;&nbsp; Generated by <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://www.naturaldocs.org">Natural Docs</a>
+        </div>
+        <div id="Menu">
+            <div class="MTitle">
+                ASP Xtreme Evolution (AXE)
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent1')">Framework</a>
+                    <div class="MGroupContent" id="MGroupContent1">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-asp.html">ASP Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-math-asp.html">ASP Math Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../customevent-class-asp.html">CustomEvent</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../kernel-class-asp.html">Kernel</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../unittest-class-asp.html">UnitTest</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent2')">Parsers</a>
+                    <div class="MGroupContent" id="MGroupContent2">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/json-class-asp.html">Json</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/markdown-class-asp.html">Markdown</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent3')">Services</a>
+                    <div class="MGroupContent" id="MGroupContent3">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="akismet-class-asp.html">Akismet</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile" id="MSelected">
+                                ReCaptcha
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent4')">Security</a>
+                    <div class="MGroupContent" id="MGroupContent4">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/md5-class-asp.html">MD5</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/rijndael-class-asp.html">Rijndael</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/sha256-class-asp.html">SHA256</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent5')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent5">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/base64-class-asp.html">Base64</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/color-class-asp.html">Color</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/image-class-asp.html">Image</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/paginator-class-asp.html">Paginator</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/stringbuilder-class-asp.html">StringBuilder</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/template-class-asp.html">Template</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/upload-class-asp.html">Upload</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/zip-class-asp.html">Zip</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent6')">Files</a>
+                    <div class="MGroupContent" id="MGroupContent6">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../default-asp.html">default.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../views/error-asp.html">error.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../views/inspect-asp.html">inspect.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../models/_templateModel-asp.html">app\<wbr />models\<wbr />_templateModel.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent7')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent7">
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/General.html">Everything</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Classes.html">Classes</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Files.html">Files</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Functions.html">Functions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Properties.html">Properties</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><script type="text/javascript">
+//<![CDATA[
+            <!--
+            var searchPanel = new SearchPanel("searchPanel", "HTML", "../../../../../search");
+            -->
+            //]]>
+            </script>
+            <div id="MSearchPanel" class="MSearchPanelInactive">
+                <input type="text" id="MSearchField" value="Search" onfocus="searchPanel.OnSearchFieldFocus(true)" onblur="searchPanel.OnSearchFieldFocus(false)" onkeyup="searchPanel.OnSearchFieldChange()" /><select id="MSearchType" onfocus="searchPanel.OnSearchTypeFocus(true)" onblur="searchPanel.OnSearchTypeFocus(false)" onchange="searchPanel.OnSearchTypeChange()">
+                    <option id="MSearchEverything" selected="selected" value="General">
+                        Everything
+                    </option>
+                    <option value="Classes">
+                        Classes
+                    </option>
+                    <option value="Files">
+                        Files
+                    </option>
+                    <option value="Functions">
+                        Functions
+                    </option>
+                    <option value="Properties">
+                        Properties
+                    </option>
+                </select>
+            </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+            <!--
+            HideAllBut([3, 4, 2, 5], 8);// -->
+            //]]>
+            </script>
+        </div>
+        <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public sub insert()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Use this subroutine in the document body to insert the reCAPTCHA in your page.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function verify(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sChallenge,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sResponse
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Contacts the reCAPTCHA service and get it&#8217;s response.
+            </div>
+        </div>
+        <div id="MSearchResultsWindow">
+            <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
+        </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script>
+    </body>
+</html>

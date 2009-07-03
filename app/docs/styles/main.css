@@ -1,0 +1,531 @@
+/* zend.css
+ * 
+ * Custom NaturalDocs stylesheet for zend.lojcomm.com.br works.
+ * 
+ * Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/>
+ * January 2008
+ * 
+ * License:
+ * 
+ * Copyright (c) 2008, Fabio Zendhi Nagao
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the <organization> nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY Fabio Zendhi Nagao ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL Fabio Zendhi Nagao BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* --( execute reset fonts )------------------------------------------------- */
+/* Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+ * Code licensed under the BSD License:
+ * http://developer.yahoo.net/yui/license.txt
+ * version: 2.3.1
+ */
+/*reset.css*/body{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup,sub{line-height:-1px;vertical-align:text-top;}sub{vertical-align:text-bottom;}input, textarea, select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+/*fonts.css*/body {font:13px/1.22 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}table {font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:99%;}
+
+/* --( execute some directives from base )------------------------------------*/
+ol,ul,dl {
+    /*bringing lists on to the page with breathing room */
+    margin-left:2em;
+}
+ol li {
+    /*giving OL's LIs generated numbers*/
+    list-style: decimal outside;
+}
+ul li {
+    /*giving UL's LIs generated disc markers*/
+    list-style: disc outside;
+}
+dl dd {
+    /*giving UL's LIs generated numbers*/
+    margin-left:1em;
+}
+
+
+
+/* --( layout )-------------------------------------------------------------- */
+body {
+    color: #2E3436;
+}
+
+body.ContentPage,
+body.IndexPage {
+    background-color: #2E3436;
+}
+
+a:link,
+a:visited { color: #729FCF;}
+a:hover { color: #3465A4;}
+a:active { color: #204A87;}
+
+td { vertical-align: top }
+
+p, ul, table {
+    margin-bottom: 20px;
+}
+
+/*  Blockquotes are used as containers for things that may need to scroll.  */
+blockquote {
+    overflow: auto;
+}
+/*  This will be fixed in JavaScript.  We just need a default if it's turned off.  */
+.IE blockquote { width: 400px; }
+.Firefox blockquote { padding-bottom: .5em; }
+
+/*  Turn off scrolling when printing.  */
+@media print {
+    blockquote { overflow: visible; }
+    .IE blockquote { width: auto; }
+}
+
+
+
+#Menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+}
+
+    .MTitle {
+        padding: 10px;
+        font-weight: bold;
+        color: #FCE94F;
+        letter-spacing: -1px;
+        text-align: center;
+    }
+
+    .MGroup a {
+        display: block;
+        background: #729fcf;
+        border-right: 4px solid #3465A4;
+        margin-bottom: 2px;
+        padding: 3px 5px;
+        color: #EEEEEC;
+        font-weight: bold;
+        letter-spacing: -1px;
+        text-align: right;
+        text-decoration: none;
+    }
+
+    .MGroupContent a {
+        display: block;
+        background: #555753;
+        border-right: 4px solid #2E3436;
+        margin-bottom: 2px;
+        padding: 3px 10px;
+        color: #EEEEEC;
+        font-weight: normal;
+        text-align: left;
+        letter-spacing: 0;
+        text-decoration: none;
+    }
+        .MGroupContent a:hover { background: #888a85; }
+
+    #MSelected {
+        background: #FFFFFF;
+        margin-bottom: 2px;
+        padding: 3px 10px;
+        color: #555753;
+        text-align: left;
+    }
+
+    /* Search panel implemented @ 1.4 */
+    #MSearchPanel {
+        padding: 0px 6px;
+        margin: 8px 0;
+    }
+
+    #MSearchField {
+        color: #2E3436;
+        background-color: #EEEEEC;
+        border: none;
+        padding: 2px 4px;
+        width: 100%;
+    }
+    /* Only Opera gets it right. */
+    .Firefox #MSearchField,
+    .IE #MSearchField,
+    .Safari #MSearchField {
+        width: 94%;
+    }
+    .Opera9 #MSearchField,
+    .Konqueror #MSearchField {
+        width: 97%;
+    }
+    .FramedMenuPage .Firefox #MSearchField,
+    .FramedMenuPage .Safari #MSearchField,
+    .FramedMenuPage .Konqueror #MSearchField {
+        width: 98%;
+    }
+
+    /* Firefox doesn't do this right in frames without #MSearchPanel added on.
+        It's presence doesn't hurt anything other browsers. */
+    #MSearchPanel.MSearchPanelInactive:hover #MSearchField {
+        background-color: #FFFFFF;
+        border: 1px solid #2E3436;
+        padding: 1px 3px;
+    }
+    .MSearchPanelActive #MSearchField {
+        background-color: #FFFFFF;
+        border: 1px solid #2E3436;
+        font-style: normal;
+        padding: 1px 3px;
+    }
+
+    #MSearchType {
+        visibility: hidden;
+        width: 98%;
+        padding: 0;
+        border: 1px solid #2E3436;
+    }
+    .MSearchPanelActive #MSearchType,
+    /*  As mentioned above, Firefox doesn't do this right in frames without #MSearchPanel added on. */
+    #MSearchPanel.MSearchPanelInactive:hover #MSearchType,
+    #MSearchType:focus {
+        visibility: visible;
+        color: #606060;
+    }
+    #MSearchType option#MSearchEverything {
+        font-weight: bold;
+    }
+
+    .Opera8 .MSearchPanelInactive:hover,
+    .Opera8 .MSearchPanelActive {
+        margin-left: -1px;
+    }
+
+
+    iframe#MSearchResults {
+        width: 60ex;
+        height: 15em;
+    }
+    #MSearchResultsWindow {
+        display: none;
+        position: absolute;
+        left: 0; top: 0;
+        border: 1px solid #000000;
+        background-color: #E8E8E8;
+    }
+    #MSearchResultsWindowClose {
+        font-weight: bold;
+        font-size: 8pt;
+        display: block;
+        padding: 2px 5px;
+    }
+    #MSearchResultsWindowClose:link,
+    #MSearchResultsWindowClose:visited {
+        color: #000000;
+        text-decoration: none;
+    }
+    #MSearchResultsWindowClose:active,
+    #MSearchResultsWindowClose:hover {
+        color: #800000;
+        text-decoration: none;
+        background-color: #F4F4F4;
+    }
+
+
+
+#Content,
+#Index {
+    background-color: #FFFFFF;
+    margin-left: 200px;
+    padding: 10px;
+    padding-bottom: 15px;
+}
+    .PopupSearchResultsPage #Index {
+        margin: 0;
+    }
+
+    #MainTopic .CTitle {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #4E9A06;
+        font-size: 197%;
+        letter-spacing: -1px;
+        color: #EEEEEC;
+    }
+
+    .CTitle {
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 123.1%;
+        letter-spacing: -1px;
+        color: #2e3436;
+    }
+        .CGroup .CTitle { background-color: #729FCF; color: #FFF; }
+        .CProperty .CTitle { background-color: #E3ECF5; }
+        .CFunction .CTitle { background-color: #E3ECF5; }
+        .CClass .CTitle { background-color: #D17F7F; }
+        .CInterface .CTitle { background-color: #E3ECF5; }
+        .CDatabase .CTitle { background-color: #E3ECF5; }
+        .CDatabaseTable .CTitle { background-color: #E3ECF5; }
+        .CSection .CTitle  { background-color: #E3ECF5; }
+
+    .CBody {
+        margin: 0 10px;
+    }
+
+    .CToolTip {
+        position: absolute; top: 0; left: 0;
+        visibility: hidden;
+        max-width: 50%;
+        padding: 5px;
+        background-color: #FCE94F;
+        border-width: 1px 2px 2px 1px; border-style: solid; border-color: #2E3436;
+        font-size: 85%;
+    }
+
+    .Opera .CTooltip { max-width: 98% }
+
+    /*  Scrollbars would be useless.  */
+    .CToolTip blockquote { overflow: hidden; }
+
+    .CHeading {
+        border-top: 1px dotted #D3D7CF;
+        border-bottom: 1px dotted #D3D7CF;
+        margin-bottom: 5px;
+        padding: 4px 0;
+        font-weight: bold;
+        color: #2E3436;
+    }
+
+    pre {
+        padding: 5px;
+        margin: 10px;
+        font: 85% "DejaVu Sans Mono", "Courier New", Courier, MonoSpace;
+    }
+
+    .CBody pre {
+        background-color: #EEEEEC;
+    }
+
+    .kw1 { color: #4E9A06; }
+    .kw2 { color: #C4A000; }
+    .kw3, .me1, .re0, .sc1 { color: #888A85; }
+    .br0 { color: #2E3436; }
+    .st0 { color: #729FCF; }
+    .nu0 { color: #F57900; }
+    .co1, .coMULTI { color: #204A87; }
+
+    .CDescriptionList {
+        width: 100%;
+    }
+
+        .CDLEntry { width: 200px; font: 85% "Courier New", Courier, MonoSpace; color: #4E9A06; }
+
+
+
+.Prototype {
+    margin: 10px;
+    background-color: #eeeeec;
+    font-family: "Courier New", Courier, MonoSpace;
+}
+
+    .PDefaultValue,
+    .PDefaultValuePrefix,
+    .PTypePrefix {
+        color: #8F8F8F;
+    }
+    .PTypePrefix {
+        text-align: right;
+    }
+    .PAfterParameters {
+        vertical-align: bottom;
+    }
+
+    .Prototype table {
+        margin: 5px;
+    }
+
+    .CFunction .Prototype { background-color: #F4F4F4; border-color: #D0D0D0 }
+    .CProperty .Prototype { background-color: #F4F4FF; border-color: #C0C0E8 }
+    .CVariable .Prototype { background-color: #FFFFF0; border-color: #E0E0A0 }
+
+    .CDatabaseIndex .Prototype,
+    .CConstant .Prototype {
+        background-color: #D0D0D0; border-color: #000000 }
+    .CType .Prototype {
+        background-color: #FFF8F8; border-color: #E8C8C8 }
+    .CDatabaseTrigger .Prototype,
+    .CEvent .Prototype,
+    .CDelegate .Prototype {
+        background-color: #F0FCF0; border-color: #B8E4B8 }
+
+    .CToolTip .Prototype {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+
+
+.Summary {
+}
+
+    .STitle {
+        border-top: 1px dotted #D3D7CF;
+        border-bottom: 1px dotted #D3D7CF;
+        margin-bottom: 5px;
+        padding: 4px 0;
+        font-weight: bold;
+        color: #2E3436;
+    }
+
+    .SBorder {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #DCEBCD;
+    }
+
+    .STable {
+        width: 100%
+    }
+
+        .STable td {
+            padding: 5px;
+            border: 2px solid #FFFFFF;
+            font-size: 85%;
+        }
+
+        .STable a { color: #4e9a06; }
+        .STable a:hover { color: #73d216; }
+
+        .SEntry,
+        .SDescription {
+            width: 160px;
+        }
+
+        .SMarked {
+            background-color: #CAE1B4;
+        }
+
+        .SMain .SEntry,
+        .SGroup .SEntry,
+        .SClass .SEntry,
+        .SDatabase .SEntry,
+        .SDatabaseTable .SEntry,
+        .SSection .SEntry { font-size: 138.5%; letter-spacing: -1px; }
+
+        /* .SEntry .SIndent1 { font-size: 123.1%; letter-spacing: -1px; } */
+        .SEntry .SIndent2 { text-align: right; }
+
+
+
+.ClassHierarchy {
+    margin: 0 15px 1em 15px }
+
+    .CHEntry {
+        border-width: 1px 2px 2px 1px; border-style: solid; border-color: #A0A0A0;
+        margin-bottom: 3px;
+        padding: 2px 2ex;
+        font-size: 8pt;
+        background-color: #F4F4F4; color: #606060;
+        }
+
+    .Firefox .CHEntry {
+        -moz-border-radius: 4px;
+        }
+
+    .CHCurrent .CHEntry {
+        font-weight: bold;
+        border-color: #000000;
+        color: #000000;
+        }
+
+    .CHChildNote .CHEntry {
+        font-style: italic;
+        font-size: 8pt;
+        }
+
+    .CHIndent {
+        margin-left: 3ex;
+        }
+
+    .CHEntry a:link,
+    .CHEntry a:visited,
+    .CHEntry a:hover {
+        color: #606060;
+        }
+    .CHEntry a:active {
+        color: #800000;
+        }
+
+
+
+body.FramedIndexPage,
+.ContentPage #Index {
+    background-color: #FFFFFF;
+    padding: 15px
+}
+
+.ContentPage #Index {
+    padding: 10px;
+}
+
+    .IPageTitle {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #4E9A06;
+        font-size: 197%;
+        letter-spacing: -1px;
+        color: #EEEEEC;
+    }
+
+    .INavigationBar {
+        text-align: center;
+        padding: 5px;
+        border-bottom: solid 1px black;
+    }
+
+    .INavigationBar a { font-weight: bold }
+
+    .IHeading { padding-top:20px; font-size: 138.5%; letter-spacing: -1px; }
+
+    .IEntry { padding-left: 10px; }
+
+    .ISubIndex { padding-left: 30px; }
+
+    /* While it may cause some entries to look like links when they aren't, I
+       found it's much easier to read the index if everything's the same color.
+    */
+    .ISymbol { font-weight: bold; color: #204a87; }
+
+    .ISymbolPrefix {
+        background-color: #EEEEEC;
+        border-right: 3px solid #D3D7CF;
+        border-left: 1px solid #D3D7CF;
+        padding: 0 1px 0 2px;
+    }
+        #IFirstSymbolPrefix { border-top: 1px solid #D3D7CF; }
+        #ILastSymbolPrefix { border-bottom: 1px solid #D3D7CF; }
+        #IOnlySymbolPrefix { border-top: 1px solid #D3D7CF; border-bottom: 1px solid #D3D7CF; }
+
+    a.IParent,
+    a.IFile { display: block; }
+
+
+
+#Footer { font-size: 85%; color:#EEEEEC; }
+
+body.ContentPage #Footer,
+body.IndexPage #Footer { text-align: right; margin: 5px }
