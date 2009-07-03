@@ -1,4 +1,4 @@
-ASP Xtreme Evolution
+﻿ASP Xtreme Evolution
 ====================
 
 The ASP Xtreme Evolution goal is to be a versatile MVC URL-Friendly base for Classic ASP applications with some additional features that are not ASP native. It should implement things that are common to most applications removing the pain of starting a new software and helping you to structure it so that you get things right from the beginning. Our key concepts are choice and freedom over limiting conventions, polyglotism, sustained quality, extensibility which we try to implement in a clean, maintainable and extensible way.

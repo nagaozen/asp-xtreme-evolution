@@ -1,4 +1,4 @@
-<%@
+﻿<%@
 
 language = "VBScript"
 codepage = 65001

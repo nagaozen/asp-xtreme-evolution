@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 '+-----------------------------------------------------------------------------+
 '|This file is part of ASP Xtreme Evolution.                                   |
@@ -130,7 +130,7 @@ class Kernel
         dim Xhr : set Xhr = Server.createObject("MSXML2.ServerXMLHTTP.6.0")
         Xhr.open "POST", strsubstitute("{0}/app/views/{1}.asp", array(Application("uri"), Session("view"))), false
         Xhr.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
-        Xhr.send(Core.loadShuttle(Session("this")))
+        Xhr.send(loadShuttle(Session("this")))
         computeView = Xhr.responseText
         set Xhr = nothing
     end function
@@ -276,16 +276,22 @@ class Kernel
     '   (string) - The file content
     ' 
     public function loadTextFile(sFilePath)
-        dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
-        if(Fso.fileExists(sFilePath)) then
-            dim File : set File = Fso.openTextFile(sFilePath)
-            loadTextFile = File.readAll()
-            File.close
-            set File = nothing
+        if(fileExists(sFilePath)) then
+            dim Stream : set Stream = Server.createObject("ADODB.Stream")
+            with Stream
+                .type = adTypeText
+                .mode = adModeReadWrite
+                .charset = "UTF-8"
+                .open()
+                .loadFromFile(sFilePath)
+                .position = 0
+                loadTextFile = .readText()
+                .close()
+            end with
+            set Stream = nothing
         else
             loadTextFile = "File doesn't exists."
         end if
-        set Fso = nothing
     end function
 
     ' Subroutine: createFile

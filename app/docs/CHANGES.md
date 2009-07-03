@@ -1,4 +1,4 @@
-Version 1.1.0.0
+﻿Version 1.1.0.0
 ---------------
 
 ### Fixes
@@ -41,7 +41,7 @@ for sure.
 
 ### Changes
 
-* Moved everything from ANSI to UTF-8. Note: changing the encode is easy as updating `default.asp` and `global.asa`
+* Moved everything from ANSI to UTF-8. It's now possible to write 長尾 (nagao). _Note:_ changing the encode is easy as updating `default.asp` and `global.asa`
 * updated classes
     - [JSON](/app/docs/files/app/core/lib/Parsers/json-class-asp.html) (more methods and fixes!)
 * defaultView display `CHANGES.md`
