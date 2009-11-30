@@ -1,0 +1,681 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            application.configure.asp - AXE Documentation
+        </title>
+        <link rel="stylesheet" type="text/css" href="../../../styles/main.css" />
+        <script language="JavaScript" src="../../../javascript/main.js" type="text/javascript">
+</script>
+        <script language="JavaScript" src="../../../javascript/searchdata.js" type="text/javascript">
+</script>
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+    </head>
+    <body class="ContentPage" onload="NDOnLoad()">
+        <script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {document.write("<div class=" + browserType + ">");if (browserVer) {document.write("<div class=" + browserVer + ">"); }}// -->
+        //]]>
+        </script>
+        <div id="Content">
+            <div class="CFile">
+                <div class="CTopic" id="MainTopic">
+                    <h1 class="CTitle">
+                        <a id="application.configure.asp"></a>application.<wbr />configure.asp
+                    </h1>
+                    <div class="CBody">
+                        <p>
+                            It&#8217;s here where the config file is parsed.&nbsp; This is automatically executed in the first time the application runs, but you can send &#8220;?reconfigure=true&#8221; in the queryString to request a new execution.
+                        </p>
+                        <h4 class="CHeading">
+                            License
+                        </h4>
+                        <p>
+                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2009 Fabio Zendhi Nagao
+                        </p>
+                        <p>
+                            ASP Xtreme Evolution is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+                        </p>
+                        <p>
+                            ASP Xtreme Evolution is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&nbsp; See the GNU Lesser General Public License for more details.
+                        </p>
+                        <p>
+                            You should have received a copy of the GNU Lesser General Public License along with ASP Xtreme Evolution.&nbsp; If not, see <a href="http://www.gnu.org/licenses/" class="LURL" target="_top">http://www.gnu.org/licenses/</a>.
+                        </p>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br/" class="LURL" target="_top">http://zend.lojcomm.com.br/</a> @ December 2007
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#application.configure.asp">application.<wbr />configure.asp</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            It&#8217;s here where the config file is parsed.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#loadCommon" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">loadCommon</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Loads common application configurations.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#loadCache" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">loadCache</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Configures cache life time and items to be cached.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="loadCommon"></a>loadCommon
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    sub loadCommon(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    Xml
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Loads common application configurations.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (xml object)Xml
+                                </td>
+                                <td class="CDLDescription">
+                                    config.xml XML object
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            &lt;config.xml&gt;
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="loadCache"></a>loadCache
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    sub loadCache(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    Xml
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Configures cache life time and items to be cached.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (xml object)Xml
+                                </td>
+                                <td class="CDLDescription">
+                                    config.xml XML object
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            &lt;config.xml&gt;
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Footer">
+            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; &#183;&nbsp; Generated by <a href="http://www.naturaldocs.org">Natural Docs</a>, <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://mootools.net/">MooTools</a>
+        </div>
+        <div id="Menu">
+            <div class="MTitle">
+                AXE Documentation
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent1')">Framework</a>
+                    <div class="MGroupContent" id="MGroupContent1">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="base-asp.html">ASP Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="base-math-asp.html">ASP Math Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/customevent-class-asp.html">CustomEvent</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/interface-class-asp.html">Interface</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/kernel-class-asp.html">Kernel</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/unittest-class-asp.html">UnitTest</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent2')">Feeds</a>
+                    <div class="MGroupContent" id="MGroupContent2">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Feeds/atom-class-asp.html">Atom</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Feeds/rss-class-asp.html">RSS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent3')">Parsers</a>
+                    <div class="MGroupContent" id="MGroupContent3">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Parsers/csv-class-asp.html">CSV</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Parsers/json-class-asp.html">JSON</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Parsers/markdown-class-asp.html">Markdown</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Parsers/textile-class-asp.html">Textile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent4')">Security</a>
+                    <div class="MGroupContent" id="MGroupContent4">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Security/md5-class-asp.html">MD5</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Security/rijndael-class-asp.html">Rijndael</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Security/sha256-class-asp.html">SHA256</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent5')">Services</a>
+                    <div class="MGroupContent" id="MGroupContent5">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Services/akismet-class-asp.html">Akismet</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Services/recaptcha-class-asp.html">reCAPTCHA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent6')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent6">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/acl-class-asp.html">ACL</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/auth-class-asp.html">Auth</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/base64-class-asp.html">Base64</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/color-class-asp.html">Color</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/image-class-asp.html">Image</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/list-class-asp.html">List</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/logger-class-asp.html">Logger</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/paginator-class-asp.html">Paginator</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/stringbuilder-class-asp.html">StringBuilder</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/template-class-asp.html">Template</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/translator-class-asp.html">Translator</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/upload-class-asp.html">Upload</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/xsession-class-asp.html">XSession</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="classes/Utilities/zip-class-asp.html">Zip</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent7')">Templates</a>
+                    <div class="MGroupContent" id="MGroupContent7">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../app/controllers/_templateController-asp.html">Controller</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../app/models/_templateModel-asp.html">Model</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../app/views/_templateView-asp.html">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent11')">Files</a>
+                    <div class="MGroupContent" id="MGroupContent11">
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent9')">App</a>
+                                <div class="MGroupContent" id="MGroupContent9">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../app/controllers/defaultController-asp.html">defaultController.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../app/models/defaultModel-asp.html">defaultModel.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent8')">Views</a>
+                                            <div class="MGroupContent" id="MGroupContent8">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/anotherView-asp.html">anotherView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/defaultView-asp.html">defaultView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/error-asp.html">error.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/genericView-asp.html">genericView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/global-asa.html">global.asa</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/inspect-asp.html">inspect.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../default-asp.html">default.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../global-asa.html">global.asa</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent10')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent10">
+                                    <div class="MEntry">
+                                        <div class="MFile" id="MSelected">
+                                            application.<wbr />configure.asp
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent12')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent12">
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../index/General.html">Everything</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../index/Classes.html">Classes</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../index/Files.html">Files</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../index/Functions.html">Functions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../index/Properties.html">Properties</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../index/Interfaces.html">Interfaces</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><script type="text/javascript">
+//<![CDATA[
+            <!--
+            var searchPanel = new SearchPanel("searchPanel", "HTML", "../../../search");
+            -->
+            //]]>
+            </script>
+            <div id="MSearchPanel" class="MSearchPanelInactive">
+                <input type="text" id="MSearchField" value="Search" onfocus="searchPanel.OnSearchFieldFocus(true)" onblur="searchPanel.OnSearchFieldFocus(false)" onkeyup="searchPanel.OnSearchFieldChange()" /><select id="MSearchType" onfocus="searchPanel.OnSearchTypeFocus(true)" onblur="searchPanel.OnSearchTypeFocus(false)" onchange="searchPanel.OnSearchTypeChange()">
+                    <option id="MSearchEverything" selected="selected" value="General">
+                        Everything
+                    </option>
+                    <option value="Classes">
+                        Classes
+                    </option>
+                    <option value="Files">
+                        Files
+                    </option>
+                    <option value="Functions">
+                        Functions
+                    </option>
+                    <option value="Interfaces">
+                        Interfaces
+                    </option>
+                    <option value="Properties">
+                        Properties
+                    </option>
+                </select>
+            </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+            <!--
+            HideAllBut([10, 11], 13);// -->
+            //]]>
+            </script>
+        </div>
+        <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            sub loadCommon(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            Xml
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Loads common application configurations.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            sub loadCache(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            Xml
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Configures cache life time and items to be cached.
+            </div>
+        </div>
+        <div id="MSearchResultsWindow">
+            <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
+        </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script>
+    </body>
+</html>
