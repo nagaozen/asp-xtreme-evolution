@@ -1,0 +1,7 @@
+﻿<imager_settings>
+    <maxwidth>1024</maxwidth>
+    <maxheight>1024</maxheight>
+    <imagercachepath>/cgi-bin/cache/</imagercachepath>
+    <imagercacheenabled>0</imagercacheenabled>
+    <usecachesubfolders>1</usecachesubfolders>
+</imager_settings>

@@ -1,0 +1,2612 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            template.class.asp - AXE Documentation
+        </title>
+        <link rel="stylesheet" type="text/css" href="../../../../../styles/main.css" />
+        <script language="JavaScript" src="../../../../../javascript/main.js" type="text/javascript">
+</script>
+        <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
+</script>
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+    </head>
+    <body class="ContentPage" onload="NDOnLoad()">
+        <script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {document.write("<div class=" + browserType + ">");if (browserVer) {document.write("<div class=" + browserVer + ">"); }}// -->
+        //]]>
+        </script>
+        <div id="Content">
+            <div class="CFile">
+                <div class="CTopic" id="MainTopic">
+                    <h1 class="CTitle">
+                        <a id="template.class.asp"></a>template.<wbr />class.asp
+                    </h1>
+                    <div class="CBody">
+                        <p>
+                            AXE(ASP Xtreme Evolution) string template (a kind of eXtended string) utility.
+                        </p>
+                        <h4 class="CHeading">
+                            License
+                        </h4>
+                        <p>
+                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2009 Fabio Zendhi Nagao
+                        </p>
+                        <p>
+                            ASP Xtreme Evolution is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+                        </p>
+                        <p>
+                            ASP Xtreme Evolution is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&nbsp; See the GNU Lesser General Public License for more details.
+                        </p>
+                        <p>
+                            You should have received a copy of the GNU Lesser General Public License along with ASP Xtreme Evolution.&nbsp; If not, see <a href="http://www.gnu.org/licenses/" class="LURL" target="_top">http://www.gnu.org/licenses/</a>.
+                        </p>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#template.class.asp">template.<wbr />class.asp</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            AXE(ASP Xtreme Evolution) string template (a kind of eXtended string) utility.
+                                        </td>
+                                    </tr>
+                                    <tr class="SClass">
+                                        <td class="SEntry">
+                                            <a href="#Template">Template</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            A string Template class for Classic ASP.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.value">value</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This property holds the current Template value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.separator">separator</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This property holds the standard Template separator.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.write" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">write</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Subroutine to Response.write templates directly from arguments.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.substitute" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">substitute</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use this method to retrieve an evaluated version of the value with the given replacements.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.clean" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">clean</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Removes all extraneous whitespace from a string and trims it.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.length" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">length</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the final length of an evaluated template with the given replacements.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.toLowerCase" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">toLowerCase</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a lowercased version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.toUpperCase" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">toUpperCase</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve an uppercased version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.capitalize" id="link7" onmouseover="ShowTip(event, 'tt7', 'link7')" onmouseout="HideTip('tt7')">capitalize</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a capitalized version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.camelize" id="link8" onmouseover="ShowTip(event, 'tt8', 'link8')" onmouseout="HideTip('tt8')">camelize</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a camelized version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.hyphenate" id="link9" onmouseover="ShowTip(event, 'tt9', 'link9')" onmouseout="HideTip('tt9')">hyphenate</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a hyphenated version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.charAt" id="link10" onmouseover="ShowTip(event, 'tt10', 'link10')" onmouseout="HideTip('tt10')">charAt</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Look up in the evaluated template for a character at the specified position.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.substr" id="link11" onmouseover="ShowTip(event, 'tt11', 'link11')" onmouseout="HideTip('tt11')">substr</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extracts a specified number of characters in a evaluated template, from a start index.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.substring" id="link12" onmouseover="ShowTip(event, 'tt12', 'link12')" onmouseout="HideTip('tt12')">substring</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extracts the characters in a evaluated template between two specified indices.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.contains" id="link13" onmouseover="ShowTip(event, 'tt13', 'link13')" onmouseout="HideTip('tt13')">contains</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and look for the position of the first occurence of a specified fragment in the evaluated string.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Template.test" id="link14" onmouseover="ShowTip(event, 'tt14', 'link14')" onmouseout="HideTip('tt14')">test</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and search for a match between the value and a relular expression.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CClass">
+                <div class="CTopic">
+                    <h2 class="CTitle">
+                        <a id="Template"></a>Template
+                    </h2>
+                    <div class="CBody">
+                        <p>
+                            A string Template class for Classic ASP.
+                        </p>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br" class="LURL" target="_top">http://zend.lojcomm.com.br</a> @ May 2008
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#Template.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.value">value</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This property holds the current Template value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.separator">separator</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This property holds the standard Template separator.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#Template.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.write" id="link15" onmouseover="ShowTip(event, 'tt1', 'link15')" onmouseout="HideTip('tt1')">write</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Subroutine to Response.write templates directly from arguments.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.substitute" id="link16" onmouseover="ShowTip(event, 'tt2', 'link16')" onmouseout="HideTip('tt2')">substitute</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use this method to retrieve an evaluated version of the value with the given replacements.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.clean" id="link17" onmouseover="ShowTip(event, 'tt3', 'link17')" onmouseout="HideTip('tt3')">clean</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Removes all extraneous whitespace from a string and trims it.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.length" id="link18" onmouseover="ShowTip(event, 'tt4', 'link18')" onmouseout="HideTip('tt4')">length</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the final length of an evaluated template with the given replacements.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.toLowerCase" id="link19" onmouseover="ShowTip(event, 'tt5', 'link19')" onmouseout="HideTip('tt5')">toLowerCase</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a lowercased version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.toUpperCase" id="link20" onmouseover="ShowTip(event, 'tt6', 'link20')" onmouseout="HideTip('tt6')">toUpperCase</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve an uppercased version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.capitalize" id="link21" onmouseover="ShowTip(event, 'tt7', 'link21')" onmouseout="HideTip('tt7')">capitalize</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a capitalized version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.camelize" id="link22" onmouseover="ShowTip(event, 'tt8', 'link22')" onmouseout="HideTip('tt8')">camelize</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a camelized version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.hyphenate" id="link23" onmouseover="ShowTip(event, 'tt9', 'link23')" onmouseout="HideTip('tt9')">hyphenate</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and retrieve a hyphenated version of it&#8217;s value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.charAt" id="link24" onmouseover="ShowTip(event, 'tt10', 'link24')" onmouseout="HideTip('tt10')">charAt</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Look up in the evaluated template for a character at the specified position.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.substr" id="link25" onmouseover="ShowTip(event, 'tt11', 'link25')" onmouseout="HideTip('tt11')">substr</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extracts a specified number of characters in a evaluated template, from a start index.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.substring" id="link26" onmouseover="ShowTip(event, 'tt12', 'link26')" onmouseout="HideTip('tt12')">substring</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extracts the characters in a evaluated template between two specified indices.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Template.contains" id="link27" onmouseover="ShowTip(event, 'tt13', 'link27')" onmouseout="HideTip('tt13')">contains</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and look for the position of the first occurence of a specified fragment in the evaluated string.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Template.test" id="link28" onmouseover="ShowTip(event, 'tt14', 'link28')" onmouseout="HideTip('tt14')">test</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Compute the template and search for a match between the value and a relular expression.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.classType"></a>classType
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class type.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.classVersion"></a>classVersion
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class version.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (float)
+                                </td>
+                                <td class="CDLDescription">
+                                    version
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.value"></a>value
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This property holds the current Template value.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    value
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.separator"></a>separator
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This property holds the standard Template separator.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (char)
+                                </td>
+                                <td class="CDLDescription">
+                                    separator
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.write"></a>write
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public sub write(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sTemplate,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Subroutine to Response.write templates directly from arguments.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Template with placeholders.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Array with the replacements.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="co1">' The infamous hello world example using Template.write</span>
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template
+XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span>
+XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span class="kw2">null</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.substitute" class="LFunction" id="link29" onmouseover="ShowTip(event, 'tt2', 'link29')" onmouseout="HideTip('tt2')">substitute</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.substitute"></a>substitute
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function substitute(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Use this method to retrieve an evaluated version of the value with the given replacements.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Evaluated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substitute</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substitute</span><span class="br0">(</span><span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.write" class="LFunction" id="link30" onmouseover="ShowTip(event, 'tt1', 'link30')" onmouseout="HideTip('tt1')">write</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.clean"></a>clean
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function clean(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Removes all extraneous whitespace from a string and trims it.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    A clean evaluated string.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}, I     like     ASP."</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">clean</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">clean</span><span class="br0">(</span><span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.length"></a>length
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function length(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the final length of an evaluated template with the given replacements.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Length
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">length</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">length</span><span class="br0">(</span><span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.toLowerCase"></a>toLowerCase
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function toLowerCase(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and retrieve a lowercased version of it&#8217;s value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Lowercased evaluated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">toLowerCase</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">toLowerCase</span><span class="br0">(</span><span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.toUpperCase" class="LFunction" id="link31" onmouseover="ShowTip(event, 'tt6', 'link31')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link32" onmouseover="ShowTip(event, 'tt7', 'link32')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link33" onmouseover="ShowTip(event, 'tt8', 'link33')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link34" onmouseover="ShowTip(event, 'tt9', 'link34')" onmouseout="HideTip('tt9')">hyphenate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.toUpperCase"></a>toUpperCase
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function toUpperCase(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and retrieve an uppercased version of it&#8217;s value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Uppercased evaluated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">toUpperCase</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">toUpperCase</span><span class="br0">(</span><span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link35" onmouseover="ShowTip(event, 'tt5', 'link35')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.capitalize" class="LFunction" id="link36" onmouseover="ShowTip(event, 'tt7', 'link36')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link37" onmouseover="ShowTip(event, 'tt8', 'link37')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link38" onmouseover="ShowTip(event, 'tt9', 'link38')" onmouseout="HideTip('tt9')">hyphenate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.capitalize"></a>capitalize
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function capitalize(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    cSeparator,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and retrieve a capitalized version of it&#8217;s value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (char)
+                                </td>
+                                <td class="CDLDescription">
+                                    Separator (OPTIONAL)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Capitalized evaluated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">capitalize</span><span class="br0">(</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"hello"</span>, <span class="st0">"world"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">capitalize</span><span class="br0">(</span><span class="st0">" "</span>, <span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link39" onmouseover="ShowTip(event, 'tt5', 'link39')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link40" onmouseover="ShowTip(event, 'tt6', 'link40')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.camelize" class="LFunction" id="link41" onmouseover="ShowTip(event, 'tt8', 'link41')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link42" onmouseover="ShowTip(event, 'tt9', 'link42')" onmouseout="HideTip('tt9')">hyphenate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.camelize"></a>camelize
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function camelize(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    cSeparator,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and retrieve a camelized version of it&#8217;s value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (char)
+                                </td>
+                                <td class="CDLDescription">
+                                    Separator (OPTIONAL)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Camelized evaluated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">camelize</span><span class="br0">(</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">camelize</span><span class="br0">(</span><span class="st0">" "</span>, <span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link43" onmouseover="ShowTip(event, 'tt5', 'link43')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link44" onmouseover="ShowTip(event, 'tt6', 'link44')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link45" onmouseover="ShowTip(event, 'tt7', 'link45')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.hyphenate" class="LFunction" id="link46" onmouseover="ShowTip(event, 'tt9', 'link46')" onmouseout="HideTip('tt9')">hyphenate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.hyphenate"></a>hyphenate
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function hyphenate(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    cSeparator,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and retrieve a hyphenated version of it&#8217;s value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (char)
+                                </td>
+                                <td class="CDLDescription">
+                                    Separator (OPTIONAL)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Hyphenated evaluated string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">hyphenate</span><span class="br0">(</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">hyphenate</span><span class="br0">(</span><span class="st0">" "</span>, <span class="kw2">null</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                        <h4 class="CHeading">
+                            See also
+                        </h4>
+                        <p>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link47" onmouseover="ShowTip(event, 'tt5', 'link47')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link48" onmouseover="ShowTip(event, 'tt6', 'link48')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link49" onmouseover="ShowTip(event, 'tt7', 'link49')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link50" onmouseover="ShowTip(event, 'tt8', 'link50')" onmouseout="HideTip('tt8')">camelize</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.charAt"></a>charAt
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function charAt(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    i,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Look up in the evaluated template for a character at the specified position.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Index
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (char)
+                                </td>
+                                <td class="CDLDescription">
+                                    Character
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">contains</span><span class="br0">(</span>0, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.substr"></a>substr
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function substr(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    iStart,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    iLength,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Extracts a specified number of characters in a evaluated template, from a start index.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Where to start the extraction
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    How many characters to extract (OPTIONAL)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Evaluated string fragment
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>0, 5, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>6,, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.substring"></a>substring
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function substring(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    iStart,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    iStop,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Extracts the characters in a evaluated template between two specified indices.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Where to start the extraction
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Where to stop the extraction (OPTIONAL)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Evaluated string fragment
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>0, 2, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>6,, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.contains"></a>contains
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function contains(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFragment,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and look for the position of the first occurence of a specified fragment in the evaluated string.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Fragment to look for
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    The position of the first occurence of the fragment within value
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">contains</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">contains</span><span class="br0">(</span><span class="st0">"World"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">contains</span><span class="br0">(</span><span class="st0">"Lorem ipsum"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Template.test"></a>test
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function test(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sPattern,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    bIgnoreCase,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    bGlobal,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    saArgs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Compute the template and search for a match between the value and a relular expression.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    XString representation of the regular expression
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    true|false indicating to enable a CI search or not
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    true|false indicating to match or not all occurrences of the pattern
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string[])
+                                </td>
+                                <td class="CDLDescription">
+                                    Replacements
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <p>
+                            true, if a match for the regular expression is found in the value false, otherwise
+                        </p>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">test</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="kw2">false</span>, <span class="kw2">true</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">test</span><span class="br0">(</span><span class="st0">"hello"</span>, <span class="kw2">true</span>, <span class="kw2">true</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Footer">
+            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; &#183;&nbsp; Generated by <a href="http://www.naturaldocs.org">Natural Docs</a>, <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://mootools.net/">MooTools</a>
+        </div>
+        <div id="Menu">
+            <div class="MTitle">
+                AXE Documentation
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent1')">Framework</a>
+                    <div class="MGroupContent" id="MGroupContent1">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-asp.html">ASP Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-math-asp.html">ASP Math Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../customevent-class-asp.html">CustomEvent</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../interface-class-asp.html">Interface</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../kernel-class-asp.html">Kernel</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../unittest-class-asp.html">UnitTest</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent2')">Feeds</a>
+                    <div class="MGroupContent" id="MGroupContent2">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Feeds/atom-class-asp.html">Atom</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Feeds/rss-class-asp.html">RSS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent3')">Parsers</a>
+                    <div class="MGroupContent" id="MGroupContent3">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/csv-class-asp.html">CSV</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/json-class-asp.html">JSON</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/markdown-class-asp.html">Markdown</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/textile-class-asp.html">Textile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent4')">Security</a>
+                    <div class="MGroupContent" id="MGroupContent4">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/md5-class-asp.html">MD5</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/rijndael-class-asp.html">Rijndael</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/sha256-class-asp.html">SHA256</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent5')">Services</a>
+                    <div class="MGroupContent" id="MGroupContent5">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Services/akismet-class-asp.html">Akismet</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Services/recaptcha-class-asp.html">reCAPTCHA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent6')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent6">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="acl-class-asp.html">ACL</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="auth-class-asp.html">Auth</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="base64-class-asp.html">Base64</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="color-class-asp.html">Color</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="image-class-asp.html">Image</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="list-class-asp.html">List</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="logger-class-asp.html">Logger</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="paginator-class-asp.html">Paginator</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="stringbuilder-class-asp.html">StringBuilder</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile" id="MSelected">
+                                Template
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="translator-class-asp.html">Translator</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="upload-class-asp.html">Upload</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="xsession-class-asp.html">XSession</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="zip-class-asp.html">Zip</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent7')">Templates</a>
+                    <div class="MGroupContent" id="MGroupContent7">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/controllers/_templateController-asp.html">Controller</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/models/_templateModel-asp.html">Model</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/_templateView-asp.html">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent11')">Files</a>
+                    <div class="MGroupContent" id="MGroupContent11">
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent9')">App</a>
+                                <div class="MGroupContent" id="MGroupContent9">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent8')">Views</a>
+                                            <div class="MGroupContent" id="MGroupContent8">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/error-asp.html">error.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/genericView-asp.html">genericView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/global-asa.html">global.asa</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/inspect-asp.html">inspect.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../default-asp.html">default.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../global-asa.html">global.asa</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent10')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent10">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent12')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent12">
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/General.html">Everything</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Classes.html">Classes</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Files.html">Files</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Functions.html">Functions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Properties.html">Properties</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Interfaces.html">Interfaces</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><script type="text/javascript">
+//<![CDATA[
+            <!--
+            var searchPanel = new SearchPanel("searchPanel", "HTML", "../../../../../search");
+            -->
+            //]]>
+            </script>
+            <div id="MSearchPanel" class="MSearchPanelInactive">
+                <input type="text" id="MSearchField" value="Search" onfocus="searchPanel.OnSearchFieldFocus(true)" onblur="searchPanel.OnSearchFieldFocus(false)" onkeyup="searchPanel.OnSearchFieldChange()" /><select id="MSearchType" onfocus="searchPanel.OnSearchTypeFocus(true)" onblur="searchPanel.OnSearchTypeFocus(false)" onchange="searchPanel.OnSearchTypeChange()">
+                    <option id="MSearchEverything" selected="selected" value="General">
+                        Everything
+                    </option>
+                    <option value="Classes">
+                        Classes
+                    </option>
+                    <option value="Files">
+                        Files
+                    </option>
+                    <option value="Functions">
+                        Functions
+                    </option>
+                    <option value="Interfaces">
+                        Interfaces
+                    </option>
+                    <option value="Properties">
+                        Properties
+                    </option>
+                </select>
+            </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+            <!--
+            HideAllBut([6], 13);// -->
+            //]]>
+            </script>
+        </div>
+        <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public sub write(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sTemplate,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Subroutine to Response.write templates directly from arguments.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function substitute(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Use this method to retrieve an evaluated version of the value with the given replacements.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt3">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function clean(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Removes all extraneous whitespace from a string and trims it.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt4">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function length(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the final length of an evaluated template with the given replacements.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt5">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function toLowerCase(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and retrieve a lowercased version of it&#8217;s value.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt6">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function toUpperCase(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and retrieve an uppercased version of it&#8217;s value.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt7">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function capitalize(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            cSeparator,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and retrieve a capitalized version of it&#8217;s value.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt8">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function camelize(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            cSeparator,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and retrieve a camelized version of it&#8217;s value.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt9">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function hyphenate(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            cSeparator,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and retrieve a hyphenated version of it&#8217;s value.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt10">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function charAt(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            i,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Look up in the evaluated template for a character at the specified position.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt11">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function substr(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            iStart,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            iLength,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Extracts a specified number of characters in a evaluated template, from a start index.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt12">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function substring(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            iStart,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            iStop,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Extracts the characters in a evaluated template between two specified indices.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt13">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function contains(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFragment,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and look for the position of the first occurence of a specified fragment in the evaluated string.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt14">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function test(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sPattern,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            bIgnoreCase,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            bGlobal,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            saArgs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Compute the template and search for a match between the value and a relular expression.
+            </div>
+        </div>
+        <div id="MSearchResultsWindow">
+            <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
+        </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script>
+    </body>
+</html>
