@@ -35,12 +35,11 @@
 ' 
 '   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
 ' 
-dim saArgv(0), saErrv(0)
+dim saArgv(0)
 Session("controller") = "defaultController"
 Session("action") = "defaultAction"
 Session("view") = "defaultView"
 Session("argv") = saArgv
-Session("errv") = saErrv
 set Session("this") = Server.createObject("Scripting.Dictionary")
 
 %>

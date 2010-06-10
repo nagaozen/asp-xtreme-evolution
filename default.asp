@@ -36,19 +36,14 @@ lcid     = 1033
 
 %>
 <!--#include virtual="/lib/axe/base.asp"-->
-<!--#include virtual="/lib/axe/classes/kernel.class.asp"-->
+<!--#include virtual="/lib/axe/classes/kernel.asp"-->
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!--#include virtual="/lib/axe/sessions.initialize.asp"-->
 <%
 
-' Set the controller and action sessions with the values received from the URI
-Core.initialize()
-
-' Run the controller
-Core.process()
-
-' Run the view
-Core.dispatch()
+' Set the controller and action sessions with the values received from the URI 
+' (initialize), run the controller (process) and run the view (dispatch)
+Core.initialize().process().dispatch()
 
 ' Print a comment with the execution time for optimizing purposes
 if( Response.contentType = "text/html" ) then

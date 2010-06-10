@@ -37,11 +37,30 @@
 if Response.buffer then
     Response.clear
     Response.status = "500 Internal Server Error"
+    Response.contentType = "text/html"
     Response.expires = 0
 end if
 
+' 500;100 : Internal Server Error - ASP Error
+dim AspError, category, message
+set AspError = Server.getLastError()
+if((AspError.description <> "") and (AspError.file <> "") and (AspError.line > 0)) then
+    category = AspError.category
+    message = strsubstitute( _
+        "<p><strong>{0}</strong> @ <code>{1}</code>{2}{3}</p>{4}", _
+        array( _
+            AspError.description, _
+            AspError.file, _
+            iif(AspError.line > 0, (", line: <code>" & AspError.line & "</code>"), ""), _
+            iif(AspError.column > 0, (", column: " & AspError.column & "</code>"), ""), _
+            iif(AspError.source > "", "<pre><code>" & Server.HTMLEncode(AspError.source) & "</code></pre>", "") _
+        ) _
+    )
+end if
+set AspError = nothing
+
 %>
-<!--#include virtual="/lib/axe/classes/kernel.class.asp"-->
+<!--#include virtual="/lib/axe/classes/kernel.asp"-->
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html
@@ -49,7 +68,8 @@ end if
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xml:lang="en">
     <head>
-        <title>ASP Xtreme Evolution :: Runtime Error</title>
+        <title>ASP Xtreme Evolution :: runtime error</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
         <link rel="icon" type="image/png" href="/lib/axe/assets/img/favicon.png" />
         <link rel="stylesheet" type="text/css" media="screen" href="/lib/axe/assets/css/reset-fonts-2.3.1.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/lib/axe/assets/css/asp-xtreme-evolution.css" />
@@ -57,45 +77,10 @@ end if
     <body id="errors">
         <div id="container">
             <div id="container-hd">
-                <h1>Framework Runtime Error</h1>
-                <p>An error occurred processing the page you requested. Please see the details below for more information.</p>
+                <h1><%= category %></h1>
+                <p>An error occurred processing the page ( <code>'<%= Request.ServerVariables("SCRIPT_NAME") & "' [" & Request.ServerVariables("REQUEST_METHOD") %>]</code> ) you requested. Please see the details below for more information.</p>
             </div>
-            <div id="container-bd">
-                <table>
-                    <tbody>
-<%
-
-' Framework Error
-dim len, i, sClass
-if(isArray(Session("errv"))) then
-    len = uBound(Session("errv"))
-    for i = 0 to len - 1
-        if( i mod 2 = 0 ) then
-            sClass = "even"
-        else
-            sClass = "odd"
-        end if
-        Response.write "<tr class=""" & sClass & """><td>" & Session("errv")(i) & "</td></tr>" & vbNewLine
-    next
-end if
-
-' 500;100 : Internal Server Error - ASP Error
-dim AspError
-set AspError = Server.getLastError()
-if((AspError.description <> "") AND (AspError.file <> "") AND (AspError.line > 0)) then
-    if( i mod 2 = 0 ) then
-        sClass = "even"
-    else
-        sClass = "odd"
-    end if
-    Response.write "<tr class=""" & sClass & """><td><b>" & AspError.description & "</b> @ " & AspError.file & ", line " & AspError.line & "</td></tr>" & vbNewLine
-end if
-set AspError = nothing
-
-%>
-                    </tbody>
-                </table>
-            </div>
+            <div id="container-bd"><%= message %></div>
             <div id="container-ft">
                 <hr />
                 <ul>

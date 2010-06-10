@@ -1,5 +1,5 @@
 ﻿<!--#include virtual="/lib/axe/base.asp"-->
-<!--#include virtual="/lib/axe/classes/kernel.class.asp"-->
+<!--#include virtual="/lib/axe/classes/kernel.asp"-->
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!--#include virtual="/lib/axe/shuttle.unload.initialize.asp"-->
 <%
@@ -37,6 +37,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en">
     <head>
         <title>ASP Xtreme Evolution: anotherView</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
         <link rel="icon" type="image/png" href="/lib/axe/assets/img/favicon.png" />
         <link rel="stylesheet" type="text/css" media="screen" href="/lib/axe/assets/css/reset-fonts-2.3.1.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/lib/axe/assets/css/asp-xtreme-evolution.css" />

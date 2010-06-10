@@ -10,6 +10,9 @@
         <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
 </script>
         <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
     </head>
     <body class="ContentPage" onload="NDOnLoad()">
         <script language="JavaScript" type="text/javascript">
@@ -63,6 +66,28 @@
                                         </td>
                                         <td class="SDescription">
                                             Implementation of the AES Rijndael Block Cipher.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Rijndael.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Rijndael.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Rijndael.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
                                         </td>
                                     </tr>
                                     <tr class="SGroup SIndent1">
@@ -158,12 +183,46 @@
                             <li>Class structure and Convert functions by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br" class="LURL" target="_top">http://zend.lojcomm.com.br</a> @ February 2008
                             </li>
                         </ul>
+                        <h4 class="CHeading">
+                            Change History
+                        </h4>
+                        <p>
+                            @2010.04.12 (1.0.0.0 -&gt; 1.0.1.0)
+                        </p>
+                        <ul>
+                            <li>[FIX] string2bytes and bytes2string.
+                            </li>
+                            <li>[ADD] classType and classVersion.
+                            </li>
+                        </ul>
                         <div class="Summary">
                             <div class="STitle">
                                 Summary
                             </div>
                             <div class="SBorder">
                                 <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#Rijndael.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Rijndael.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Rijndael.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
                                     <tr class="SGroup">
                                         <td class="SEntry">
                                             <a href="#Rijndael.Functions">Functions</a>
@@ -221,6 +280,63 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Rijndael.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Rijndael.classType"></a>classType
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class type.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Rijndael.classVersion"></a>classVersion
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class version.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (float)
+                                </td>
+                                <td class="CDLDescription">
+                                    version
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -1295,6 +1411,21 @@ erase a
 //<![CDATA[
         <!--
         if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
         //]]>
         </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
 </script><script type="text/javascript">

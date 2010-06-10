@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/lib/axe/classes/Parsers/markdown.class.asp"-->
+﻿<!--#include virtual="/lib/axe/classes/Parsers/markdown.asp"-->
 <%
 
 ' File: defaultModel.asp
@@ -37,25 +37,27 @@ class DefaultModel
             "<messages>", _
             "  <message>", _
             "    <img src='/lib/axe/assets/img/logomark-icons.jpg' alt='ASP Xtreme Evolution' title='ASP Xtreme Evolution' />", _
-            "    <p>The ASP Xtreme Evolution goal is to be a versatile MVC URL-Friendly base for Classic ASP applications with some additional features that are not ASP native. It should implement things that are common to most applications removing the pain of starting a new software and helping you to structure it so that you get things right from the beginning. Our key concepts are choice and freedom over limiting conventions, polyglotism, sustained quality, extensibility which we try to implement in a clean, maintainable and extensible way.</p>", _
-            "    <h2>Engine information:</h2>", _
+            "    <p>ASP Xtreme Evolution goal is to be a versatile MVC URL-Friendly base for Classic ASP applications with some additional features that are not ASP native. It should implement things that are common to most applications removing the pain of starting a new software and helping you to structure it so that you get things right from the beginning. Our key concepts are choice and freedom over limiting conventions, polyglotism, sustained quality, extensibility which we try to implement in a clean, maintainable and extensible way.</p>", _
+            "    <h2>Engine information</h2>", _
             "    <p>" & axeInfo() & "</p>", _
             "    <p>LCID: " & Session.lcid & " - Codepage: " & Session.codepage & " - Charset: " & Response.charset & "</p>", _
-            "    <h2>Important Notes:</h2>", _
+            "    <h2>Important Notes</h2>", _
             "    <ul>", _
-            "      <li>This page doesn't mean that you installed the entire Framework right, but just a part. Don't be lazy and follow the INSTALL to the end.</li>", _
+            "      <li>This page doesn't mean that you installed the entire Framework right, but just a part of it. Don't be lazy and follow the INSTALL.md to the end (a copy of it is also available below).</li>", _
             "      <li>If you are receiving an error: '80020009' without any additional information, increase the metabase 'AspMaxRequestEntityAllowed' parameter size (Default is 204800 bytes).</li>", _
             "      <li>Set the application custom error 500;100 to '/app/views/error.asp' to integrate the framework errors with the IIS ASP errors.</li>", _
-            "      <li>There are some very useful templates which all project should use. They are: _templateModel.asp, _templateView.asp and _templateController.asp each on it's respective folder.</li>", _
+            "      <li>There are some very useful templates which all project should use. They are: model.asp, view.asp and controller.asp on /lib/axe/templates folder.</li>", _
             "      <li><strong>Don't forget, this still VBScript ASP! Be confident in your ASP skills and you will be fine.</strong> Also, the <a href='/lib/axe/docs/'><strong>AXE DOCUMENTATION</strong></a> and <a href='http://msdn.microsoft.com/en-us/library/d1et7k7c(VS.85).aspx'><strong>MICROSOFT SCRIPTING TECHNOLOGIES</strong></a> are always ready to help you.</li>", _
             "    </ul>", _
+            Parser.makeHtml( Core.loadTextFile( Server.mapPath("/lib/axe/docs/INSTALL.md") ) ), _
             "    <h2>Getting started</h2>", _
             "    <h3>Reconfiguring the Application</h3>", _
             "    <p>append: <a href='?reconfigure=true'>?reconfigure=true</a> in the address bar</p>", _
             "    <h3>Inspecting</h3>", _
             "    <p>append: <a href='?inspect=true'>?inspect=true</a> in the address bar</p>", _
             "    <h3>Checking how it works</h3>", _
-            "    <p>append: <a href='/defaultController/another'>/defaultController/another</a> in the address bar</p>", _
+            "    <p>append: <a href='/defaultController/another'>/defaultController/another</a> in the address bar for a valid <code>/Controller/action</code> example</p>", _
+            "    <p>append: <a href='/foo/bar'>/foo/bar</a> in the address bar for an internal error example</p>", _
             Parser.makeHtml( Core.loadTextFile( Server.mapPath("/lib/axe/docs/CHANGES.md") ) ), _
             "  </message>", _
             "</messages>" _

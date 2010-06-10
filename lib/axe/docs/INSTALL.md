@@ -2,11 +2,11 @@
 ------------------------------------
 
 First of all, ASP Xtreme Evolution is based in some extensions, but don't worry
-it's all free and everything already comes with the package. Although, if you
+it's all free or open source and already comes with the package. Although, if you
 want to check the original projects, here's a list of their sites:
 
 * [Microsoft Core XML Services (MSXML) 6.0](http://www.microsoft.com/downloads/details.aspx?FamilyID=993c0bcf-3bcf-4009-be21-27e85e1857b1&displaylang=en)
-* [Ionics Isapi Rewrite Filter](http://www.codeplex.com/IIRF/)
+* [Ionics Isapi Rewrite Filter](http://iirf.codeplex.com/)
 * [Crazy Beavers Imager Resizer and Zip](http://www.crazybeavers.se/downloads/)
 
 Installation
@@ -18,7 +18,7 @@ Installation
 
 3. If your server does not provide a default cgi-bin folder, create a virtual directory named "cgi-bin" in your domain root pointing to /lib/axe/bin. Don't forget to check "Execute (such as ISAPI applications or CGI)"; Otherwise, move the contents of /lib/axe/bin to your cgi-bin folder.
 
-4. Give "Read and Write" only permission to your /app/cache folder.
+4. Give only "Read and Write" permission to your /app/cache folder.
 
 5. Go to your site properties and in ISAPI Filters tab, click [Add]. Fill the box with the following data:  
    Filter name: IIRF  
@@ -40,11 +40,8 @@ Installation
 
 8. If your server does not support MSXML 6.0 yet, install it. It's available at: /lib/axe/bin/msxml6.msi
 
-9. Create an application pool for views.
+9. Create an application pool for the application views.
 
-10. Create an application for /app/views and set it application pool to the one created in step 9.
+10. Set /app/views to the application pool created in step 9.
 
-11. That's it! Open a Web browser and type your domain. The "Welcome!" message should open.
-    * To test the inspect mode, just append: ?inspect=true at the end of your domain. Ex.: http://localhost/?inspect=true
-    * To test the URL Rewriting Filter, try to access the /defaultController/another/ page. Ex.: http://localhost/defaultController/another/
-    * To test the other extensions, try to check if Imager.dll is responding with ?Test=True. Ex.: http://localhost/cgi-bin/Imager.dll?Test=True. If it displays: "The specified file does not exist." it's working. If you are prompted to download the file it's not.
+11. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.

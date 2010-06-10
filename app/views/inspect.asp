@@ -30,7 +30,7 @@
 
 %>
 <!--#include virtual="/lib/axe/base.asp"-->
-<!--#include virtual="/lib/axe/classes/kernel.class.asp"-->
+<!--#include virtual="/lib/axe/classes/kernel.asp"-->
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html
@@ -39,6 +39,7 @@
     xml:lang="en">
     <head>
         <title>ASP Xtreme Evolution :: Inspect</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
         <link rel="icon" type="image/png" href="/lib/axe/assets/img/favicon.png" />
         <link rel="stylesheet" type="text/css" media="screen" href="/lib/axe/assets/css/reset-fonts-2.3.1.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/lib/axe/assets/css/asp-xtreme-evolution.css" />

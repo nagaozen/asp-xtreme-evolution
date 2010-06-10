@@ -1,12 +1,13 @@
 ﻿<!--#include virtual="/lib/axe/base.asp"-->
-<!--#include virtual="/lib/axe/classes/kernel.class.asp"-->
+<!--#include virtual="/lib/axe/classes/kernel.asp"-->
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!--#include virtual="/app/models/defaultModel.asp"-->
 <%
 
 ' File: defaultController.asp
 ' 
-' ASP Xtreme Evolution after install defaultController. *You should replace it with your own defaultController.*
+' ASP Xtreme Evolution after install defaultController.
+' *You should replace it with your own defaultController.*
 ' 
 ' License:
 ' 
@@ -88,7 +89,7 @@ select case Session("action")
         call Controller.another()
     
     case else
-        Core.addError("Action '" & Session("action") & "' is not available at controller '" & Session("controller") & "'")
+        call Core.exception("Action '{0}' is not available at controller '{1}'", array(Session("action"), Session("controller")))
     
 end select
 set Controller = nothing
