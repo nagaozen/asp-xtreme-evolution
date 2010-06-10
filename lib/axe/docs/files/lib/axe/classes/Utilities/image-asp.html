@@ -1,0 +1,1972 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            image.asp - AXE Documentation
+        </title>
+        <link rel="stylesheet" type="text/css" href="../../../../../styles/main.css" />
+        <script language="JavaScript" src="../../../../../javascript/main.js" type="text/javascript">
+</script>
+        <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
+</script>
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+    </head>
+    <body class="ContentPage" onload="NDOnLoad()">
+        <script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {document.write("<div class=" + browserType + ">");if (browserVer) {document.write("<div class=" + browserVer + ">"); }}// -->
+        //]]>
+        </script>
+        <div id="Content">
+            <div class="CFile">
+                <div class="CTopic" id="MainTopic">
+                    <h1 class="CTitle">
+                        <a id="image.asp"></a>image.asp
+                    </h1>
+                    <div class="CBody">
+                        <p>
+                            AXE(ASP Xtreme Evolution) image utility.
+                        </p>
+                        <h4 class="CHeading">
+                            License
+                        </h4>
+                        <p>
+                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2009 Fabio Zendhi Nagao
+                        </p>
+                        <p>
+                            ASP Xtreme Evolution is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+                        </p>
+                        <p>
+                            ASP Xtreme Evolution is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.&nbsp; See the GNU Lesser General Public License for more details.
+                        </p>
+                        <p>
+                            You should have received a copy of the GNU Lesser General Public License along with ASP Xtreme Evolution.&nbsp; If not, see <a href="http://www.gnu.org/licenses/" class="LURL" target="_top">http://www.gnu.org/licenses/</a>.
+                        </p>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#image.asp">image.asp</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            AXE(ASP Xtreme Evolution) image utility.
+                                        </td>
+                                    </tr>
+                                    <tr class="SClass">
+                                        <td class="SEntry">
+                                            <a href="#Image">Image</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This class intends to help people use the Imager in an easy way.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.imagerUri">imagerUri</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This should be the URI to Imager.dll including <a href="http://" class="LURL" target="_top">http://</a> etc.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.image">image</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Full path to the image.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.width">width</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Target width.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.height">height</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Target height.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.compression">compression</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Target compression.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.output">output</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Output format.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.originalWidth">originalWidth</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Original width.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.originalHeight">originalHeight</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Original height.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.autoRotate">autoRotate</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use the autorotate function?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.whitespace">whitespace</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use the whitespace function?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.bgColor">bgColor</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            6 letter HEX color code used for whitespace/rotation functions.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.rotation">rotation</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            The amount of degrees to rotate the image.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.processExif">processExif</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract EXIF data?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.processBinary">processBinary</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Return binary data?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.forceNewCache">forceNewCache</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Force the creation of a new file in the cache?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.useQueryString">useQueryString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Append the current querystring to the dll?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.errorCode">errorCode</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Error code from the query.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.errorText">errorText</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Error description.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.Xml">Xml</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            XML Dom object which holds the returned xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.go" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">go</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Executes the request to the application to retrieve the XML data.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.saveToFile" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">saveToFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Saves the image to a path specified by path.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.getExif" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">getExif</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract EXIF(EXchangeable Image Format) data from the Xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.getBinary" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">getBinary</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract binary data from the Xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.getMime" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">getMime</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract MimeType from the Xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Image.getFilename" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">getFilename</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract filename from the imageinfo in Xml.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CClass">
+                <div class="CTopic">
+                    <h2 class="CTitle">
+                        <a id="Image"></a>Image
+                    </h2>
+                    <div class="CBody">
+                        <p>
+                            This class intends to help people use the Imager in an easy way.&nbsp; Imager brings some very useful image manipulations like resizing, stretching, rotating to asp.&nbsp; Then the result can be used directly from the memory or saved to the hard drive.&nbsp; You can also use it to retrieve image properties like width, height.
+                        </p>
+                        <h4 class="CHeading">
+                            Requirements
+                        </h4>
+                        <ul>
+                            <li>CrazyBeavers Imager Resizer dll (Imager.dll)
+                            </li>
+                        </ul>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Karl-Johan Sj&#246;gren <a href="http://www.crazybeavers.se/" class="LURL" target="_top">http://www.crazybeavers.se/</a> @ April 2006
+                            </li>
+                            <li>Modified and normalized by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br/" class="LURL" target="_top">http://zend.lojcomm.com.br/</a> @ January 2008
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#Image.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.imagerUri">imagerUri</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This should be the URI to Imager.dll including <a href="http://" class="LURL" target="_top">http://</a> etc.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.image">image</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Full path to the image.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.width">width</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Target width.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.height">height</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Target height.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.compression">compression</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Target compression.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.output">output</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Output format.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.originalWidth">originalWidth</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Original width.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.originalHeight">originalHeight</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Original height.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.autoRotate">autoRotate</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use the autorotate function?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.whitespace">whitespace</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Use the whitespace function?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.bgColor">bgColor</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            6 letter HEX color code used for whitespace/rotation functions.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.rotation">rotation</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            The amount of degrees to rotate the image.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.processExif">processExif</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract EXIF data?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.processBinary">processBinary</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Return binary data?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.forceNewCache">forceNewCache</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Force the creation of a new file in the cache?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.useQueryString">useQueryString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Append the current querystring to the dll?
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.errorCode">errorCode</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Error code from the query.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.errorText">errorText</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Error description.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.Xml">Xml</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            XML Dom object which holds the returned xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#Image.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.go" id="link7" onmouseover="ShowTip(event, 'tt1', 'link7')" onmouseout="HideTip('tt1')">go</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Executes the request to the application to retrieve the XML data.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.saveToFile" id="link8" onmouseover="ShowTip(event, 'tt2', 'link8')" onmouseout="HideTip('tt2')">saveToFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Saves the image to a path specified by path.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.getExif" id="link9" onmouseover="ShowTip(event, 'tt3', 'link9')" onmouseout="HideTip('tt3')">getExif</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract EXIF(EXchangeable Image Format) data from the Xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.getBinary" id="link10" onmouseover="ShowTip(event, 'tt4', 'link10')" onmouseout="HideTip('tt4')">getBinary</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract binary data from the Xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Image.getMime" id="link11" onmouseover="ShowTip(event, 'tt5', 'link11')" onmouseout="HideTip('tt5')">getMime</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract MimeType from the Xml.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Image.getFilename" id="link12" onmouseover="ShowTip(event, 'tt6', 'link12')" onmouseout="HideTip('tt6')">getFilename</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Extract filename from the imageinfo in Xml.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.classType"></a>classType
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class type.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.classVersion"></a>classVersion
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class version.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (float)
+                                </td>
+                                <td class="CDLDescription">
+                                    version
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.imagerUri"></a>imagerUri
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This should be the URI to Imager.dll including <a href="http://" class="LURL" target="_top">http://</a> etc.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    URI
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.image"></a>image
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Full path to the image.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Physical path
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.width"></a>width
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Target width.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Width
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.height"></a>height
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Target height.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Height
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.compression"></a>compression
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Target compression.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Compression
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.output"></a>output
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Output format.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    .jpg .gif .png and .tga.&nbsp; Note that it won&#8217;t work without the dot at start.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.originalWidth"></a>originalWidth
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Original width.&nbsp; This can be retrieved with ProcessBinary=false.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Width
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.originalHeight"></a>originalHeight
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Original height.&nbsp; This can be retrieved with ProcessBinary=false.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Height
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.autoRotate"></a>autoRotate
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Use the autorotate function?
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (bool)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to true
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.whitespace"></a>whitespace
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Use the whitespace function?
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (bool)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to false
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.bgColor"></a>bgColor
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            6 letter HEX color code used for whitespace/rotation functions.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to an empty string
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.rotation"></a>rotation
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            The amount of degrees to rotate the image.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to 0
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.processExif"></a>processExif
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Extract EXIF data?
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (bool)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to true
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.processBinary"></a>processBinary
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Return binary data?
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (bool)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to true
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.forceNewCache"></a>forceNewCache
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Force the creation of a new file in the cache?
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (bool)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to false
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.useQueryString"></a>useQueryString
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Append the current querystring to the dll?
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (bool)
+                                </td>
+                                <td class="CDLDescription">
+                                    Defaults to true
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.errorCode"></a>errorCode
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Error code from the query.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (int)
+                                </td>
+                                <td class="CDLDescription">
+                                    Default is 0 which means no error
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.errorText"></a>errorText
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Error description.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Error description
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.Xml"></a>Xml
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            XML Dom object which holds the returned xml.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (xml object)
+                                </td>
+                                <td class="CDLDescription">
+                                    XML
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.go"></a>go
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public sub go()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Executes the request to the application to retrieve the XML data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.saveToFile"></a>saveToFile
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function saveToFile(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    path,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    overwrite
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Saves the image to a path specified by path.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Path to write the file
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    Overwrite true|false
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    true
+                                </td>
+                                <td class="CDLDescription">
+                                    if the save was successful
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    false
+                                </td>
+                                <td class="CDLDescription">
+                                    otherwise
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> oImage
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">new</span> Image
+oImage.<span class="me1">imagerUri</span> <span class="sy0">=</span> <span class="st0">"http://localhost/cgi-bin/Imager.dll"</span>
+oImage.<span class="me1">image</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"image.png"</span><span class="br0">)</span>
+oImage.<span class="me1">width</span> <span class="sy0">=</span> <span class="nu0">88</span>
+oImage.<span class="me1">height</span> <span class="sy0">=</span> <span class="nu0">88</span>
+oImage.<span class="me1">compression</span> <span class="sy0">=</span> <span class="nu0">88</span>
+oImage.<span class="me1">output</span> <span class="sy0">=</span> <span class="st0">".jpg"</span>
+oImage.<span class="me1">whitespace</span> <span class="sy0">=</span> <span class="kw2">true</span>
+oImage.<span class="me1">bgColor</span> <span class="sy0">=</span> <span class="st0">"FFFFFF"</span>
+oImage.<span class="me1">rotation</span> <span class="sy0">=</span> 15
+<span class="kw1">call</span> oImage.<span class="me1">go</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">if</span><span class="br0">(</span>oImage.<span class="me1">ErrorCode</span> <span class="sy0">&lt;&gt;</span> 0<span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"&lt;strong&gt;Error:&lt;/strong&gt; "</span> <span class="sy0">&amp;</span> oImage.<span class="me1">errorText</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw1">end</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+<span class="kw1">if</span><span class="br0">(</span><span class="kw1">not</span> oImage.<span class="me1">saveToFile</span><span class="br0">(</span><span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"saved/image.jpg"</span><span class="br0">)</span>, <span class="kw2">true</span><span class="br0">)</span><span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>oImage.<span class="me1">errorText</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw1">end</span>
+<span class="kw1">else</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"Saved"</span><span class="br0">)</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.getExif"></a>getExif
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getExif()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Extract EXIF(EXchangeable Image Format) data from the Xml.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (scripting.dictionary)
+                                </td>
+                                <td class="CDLDescription">
+                                    With the extracted EXIF data
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> oImage, Exif, sItem
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">new</span> Image
+oImage.<span class="me1">imagerUri</span> <span class="sy0">=</span> <span class="st0">"http://localhost/cgi-bin/Imager.dll"</span>
+oImage.<span class="me1">image</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"image.png"</span><span class="br0">)</span>
+<span class="kw1">call</span> oImage.<span class="me1">go</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">if</span><span class="br0">(</span>oImage.<span class="me1">errorCode</span> <span class="sy0">&lt;&gt;</span> 0<span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"&lt;strong&gt;Error:&lt;/strong&gt; "</span> <span class="sy0">&amp;</span> oImage.<span class="me1">errorText</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw1">end</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+<span class="kw1">set</span> Exif <span class="sy0">=</span> oImage.<span class="me1">getExif</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">for</span> <span class="kw1">each</span> sItem <span class="kw1">in</span> Exif
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>sItem <span class="sy0">&amp;</span> <span class="st0">" : "</span> <span class="sy0">&amp;</span> Exif.<span class="me1">item</span><span class="br0">(</span>sItem<span class="br0">)</span> <span class="sy0">&amp;</span> <span class="st0">"&lt;br /&gt;"</span><span class="br0">)</span>
+<span class="kw1">next</span>
+<span class="kw1">set</span> Exif <span class="sy0">=</span> <span class="kw2">nothing</span>
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.getBinary"></a>getBinary
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getBinary()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Extract binary data from the Xml.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    With the image binary data
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.getMime"></a>getMime
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getMime()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Extract MimeType from the Xml.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Mimetype of the image
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> oImage
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">new</span> Image
+oImage.<span class="me1">imagerUri</span> <span class="sy0">=</span> <span class="st0">"http://localhost/cgi-bin/Imager.dll"</span>
+oImage.<span class="me1">image</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"image.png"</span><span class="br0">)</span>
+<span class="kw1">call</span> oImage.<span class="me1">go</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">if</span><span class="br0">(</span>oImage.<span class="me1">errorCode</span> <span class="sy0">&lt;&gt;</span> 0<span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"&lt;strong&gt;Error:&lt;/strong&gt; "</span> <span class="sy0">&amp;</span> oImage.<span class="me1">errorText</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw1">end</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>oImage.<span class="me1">getMime</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Image.getFilename"></a>getFilename
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getFilename()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Extract filename from the imageinfo in Xml.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Filename of the image
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> oImage
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">new</span> Image
+oImage.<span class="me1">imagerUri</span> <span class="sy0">=</span> <span class="st0">"http://localhost/cgi-bin/Imager.dll"</span>
+oImage.<span class="me1">image</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"image.png"</span><span class="br0">)</span>
+<span class="kw1">call</span> oImage.<span class="me1">go</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">if</span><span class="br0">(</span>oImage.<span class="me1">errorCode</span> <span class="sy0">&lt;&gt;</span> 0<span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span><span class="st0">"&lt;strong&gt;Error:&lt;/strong&gt; "</span> <span class="sy0">&amp;</span> oImage.<span class="me1">errorText</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw1">end</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>oImage.<span class="me1">getFilename</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">set</span> oImage <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Footer">
+            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; &#183;&nbsp; Generated by <a href="http://www.naturaldocs.org">Natural Docs</a>, <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://mootools.net/">MooTools</a>
+        </div>
+        <div id="Menu">
+            <div class="MTitle">
+                AXE Documentation
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent1')">Framework</a>
+                    <div class="MGroupContent" id="MGroupContent1">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-asp.html">ASP Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../base-math-asp.html">ASP Math Extensions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../customevent-asp.html">customevent.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../interface-asp.html">interface.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../kernel-asp.html">kernel.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../unittest-asp.html">unittest.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent2')">Feeds</a>
+                    <div class="MGroupContent" id="MGroupContent2">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Feeds/atom-asp.html">atom.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Feeds/rss-asp.html">rss.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent3')">Parsers</a>
+                    <div class="MGroupContent" id="MGroupContent3">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/csv-asp.html">csv.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/json-asp.html">json.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/markdown-asp.html">markdown.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/textile-asp.html">textile.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent4')">Security</a>
+                    <div class="MGroupContent" id="MGroupContent4">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/md5-asp.html">md5.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/rijndael-asp.html">rijndael.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Security/sha256-asp.html">sha256.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent5')">Services</a>
+                    <div class="MGroupContent" id="MGroupContent5">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Services/akismet-asp.html">akismet.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Services/recaptcha-asp.html">recaptcha.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent7')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent7">
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent6')">Email</a>
+                                <div class="MGroupContent" id="MGroupContent6">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="email-asp.html">email.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="Email/interface-asp.html">interface.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="acl-asp.html">acl.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="auth-asp.html">auth.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="base64-asp.html">base64.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="color-asp.html">color.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile" id="MSelected">
+                                image.asp
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="list-asp.html">list.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="logger-asp.html">logger.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="paginator-asp.html">paginator.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="stringbuilder-asp.html">stringbuilder.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="template-asp.html">template.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="translator-asp.html">translator.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="upload-asp.html">upload.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="xsession-asp.html">xsession.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="zip-asp.html">zip.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent8')">Templates</a>
+                    <div class="MGroupContent" id="MGroupContent8">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../templates/adapter-asp.html">${1:<wbr />name}.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../templates/controller-asp.html">${1:<wbr />name}.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../templates/model-asp.html">${1:<wbr />name}Model.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../templates/view-asp.html">${1:<wbr />name}View.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../templates/interface-asp.html">interface.asp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent9')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent9">
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/error-asp.html">error.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/genericView-asp.html">genericView.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/global-asa.html">global.asa</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../app/views/inspect-asp.html">inspect.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../default-asp.html">default.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../../../../global-asa.html">global.asa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="MEntry">
+                <div class="MGroup">
+                    <a href="javascript:ToggleMenu('MGroupContent10')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent10">
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/General.html">Everything</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Classes.html">Classes</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Files.html">Files</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Functions.html">Functions</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Properties.html">Properties</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MIndex">
+                                <a href="../../../../../index/Interfaces.html">Interfaces</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><script type="text/javascript">
+//<![CDATA[
+            <!--
+            var searchPanel = new SearchPanel("searchPanel", "HTML", "../../../../../search");
+            -->
+            //]]>
+            </script>
+            <div id="MSearchPanel" class="MSearchPanelInactive">
+                <input type="text" id="MSearchField" value="Search" onfocus="searchPanel.OnSearchFieldFocus(true)" onblur="searchPanel.OnSearchFieldFocus(false)" onkeyup="searchPanel.OnSearchFieldChange()" /><select id="MSearchType" onfocus="searchPanel.OnSearchTypeFocus(true)" onblur="searchPanel.OnSearchTypeFocus(false)" onchange="searchPanel.OnSearchTypeChange()">
+                    <option id="MSearchEverything" selected="selected" value="General">
+                        Everything
+                    </option>
+                    <option value="Classes">
+                        Classes
+                    </option>
+                    <option value="Files">
+                        Files
+                    </option>
+                    <option value="Functions">
+                        Functions
+                    </option>
+                    <option value="Interfaces">
+                        Interfaces
+                    </option>
+                    <option value="Properties">
+                        Properties
+                    </option>
+                </select>
+            </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+            <!--
+            HideAllBut([7], 11);// -->
+            //]]>
+            </script>
+        </div>
+        <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public sub go()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Executes the request to the application to retrieve the XML data.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function saveToFile(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            path,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            overwrite
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Saves the image to a path specified by path.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt3">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getExif()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Extract EXIF(EXchangeable Image Format) data from the Xml.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt4">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getBinary()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Extract binary data from the Xml.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt5">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getMime()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Extract MimeType from the Xml.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt6">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getFilename()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Extract filename from the imageinfo in Xml.
+            </div>
+        </div>
+        <div id="MSearchResultsWindow">
+            <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
+        </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script>
+    </body>
+</html>
