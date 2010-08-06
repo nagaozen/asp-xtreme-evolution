@@ -2,9 +2,9 @@
 <configurations>
     <common>
         <name>ASP Xtreme Evolution</name>
-        <version>1.1.0.0</version>
+        <version>1.2.0.0</version>
         <environment>development</environment>
-        <uri>http://192.168.0.155:50001</uri>
+        <uri>http://192.168.0.20:50001</uri>
     </common>
     <cache>
         <lifetime>6</lifetime>

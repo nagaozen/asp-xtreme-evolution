@@ -27,7 +27,7 @@
 ' Class: Email_Interface
 ' 
 ' Defines the common specifications required to implement a working adapter of 
-' Email.asp.
+' Email class.
 ' 
 ' About:
 ' 

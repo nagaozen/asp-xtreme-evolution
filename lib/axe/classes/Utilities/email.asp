@@ -28,6 +28,10 @@
 ' 
 ' Conceptual email object.
 ' 
+' Requires:
+' 
+'     - Email_Interface implementation
+' 
 ' About:
 ' 
 '     - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br> @ May 2010
@@ -302,8 +306,7 @@ class Email
     ' 
     ' (end code)
     ' 
-    public sub send()
-        call [_ε]
+    public sub send() : call [_ε]
         call Adapter.send(Me)
     end sub
     

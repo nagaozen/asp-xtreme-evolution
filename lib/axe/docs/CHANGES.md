@@ -35,9 +35,10 @@ for sure.
     - [Color](/lib/axe/docs/files/lib/axe/classes/Utilities/color-asp.html)
     - [CSV](/lib/axe/docs/files/lib/axe/classes/Parsers/csv-asp.html) _(not implemented yet)_
     - [CustomEvent](/lib/axe/docs/files/lib/axe/classes/customevent-asp.html)
+    - [Email](/lib/axe/docs/files/lib/axe/classes/Utilities/email-asp.html)
     - [Interface](/lib/axe/docs/files/lib/axe/classes/interface-asp.html)
     - [List](/lib/axe/docs/files/lib/axe/classes/Utilities/list-asp.html)
-    - [Logger](/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html)
+    - [Logger](/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html) _(not implemented yet)_
     - [Markdown](/lib/axe/docs/files/lib/axe/classes/Parsers/markdown-asp.html)
     - [Paginator](/lib/axe/docs/files/lib/axe/classes/Utilities/paginator-asp.html)
     - [RSS](/lib/axe/docs/files/lib/axe/classes/Feeds/rss-asp.html) _(work in progress)_
@@ -46,7 +47,7 @@ for sure.
     - [Textile](/lib/axe/docs/files/lib/axe/classes/Parsers/textile-asp.html) _(not implemented yet)_
     - [Translator](/lib/axe/docs/files/lib/axe/classes/Utilities/translator-asp.html) _(work in progress)_
     - [UnitTest](/lib/axe/docs/files/lib/axe/classes/unittest-asp.html)
-    - [XSession](/lib/axe/docs/files/lib/axe/classes/xsession-asp.html) _(not implemented yet)_
+    - [XSession](/lib/axe/docs/files/lib/axe/classes/Utilities/xsession-asp.html) _(not implemented yet)_
 * new services
     - [Akismet](/lib/axe/docs/files/lib/axe/classes/Services/akismet-asp.html)
     - [reCaptcha](/lib/axe/docs/files/lib/axe/classes/Services/recaptcha-asp.html)

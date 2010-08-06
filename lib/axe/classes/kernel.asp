@@ -210,8 +210,7 @@ class Kernel
     ' 
     public function cacheIndex(sController, sAction)
         cacheIndex = -1
-        dim i
-        for i = 0 to uBound(Application("Cache.items")) - 1
+        dim i : for i = 0 to uBound(Application("Cache.items")) - 1
             if(strComp(sController, Application("Cache.items")(i, 0)) = 0) then
                 if(strComp(sAction, Application("Cache.items")(i, 1)) = 0) then
                     cacheIndex = i
@@ -245,7 +244,7 @@ class Kernel
         Stream.open()
         
         dim aKeys : aKeys = Sd.keys
-        dim i :for i = 0 to Sd.count - 1
+        dim i : for i = 0 to Sd.count - 1
             Stream.writeText(strsubstitute("&{0}={1}", array(aKeys(i), Server.urlEncode(Sd.item(aKeys(i))))))
         next
         
@@ -314,7 +313,7 @@ class Kernel
             end with
             set Stream = nothing
         else
-            loadTextFile = "File doesn't exists."
+            Err.raise 53, "Evolved AXE runtime error"
         end if
     end function
 
@@ -467,52 +466,52 @@ class Kernel
     public function indentedTransform(Xml, Xslt, sOutput, sIndent)
         dim sPoorlyIndented : sPoorlyIndented = strictTransform(Xml, Xslt)
         dim sReIndent : sReIndent = join(array(_
-        "<?xml version=""1.0"" encoding=""UTF-8""?>", _
-        "<xsl:transform xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" version=""1.0"">", _
-        "  " & sOutput, _
-        "  <xsl:param name=""delete_comments"" select=""false()""/>", _
-        "  <xsl:param name=""indent_string"" select=""'" & sIndent & "'""/>", _
-        "  <xsl:strip-space elements=""*""/>", _
-        "  <xsl:preserve-space elements=""xsl:text""/>", _
-        "  <xsl:template name=""whitespace-before"">", _
-        "    <xsl:if test=""ancestor::*"">", _
-        "      <xsl:text>&#10;</xsl:text>", _
-        "    </xsl:if>", _
-        "    <xsl:for-each select=""ancestor::*"">", _
-        "      <xsl:value-of select=""$indent_string""/>", _
-        "    </xsl:for-each>", _
-        "  </xsl:template>", _
-        "  <xsl:template name=""whitespace-after"">", _
-        "    <xsl:if test=""not(following-sibling::node())"">", _
-        "      <xsl:text>&#10;</xsl:text>", _
-        "      <xsl:for-each select=""../ancestor::*"">", _
-        "        <xsl:value-of select=""$indent_string""/>", _
-        "      </xsl:for-each>", _
-        "    </xsl:if>", _
-        "  </xsl:template>", _
-        "  <xsl:template match=""*"">", _
-        "    <xsl:call-template name=""whitespace-before""/>", _
-        "    <xsl:copy>", _
-        "      <xsl:apply-templates select=""@*|node()""/>", _
-        "    </xsl:copy>", _
-        "    <xsl:call-template name=""whitespace-after""/>", _
-        "  </xsl:template>", _
-        "  <xsl:template match=""@*"">", _
-        "    <xsl:copy/>", _
-        "  </xsl:template>", _
-        "  <xsl:template match=""processing-instruction()"">", _
-        "    <xsl:call-template name=""whitespace-before""/>", _
-        "    <xsl:copy/>", _
-        "    <xsl:call-template name=""whitespace-after""/>", _
-        "  </xsl:template>", _
-        "  <xsl:template match=""comment()"">", _
-        "    <xsl:if test=""not($delete_comments)"">", _
-        "      <xsl:call-template name=""whitespace-before""/>", _
-        "      <xsl:copy/>", _
-        "      <xsl:call-template name=""whitespace-after""/>", _
-        "    </xsl:if>", _
-        "  </xsl:template>", _
-        "</xsl:transform>" _
+            "<?xml version=""1.0"" encoding=""UTF-8""?>", _
+            "<xsl:transform xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" version=""1.0"">", _
+            "  " & sOutput, _
+            "  <xsl:param name=""delete_comments"" select=""false()""/>", _
+            "  <xsl:param name=""indent_string"" select=""'" & sIndent & "'""/>", _
+            "  <xsl:strip-space elements=""*""/>", _
+            "  <xsl:preserve-space elements=""xsl:text""/>", _
+            "  <xsl:template name=""whitespace-before"">", _
+            "    <xsl:if test=""ancestor::*"">", _
+            "      <xsl:text>&#10;</xsl:text>", _
+            "    </xsl:if>", _
+            "    <xsl:for-each select=""ancestor::*"">", _
+            "      <xsl:value-of select=""$indent_string""/>", _
+            "    </xsl:for-each>", _
+            "  </xsl:template>", _
+            "  <xsl:template name=""whitespace-after"">", _
+            "    <xsl:if test=""not(following-sibling::node())"">", _
+            "      <xsl:text>&#10;</xsl:text>", _
+            "      <xsl:for-each select=""../ancestor::*"">", _
+            "        <xsl:value-of select=""$indent_string""/>", _
+            "      </xsl:for-each>", _
+            "    </xsl:if>", _
+            "  </xsl:template>", _
+            "  <xsl:template match=""*"">", _
+            "    <xsl:call-template name=""whitespace-before""/>", _
+            "    <xsl:copy>", _
+            "      <xsl:apply-templates select=""@*|node()""/>", _
+            "    </xsl:copy>", _
+            "    <xsl:call-template name=""whitespace-after""/>", _
+            "  </xsl:template>", _
+            "  <xsl:template match=""@*"">", _
+            "    <xsl:copy/>", _
+            "  </xsl:template>", _
+            "  <xsl:template match=""processing-instruction()"">", _
+            "    <xsl:call-template name=""whitespace-before""/>", _
+            "    <xsl:copy/>", _
+            "    <xsl:call-template name=""whitespace-after""/>", _
+            "  </xsl:template>", _
+            "  <xsl:template match=""comment()"">", _
+            "    <xsl:if test=""not($delete_comments)"">", _
+            "      <xsl:call-template name=""whitespace-before""/>", _
+            "      <xsl:copy/>", _
+            "      <xsl:call-template name=""whitespace-after""/>", _
+            "    </xsl:if>", _
+            "  </xsl:template>", _
+            "</xsl:transform>" _
         ))
         
         set Xml = str2xml(sPoorlyIndented)

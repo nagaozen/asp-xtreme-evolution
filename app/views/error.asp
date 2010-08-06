@@ -45,7 +45,15 @@ end if
 dim AspError, category, message
 set AspError = Server.getLastError()
 if((AspError.description <> "") and (AspError.file <> "") and (AspError.line > 0)) then
-    category = AspError.category
+    category = strsubstitute( _
+        "{0}{1} (0x{2})", _
+        array( _
+            AspError.category, _
+            iif(AspError.aspCode > "", Server.htmlEncode(", " & AspError.aspCode), ""), _
+            Hex(AspError.number) _
+        ) _
+    )
+    
     message = strsubstitute( _
         "<p><strong>{0}</strong> @ <code>{1}</code>{2}{3}</p>{4}", _
         array( _
@@ -53,7 +61,7 @@ if((AspError.description <> "") and (AspError.file <> "") and (AspError.line > 0
             AspError.file, _
             iif(AspError.line > 0, (", line: <code>" & AspError.line & "</code>"), ""), _
             iif(AspError.column > 0, (", column: " & AspError.column & "</code>"), ""), _
-            iif(AspError.source > "", "<pre><code>" & Server.HTMLEncode(AspError.source) & "</code></pre>", "") _
+            iif(AspError.source > "", "<pre><code>" & Server.htmlEncode(AspError.source) & "</code></pre>", "") _
         ) _
     )
 end if

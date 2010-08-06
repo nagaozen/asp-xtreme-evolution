@@ -10,6 +10,7 @@
         <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
 </script>
         <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css" />
     </head>
     <body class="ContentPage" onload="NDOnLoad()">
         <script language="JavaScript" type="text/javascript">
@@ -111,10 +112,10 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Template.write" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">write</a>
+                                            <a href="#Template.setValue" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">setValue</a>
                                         </td>
                                         <td class="SDescription">
-                                            Subroutine to Response.write templates directly from arguments.
+                                            This is the class default method.
                                         </td>
                                     </tr>
                                     <tr class="SFunction SIndent2">
@@ -295,10 +296,10 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Template.write" id="link15" onmouseover="ShowTip(event, 'tt1', 'link15')" onmouseout="HideTip('tt1')">write</a>
+                                            <a href="#Template.setValue" id="link15" onmouseover="ShowTip(event, 'tt1', 'link15')" onmouseout="HideTip('tt1')">setValue</a>
                                         </td>
                                         <td class="SDescription">
-                                            Subroutine to Response.write templates directly from arguments.
+                                            This is the class default method.
                                         </td>
                                     </tr>
                                     <tr class="SFunction SIndent1">
@@ -528,7 +529,7 @@
             <div class="CFunction">
                 <div class="CTopic">
                     <h3 class="CTitle">
-                        <a id="Template.write"></a>write
+                        <a id="Template.setValue"></a>setValue
                     </h3>
                     <div class="CBody">
                         <blockquote>
@@ -538,16 +539,10 @@
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td class="PBeforeParameters" nowrap="nowrap">
-                                                    public sub write(
+                                                    public default function setValue(
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    sTemplate,
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    saArgs
+                                                    s
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
                                                     )
@@ -559,7 +554,7 @@
                             </table>
                         </blockquote>
                         <p>
-                            Subroutine to Response.write templates directly from arguments.
+                            This is the class default method.&nbsp; It sets the instance value property working as a nice shortcut for the other methods.
                         </p>
                         <h4 class="CHeading">
                             Parameters
@@ -570,15 +565,20 @@
                                     (string)
                                 </td>
                                 <td class="CDLDescription">
-                                    Template with placeholders.
+                                    value
                                 </td>
                             </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
                             <tr>
                                 <td class="CDLEntry">
-                                    (string[])
+                                    (Template)
                                 </td>
                                 <td class="CDLDescription">
-                                    Array with the replacements.
+                                    self object
                                 </td>
                             </tr>
                         </table>
@@ -588,20 +588,13 @@
                         <blockquote>
                             <div class="code">
                                 <pre class="asp">
-<span class="co1">' The infamous hello world example using Template.write</span>
 <span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template
-XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span>
-XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span class="kw2">null</span>
+XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>.<span class="me1">substitute</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>
 <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
                             </div>
                         </blockquote>
-                        <h4 class="CHeading">
-                            See also
-                        </h4>
-                        <p>
-                            <a href="#Template.substitute" class="LFunction" id="link29" onmouseover="ShowTip(event, 'tt2', 'link29')" onmouseout="HideTip('tt2')">substitute</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -678,7 +671,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             See also
                         </h4>
                         <p>
-                            <a href="#Template.write" class="LFunction" id="link30" onmouseover="ShowTip(event, 'tt1', 'link30')" onmouseout="HideTip('tt1')">write</a>
+                            &lt;write&gt;
                         </p>
                     </div>
                 </div>
@@ -900,7 +893,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             See also
                         </h4>
                         <p>
-                            <a href="#Template.toUpperCase" class="LFunction" id="link31" onmouseover="ShowTip(event, 'tt6', 'link31')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link32" onmouseover="ShowTip(event, 'tt7', 'link32')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link33" onmouseover="ShowTip(event, 'tt8', 'link33')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link34" onmouseover="ShowTip(event, 'tt9', 'link34')" onmouseout="HideTip('tt9')">hyphenate</a>
+                            <a href="#Template.toUpperCase" class="LFunction" id="link29" onmouseover="ShowTip(event, 'tt6', 'link29')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link30" onmouseover="ShowTip(event, 'tt7', 'link30')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link31" onmouseover="ShowTip(event, 'tt8', 'link31')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link32" onmouseover="ShowTip(event, 'tt9', 'link32')" onmouseout="HideTip('tt9')">hyphenate</a>
                         </p>
                     </div>
                 </div>
@@ -978,7 +971,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             See also
                         </h4>
                         <p>
-                            <a href="#Template.toLowerCase" class="LFunction" id="link35" onmouseover="ShowTip(event, 'tt5', 'link35')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.capitalize" class="LFunction" id="link36" onmouseover="ShowTip(event, 'tt7', 'link36')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link37" onmouseover="ShowTip(event, 'tt8', 'link37')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link38" onmouseover="ShowTip(event, 'tt9', 'link38')" onmouseout="HideTip('tt9')">hyphenate</a>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link33" onmouseover="ShowTip(event, 'tt5', 'link33')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.capitalize" class="LFunction" id="link34" onmouseover="ShowTip(event, 'tt7', 'link34')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link35" onmouseover="ShowTip(event, 'tt8', 'link35')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link36" onmouseover="ShowTip(event, 'tt9', 'link36')" onmouseout="HideTip('tt9')">hyphenate</a>
                         </p>
                     </div>
                 </div>
@@ -1070,7 +1063,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             See also
                         </h4>
                         <p>
-                            <a href="#Template.toLowerCase" class="LFunction" id="link39" onmouseover="ShowTip(event, 'tt5', 'link39')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link40" onmouseover="ShowTip(event, 'tt6', 'link40')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.camelize" class="LFunction" id="link41" onmouseover="ShowTip(event, 'tt8', 'link41')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link42" onmouseover="ShowTip(event, 'tt9', 'link42')" onmouseout="HideTip('tt9')">hyphenate</a>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link37" onmouseover="ShowTip(event, 'tt5', 'link37')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link38" onmouseover="ShowTip(event, 'tt6', 'link38')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.camelize" class="LFunction" id="link39" onmouseover="ShowTip(event, 'tt8', 'link39')" onmouseout="HideTip('tt8')">camelize</a>, <a href="#Template.hyphenate" class="LFunction" id="link40" onmouseover="ShowTip(event, 'tt9', 'link40')" onmouseout="HideTip('tt9')">hyphenate</a>
                         </p>
                     </div>
                 </div>
@@ -1162,7 +1155,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             See also
                         </h4>
                         <p>
-                            <a href="#Template.toLowerCase" class="LFunction" id="link43" onmouseover="ShowTip(event, 'tt5', 'link43')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link44" onmouseover="ShowTip(event, 'tt6', 'link44')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link45" onmouseover="ShowTip(event, 'tt7', 'link45')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.hyphenate" class="LFunction" id="link46" onmouseover="ShowTip(event, 'tt9', 'link46')" onmouseout="HideTip('tt9')">hyphenate</a>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link41" onmouseover="ShowTip(event, 'tt5', 'link41')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link42" onmouseover="ShowTip(event, 'tt6', 'link42')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link43" onmouseover="ShowTip(event, 'tt7', 'link43')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.hyphenate" class="LFunction" id="link44" onmouseover="ShowTip(event, 'tt9', 'link44')" onmouseout="HideTip('tt9')">hyphenate</a>
                         </p>
                     </div>
                 </div>
@@ -1254,7 +1247,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             See also
                         </h4>
                         <p>
-                            <a href="#Template.toLowerCase" class="LFunction" id="link47" onmouseover="ShowTip(event, 'tt5', 'link47')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link48" onmouseover="ShowTip(event, 'tt6', 'link48')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link49" onmouseover="ShowTip(event, 'tt7', 'link49')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link50" onmouseover="ShowTip(event, 'tt8', 'link50')" onmouseout="HideTip('tt8')">camelize</a>
+                            <a href="#Template.toLowerCase" class="LFunction" id="link45" onmouseover="ShowTip(event, 'tt5', 'link45')" onmouseout="HideTip('tt5')">toLowerCase</a>, <a href="#Template.toUpperCase" class="LFunction" id="link46" onmouseover="ShowTip(event, 'tt6', 'link46')" onmouseout="HideTip('tt6')">toUpperCase</a>, <a href="#Template.capitalize" class="LFunction" id="link47" onmouseover="ShowTip(event, 'tt7', 'link47')" onmouseout="HideTip('tt7')">capitalize</a>, <a href="#Template.camelize" class="LFunction" id="link48" onmouseover="ShowTip(event, 'tt8', 'link48')" onmouseout="HideTip('tt8')">camelize</a>
                         </p>
                     </div>
                 </div>
@@ -1336,7 +1329,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">contains</span><span class="br0">(</span>0, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">contains</span><span class="br0">(</span><span class="nu0">0</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
 <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
                             </div>
@@ -1435,8 +1428,8 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>0, 5, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>6,, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span><span class="nu0">0</span>, <span class="nu0">5</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span><span class="nu0">6</span>,, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
 <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
                             </div>
@@ -1535,8 +1528,8 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template <span class="sy0">:</span> XString.<span class="me1">value</span> <span class="sy0">=</span> <span class="st0">"{0} {1}"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>0, 2, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span>6,, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span><span class="nu0">0</span>, <span class="nu0">2</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span> XString.<span class="me1">substr</span><span class="br0">(</span><span class="nu0">6</span>,, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
 <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
                             </div>
@@ -1816,6 +1809,11 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
+                                <a href="../Parsers/json2-asp.html">json2.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
                                 <a href="../Parsers/markdown-asp.html">markdown.asp</a>
                             </div>
                         </div>
@@ -1868,15 +1866,15 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent7')">Utilities</a>
-                    <div class="MGroupContent" id="MGroupContent7">
+                    <a href="javascript:ToggleMenu('MGroupContent8')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent8">
                         <div class="MEntry">
                             <div class="MGroup">
                                 <a href="javascript:ToggleMenu('MGroupContent6')">Email</a>
                                 <div class="MGroupContent" id="MGroupContent6">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="email-asp.html">email.asp</a>
+                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -1884,9 +1882,16 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                                             <a href="Email/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent7')">Translator</a>
+                                <div class="MGroupContent" id="MGroupContent7">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
+                                            <a href="Translator/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1910,6 +1915,11 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="color-asp.html">color.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="email-asp.html">email.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -1967,8 +1977,8 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent8')">Templates</a>
-                    <div class="MGroupContent" id="MGroupContent8">
+                    <a href="javascript:ToggleMenu('MGroupContent9')">Templates</a>
+                    <div class="MGroupContent" id="MGroupContent9">
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="../../templates/adapter-asp.html">${1:<wbr />name}.asp</a>
@@ -1999,81 +2009,77 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent9')">Miscellaneous</a>
-                    <div class="MGroupContent" id="MGroupContent9">
+                    <a href="javascript:ToggleMenu('MGroupContent14')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent14">
                         <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/error-asp.html">error.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/genericView-asp.html">genericView.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/global-asa.html">global.asa</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/inspect-asp.html">inspect.asp</a>
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent12')">App</a>
+                                <div class="MGroupContent" id="MGroupContent12">
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent10')">Controllers</a>
+                                            <div class="MGroupContent" id="MGroupContent10">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/controllers/masterpage_example-asp.html">masterpage_example.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/controllers/sunny-asp.html">sunny.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent11')">Views</a>
+                                            <div class="MGroupContent" id="MGroupContent11">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/error-asp.html">error.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/genericView-asp.html">genericView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/global-asa.html">global.asa</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/inspect-asp.html">inspect.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -2086,13 +2092,55 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                                 <a href="../../../../global-asa.html">global.asa</a>
                             </div>
                         </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent13')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent13">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent10')">Index</a>
-                    <div class="MGroupContent" id="MGroupContent10">
+                    <a href="javascript:ToggleMenu('MGroupContent15')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent15">
                         <div class="MEntry">
                             <div class="MIndex">
                                 <a href="../../../../../index/General.html">Everything</a>
@@ -2156,7 +2204,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([7], 11);// -->
+            HideAllBut([8], 16);// -->
             //]]>
             </script>
         </div>
@@ -2169,16 +2217,10 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                                 <table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
-                                            public sub write(
+                                            public default function setValue(
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            sTemplate,
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            saArgs
+                                            s
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
                                             )
@@ -2188,7 +2230,7 @@ XString.<span class="kw3">write</span> <span class="st0">"{0} {1}"</span>, <span
                             </td>
                         </tr>
                     </table>
-                </blockquote>Subroutine to Response.write templates directly from arguments.
+                </blockquote>This is the class default method.
             </div>
         </div>
         <div class="CToolTip" id="tt2">

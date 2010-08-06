@@ -64,6 +64,7 @@ dl dd {
 
 /* --( layout )-------------------------------------------------------------- */
 body {
+    font-family: 'Droid Sans', arial, serif;
     color: #2E3436;
 }
 
@@ -114,19 +115,10 @@ blockquote {
         text-align: center;
     }
 
-    .MGroup a {
-        display: block;
-        background: #729fcf;
-        border-right: 4px solid #3465A4;
-        margin-bottom: 2px;
-        padding: 3px 5px;
-        color: #EEEEEC;
-        font-weight: bold;
-        letter-spacing: -1px;
-        text-align: right;
-        text-decoration: none;
+    .MGroup {
+        margin-left: 2px;
     }
-
+    
     .MGroupContent a {
         display: block;
         background: #555753;
@@ -140,10 +132,21 @@ blockquote {
         text-decoration: none;
     }
         .MGroupContent a:hover { background: #888a85; }
-        .MGroupContent .MGroupContent a { margin-left: 5px; }
-        .MGroupContent .MGroupContent .MGroupContent a { margin-left: 10px; }
-        .MGroupContent .MGroupContent .MGroupContent .MGroupContent a { margin-left: 15px; }
-
+    
+    .MGroup > a {
+        display: block;
+        background: #729fcf;
+        border-right: 4px solid #3465A4;
+        margin-bottom: 2px;
+        padding: 3px 5px;
+        color: #EEEEEC;
+        font-weight: bold;
+        letter-spacing: -1px;
+        text-align: right;
+        text-decoration: none;
+    }
+        .MGroup > a:hover { background: #3465A4; }
+    
     #MSelected {
         background: #FFFFFF;
         margin-bottom: 2px;

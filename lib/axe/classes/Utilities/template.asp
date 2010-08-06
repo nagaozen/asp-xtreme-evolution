@@ -85,40 +85,35 @@ class Template
     private sub Class_terminate()
     end sub
     
-    ' Subroutine: write
+    ' Function: setValue
     ' 
-    ' Subroutine to Response.write templates directly from arguments.
+    ' This is the class default method. It sets the instance value property.
     ' 
     ' Parameters:
     ' 
-    '   (string)   - Template with placeholders.
-    '   (string[]) - Array with the replacements.
+    '     (string) - template value
+    ' 
+    ' Returns:
+    ' 
+    '     (Template) - a self object reference
     ' 
     ' Example:
     ' 
     ' (start code)
     ' 
-    ' ' The infamous hello world example using Template.write
     ' dim XString : set XString = new Template
-    ' XString.write "{0} {1}", array("Hello", "World")
-    ' XString.write "{0} {1}", null
+    ' XString("{0} {1}").value' prints "{0} {1}"
+    ' XString("{0} {1}").substitute(array("Hello", "World"))' prints "Hello World"
+    ' XString("{0} {1}").toLowerCase(array("Hello", "World"))' prints "hello world"
+    ' XString("{0} {1}").<any_other_method_of_this_class>(arguments)' just works
     ' set XString = nothing
     ' 
     ' (end code)
     ' 
-    ' See also:
-    ' 
-    '   <substitute>
-    ' 
-    public sub write(sTemplate, saArgs)
-        dim i
-        if( isArray(saArgs) ) then
-            for i = 0 to ubound(saArgs)
-                sTemplate = Replace(sTemplate, "{" & i & "}", saArgs(i))
-            next
-        end if
-        Response.write sTemplate
-    end sub
+    public default function setValue(s)
+        value = s
+        set setValue = Me
+    end function
     
     ' Function: substitute
     ' 
@@ -143,10 +138,6 @@ class Template
     ' set XString = nothing
     ' 
     ' (end code)
-    ' 
-    ' See also:
-    ' 
-    '   <write>
     ' 
     public function substitute(saArgs)
         dim sTemplate, i
@@ -536,7 +527,7 @@ class Template
     ' 
     ' Parameters:
     ' 
-    '   (string)  - XString representation of the regular expression
+    '   (string)  - VBScript regular expression
     '   (boolean) - true|false indicating to enable a CI search or not
     '   (boolean) - true|false indicating to match or not all occurrences of the pattern
     '   (string[]) - Replacements

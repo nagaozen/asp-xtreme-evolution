@@ -28,7 +28,7 @@
 ' 
 ' Requires:
 ' 
-'     - Translator_Adapter_*
+'     - Translator_Interface implementation
 ' 
 ' About:
 ' 
@@ -76,6 +76,16 @@ class Translator
     ' 
     public Adapter
     
+    ' Subroutine: [_ε]
+    ' 
+    ' {private} Checks for an adapter assignment.
+    ' 
+    private sub [_ε]
+        if( isEmpty(Adapter) ) then
+            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Missing an Adapter."
+        end if
+    end sub
+    
     private sub Class_initialize()
         classType    = typename(Me)
         classVersion = "1.0.0"
@@ -112,12 +122,8 @@ class Translator
     ' 
     ' (end code)
     ' 
-    public default function getText(message)
-        if(isEmpty(Adapter)) then
-            getText = "Please set an Adapter"
-        else
-            getText = Adapter.getText(language, message)
-        end if
+    public default function getText(message) : call [_ε]
+        getText = Adapter.getText(language, message)
     end function
     
 end class

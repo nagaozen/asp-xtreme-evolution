@@ -10,6 +10,7 @@
         <script language="JavaScript" src="../../../../../javascript/searchdata.js" type="text/javascript">
 </script>
         <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css" />
     </head>
     <body class="ContentPage" onload="NDOnLoad()">
         <script language="JavaScript" type="text/javascript">
@@ -111,7 +112,15 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Translator.getText" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">getText</a>
+                                            <a href="#Translator.[_?]" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">[_?]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            {private} Checks for an adapter assignment.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Translator.getText" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">getText</a>
                                         </td>
                                         <td class="SDescription">
                                             Looks up a message in the current configuration.
@@ -136,7 +145,7 @@
                             Requires
                         </h4>
                         <ul>
-                            <li>Translator_Adapter_*
+                            <li>Translator_Interface implementation
                             </li>
                         </ul>
                         <h4 class="CHeading">
@@ -198,7 +207,15 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Translator.getText" id="link2" onmouseover="ShowTip(event, 'tt1', 'link2')" onmouseout="HideTip('tt1')">getText</a>
+                                            <a href="#Translator.[_?]" id="link3" onmouseover="ShowTip(event, 'tt1', 'link3')" onmouseout="HideTip('tt1')">[_?]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            {private} Checks for an adapter assignment.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Translator.getText" id="link4" onmouseover="ShowTip(event, 'tt2', 'link4')" onmouseout="HideTip('tt2')">getText</a>
                                         </td>
                                         <td class="SDescription">
                                             Looks up a message in the current configuration.
@@ -327,6 +344,27 @@
             <div class="CFunction">
                 <div class="CTopic">
                     <h3 class="CTitle">
+                        <a id="Translator.[_?]"></a>[_?]
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        private sub [_?]
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            {private} Checks for an adapter assignment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
                         <a id="Translator.getText"></a>getText
                     </h3>
                     <div class="CBody">
@@ -343,7 +381,7 @@
                                                     message
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
-                                                    )
+                                                    ) : call [_?]
                                                 </td>
                                             </tr>
                                         </table>
@@ -476,6 +514,11 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
+                                <a href="../Parsers/json2-asp.html">json2.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
                                 <a href="../Parsers/markdown-asp.html">markdown.asp</a>
                             </div>
                         </div>
@@ -528,15 +571,15 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent7')">Utilities</a>
-                    <div class="MGroupContent" id="MGroupContent7">
+                    <a href="javascript:ToggleMenu('MGroupContent8')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent8">
                         <div class="MEntry">
                             <div class="MGroup">
                                 <a href="javascript:ToggleMenu('MGroupContent6')">Email</a>
                                 <div class="MGroupContent" id="MGroupContent6">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="email-asp.html">email.asp</a>
+                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -544,9 +587,16 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                                             <a href="Email/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent7')">Translator</a>
+                                <div class="MGroupContent" id="MGroupContent7">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
+                                            <a href="Translator/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -570,6 +620,11 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="color-asp.html">color.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="email-asp.html">email.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -627,8 +682,8 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent8')">Templates</a>
-                    <div class="MGroupContent" id="MGroupContent8">
+                    <a href="javascript:ToggleMenu('MGroupContent9')">Templates</a>
+                    <div class="MGroupContent" id="MGroupContent9">
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="../../templates/adapter-asp.html">${1:<wbr />name}.asp</a>
@@ -659,81 +714,77 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent9')">Miscellaneous</a>
-                    <div class="MGroupContent" id="MGroupContent9">
+                    <a href="javascript:ToggleMenu('MGroupContent14')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent14">
                         <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/error-asp.html">error.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/genericView-asp.html">genericView.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/global-asa.html">global.asa</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../../../../app/views/inspect-asp.html">inspect.asp</a>
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent12')">App</a>
+                                <div class="MGroupContent" id="MGroupContent12">
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent10')">Controllers</a>
+                                            <div class="MGroupContent" id="MGroupContent10">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/controllers/masterpage_example-asp.html">masterpage_example.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/controllers/sunny-asp.html">sunny.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent11')">Views</a>
+                                            <div class="MGroupContent" id="MGroupContent11">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/error-asp.html">error.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/genericView-asp.html">genericView.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/global-asa.html">global.asa</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../../../app/views/inspect-asp.html">inspect.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -746,13 +797,55 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                                 <a href="../../../../global-asa.html">global.asa</a>
                             </div>
                         </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent13')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent13">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../sessions-finalize-asp.html">sessions.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../sessions-initialize-asp.html">sessions.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../shuttle-unload-finalize-asp.html">shuttle.<wbr />unload.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../shuttle-unload-initialize-asp.html">shuttle.<wbr />unload.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../singletons-finalize-asp.html">singletons.<wbr />finalize.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../singletons-initialize-asp.html">singletons.<wbr />initialize.asp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent10')">Index</a>
-                    <div class="MGroupContent" id="MGroupContent10">
+                    <a href="javascript:ToggleMenu('MGroupContent15')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent15">
                         <div class="MEntry">
                             <div class="MIndex">
                                 <a href="../../../../../index/General.html">Everything</a>
@@ -816,11 +909,24 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([7], 11);// -->
+            HideAllBut([8], 16);// -->
             //]]>
             </script>
         </div>
         <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                private sub [_?]
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>{private} Checks for an adapter assignment.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -835,7 +941,7 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                                             message
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
-                                            )
+                                            ) : call [_?]
                                         </td>
                                     </tr>
                                 </table>
