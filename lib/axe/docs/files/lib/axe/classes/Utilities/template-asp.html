@@ -554,7 +554,7 @@
                             </table>
                         </blockquote>
                         <p>
-                            This is the class default method.&nbsp; It sets the instance value property working as a nice shortcut for the other methods.
+                            This is the class default method.&nbsp; It sets the instance value property.
                         </p>
                         <h4 class="CHeading">
                             Parameters
@@ -565,7 +565,7 @@
                                     (string)
                                 </td>
                                 <td class="CDLDescription">
-                                    value
+                                    template value
                                 </td>
                             </tr>
                         </table>
@@ -578,7 +578,7 @@
                                     (Template)
                                 </td>
                                 <td class="CDLDescription">
-                                    self object
+                                    a self object reference
                                 </td>
                             </tr>
                         </table>
@@ -589,8 +589,10 @@
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">dim</span> XString <span class="sy0">:</span> <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">new</span> Template
-XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>.<span class="me1">substitute</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span>
-XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>
+XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>.<span class="me1">value</span><span class="co1">' prints "{0} {1}"</span>
+XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>.<span class="me1">substitute</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span><span class="co1">' prints "Hello World"</span>
+XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>.<span class="me1">toLowerCase</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">"Hello"</span>, <span class="st0">"World"</span><span class="br0">)</span><span class="br0">)</span><span class="co1">' prints "hello world"</span>
+XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="br0">)</span>.<span class="sy0">&lt;</span>any_other_method_of_this_class<span class="sy0">&gt;</span><span class="br0">(</span>arguments<span class="br0">)</span><span class="co1">' just works</span>
 <span class="kw1">set</span> XString <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
                             </div>
@@ -667,12 +669,6 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
 </pre>
                             </div>
                         </blockquote>
-                        <h4 class="CHeading">
-                            See also
-                        </h4>
-                        <p>
-                            &lt;write&gt;
-                        </p>
                     </div>
                 </div>
             </div>
@@ -1681,7 +1677,7 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
                                     (string)
                                 </td>
                                 <td class="CDLDescription">
-                                    XString representation of the regular expression
+                                    VBScript regular expression
                                 </td>
                             </tr>
                             <tr>
@@ -2009,32 +2005,15 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent14')">Miscellaneous</a>
-                    <div class="MGroupContent" id="MGroupContent14">
+                    <a href="javascript:ToggleMenu('MGroupContent13')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent13">
                         <div class="MEntry">
                             <div class="MGroup">
-                                <a href="javascript:ToggleMenu('MGroupContent12')">App</a>
-                                <div class="MGroupContent" id="MGroupContent12">
+                                <a href="javascript:ToggleMenu('MGroupContent11')">App</a>
+                                <div class="MGroupContent" id="MGroupContent11">
                                     <div class="MEntry">
-                                        <div class="MGroup">
-                                            <a href="javascript:ToggleMenu('MGroupContent10')">Controllers</a>
-                                            <div class="MGroupContent" id="MGroupContent10">
-                                                <div class="MEntry">
-                                                    <div class="MFile">
-                                                        <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
-                                                    </div>
-                                                </div>
-                                                <div class="MEntry">
-                                                    <div class="MFile">
-                                                        <a href="../../../../app/controllers/masterpage_example-asp.html">masterpage_example.asp</a>
-                                                    </div>
-                                                </div>
-                                                <div class="MEntry">
-                                                    <div class="MFile">
-                                                        <a href="../../../../app/controllers/sunny-asp.html">sunny.asp</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="MFile">
+                                            <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -2044,8 +2023,8 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
                                     </div>
                                     <div class="MEntry">
                                         <div class="MGroup">
-                                            <a href="javascript:ToggleMenu('MGroupContent11')">Views</a>
-                                            <div class="MGroupContent" id="MGroupContent11">
+                                            <a href="javascript:ToggleMenu('MGroupContent10')">Views</a>
+                                            <div class="MGroupContent" id="MGroupContent10">
                                                 <div class="MEntry">
                                                     <div class="MFile">
                                                         <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
@@ -2094,8 +2073,8 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
                         </div>
                         <div class="MEntry">
                             <div class="MGroup">
-                                <a href="javascript:ToggleMenu('MGroupContent13')">Lib</a>
-                                <div class="MGroupContent" id="MGroupContent13">
+                                <a href="javascript:ToggleMenu('MGroupContent12')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent12">
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
@@ -2139,8 +2118,8 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent15')">Index</a>
-                    <div class="MGroupContent" id="MGroupContent15">
+                    <a href="javascript:ToggleMenu('MGroupContent14')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent14">
                         <div class="MEntry">
                             <div class="MIndex">
                                 <a href="../../../../../index/General.html">Everything</a>
@@ -2204,7 +2183,7 @@ XString<span class="br0">(</span><span class="st0">"{0} {1}"</span><span class="
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([8], 16);// -->
+            HideAllBut([8], 15);// -->
             //]]>
             </script>
         </div>

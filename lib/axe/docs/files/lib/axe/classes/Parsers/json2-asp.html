@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>
-            auth.asp - AXE Documentation
+            json2.asp - AXE Documentation
         </title>
         <link rel="stylesheet" type="text/css" href="../../../../../styles/main.css" />
         <script language="JavaScript" src="../../../../../javascript/main.js" type="text/javascript">
@@ -23,17 +23,20 @@
             <div class="CFile">
                 <div class="CTopic" id="MainTopic">
                     <h1 class="CTitle">
-                        <a id="auth.asp"></a>auth.asp
+                        <a id="json2.asp"></a>json2.asp
                     </h1>
                     <div class="CBody">
                         <p>
-                            AXE(ASP Xtreme Evolution) implementation of authentication utility.
+                            AXE(ASP Xtreme Evolution) JSON parser based on Douglas Crockford json2.js.
+                        </p>
+                        <p>
+                            This class is the result of Classic ASP JSON topic revisited by Fabio Zendhi Nagao (nagaozen).&nbsp; JSON2.ASP is a better option over JSON.ASP because it embraces the AXE philosophy of real collaboration over the languages.&nbsp; It works under the original json parser, so this class is strict in the standard rules, plus it brings more of the Javascript json feeling to other ASP languages (eg. no more oJson.getElement(&#8220;foo&#8221;) stuff, just oJson.foo and you get it).
                         </p>
                         <h4 class="CHeading">
                             License
                         </h4>
                         <p>
-                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2009 Fabio Zendhi Nagao
+                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2010 Fabio Zendhi Nagao
                         </p>
                         <p>
                             ASP Xtreme Evolution is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -44,6 +47,303 @@
                         <p>
                             You should have received a copy of the GNU Lesser General Public License along with ASP Xtreme Evolution.&nbsp; If not, see <a href="http://www.gnu.org/licenses/" class="LURL" target="_top">http://www.gnu.org/licenses/</a>.
                         </p>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#json2.asp">json2.asp</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            AXE(ASP Xtreme Evolution) JSON parser based on Douglas Crockford json2.js.
+                                        </td>
+                                    </tr>
+                                    <tr class="SClass">
+                                        <td class="SEntry">
+                                            <a href="#JSON">JSON</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#JSON.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#JSON.parse">parse</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method parses a JSON text to produce an object or array.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#JSON.stringify">stringify</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method produces a JSON text from a JavaScript value.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CClass">
+                <div class="CTopic">
+                    <h2 class="CTitle">
+                        <a id="JSON"></a>JSON
+                    </h2>
+                    <div class="CBody">
+                        <p>
+                            JSON (JavaScript Object Notation) is a lightweight data-interchange format.&nbsp; It is easy for humans to read and write.&nbsp; It is easy for machines to parse and generate.&nbsp; It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999.&nbsp; JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others.&nbsp; These properties make JSON an ideal data-interchange language.
+                        </p>
+                        <h4 class="CHeading">
+                            Notes
+                        </h4>
+                        <ul>
+                            <li>Javascript extensions concept inspired by Troy Foster JSON2.ASP work <a href="http://tforster.wik.is/ASP_Classic_Practices_For_The_21st_Century/JSON4ASP" class="LURL" target="_top">http://tforster.wik.is<wbr />/ASP_Classic_Practices_For_The_21st_Century<wbr />/JSON4ASP</a>.
+                            </li>
+                            <li>Javascript JSON parser is the Douglas Crockford json2.js <a href="http://www.JSON.org/json2.js" class="LURL" target="_top">http://www.JSON.org/json2.js</a>, without the first line alert(...) and fixing &#8220;this.JSON = {};&#8221; to &#8220;JSON = {};&#8221; to make it JScript compatible.
+                            </li>
+                        </ul>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br/" class="LURL" target="_top">http://zend.lojcomm.com.br/</a> @ August 2010
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#JSON.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#JSON.parse">parse</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method parses a JSON text to produce an object or array.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#JSON.stringify">stringify</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method produces a JSON text from a JavaScript value.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="JSON.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="JSON.parse"></a>parse
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This method parses a JSON text to produce an object or array.&nbsp; It can throw a SyntaxError exception.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Valid JSON text.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (mixed)
+                                </td>
+                                <td class="CDLDescription">
+                                    a JavaScript value, usually an object or array.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> Info <span class="sy0">:</span> <span class="kw1">set</span> Info <span class="sy0">=</span> JSON.<span class="me1">parse</span><span class="br0">(</span>join<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span> _
+    <span class="st0">"{"</span>, _
+    <span class="st0">"  "</span><span class="st0">"firstname"</span><span class="st0">": "</span><span class="st0">"Fabio"</span><span class="st0">","</span>, _
+    <span class="st0">"  "</span><span class="st0">"lastname"</span><span class="st0">": "</span><span class="st0">"Nagao"</span><span class="st0">","</span>, _
+    <span class="st0">"  "</span><span class="st0">"alive"</span><span class="st0">": true,"</span>, _
+    <span class="st0">"  "</span><span class="st0">"age"</span><span class="st0">": 27,"</span>, _
+    <span class="st0">"  "</span><span class="st0">"nickname"</span><span class="st0">": "</span><span class="st0">"nagaozen"</span><span class="st0">","</span>, _
+    <span class="st0">"  "</span><span class="st0">"fruits"</span><span class="st0">": ["</span>, _
+    <span class="st0">"    "</span><span class="st0">"banana"</span><span class="st0">","</span>, _
+    <span class="st0">"    "</span><span class="st0">"orange"</span><span class="st0">","</span>, _
+    <span class="st0">"    "</span><span class="st0">"apple"</span><span class="st0">","</span>, _
+    <span class="st0">"    "</span><span class="st0">"papaya"</span><span class="st0">","</span>, _
+    <span class="st0">"    "</span><span class="st0">"pineapple"</span><span class="st0">""</span>, _
+    <span class="st0">"  ],"</span>, _
+    <span class="st0">"  "</span><span class="st0">"complex"</span><span class="st0">": {"</span>, _
+    <span class="st0">"    "</span><span class="st0">"real"</span><span class="st0">": 1,"</span>, _
+    <span class="st0">"    "</span><span class="st0">"imaginary"</span><span class="st0">": 2"</span>, _
+    <span class="st0">"  }"</span>, _
+    <span class="st0">"}"</span> _
+<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">firstname</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints Fabio</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">alive</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints True</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">age</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 27</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">fruits</span>.<span class="kw1">get</span><span class="br0">(</span><span class="nu0">0</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints banana</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">fruits</span>.<span class="kw1">get</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints orange</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">complex</span>.<span class="me1">real</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 1</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>Info.<span class="me1">complex</span>.<span class="me1">imaginary</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 2</span>
+ 
+<span class="co1">' You can also enumerate object properties ...</span>
+ 
+<span class="kw1">dim</span> key <span class="sy0">:</span> <span class="kw1">for</span> <span class="kw1">each</span> key <span class="kw1">in</span> Info.<span class="me1">keys</span><span class="br0">(</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> key <span class="sy0">&amp;</span> vbNewline <span class="br0">)</span>
+<span class="kw1">next</span>
+ 
+<span class="co1">' which prints:</span>
+ 
+<span class="co1">' firstname</span>
+<span class="co1">' lastname</span>
+<span class="co1">' alive</span>
+<span class="co1">' age</span>
+<span class="co1">' nickname</span>
+<span class="co1">' fruits</span>
+<span class="co1">' complex</span>
+ 
+<span class="kw1">set</span> Info <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="JSON.stringify"></a>stringify
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This method produces a JSON text from a JavaScript value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (mixed)
+                                </td>
+                                <td class="CDLDescription">
+                                    any JavaScript value, usually an object or array.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (mixed)
+                                </td>
+                                <td class="CDLDescription">
+                                    an optional parameter that determines how object values are stringified for objects.&nbsp; It can be a function or an array of strings.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (mixed)
+                                </td>
+                                <td class="CDLDescription">
+                                    an optional parameter that specifies the indentation of nested structures.&nbsp; If it is omitted, the text will be packed without extra whitespace.&nbsp; If it is a number, it will specify the number of spaces to indent at each level.&nbsp; If it is a string (such as &#8216;\t&#8217; or &#8216;&amp;nbsp;&#8217;), it contains the characters used to indent at each level.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    a string that contains the serialized JSON text.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> Info <span class="sy0">:</span> <span class="kw1">set</span> Info <span class="sy0">=</span> JSON.<span class="me1">parse</span><span class="br0">(</span><span class="st0">"{"</span><span class="st0">"firstname"</span><span class="st0">":"</span><span class="st0">"Fabio"</span><span class="st0">", "</span><span class="st0">"lastname"</span><span class="st0">":"</span><span class="st0">"Nagao"</span><span class="st0">"}"</span><span class="br0">)</span>
+Info.<span class="kw1">set</span> <span class="st0">"alive"</span>, <span class="kw2">true</span>
+Info.<span class="kw1">set</span> <span class="st0">"age"</span>, <span class="nu0">27</span>
+Info.<span class="kw1">set</span> <span class="st0">"nickname"</span>, <span class="st0">"nagaozen"</span>
+Info.<span class="kw1">set</span> <span class="st0">"fruits"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"banana"</span>,<span class="st0">"orange"</span>,<span class="st0">"apple"</span>,<span class="st0">"papaya"</span>,<span class="st0">"pineapple"</span><span class="br0">)</span>
+Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span class="me1">parse</span><span class="br0">(</span><span class="st0">"{"</span><span class="st0">"real"</span><span class="st0">":1, "</span><span class="st0">"imaginary"</span><span class="st0">":1}"</span><span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> JSON.<span class="me1">stringify</span><span class="br0">(</span>Info, <span class="kw2">null</span>, <span class="nu0">2</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline <span class="br0">)</span> <span class="co1">' prints the text below:</span>
+<span class="co1">'{</span>
+<span class="co1">'  "firstname": "Fabio",</span>
+<span class="co1">'  "lastname": "Nagao",</span>
+<span class="co1">'  "alive": true,</span>
+<span class="co1">'  "age": 27,</span>
+<span class="co1">'  "nickname": "nagaozen",</span>
+<span class="co1">'  "fruits": [</span>
+<span class="co1">'    "banana",</span>
+<span class="co1">'    "orange",</span>
+<span class="co1">'    "apple",</span>
+<span class="co1">'    "papaya",</span>
+<span class="co1">'    "pineapple"</span>
+<span class="co1">'  ],</span>
+<span class="co1">'  "complex": {</span>
+<span class="co1">'    "real": 1,</span>
+<span class="co1">'    "imaginary": 1</span>
+<span class="co1">'  }</span>
+<span class="co1">'}</span>
+ 
+<span class="kw1">set</span> Info <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -115,27 +415,27 @@
                     <div class="MGroupContent" id="MGroupContent3">
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/csv-asp.html">csv.asp</a>
+                                <a href="csv-asp.html">csv.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/json-asp.html">json.asp</a>
+                                <a href="json-asp.html">json.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile" id="MSelected">
+                                json2.asp
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/json2-asp.html">json2.asp</a>
+                                <a href="markdown-asp.html">markdown.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/markdown-asp.html">markdown.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../Parsers/textile-asp.html">textile.asp</a>
+                                <a href="textile-asp.html">textile.asp</a>
                             </div>
                         </div>
                     </div>
@@ -190,12 +490,12 @@
                                 <div class="MGroupContent" id="MGroupContent6">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
+                                            <a href="../Utilities/Email/Adapters/cdo-asp.html">cdo.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Email/interface-asp.html">interface.asp</a>
+                                            <a href="../Utilities/Email/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +507,7 @@
                                 <div class="MGroupContent" id="MGroupContent7">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Translator/interface-asp.html">interface.asp</a>
+                                            <a href="../Utilities/Translator/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -215,77 +515,77 @@
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="acl-asp.html">acl.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile" id="MSelected">
-                                auth.asp
+                                <a href="../Utilities/acl-asp.html">acl.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="base64-asp.html">base64.asp</a>
+                                <a href="../Utilities/auth-asp.html">auth.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="color-asp.html">color.asp</a>
+                                <a href="../Utilities/base64-asp.html">base64.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="email-asp.html">email.asp</a>
+                                <a href="../Utilities/color-asp.html">color.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="image-asp.html">image.asp</a>
+                                <a href="../Utilities/email-asp.html">email.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="list-asp.html">list.asp</a>
+                                <a href="../Utilities/image-asp.html">image.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="logger-asp.html">logger.asp</a>
+                                <a href="../Utilities/list-asp.html">list.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="paginator-asp.html">paginator.asp</a>
+                                <a href="../Utilities/logger-asp.html">logger.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="stringbuilder-asp.html">stringbuilder.asp</a>
+                                <a href="../Utilities/paginator-asp.html">paginator.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="template-asp.html">template.asp</a>
+                                <a href="../Utilities/stringbuilder-asp.html">stringbuilder.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="translator-asp.html">translator.asp</a>
+                                <a href="../Utilities/template-asp.html">template.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="upload-asp.html">upload.asp</a>
+                                <a href="../Utilities/translator-asp.html">translator.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="xsession-asp.html">xsession.asp</a>
+                                <a href="../Utilities/upload-asp.html">upload.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="zip-asp.html">zip.asp</a>
+                                <a href="../Utilities/xsession-asp.html">xsession.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/zip-asp.html">zip.asp</a>
                             </div>
                         </div>
                     </div>
@@ -503,7 +803,7 @@
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([8], 15);// -->
+            HideAllBut([3, 4, 2, 5], 15);// -->
             //]]>
             </script>
         </div>

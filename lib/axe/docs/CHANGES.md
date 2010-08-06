@@ -37,6 +37,7 @@ for sure.
     - [CustomEvent](/lib/axe/docs/files/lib/axe/classes/customevent-asp.html)
     - [Email](/lib/axe/docs/files/lib/axe/classes/Utilities/email-asp.html)
     - [Interface](/lib/axe/docs/files/lib/axe/classes/interface-asp.html)
+    - [JSON2](/lib/axe/docs/files/lib/axe/classes/Parsers/json2-asp.html)
     - [List](/lib/axe/docs/files/lib/axe/classes/Utilities/list-asp.html)
     - [Logger](/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html) _(not implemented yet)_
     - [Markdown](/lib/axe/docs/files/lib/axe/classes/Parsers/markdown-asp.html)
