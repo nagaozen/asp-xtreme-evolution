@@ -178,18 +178,6 @@ set Info = nothing
 
 */
 
-if(!Array.prototype.get) {
-    Array.prototype.get = function(i) {
-        return this[i];
-    }
-}
-
-if(!Array.prototype.set) {
-    Array.prototype.set = function(i,v) {
-        this[i] = v;
-    }
-}
-
 if(!Object.prototype.get) {
     Object.prototype.get = function(k) {
         return this[k];

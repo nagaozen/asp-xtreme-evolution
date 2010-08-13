@@ -76,7 +76,7 @@ class Template
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.1.0"
+        classVersion = "1.1.0.1"
         
         value = ""
         separator = " "
@@ -148,6 +148,32 @@ class Template
             next
         end if
         substitute = sTemplate
+    end function
+    
+    ' Function: []
+    ' 
+    ' Short hand name for substitute.
+    ' 
+    ' Parameters:
+    ' 
+    '   (string[]) - Replacements
+    ' 
+    ' Returns:
+    ' 
+    '   (string) - Evaluated string
+    ' 
+    ' Example:
+    ' 
+    ' (start code)
+    ' 
+    ' dim S : set S = new Template
+    ' Response.write S("Do you know {0} {1}?").[](array("foo", "bar")) ' prints Do you know foo bar?
+    ' set S = nothing
+    ' 
+    ' (end code)
+    ' 
+    public function [](saArgs)
+        [] = substitute(saArgs)
     end function
     
     ' Function: clean
