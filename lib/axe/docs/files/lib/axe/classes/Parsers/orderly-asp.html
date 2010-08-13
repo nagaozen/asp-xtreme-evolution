@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>
-            translator.asp - AXE Documentation
+            orderly.asp - AXE Documentation
         </title>
         <link rel="stylesheet" type="text/css" href="../../../../../styles/main.css" />
         <script language="JavaScript" src="../../../../../javascript/main.js" type="text/javascript">
@@ -23,17 +23,20 @@
             <div class="CFile">
                 <div class="CTopic" id="MainTopic">
                     <h1 class="CTitle">
-                        <a id="translator.asp"></a>translator.asp
+                        <a id="orderly.asp"></a>orderly.asp
                     </h1>
                     <div class="CBody">
                         <p>
-                            AXE(ASP Xtreme Evolution) solution for multilingual applications.
+                            AXE(ASP Xtreme Evolution) Orderly parser by Zach Carter.
+                        </p>
+                        <p>
+                            Orderly.ASP leverages javascript to implement, without any modification, Zach Carter&#8217;s orderly.js <a href="http://github.com/zaach/orderly.js" class="LURL" target="_top">http://github.com/zaach/orderly.js</a>.&nbsp; AXE documentation and examples inserted by Fabio Zendhi Nagao (nagaozen).
                         </p>
                         <h4 class="CHeading">
                             License
                         </h4>
                         <p>
-                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2009 Fabio Zendhi Nagao
+                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2010 Fabio Zendhi Nagao
                         </p>
                         <p>
                             ASP Xtreme Evolution is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -52,78 +55,40 @@
                                 <table border="0" cellspacing="0" cellpadding="0" class="STable">
                                     <tr class="SMain">
                                         <td class="SEntry">
-                                            <a href="#translator.asp">translator.asp</a>
+                                            <a href="#orderly.asp">orderly.asp</a>
                                         </td>
                                         <td class="SDescription">
-                                            AXE(ASP Xtreme Evolution) solution for multilingual applications.
+                                            AXE(ASP Xtreme Evolution) Orderly parser by Zach Carter.
                                         </td>
                                     </tr>
                                     <tr class="SClass">
                                         <td class="SEntry">
-                                            <a href="#Translator">Translator</a>
+                                            <a href="#Orderly">Orderly</a>
                                         </td>
                                         <td class="SDescription">
-                                            Translator provides support for internationalization of text in code and templates.
+                                            Orderly is an ergonomic micro-language that can represent a subset of JSONSchema.
                                         </td>
                                     </tr>
                                     <tr class="SGroup SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Translator.Properties">Properties</a>
-                                        </td>
-                                        <td class="SDescription"></td>
-                                    </tr>
-                                    <tr class="SProperty SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Translator.classType">classType</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Class type.
-                                        </td>
-                                    </tr>
-                                    <tr class="SProperty SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Translator.classVersion">classVersion</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Class version.
-                                        </td>
-                                    </tr>
-                                    <tr class="SProperty SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Translator.language">language</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Holds the language scope to fetch for translations.
-                                        </td>
-                                    </tr>
-                                    <tr class="SProperty SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Translator.Adapter">Adapter</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Translator requires an implementation of Translator_Adapter_Interface.
-                                        </td>
-                                    </tr>
-                                    <tr class="SGroup SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Translator.Functions">Functions</a>
+                                            <a href="#Orderly.Functions">Functions</a>
                                         </td>
                                         <td class="SDescription"></td>
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Translator.[_?]" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">[_?]</a>
+                                            <a href="#Orderly.parse">parse</a>
                                         </td>
                                         <td class="SDescription">
-                                            {private} Checks for an adapter assignment.
+                                            This method parses an orderly source to build a javascript object which represents the subset of JSONSchema <a href="http://json-schema.org/" class="LURL" target="_top">http://json-schema.org/</a> that Orderly is designed to return.
                                         </td>
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Translator.getText" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">getText</a>
+                                            <a href="#Orderly.compile">compile</a>
                                         </td>
                                         <td class="SDescription">
-                                            Looks up a message in the current configuration.
+                                            This method parses an orderly source to build a string representation of the javascript object which represents the subset of JSONSchema <a href="http://json-schema.org/" class="LURL" target="_top">http://json-schema.org/</a> generated by Orderly.
                                         </td>
                                     </tr>
                                 </table>
@@ -135,24 +100,39 @@
             <div class="CClass">
                 <div class="CTopic">
                     <h2 class="CTitle">
-                        <a id="Translator"></a>Translator
+                        <a id="Orderly"></a>Orderly
                     </h2>
                     <div class="CBody">
                         <p>
-                            Translator provides support for internationalization of text in code and templates.
+                            Orderly is an ergonomic micro-language that can represent a subset of JSONSchema.&nbsp; Orderly is designed to feel familiar to the average programmer and to be extremely easy to learn and remember.
                         </p>
                         <h4 class="CHeading">
-                            Requires
+                            License
                         </h4>
-                        <ul>
-                            <li>Translator_Interface implementation
-                            </li>
-                        </ul>
+                        <p>
+                            Copyright &#169; 2009 Zachary Carter
+                        </p>
+                        <p>
+                            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &#8220;Software&#8221;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                        </p>
+                        <p>
+                            The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+                        </p>
+                        <p>
+                            THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.&nbsp; IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                        </p>
                         <h4 class="CHeading">
                             About
                         </h4>
                         <ul>
-                            <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br" class="LURL" target="_top">http://zend.lojcomm.com.br</a> @ Oct 2009
+                            <li>Written by Zach Carter <a href="http://zaa.ch/" class="LURL" target="_top">http://zaa.ch/</a> @ March 2010
+                            </li>
+                        </ul>
+                        <h4 class="CHeading">
+                            Notes
+                        </h4>
+                        <ul>
+                            <li>Javascript compiler is based on the Orderly concepts from Lloyd Hilaiel of Yahoo!&nbsp; <a href="http://orderly-json.org/" class="LURL" target="_top">http://orderly-json.org/</a> @ December 2009
                             </li>
                         </ul>
                         <div class="Summary">
@@ -163,62 +143,24 @@
                                 <table border="0" cellspacing="0" cellpadding="0" class="STable">
                                     <tr class="SGroup">
                                         <td class="SEntry">
-                                            <a href="#Translator.Properties">Properties</a>
-                                        </td>
-                                        <td class="SDescription"></td>
-                                    </tr>
-                                    <tr class="SProperty SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Translator.classType">classType</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Class type.
-                                        </td>
-                                    </tr>
-                                    <tr class="SProperty SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Translator.classVersion">classVersion</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Class version.
-                                        </td>
-                                    </tr>
-                                    <tr class="SProperty SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Translator.language">language</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Holds the language scope to fetch for translations.
-                                        </td>
-                                    </tr>
-                                    <tr class="SProperty SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Translator.Adapter">Adapter</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Translator requires an implementation of Translator_Adapter_Interface.
-                                        </td>
-                                    </tr>
-                                    <tr class="SGroup">
-                                        <td class="SEntry">
-                                            <a href="#Translator.Functions">Functions</a>
+                                            <a href="#Orderly.Functions">Functions</a>
                                         </td>
                                         <td class="SDescription"></td>
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Translator.[_?]" id="link3" onmouseover="ShowTip(event, 'tt1', 'link3')" onmouseout="HideTip('tt1')">[_?]</a>
+                                            <a href="#Orderly.parse">parse</a>
                                         </td>
                                         <td class="SDescription">
-                                            {private} Checks for an adapter assignment.
+                                            This method parses an orderly source to build a javascript object which represents the subset of JSONSchema <a href="http://json-schema.org/" class="LURL" target="_top">http://json-schema.org/</a> that Orderly is designed to return.
                                         </td>
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Translator.getText" id="link4" onmouseover="ShowTip(event, 'tt2', 'link4')" onmouseout="HideTip('tt2')">getText</a>
+                                            <a href="#Orderly.compile">compile</a>
                                         </td>
                                         <td class="SDescription">
-                                            Looks up a message in the current configuration.
+                                            This method parses an orderly source to build a string representation of the javascript object which represents the subset of JSONSchema <a href="http://json-schema.org/" class="LURL" target="_top">http://json-schema.org/</a> generated by Orderly.
                                         </td>
                                     </tr>
                                 </table>
@@ -230,167 +172,18 @@
             <div class="CGroup">
                 <div class="CTopic">
                     <h3 class="CTitle">
-                        <a id="Translator.Properties"></a>Properties
-                    </h3>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Translator.classType"></a>classType
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            Class type.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (string)
-                                </td>
-                                <td class="CDLDescription">
-                                    type
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Translator.classVersion"></a>classVersion
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            Class version.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (float)
-                                </td>
-                                <td class="CDLDescription">
-                                    version
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Translator.language"></a>language
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            Holds the language scope to fetch for translations.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (string)
-                                </td>
-                                <td class="CDLDescription">
-                                    locale short string.&nbsp; Defaults to &#8220;en-us&#8221;.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Translator.Adapter"></a>Adapter
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            Translator requires an implementation of Translator_Adapter_Interface.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (Translator_Adapter_*)
-                                </td>
-                                <td class="CDLDescription">
-                                    Translator media adapter
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CGroup">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Translator.Functions"></a>Functions
+                        <a id="Orderly.Functions"></a>Functions
                     </h3>
                 </div>
             </div>
             <div class="CFunction">
                 <div class="CTopic">
                     <h3 class="CTitle">
-                        <a id="Translator.[_?]"></a>[_?]
+                        <a id="Orderly.parse"></a>parse
                     </h3>
                     <div class="CBody">
-                        <blockquote>
-                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                                <tr>
-                                    <td>
-                                        private sub [_?]
-                                    </td>
-                                </tr>
-                            </table>
-                        </blockquote>
                         <p>
-                            {private} Checks for an adapter assignment.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="CFunction">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Translator.getText"></a>getText
-                    </h3>
-                    <div class="CBody">
-                        <blockquote>
-                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                                <tr>
-                                    <td>
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td class="PBeforeParameters" nowrap="nowrap">
-                                                    public default function getText(
-                                                </td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    message
-                                                </td>
-                                                <td class="PAfterParameters" nowrap="nowrap">
-                                                    ) : call [_?]
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </blockquote>
-                        <p>
-                            Looks up a message in the current configuration.
+                            This method parses an orderly source to build a javascript object which represents the subset of JSONSchema <a href="http://json-schema.org/" class="LURL" target="_top">http://json-schema.org/</a> that Orderly is designed to return.
                         </p>
                         <h4 class="CHeading">
                             Parameters
@@ -401,7 +194,64 @@
                                     (string)
                                 </td>
                                 <td class="CDLDescription">
-                                    Message
+                                    Valid Orderly text.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (mixed)
+                                </td>
+                                <td class="CDLDescription">
+                                    a JavaScript object.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> def <span class="sy0">:</span> def <span class="sy0">=</span> join<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span> _
+    <span class="st0">"object {"</span>, _
+    <span class="st0">"  string name;"</span>, _
+    <span class="st0">"  string description?;"</span>, _
+    <span class="st0">"  string homepage /^http:/;"</span>, _
+    <span class="st0">"  integer {1500,3000} invented;"</span>, _
+    <span class="st0">"}*;"</span> _
+<span class="br0">)</span>, vbNewline<span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> typename<span class="br0">(</span>Orderly.<span class="me1">parse</span><span class="br0">(</span>def<span class="br0">)</span><span class="br0">)</span> <span class="br0">)</span><span class="co1">' prints JScriptTypeInfo</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Orderly.compile"></a>compile
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This method parses an orderly source to build a string representation of the javascript object which represents the subset of JSONSchema <a href="http://json-schema.org/" class="LURL" target="_top">http://json-schema.org/</a> generated by Orderly.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Valid Orderly text.
                                 </td>
                             </tr>
                         </table>
@@ -414,7 +264,7 @@
                                     (string)
                                 </td>
                                 <td class="CDLDescription">
-                                    The translated value if on is found in the translation table, or the submitted messeage if not found
+                                    The stringified version of the JSONSchema subset.
                                 </td>
                             </tr>
                         </table>
@@ -424,15 +274,49 @@
                         <blockquote>
                             <div class="code">
                                 <pre class="asp">
-<span class="kw1">dim</span> T <span class="sy0">:</span> <span class="kw1">set</span> T <span class="sy0">=</span> <span class="kw2">new</span> Translator
-<span class="kw1">set</span> T.<span class="me1">Adapter</span> <span class="sy0">=</span> <span class="kw2">new</span> Translator_Adapter_Ini
-T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0">"pt-br"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>T<span class="br0">(</span><span class="st0">"Hello World"</span><span class="br0">)</span><span class="br0">)</span>
-<span class="co1">' prints: Ol&#225; Mundo</span>
-<span class="kw1">set</span> T <span class="sy0">=</span> <span class="kw2">nothing</span>
+<span class="kw1">dim</span> def <span class="sy0">:</span> def <span class="sy0">=</span> join<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span> _
+    <span class="st0">"object {"</span>, _
+    <span class="st0">"  string name;"</span>, _
+    <span class="st0">"  string description?;"</span>, _
+    <span class="st0">"  string homepage /^http:/;"</span>, _
+    <span class="st0">"  integer {1500,3000} invented;"</span>, _
+    <span class="st0">"}*;"</span> _
+<span class="br0">)</span>, vbNewline<span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> Orderly.<span class="me1">compile</span><span class="br0">(</span>def<span class="br0">)</span> <span class="br0">)</span><span class="co1">' prints the string below:</span>
+ 
+<span class="co1">' {</span>
+<span class="co1">'     "type": "object",</span>
+<span class="co1">'     "properties": {</span>
+<span class="co1">'         "name": {</span>
+<span class="co1">'             "type": "string"</span>
+<span class="co1">'         },</span>
+<span class="co1">'         "description": {</span>
+<span class="co1">'             "type": "string",</span>
+<span class="co1">'             "optional": true</span>
+<span class="co1">'         },</span>
+<span class="co1">'         "homepage": {</span>
+<span class="co1">'             "type": "string",</span>
+<span class="co1">'             "pattern": "^http:"</span>
+<span class="co1">'         },</span>
+<span class="co1">'         "invented": {</span>
+<span class="co1">'             "type": "integer",</span>
+<span class="co1">'             "minimum": 1500,</span>
+<span class="co1">'             "maximum": 3000</span>
+<span class="co1">'         }</span>
+<span class="co1">'     },</span>
+<span class="co1">'     "additionalProperties": true</span>
+<span class="co1">' }</span>
 </pre>
                             </div>
                         </blockquote>
+                        <h4 class="CHeading">
+                            Notes
+                        </h4>
+                        <ul>
+                            <li>This method requires the JSON class to work.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -504,32 +388,32 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                     <div class="MGroupContent" id="MGroupContent3">
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/csv-asp.html">csv.asp</a>
+                                <a href="csv-asp.html">csv.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/json-asp.html">json.asp</a>
+                                <a href="json-asp.html">json.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/json2-asp.html">json2.asp</a>
+                                <a href="json2-asp.html">json2.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/markdown-asp.html">markdown.asp</a>
+                                <a href="markdown-asp.html">markdown.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile" id="MSelected">
+                                orderly.asp
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Parsers/orderly-asp.html">orderly.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
-                                <a href="../Parsers/textile-asp.html">textile.asp</a>
+                                <a href="textile-asp.html">textile.asp</a>
                             </div>
                         </div>
                     </div>
@@ -584,12 +468,12 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                                 <div class="MGroupContent" id="MGroupContent6">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Email/Adapters/cdo-asp.html">cdo.asp</a>
+                                            <a href="../Utilities/Email/Adapters/cdo-asp.html">cdo.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Email/interface-asp.html">interface.asp</a>
+                                            <a href="../Utilities/Email/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -601,7 +485,7 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                                 <div class="MGroupContent" id="MGroupContent7">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="Translator/interface-asp.html">interface.asp</a>
+                                            <a href="../Utilities/Translator/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -609,77 +493,77 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="acl-asp.html">acl.asp</a>
+                                <a href="../Utilities/acl-asp.html">acl.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="auth-asp.html">auth.asp</a>
+                                <a href="../Utilities/auth-asp.html">auth.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="base64-asp.html">base64.asp</a>
+                                <a href="../Utilities/base64-asp.html">base64.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="color-asp.html">color.asp</a>
+                                <a href="../Utilities/color-asp.html">color.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="email-asp.html">email.asp</a>
+                                <a href="../Utilities/email-asp.html">email.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="image-asp.html">image.asp</a>
+                                <a href="../Utilities/image-asp.html">image.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="list-asp.html">list.asp</a>
+                                <a href="../Utilities/list-asp.html">list.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="logger-asp.html">logger.asp</a>
+                                <a href="../Utilities/logger-asp.html">logger.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="paginator-asp.html">paginator.asp</a>
+                                <a href="../Utilities/paginator-asp.html">paginator.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="stringbuilder-asp.html">stringbuilder.asp</a>
+                                <a href="../Utilities/stringbuilder-asp.html">stringbuilder.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="template-asp.html">template.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile" id="MSelected">
-                                translator.asp
+                                <a href="../Utilities/template-asp.html">template.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="upload-asp.html">upload.asp</a>
+                                <a href="../Utilities/translator-asp.html">translator.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="xsession-asp.html">xsession.asp</a>
+                                <a href="../Utilities/upload-asp.html">upload.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="zip-asp.html">zip.asp</a>
+                                <a href="../Utilities/xsession-asp.html">xsession.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/zip-asp.html">zip.asp</a>
                             </div>
                         </div>
                     </div>
@@ -897,47 +781,9 @@ T.<span class="me1">language</span> <span class="sy0">=</span> <span class="st0"
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([8], 15);// -->
+            HideAllBut([3, 4, 2, 5], 15);// -->
             //]]>
             </script>
-        </div>
-        <div class="CToolTip" id="tt1">
-            <div class="CFunction">
-                <blockquote>
-                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                        <tr>
-                            <td>
-                                private sub [_?]
-                            </td>
-                        </tr>
-                    </table>
-                </blockquote>{private} Checks for an adapter assignment.
-            </div>
-        </div>
-        <div class="CToolTip" id="tt2">
-            <div class="CFunction">
-                <blockquote>
-                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                        <tr>
-                            <td>
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td class="PBeforeParameters" nowrap="nowrap">
-                                            public default function getText(
-                                        </td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            message
-                                        </td>
-                                        <td class="PAfterParameters" nowrap="nowrap">
-                                            ) : call [_?]
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </blockquote>Looks up a message in the current configuration.
-            </div>
         </div>
         <div id="MSearchResultsWindow">
             <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
