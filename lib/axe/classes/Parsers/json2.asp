@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 File: json2.asp
 
@@ -35,13 +35,13 @@ along with ASP Xtreme Evolution. If not, see <http://www.gnu.org/licenses/>.
 
 Class: JSON
 
-JSON (JavaScript Object Notation) is a lightweight data-interchange format. It 
+JSON (Javascript Object Notation) is a lightweight data-interchange format. It 
 is easy for humans to read and write. It is easy for machines to parse and 
-generate. It is based on a subset of the JavaScript Programming Language, 
+generate. It is based on a subset of the Javascript Programming Language, 
 Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is 
 completely language independent but uses conventions that are familiar to 
 programmers of the C-family of languages, including C, C++, C#, Java, 
-JavaScript, Perl, Python, and many others. These properties make JSON an ideal 
+Javascript, Perl, Python, and many others. These properties make JSON an ideal 
 data-interchange language.
 
 Notes:
@@ -67,7 +67,7 @@ Parameters:
 
 Returns:
 
-    (mixed) - a JavaScript value, usually an object or array.
+    (mixed) - a Javascript value, usually an object or array.
 
 Example:
 
@@ -128,11 +128,11 @@ set Info = nothing
 
 Function: stringify
 
-This method produces a JSON text from a JavaScript value.
+This method produces a JSON text from a Javascript value.
 
 Parameters:
 
-    (mixed) - any JavaScript value, usually an object or array.
+    (mixed) - any Javascript value, usually an object or array.
     (mixed) - an optional parameter that determines how object values are stringified for objects. It can be a function or an array of strings.
     (mixed) - an optional parameter that specifies the indentation of nested structures. If it is omitted, the text will be packed without extra whitespace. If it is a number, it will specify the number of spaces to indent at each level. If it is a string (such as '\t' or '&nbsp;'), it contains the characters used to indent at each level.
 
@@ -175,6 +175,54 @@ set Info = nothing
 
 (end code)
 
+
+
+
+
+Function: toXML
+
+This method produces a XML text from a Javascript value.
+
+Parameters:
+
+    (mixed) - any Javascript value, usually an object or array.
+    (string) - an optional parameter that determines what tag should be used as a container for the output. Defaults to none.
+
+Returns:
+
+    (string) - a string that contains the serialized XML text.
+
+Example:
+
+(start code)
+
+dim Info : set Info = JSON.parse("{""firstname"":""Fabio"", ""lastname"":""Nagao""}")
+Info.set "alive", true
+Info.set "age", 27
+Info.set "nickname", "nagaozen"
+Info.set "fruits", array("banana","orange","apple","papaya","pineapple")
+Info.set "complex", JSON.parse("{""real"":1, ""imaginary"":1}")
+
+Response.write( JSON.toXML(Info) & vbNewline ) ' prints the text below:
+'<firstname>Fabio</firstname>
+'<lastname>長尾</lastname>
+'<alive>true</alive>
+'<age>27</age>
+'<nickname>nagaozen</nickname>
+'<fruits>banana</fruits>
+'<fruits>orange</fruits>
+'<fruits>apple</fruits>
+'<fruits>papaya</fruits>
+'<fruits>pineapple</fruits>
+'<complex>
+'    <real>1</real>
+'    <imaginary>1</imaginary>
+'</complex>
+
+set Info = nothing
+
+(end code)
+
 */
 
 if(!Object.prototype.get) {
@@ -207,6 +255,33 @@ if(!Object.prototype.keys) {
         return d.keys();
     }
 }
+
+if(!String.prototype.sanitize) {
+    String.prototype.sanitize = function(a, b) {
+        var len = a.length,
+            s = this;
+        if(len !== b.length) throw new TypeError('Invalid procedure call. Both arrays should have the same size.');
+        for(var i = 0; i < len; i++) {
+            var re = new RegExp(a[i],'g');
+            s = s.replace(re, b[i]);
+        }
+        return s;
+    }
+}
+
+if(!String.prototype.substitute) {
+    String.prototype.substitute = function(object, regexp){
+        return this.replace(regexp || (/\\?\{([^{}]+)\}/g), function(match, name){
+            if (match.charAt(0) == '\\') return match.slice(1);
+            return (object[name] != undefined) ? object[name] : '';
+        });
+    }
+}
+
+
+
+
+
 
 
 
@@ -695,3 +770,84 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
     }
 }());
 
+
+
+
+
+
+
+
+
+
+(function(){
+
+    function __sanitize(value) {
+        return value.sanitize(
+            ['&',    '<',   '>',    '\'',    '"'],
+            ['&amp;','&lt;','&gt;', '&apos;','&quot;']
+        );
+    };
+
+    function __toXML(o, t) {
+        var xml = [];
+        switch( typeof o ) {
+            case "object":
+                if(Object.prototype.toString.apply(o) === '[object Array]') {
+                    var a = o;
+                    if(a.length === 0) {
+                        xml.push("<{tag}/>".substitute({"tag":t}));
+                    } else {
+                        for(var i = 0, len = a.length; i < len; i++) {
+                            xml.push(__toXML(a[i], t));
+                        }
+                    }
+                } else {
+                    xml.push("<{tag}".substitute({"tag":t}));
+                    var childs = [];
+                    for(var p in o) {
+                        if(o.hasOwnProperty(p)) {
+                            if(p.charAt(0) === "@") xml.push(" {param}='{content}'".substitute({"param":p.substr(1), "content":__sanitize(o[p].toString())}));
+                            else childs.push(p);
+                        }
+                    }
+                    if(childs.length === 0) {
+                        xml.push("/>");
+                    } else {
+                        xml.push(">");
+                        for(var i = 0, len = childs.length; i < len; i++) {
+                            if(p === "#text") { xml.push(__sanitize(o[childs[i]])); }
+                            else if(p === "#cdata") { xml.push("<![CDATA[{code}]]>".substitute({"code": o[childs[i]].toString()})); }
+                            else if(p.charAt(0) !== "@") { xml.push(__toXML(o[childs[i]], childs[i])); }
+                        }
+                        xml.push("</{tag}>".substitute({"tag":t}));
+                    }
+                }
+                break;
+            
+            default:
+                var s = o.toString();
+                if(s.length === 0) {
+                    xml.push("<{tag}/>".substitute({"tag":t}));
+                } else {
+                    xml.push("<{tag}>{value}</{tag}>".substitute({"tag":t, "value":__sanitize(s)}));
+                }
+        }
+        return xml.join('');
+    }
+
+    if (typeof JSON.toXML !== 'function') {
+        JSON.toXML = function(json, container){
+            container = container || "";
+            var xml = [];
+            if( container.length > 0 ) xml.push("<{tag}>".substitute({"tag":container}));
+            for(var p in json) {
+                if(json.hasOwnProperty(p)) {
+                    xml.push(__toXML(json[p], p));
+                }
+            }
+            if( container.length > 0 ) xml.push("</{tag}>".substitute({"tag":container}));
+            return xml.join('');
+        }
+    }
+
+})();
