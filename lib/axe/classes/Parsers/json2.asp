@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <script language="Javascript" runat="server">
 
+=======
+>>>>>>> 313f01478e9607dcb952e73d26c25ca82e0303e9
 /*
 
 File: json2.asp
@@ -198,7 +201,11 @@ Example:
 
 (start code)
 
+<<<<<<< HEAD
 dim Info : set Info = JSON.parse("{""firstname"":""Fabio"", ""lastname"":""長尾""}")
+=======
+dim Info : set Info = JSON.parse("{""firstname"":""Fabio"", ""lastname"":""Nagao""}")
+>>>>>>> 313f01478e9607dcb952e73d26c25ca82e0303e9
 Info.set "alive", true
 Info.set "age", 27
 Info.set "nickname", "nagaozen"
@@ -839,19 +846,33 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 
     if (typeof JSON.toXML !== 'function') {
         JSON.toXML = function(json, container){
+<<<<<<< HEAD
             //container = container || "";
             var xml = [];
             if(container) xml.push("<{tag}>".substitute({"tag":container}));
+=======
+            container = container || "";
+            var xml = [];
+            if( container.length > 0 ) xml.push("<{tag}>".substitute({"tag":container}));
+>>>>>>> 313f01478e9607dcb952e73d26c25ca82e0303e9
             for(var p in json) {
                 if(json.hasOwnProperty(p)) {
                     xml.push(__toXML(json[p], p));
                 }
             }
+<<<<<<< HEAD
             if(container) xml.push("</{tag}>".substitute({"tag":container}));
+=======
+            if( container.length > 0 ) xml.push("</{tag}>".substitute({"tag":container}));
+>>>>>>> 313f01478e9607dcb952e73d26c25ca82e0303e9
             return xml.join('');
         }
     }
 
+<<<<<<< HEAD
 })();
 
 </script>
+=======
+})();
+>>>>>>> 313f01478e9607dcb952e73d26c25ca82e0303e9
