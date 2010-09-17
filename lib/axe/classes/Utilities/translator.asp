@@ -88,7 +88,7 @@ class Translator
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         language = "en-us"
     end sub

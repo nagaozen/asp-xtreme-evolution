@@ -268,7 +268,7 @@ class RSS
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set Items = new List
     end sub
@@ -511,7 +511,7 @@ class RSS_Item
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()
@@ -637,7 +637,7 @@ class RSS_Category
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()
@@ -766,7 +766,7 @@ class RSS_Cloud
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()
@@ -908,7 +908,7 @@ class RSS_Image
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()
@@ -1036,7 +1036,7 @@ class RSS_TextInput
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()
@@ -1126,7 +1126,7 @@ class RSS_SkipHours
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         skip = array(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false)
     end sub
@@ -1216,7 +1216,7 @@ class RSS_SkipDays
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         skip = array(false, false, false, false, false, false, false)
     end sub
@@ -1329,7 +1329,7 @@ class RSS_Enclosure
         
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()
@@ -1426,7 +1426,7 @@ class RSS_Guid
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         isPermaLink = true
     end sub
@@ -1523,7 +1523,7 @@ class RSS_Source
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()

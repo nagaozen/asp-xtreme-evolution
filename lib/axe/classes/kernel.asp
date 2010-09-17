@@ -379,10 +379,11 @@ class Kernel
         set str2xml = Server.createObject("MSXML2.DOMDocument.6.0")
         str2xml.loadXML(sXml)
         if str2xml.parseError.errorCode <> 0 then
-            dim ErrXml : set ErrXml = str2xml.parseError
-            Err.raise 51, "Evolved AXE runtime error", strsubstitute("Internal error while parsing XML data. {0}", array(ErrXml.reason))
+            dim ErrXml, reason
+            set ErrXml = str2xml.parseError
+            reason = ErrXml.reason
             set ErrXml = nothing
-            Server.execute("/app/views/error.asp")
+            Err.raise 51, "Evolved AXE runtime error", strsubstitute("Internal error while parsing XML data. {0}", array(reason))
         end if
     end function
 

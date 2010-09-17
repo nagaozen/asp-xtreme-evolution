@@ -62,7 +62,7 @@ class Email_Adapter_CDO' implements Email_Interface
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set Interface = new Email_Interface
         set Interface.Implementation = Me

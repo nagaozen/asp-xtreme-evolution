@@ -93,7 +93,7 @@ class List
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         count = 0
         
@@ -334,6 +334,8 @@ class List
     ' 
     ' Example:
     ' 
+    ' (start code)
+    ' 
     ' dim L : set L = new List
     ' 
     ' dim Node : set Node = new List_node
@@ -349,6 +351,8 @@ class List
     ' Response.write( L.remove("helloWorldDetector") )
     ' 
     ' set L = nothing
+    ' 
+    ' (end code)
     ' 
     public function remove(assert)
         dim Node : set Node = search(assert)
@@ -455,7 +459,7 @@ class List_Node
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()

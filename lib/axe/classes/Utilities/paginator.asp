@@ -130,7 +130,7 @@ class Paginator
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         all = "View all"
         prv = "Previous"

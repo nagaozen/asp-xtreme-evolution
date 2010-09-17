@@ -165,7 +165,7 @@ class Email
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set Tos = Server.createObject("Scripting.Dictionary")
         set Ccs = Server.createObject("Scripting.Dictionary")

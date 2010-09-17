@@ -57,7 +57,7 @@ class Color
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
     end sub
     
     private sub Class_terminate()

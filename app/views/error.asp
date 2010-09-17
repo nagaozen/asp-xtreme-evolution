@@ -46,7 +46,7 @@ dim AspError, category, message
 set AspError = Server.getLastError()
 if((AspError.description <> "") and (AspError.file <> "") and (AspError.line > 0)) then
     category = strsubstitute( _
-        "{0}{1} (0x{2})", _
+        "{0}{1} error (0x{2})", _
         array( _
             AspError.category, _
             iif(AspError.aspCode > "", Server.htmlEncode(", " & AspError.aspCode), ""), _
@@ -74,7 +74,8 @@ set AspError = nothing
 <html
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xml:lang="en">
+    xml:lang="en"
+>
     <head>
         <title>ASP Xtreme Evolution :: runtime error</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>

@@ -565,3 +565,20 @@ body.IndexPage #Footer { text-align: right; margin: 5px }
 
 /* mootools enhacements */
 a.toTop{ float:right; font: 75% Monaco, "Courier New", Courier, MonoSpace; text-transform: uppercase; color: #2E3436; }
+
+/* labels */
+label.protected {
+    background: #EEEEEC;
+    border: 1px solid #BABDB6;
+    padding: 2px 5px;
+    font-size: 77%;
+    color: #888A85;
+}
+
+label.private {
+    background: #FEE;
+    border: 1px solid #FCC;
+    padding: 2px 5px;
+    font-size: 77%;
+    color: #F33;
+}

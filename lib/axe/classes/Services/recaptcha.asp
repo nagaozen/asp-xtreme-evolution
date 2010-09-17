@@ -142,7 +142,7 @@ class ReCaptcha
     
     private sub Class_initialize()
         classType    = typeName(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         uriService   = "http://api-verify.recaptcha.net/verify"
         theme        = "red"

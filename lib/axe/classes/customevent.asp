@@ -86,7 +86,7 @@ class CustomEvent
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set Handlers  = Server.createObject("Scripting.Dictionary")
         set Arguments = Server.createObject("Scripting.Dictionary")
@@ -140,7 +140,7 @@ class CustomEvent
     '     
     '     private sub Class_initialize()
     '         classType    = typename(Me)
-    '         classVersion = "1.0.0"
+    '         classVersion = "1.0.0.0"
     '         
     '         set onLoad = new CustomEvent : set onLoad.Owner = Me
     '         set onUnload = new CustomEvent : set onUnload.Owner = Me

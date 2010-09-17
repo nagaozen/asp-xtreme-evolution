@@ -30,13 +30,13 @@
                             AXE(ASP Xtreme Evolution) JSON parser based on Douglas Crockford json2.js.
                         </p>
                         <p>
-                            This class is the result of Classic ASP JSON topic revisited by Fabio Zendhi Nagao (nagaozen).&nbsp; JSON2.ASP is a better option over JSON.ASP because it embraces the AXE philosophy of real collaboration over the languages.&nbsp; It works under the original json parser, so this class is strict in the standard rules, plus it brings more of the Javascript json feeling to other ASP languages (eg. no more oJson.getElement(&#8220;foo&#8221;) stuff, just oJson.foo and you get it).
+                            This class is the result of Classic ASP JSON topic revisited by Fabio Zendhi Nagao (nagaozen).&nbsp; JSON2.ASP is a better option over JSON.ASP because it embraces the AXE philosophy of real collaboration over the languages.&nbsp; It works under the original json parser, so this class is strict in the standard rules, plus it brings more of the Javascript json feeling to other ASP languages (eg. no more oJson.getElement(“foo”) stuff, just oJson.foo and you get it).
                         </p>
                         <h4 class="CHeading">
                             License
                         </h4>
                         <p>
-                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright &#169; 2007-2010 Fabio Zendhi Nagao
+                            This file is part of ASP Xtreme Evolution.&nbsp; Copyright © 2007-2010 Fabio Zendhi Nagao
                         </p>
                         <p>
                             ASP Xtreme Evolution is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -66,7 +66,7 @@
                                             <a href="#JSON">JSON</a>
                                         </td>
                                         <td class="SDescription">
-                                            JSON (JavaScript Object Notation) is a lightweight data-interchange format.
+                                            JSON (Javascript Object Notation) is a lightweight data-interchange format.
                                         </td>
                                     </tr>
                                     <tr class="SGroup SIndent1">
@@ -88,7 +88,15 @@
                                             <a href="#JSON.stringify">stringify</a>
                                         </td>
                                         <td class="SDescription">
-                                            This method produces a JSON text from a JavaScript value.
+                                            This method produces a JSON text from a Javascript value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#JSON.toXML">toXML</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method produces a XML text from a Javascript value.
                                         </td>
                                     </tr>
                                 </table>
@@ -104,7 +112,7 @@
                     </h2>
                     <div class="CBody">
                         <p>
-                            JSON (JavaScript Object Notation) is a lightweight data-interchange format.&nbsp; It is easy for humans to read and write.&nbsp; It is easy for machines to parse and generate.&nbsp; It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999.&nbsp; JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others.&nbsp; These properties make JSON an ideal data-interchange language.
+                            JSON (Javascript Object Notation) is a lightweight data-interchange format.&nbsp; It is easy for humans to read and write.&nbsp; It is easy for machines to parse and generate.&nbsp; It is based on a subset of the Javascript Programming Language, Standard ECMA-262 3rd Edition - December 1999.&nbsp; JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, Javascript, Perl, Python, and many others.&nbsp; These properties make JSON an ideal data-interchange language.
                         </p>
                         <h4 class="CHeading">
                             Notes
@@ -112,7 +120,7 @@
                         <ul>
                             <li>Javascript extensions concept inspired by Troy Foster JSON2.ASP work <a href="http://tforster.wik.is/ASP_Classic_Practices_For_The_21st_Century/JSON4ASP" class="LURL" target="_top">http://tforster.wik.is<wbr />/ASP_Classic_Practices_For_The_21st_Century<wbr />/JSON4ASP</a>.
                             </li>
-                            <li>Javascript JSON parser is the Douglas Crockford json2.js <a href="http://www.JSON.org/json2.js" class="LURL" target="_top">http://www.JSON.org/json2.js</a>, without the first line alert(...) and fixing &#8220;this.JSON = {};&#8221; to &#8220;JSON = {};&#8221; to make it JScript compatible.
+                            <li>Javascript JSON parser is the Douglas Crockford json2.js <a href="http://www.JSON.org/json2.js" class="LURL" target="_top">http://www.JSON.org/json2.js</a>, without the first line alert(...) and fixing “this.JSON = {};” to “JSON = {};” to make it JScript compatible.
                             </li>
                         </ul>
                         <h4 class="CHeading">
@@ -147,7 +155,15 @@
                                             <a href="#JSON.stringify">stringify</a>
                                         </td>
                                         <td class="SDescription">
-                                            This method produces a JSON text from a JavaScript value.
+                                            This method produces a JSON text from a Javascript value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#JSON.toXML">toXML</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method produces a XML text from a Javascript value.
                                         </td>
                                     </tr>
                                 </table>
@@ -194,7 +210,7 @@
                                     (mixed)
                                 </td>
                                 <td class="CDLDescription">
-                                    a JavaScript value, usually an object or array.
+                                    a Javascript value, usually an object or array.
                                 </td>
                             </tr>
                         </table>
@@ -207,7 +223,7 @@
 <span class="kw1">dim</span> Info <span class="sy0">:</span> <span class="kw1">set</span> Info <span class="sy0">=</span> JSON.<span class="me1">parse</span><span class="br0">(</span>join<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span> _
     <span class="st0">"{"</span>, _
     <span class="st0">"  "</span><span class="st0">"firstname"</span><span class="st0">": "</span><span class="st0">"Fabio"</span><span class="st0">","</span>, _
-    <span class="st0">"  "</span><span class="st0">"lastname"</span><span class="st0">": "</span><span class="st0">"Nagao"</span><span class="st0">","</span>, _
+    <span class="st0">"  "</span><span class="st0">"lastname"</span><span class="st0">": "</span><span class="st0">"長尾"</span><span class="st0">","</span>, _
     <span class="st0">"  "</span><span class="st0">"alive"</span><span class="st0">": true,"</span>, _
     <span class="st0">"  "</span><span class="st0">"age"</span><span class="st0">": 27,"</span>, _
     <span class="st0">"  "</span><span class="st0">"nickname"</span><span class="st0">": "</span><span class="st0">"nagaozen"</span><span class="st0">","</span>, _
@@ -263,7 +279,7 @@
                     </h3>
                     <div class="CBody">
                         <p>
-                            This method produces a JSON text from a JavaScript value.
+                            This method produces a JSON text from a Javascript value.
                         </p>
                         <h4 class="CHeading">
                             Parameters
@@ -274,7 +290,7 @@
                                     (mixed)
                                 </td>
                                 <td class="CDLDescription">
-                                    any JavaScript value, usually an object or array.
+                                    any Javascript value, usually an object or array.
                                 </td>
                             </tr>
                             <tr>
@@ -290,7 +306,7 @@
                                     (mixed)
                                 </td>
                                 <td class="CDLDescription">
-                                    an optional parameter that specifies the indentation of nested structures.&nbsp; If it is omitted, the text will be packed without extra whitespace.&nbsp; If it is a number, it will specify the number of spaces to indent at each level.&nbsp; If it is a string (such as &#8216;\t&#8217; or &#8216;&amp;nbsp;&#8217;), it contains the characters used to indent at each level.
+                                    an optional parameter that specifies the indentation of nested structures.&nbsp; If it is omitted, the text will be packed without extra whitespace.&nbsp; If it is a number, it will specify the number of spaces to indent at each level.&nbsp; If it is a string (such as ‘\t’ or ‘&amp;nbsp;’), it contains the characters used to indent at each level.
                                 </td>
                             </tr>
                         </table>
@@ -313,7 +329,7 @@
                         <blockquote>
                             <div class="code">
                                 <pre class="asp">
-<span class="kw1">dim</span> Info <span class="sy0">:</span> <span class="kw1">set</span> Info <span class="sy0">=</span> JSON.<span class="me1">parse</span><span class="br0">(</span><span class="st0">"{"</span><span class="st0">"firstname"</span><span class="st0">":"</span><span class="st0">"Fabio"</span><span class="st0">", "</span><span class="st0">"lastname"</span><span class="st0">":"</span><span class="st0">"Nagao"</span><span class="st0">"}"</span><span class="br0">)</span>
+<span class="kw1">dim</span> Info <span class="sy0">:</span> <span class="kw1">set</span> Info <span class="sy0">=</span> JSON.<span class="me1">parse</span><span class="br0">(</span><span class="st0">"{"</span><span class="st0">"firstname"</span><span class="st0">":"</span><span class="st0">"Fabio"</span><span class="st0">", "</span><span class="st0">"lastname"</span><span class="st0">":"</span><span class="st0">"長尾"</span><span class="st0">"}"</span><span class="br0">)</span>
 Info.<span class="kw1">set</span> <span class="st0">"alive"</span>, <span class="kw2">true</span>
 Info.<span class="kw1">set</span> <span class="st0">"age"</span>, <span class="nu0">27</span>
 Info.<span class="kw1">set</span> <span class="st0">"nickname"</span>, <span class="st0">"nagaozen"</span>
@@ -323,7 +339,7 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
 <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> JSON.<span class="me1">stringify</span><span class="br0">(</span>Info, <span class="kw2">null</span>, <span class="nu0">2</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline <span class="br0">)</span> <span class="co1">' prints the text below:</span>
 <span class="co1">'{</span>
 <span class="co1">'  "firstname": "Fabio",</span>
-<span class="co1">'  "lastname": "Nagao",</span>
+<span class="co1">'  "lastname": "長尾",</span>
 <span class="co1">'  "alive": true,</span>
 <span class="co1">'  "age": 27,</span>
 <span class="co1">'  "nickname": "nagaozen",</span>
@@ -347,9 +363,88 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                     </div>
                 </div>
             </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="JSON.toXML"></a>toXML
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This method produces a XML text from a Javascript value.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (mixed)
+                                </td>
+                                <td class="CDLDescription">
+                                    any Javascript value, usually an object or array.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    an optional parameter that determines what tag should be used as a container for the output.&nbsp; Defaults to none.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    a string that contains the serialized XML text.
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> Info <span class="sy0">:</span> <span class="kw1">set</span> Info <span class="sy0">=</span> JSON.<span class="me1">parse</span><span class="br0">(</span><span class="st0">"{"</span><span class="st0">"firstname"</span><span class="st0">":"</span><span class="st0">"Fabio"</span><span class="st0">", "</span><span class="st0">"lastname"</span><span class="st0">":"</span><span class="st0">"長尾"</span><span class="st0">"}"</span><span class="br0">)</span>
+Info.<span class="kw1">set</span> <span class="st0">"alive"</span>, <span class="kw2">true</span>
+Info.<span class="kw1">set</span> <span class="st0">"age"</span>, <span class="nu0">27</span>
+Info.<span class="kw1">set</span> <span class="st0">"nickname"</span>, <span class="st0">"nagaozen"</span>
+Info.<span class="kw1">set</span> <span class="st0">"fruits"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"banana"</span>,<span class="st0">"orange"</span>,<span class="st0">"apple"</span>,<span class="st0">"papaya"</span>,<span class="st0">"pineapple"</span><span class="br0">)</span>
+Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span class="me1">parse</span><span class="br0">(</span><span class="st0">"{"</span><span class="st0">"real"</span><span class="st0">":1, "</span><span class="st0">"imaginary"</span><span class="st0">":1}"</span><span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> JSON.<span class="me1">toXML</span><span class="br0">(</span>Info<span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline <span class="br0">)</span> <span class="co1">' prints the text below:</span>
+<span class="co1">'&lt;firstname&gt;Fabio&lt;/firstname&gt;</span>
+<span class="co1">'&lt;lastname&gt;長尾&lt;/lastname&gt;</span>
+<span class="co1">'&lt;alive&gt;true&lt;/alive&gt;</span>
+<span class="co1">'&lt;age&gt;27&lt;/age&gt;</span>
+<span class="co1">'&lt;nickname&gt;nagaozen&lt;/nickname&gt;</span>
+<span class="co1">'&lt;fruits&gt;banana&lt;/fruits&gt;</span>
+<span class="co1">'&lt;fruits&gt;orange&lt;/fruits&gt;</span>
+<span class="co1">'&lt;fruits&gt;apple&lt;/fruits&gt;</span>
+<span class="co1">'&lt;fruits&gt;papaya&lt;/fruits&gt;</span>
+<span class="co1">'&lt;fruits&gt;pineapple&lt;/fruits&gt;</span>
+<span class="co1">'&lt;complex&gt;</span>
+<span class="co1">'    &lt;real&gt;1&lt;/real&gt;</span>
+<span class="co1">'    &lt;imaginary&gt;1&lt;/imaginary&gt;</span>
+<span class="co1">'&lt;/complex&gt;</span>
+ 
+<span class="kw1">set</span> Info <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="Footer">
-            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; &#183;&nbsp; Generated by <a href="http://www.naturaldocs.org">Natural Docs</a>, <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://mootools.net/">MooTools</a>
+            Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; ·&nbsp; Generated by <a href="http://www.naturaldocs.org">Natural Docs</a>, <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://mootools.net/">MooTools</a>
         </div>
         <div id="Menu">
             <div class="MTitle">
@@ -487,8 +582,8 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent8')">Utilities</a>
-                    <div class="MGroupContent" id="MGroupContent8">
+                    <a href="javascript:ToggleMenu('MGroupContent9')">Utilities</a>
+                    <div class="MGroupContent" id="MGroupContent9">
                         <div class="MEntry">
                             <div class="MGroup">
                                 <a href="javascript:ToggleMenu('MGroupContent6')">Email</a>
@@ -513,6 +608,33 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../Utilities/Translator/interface-asp.html">interface.asp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MGroup">
+                                <a href="javascript:ToggleMenu('MGroupContent8')">Logger</a>
+                                <div class="MGroupContent" id="MGroupContent8">
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../Utilities/Logger/Adapters/firephp-asp.html">firephp.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../Utilities/Logger/Adapters/response-asp.html">response.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../Utilities/Logger/Adapters/text-asp.html">text.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../Utilities/Logger/interface-asp.html">interface.asp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -598,8 +720,8 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent9')">Templates</a>
-                    <div class="MGroupContent" id="MGroupContent9">
+                    <a href="javascript:ToggleMenu('MGroupContent10')">Templates</a>
+                    <div class="MGroupContent" id="MGroupContent10">
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="../../templates/adapter-asp.html">${1:<wbr />name}.asp</a>
@@ -630,12 +752,12 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent13')">Miscellaneous</a>
-                    <div class="MGroupContent" id="MGroupContent13">
+                    <a href="javascript:ToggleMenu('MGroupContent14')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent14">
                         <div class="MEntry">
                             <div class="MGroup">
-                                <a href="javascript:ToggleMenu('MGroupContent11')">App</a>
-                                <div class="MGroupContent" id="MGroupContent11">
+                                <a href="javascript:ToggleMenu('MGroupContent12')">App</a>
+                                <div class="MGroupContent" id="MGroupContent12">
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
@@ -648,8 +770,8 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                                     </div>
                                     <div class="MEntry">
                                         <div class="MGroup">
-                                            <a href="javascript:ToggleMenu('MGroupContent10')">Views</a>
-                                            <div class="MGroupContent" id="MGroupContent10">
+                                            <a href="javascript:ToggleMenu('MGroupContent11')">Views</a>
+                                            <div class="MGroupContent" id="MGroupContent11">
                                                 <div class="MEntry">
                                                     <div class="MFile">
                                                         <a href="../../../../app/views/anotherView-asp.html">anotherView.asp</a>
@@ -698,8 +820,8 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                         </div>
                         <div class="MEntry">
                             <div class="MGroup">
-                                <a href="javascript:ToggleMenu('MGroupContent12')">Lib</a>
-                                <div class="MGroupContent" id="MGroupContent12">
+                                <a href="javascript:ToggleMenu('MGroupContent13')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent13">
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
@@ -743,8 +865,8 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent14')">Index</a>
-                    <div class="MGroupContent" id="MGroupContent14">
+                    <a href="javascript:ToggleMenu('MGroupContent15')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent15">
                         <div class="MEntry">
                             <div class="MIndex">
                                 <a href="../../../../../index/General.html">Everything</a>
@@ -808,7 +930,7 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([3, 4, 2, 5], 15);// -->
+            HideAllBut([3, 4, 2, 5], 16);// -->
             //]]>
             </script>
         </div>

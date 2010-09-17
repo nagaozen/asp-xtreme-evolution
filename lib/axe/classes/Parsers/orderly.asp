@@ -1,3 +1,5 @@
+<script language="Javascript" runat="server">
+
 /*
 
 File: orderly.asp
@@ -1983,3 +1985,5 @@ var Orderly = (function () {
     };
     return exports;
 })()
+
+</script>

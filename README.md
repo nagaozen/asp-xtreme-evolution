@@ -65,7 +65,7 @@ Installation
 
 11. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.
 
-Version 1.2.0.0
+Version 1.2.1.0
 ---------------
 
 ### Fixes
@@ -106,7 +106,7 @@ for sure.
     - [Interface](/lib/axe/docs/files/lib/axe/classes/interface-asp.html)
     - [JSON2](/lib/axe/docs/files/lib/axe/classes/Parsers/json2-asp.html)
     - [List](/lib/axe/docs/files/lib/axe/classes/Utilities/list-asp.html)
-    - [Logger](/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html) _(not implemented yet)_
+    - [Logger](/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html)
     - [Markdown](/lib/axe/docs/files/lib/axe/classes/Parsers/markdown-asp.html)
     - [Orderly](/lib/axe/docs/files/lib/axe/classes/Parsers/orderly-asp.html)
     - [Paginator](/lib/axe/docs/files/lib/axe/classes/Utilities/paginator-asp.html)

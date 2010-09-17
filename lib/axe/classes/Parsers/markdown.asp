@@ -65,7 +65,7 @@ class Markdown
     
     private sub Class_initialize()
         classType    = "Markdown"
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set jsWrapper = new_Showdown()
     end sub

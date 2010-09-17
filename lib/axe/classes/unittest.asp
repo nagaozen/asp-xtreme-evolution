@@ -86,7 +86,7 @@ class UnitTest
     
     private sub Class_initialize()
         classType    = typeName(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         container = ""
         set Properties = Server.createObject("Scripting.Dictionary")
