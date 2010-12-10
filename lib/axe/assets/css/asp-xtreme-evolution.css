@@ -1,0 +1,228 @@
+﻿/* File: asp-xtreme-evolution.css
+ * 
+ * This stylesheet defines shared properties for the framework views.
+ * 
+ * License:
+ * 
+ * This file is part of ASP Xtreme Evolution.
+ * Copyright (C) 2007-2009 Fabio Zendhi Nagao
+ * 
+ * ASP Xtreme Evolution is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * ASP Xtreme Evolution is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with ASP Xtreme Evolution. If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * About:
+ * 
+ *     - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
+ */
+
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans");
+
+body {
+    padding: 1em;
+    background-color: #2E3436;
+    font-family: 'Droid Sans', Arial, Helvetica, Clean, sans-serif;
+    color: #EEEEEC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    font-weight: bold;
+}
+
+p {
+    padding-bottom: .5em;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+code {
+    color: #AD7FA8;
+}
+
+hr {
+    clear: both;
+}
+
+a {
+    color: #BABDB6;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #729FCF;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 197%;
+    letter-spacing: -1px;
+    color: #FCE94F;
+    text-shadow: 2px 2px 2px #8F5902;
+}
+
+h2 {
+    font-size: 182%;
+    letter-spacing: -1px;
+    color: #EDD400;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 167%;
+    letter-spacing: -1px;
+    color: #C4A000;
+}
+
+ul, ol {
+    margin:0 .5em .5em 1.5em;
+}
+ul li {list-style-type:disc;}
+ol li {list-style-type:decimal;}
+
+div#container-ft {
+    text-align: right;
+}
+
+div#container-ft li {
+    display: inline;
+}
+
+body#defaultView #container {
+    width: 620px;
+    padding-right: 1.5em;
+    border-right: 4px dotted #555753;
+}
+
+body#defaultView img {
+    margin: 1.5em 0;
+}
+
+body#inspect div#container-bd table,
+body#errors div#container-bd table {
+    width: 100%;
+}
+
+body#inspect div#container-bd th,
+body#inspect div#container-bd td,
+body#errors div#container-bd th,
+body#errors div#container-bd td {
+    padding: 5px;
+    font-size: 93%;
+}
+
+body#inspect div#container-bd tr.even,
+body#errors div#container-bd tr.even {
+    background-color: #292F31;
+}
+
+body#inspect div#inspect-xml-container,
+body#inspect div#inspect-xslt-container,
+body#inspect div#inspect-output-container {
+    display: none;
+}
+
+.nav {
+    list-style-type: none;
+    float: left;
+    margin: 0 0 1.5em 0;
+    overflow: hidden;
+}
+
+.nav li {
+    list-style-type: none;
+    float: left;
+    background: #f3f3f3;
+    background-image: -moz-linear-gradient(top, #f9f9f9, #e3e3e3);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f9f9f9),color-stop(1, #e3e3e3));
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #bbb;
+    cursor: pointer;
+}
+
+.nav li a,
+.nav li span {
+    color: #333;
+    text-decoration: none;
+    border-right: 1px solid #fff;
+    display: block;
+    padding: 2px 8px;
+    text-transform: capitalize;
+}
+
+.nav li:hover,
+.nav li:hover:first-child,
+.nav li:hover:last-child {
+    border-color: #888;
+}
+
+.nav .selected:first-child:hover a {
+}
+
+.nav li:hover a {
+    color: #000;
+    border-right: 0;
+    padding-right: 9px;
+}
+
+.nav li:active {
+    background-image: -moz-linear-gradient(top, #666, #999);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #666),color-stop(.4, #888),color-stop(.6, #888),color-stop(1, #999));
+}
+
+.nav li:active a {
+    color: #fff;
+}
+
+.nav .selected {
+    border-left: 1px solid #777;
+    background: #666;
+    border-color: #888;
+    background-image: -moz-linear-gradient(top, #999, #666);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #999),color-stop(.4, #888),color-stop(.6, #888),color-stop(1, #666));
+}
+
+.nav .selected a, .nav .selected span {
+    color: #fff !important;
+    border-right: 0;
+    padding-right: 9px;
+}
+
+.nav li:first-child.selected a,
+.nav li:first-child.selected span {
+    padding-left: 7px;
+}
+
+.nav li:first-child {
+    border-left: 1px solid #aaa;
+    border-top-left-radius: 3px; -moz-border-radius-topleft: 3px;
+    border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px;
+}
+
+.nav li:last-child {
+    border-right: none;
+    border-right: 1px solid #bbb;
+    border-top-right-radius: 3px; -moz-border-radius-topright: 3px;
+    border-bottom-right-radius: 3px; -moz-border-radius-topright: 3px;
+}
+
+.nav li:first-child a {
+    border-left: none;
+}

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+    <common>
+        <name>ASP Xtreme Evolution</name>
+        <version>1.4.9.999α</version>
+        <environment>development</environment>
+        <uri>http://192.168.0.20:50001</uri>
+    </common>
+    <cache>
+        <lifetime>6</lifetime>
+        <item>
+            <controller>defaultController</controller>
+            <action>defaultAction</action>
+        </item>
+        <item>
+            <controller>defaultController</controller>
+            <action>another</action>
+        </item>
+    </cache>
+</configurations>

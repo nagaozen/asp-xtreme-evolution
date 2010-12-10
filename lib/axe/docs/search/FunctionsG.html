@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../styles/main.css" />
+        <script language="JavaScript" src="../javascript/main.js" type="text/javascript">
+</script>
+        <link rel="icon" type="image/png" href="/lib/axe/assets/img/docs-icon.png" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css" />
+        <title></title>
+    </head>
+    <body class="PopupSearchResultsPage" onload="NDOnLoad()">
+        <script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {document.write("<div class=" + browserType + ">");if (browserVer) {document.write("<div class=" + browserVer + ">"); }}// -->
+        //]]>
+        </script>
+        <div id="Index">
+            <div class="SRStatus" id="Loading">
+                Loading...
+            </div>
+            <div class="SRResult" id="SR_getBinary">
+                <div class="IEntry">
+                    <a href="javascript:searchResults.Toggle('SR_getBinary')" class="ISymbol">getBinary</a>
+                    <div class="ISubIndex">
+                        <a href="../files/lib/axe/classes/Utilities/base64-asp.html#Base64.getBinary" target="_parent" class="IParent">Base64</a><a href="../files/lib/axe/classes/Utilities/image-asp.html#Image.getBinary" target="_parent" class="IParent">Image</a>
+                    </div>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getChildNodes">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/Parsers/json-asp.html#Json.getChildNodes" target="_parent" class="ISymbol">getChildNodes</a>, <span class="IParent">Json</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getElement">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/Parsers/json-asp.html#Json.getElement" target="_parent" class="ISymbol">getElement</a>, <span class="IParent">Json</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getExif">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/Utilities/image-asp.html#Image.getExif" target="_parent" class="ISymbol">getExif</a>, <span class="IParent">Image</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getFilename">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/Utilities/image-asp.html#Image.getFilename" target="_parent" class="ISymbol">getFilename</a>, <span class="IParent">Image</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getMime">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/Utilities/image-asp.html#Image.getMime" target="_parent" class="ISymbol">getMime</a>, <span class="IParent">Image</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getText">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/Utilities/translator-asp.html#Translator.getText" target="_parent" class="ISymbol">getText</a>, <span class="IParent">Translator</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_getXmlNodeValues">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/classes/kernel-asp.html#Kernel.getXmlNodeValues" target="_parent" class="ISymbol">getXmlNodeValues</a>, <span class="IParent">Kernel</span>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_go">
+                <div class="IEntry">
+                    <a href="javascript:searchResults.Toggle('SR_go')" class="ISymbol">go</a>
+                    <div class="ISubIndex">
+                        <a href="../files/lib/axe/classes/Utilities/image-asp.html#Image.go" target="_parent" class="IParent">Image</a><a href="../files/lib/axe/classes/Utilities/zip-asp.html#Zip.go" target="_parent" class="IParent">Zip</a>
+                    </div>
+                </div>
+            </div>
+            <div class="SRResult" id="SR_guid">
+                <div class="IEntry">
+                    <a href="../files/lib/axe/base-asp.html#guid" target="_parent" class="ISymbol">guid</a>
+                </div>
+            </div>
+            <table border="0" cellspacing="0" cellpadding="0"></table>
+            <div class="SRStatus" id="Searching">
+                Searching...
+            </div>
+            <div class="SRStatus" id="NoMatches">
+                No Matches
+            </div><script type="text/javascript">
+//<![CDATA[
+            <!--
+            document.getElementById("Loading").style.display="none";
+            document.getElementById("NoMatches").style.display="none";
+            var searchResults = new SearchResults("searchResults", "HTML");
+            searchResults.Search();
+            -->
+            //]]>
+            </script>
+        </div><script language="JavaScript" type="text/javascript">
+//<![CDATA[
+        <!--
+        if (browserType) {if (browserVer) {document.write("<\/div>"); }document.write("<\/div>");}// -->
+        //]]>
+        </script><script src="http://ajax.googleapis.com/ajax/libs/mootools/1.11/mootools-yui-compressed.js" type="text/javascript">
+</script><script type="text/javascript">
+//<![CDATA[
+        function ToggleMenu(c){}; window.addEvent("domready", function(){ $$(".CTitle").each(function(heading, i){if(i>0)new Element("a",{"href":"#MainTopic","class":"toTop"}).setHTML("top").injectBefore(heading.getFirst());});new SmoothScroll({transition:Fx.Transitions.Cubic.easeInOut,duration:1000}); var selected = $("MSelected"); var current = (selected) ? selected.getParent().getParent() : false; $$("div.MGroupContent").setStyle("display","block"); $$("div.MGroup").each(function(div){ var link = div.getElement("a"); var block = link.getNext(); var fx = new Fx.Slide(block); if(block != current) fx.hide(); link.addEvent("click", function(){fx.toggle();}); }); });
+        //]]>
+        </script>
+    </body>
+</html>
