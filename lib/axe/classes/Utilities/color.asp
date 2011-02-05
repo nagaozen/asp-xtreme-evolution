@@ -154,7 +154,7 @@ class Color
     ' 
     ' (end code)
     ' 
-    function rgb2hex(red, green, blue)
+    public function rgb2hex(red, green, blue)
         rgb2hex = join(array( right("00" & dec2hex(red), 2), right("00" & dec2hex(green), 2), right("00" & dec2hex(blue), 2) ),"")
     end function
     
@@ -180,7 +180,7 @@ class Color
     ' 
     ' (end code)
     ' 
-    function hex2rgb(sharp)
+    public function hex2rgb(sharp)
         if(len(sharp) = 3) then
             sharp = mid(sharp, 1, 1) & mid(sharp, 1, 1) & mid(sharp, 2, 1) & mid(sharp, 2, 1) & mid(sharp, 3, 1) & mid(sharp, 3, 1)
         end if
@@ -214,7 +214,7 @@ class Color
     ' 
     ' (end code)
     ' 
-    function rgb2hsb(red, green, blue)
+    public function rgb2hsb(red, green, blue)
         dim hue, saturation, brightness
         
         dim maxi : maxi = max(array(red, green, blue))
@@ -269,7 +269,7 @@ class Color
     ' 
     ' (end code)
     ' 
-    function hsb2rgb(hue, saturation, brightness)
+    public function hsb2rgb(hue, saturation, brightness)
         dim br : br = round( brightness / 100 * 255 )
         if( saturation = 0 ) then
             hsb2rgb = array(br, br, br)

@@ -61,17 +61,17 @@ class Markdown
     ' 
     public classVersion
     
-    private jsWrapper
+    private [_ζ]
     
     private sub Class_initialize()
         classType    = "Markdown"
         classVersion = "1.0.0.0"
         
-        set jsWrapper = new_Showdown()
+        set [_ζ] = new_Showdown()
     end sub
     
     private sub Class_terminate()
-        set jsWrapper = nothing
+        set [_ζ] = nothing
     end sub
     
     ' Function: makeHtml
@@ -100,7 +100,7 @@ class Markdown
     ' (end code)
     ' 
     public function makeHtml(text)
-        makeHtml = jsWrapper.makeHtml(text)
+        makeHtml = [_ζ].makeHtml(text)
     end function
     
 end class

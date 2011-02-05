@@ -93,7 +93,7 @@ class List
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0.0"
+        classVersion = "1.1.0.0"
         
         count = 0
         
@@ -105,6 +105,16 @@ class List
     end sub
     
     private sub Class_terminate()
+        dim Node : set Node = Head
+        while(Node.hasNext)
+            set Node = Node.pNext
+            if( isObject(Node.data) ) then
+                set Node.data = nothing
+            end if
+            set Node.pPrev = nothing
+        wend
+        set Node = nothing
+        
         set Foot = nothing
         set Head = nothing
     end sub
@@ -115,7 +125,7 @@ class List
     ' 
     ' Parameters:
     ' 
-    '     (List_Node) - Element to be inserted
+    '     (mixed) - Element to be inserted
     ' 
     ' Returns:
     ' 
@@ -127,24 +137,36 @@ class List
     ' 
     ' dim L : set L = new List
     ' 
-    ' dim Node : set Node = new List_node
-    ' Node.data = "Hello World"
-    ' Response.write(L.unshift(Node)) ' prints 1
-    ' set Node = nothing
+    ' L.unshift("Welcome")
+    ' L.unshift("歡迎光臨")
+    ' L.unshift("Bienvenido")
+    ' L.unshift("Bem vindo")
+    ' L.unshift("환영합니다")
+    ' L.unshift("ようこそ")
     ' 
-    ' Response.write(L.Head.pNext.data) ' prints "Hello World"
-    ' Response.write(L.Head.pNext.hasNext) ' prints false
+    ' Response.write(L.pop() & vbNewline) ' prints "Welcome"
+    ' Response.write(L.count & vbNewline) ' prints 5
     ' 
     ' set L = nothing
     ' 
     ' (end code)
     ' 
-    public function unshift(Node)
+    public function unshift(mixed)
+        dim Node : set Node = new List_Node
+        
+        if( isObject(mixed) ) then
+            set Node.data = mixed
+        else
+            Node.data = mixed
+        end if
+        
         set Node.pNext = Head.pNext
         set Node.pPrev = Head
         
         set Head.pNext.pPrev = Node
         set Head.pNext = Node
+        
+        set Node = nothing
         
         count = count + 1
         unshift = count
@@ -156,7 +178,7 @@ class List
     ' 
     ' Returns:
     ' 
-    '     (List_Node) - Removed element
+    '     (mixed) - Removed element
     ' 
     ' Example:
     ' 
@@ -164,12 +186,15 @@ class List
     ' 
     ' dim L : set L = new List
     ' 
-    ' dim Node : set Node = new List_node
-    ' Node.data = "Hello World"
-    ' L.unshift(Node)
-    ' Response.write(L.shift().data) ' prints "Hello World"
-    ' Response.write(L.count) ' prints 0
-    ' set Node = nothing
+    ' L.unshift("Welcome")
+    ' L.unshift("歡迎光臨")
+    ' L.unshift("Bienvenido")
+    ' L.unshift("Bem vindo")
+    ' L.unshift("환영합니다")
+    ' L.unshift("ようこそ")
+    ' 
+    ' Response.write(L.shift() & vbNewline) ' prints "ようこそ" (yōkoso)
+    ' Response.write(L.count & vbNewline) ' prints 5
     ' 
     ' set L = nothing
     ' 
@@ -185,6 +210,12 @@ class List
             
             shift.pPrev = empty
             shift.pNext = empty
+            
+            if( isObject( shift.data ) ) then
+                set shift = shift.data
+            else
+                shift = shift.data
+            end if
         else
             shift = empty
         end if
@@ -196,7 +227,7 @@ class List
     ' 
     ' Parameters:
     ' 
-    '     (List_Node) - Element to be inserted
+    '     (mixed) - Element to be inserted
     ' 
     ' Returns:
     ' 
@@ -208,24 +239,36 @@ class List
     ' 
     ' dim L : set L = new List
     ' 
-    ' dim Node : set Node = new List_node
-    ' Node.data = "Hello World"
-    ' Response.write(L.push(Node)) ' prints 1
-    ' set Node = nothing
+    ' L.push("Welcome")
+    ' L.push("歡迎光臨")
+    ' L.push("Bienvenido")
+    ' L.push("Bem vindo")
+    ' L.push("환영합니다")
+    ' L.push("ようこそ")
     ' 
-    ' Response.write(L.Head.pNext.data) ' prints "Hello World"
-    ' Response.write(L.Head.pNext.hasNext) ' prints false
+    ' Response.write(L.shift() & vbNewline) ' prints "Welcome"
+    ' Response.write(L.count & vbNewline) ' prints 5
     ' 
     ' set L = nothing
     ' 
     ' (end code)
     ' 
-    public function push(Node)
+    public function push(mixed)
+        dim Node : set Node = new List_Node
+        
+        if( isObject(mixed) ) then
+            set Node.data = mixed
+        else
+            Node.data = mixed
+        end if
+        
         set Node.pNext = Foot
         set Node.pPrev = Foot.pPrev
         
         set Foot.pPrev.pNext = Node
         set Foot.pPrev = Node
+        
+        set Node = nothing
         
         count = count + 1
         push = count
@@ -245,12 +288,15 @@ class List
     ' 
     ' dim L : set L = new List
     ' 
-    ' dim Node : set Node = new List_node
-    ' Node.data = "Hello World"
-    ' L.unshift(Node)
-    ' Response.write(L.pop().data) ' prints "Hello World"
-    ' Response.write(L.count) ' prints 0
-    ' set Node = nothing
+    ' L.push("Welcome")
+    ' L.push("歡迎光臨")
+    ' L.push("Bienvenido")
+    ' L.push("Bem vindo")
+    ' L.push("환영합니다")
+    ' L.push("ようこそ")
+    ' 
+    ' Response.write(L.pop() & vbNewline) ' prints "ようこそ" (yōkoso)
+    ' Response.write(L.count & vbNewline) ' prints 5
     ' 
     ' set L = nothing
     ' 
@@ -266,6 +312,12 @@ class List
             
             pop.pPrev = empty
             pop.pNext = empty
+            
+            if( isObject( pop.data ) ) then
+                set pop = pop.data
+            else
+                pop = pop.data
+            end if
         else
             pop = empty
         end if
@@ -289,17 +341,19 @@ class List
     ' 
     ' dim L : set L = new List
     ' 
-    ' dim Node : set Node = new List_node
-    ' Node.data = "Hello World"
-    ' Response.write(L.push(Node)) ' prints 1
-    ' set Node = nothing
+    ' L.push("Welcome")
+    ' L.push("歡迎光臨")
+    ' L.push("Bienvenido")
+    ' L.push("Bem vindo")
+    ' L.push("환영합니다")
+    ' L.push("ようこそ")
     ' 
-    ' function helloWorldDetector(Node)
-    '     helloWorldDetector = false
-    '     if(Node.data = "Hello World") then helloWorldDetector = true
+    ' function bienvenidoDetector(Node)
+    '     bienvenidoDetector = false
+    '     if(Node.data = "Bienvenido") then bienvenidoDetector = true
     ' end function
     ' 
-    ' Response.write( L.search("helloWorldDetector").data )
+    ' Response.write( L.search("bienvenidoDetector") )' prints "Bienvenido"
     ' 
     ' set L = nothing
     ' 
@@ -338,17 +392,19 @@ class List
     ' 
     ' dim L : set L = new List
     ' 
-    ' dim Node : set Node = new List_node
-    ' Node.data = "Hello World"
-    ' Response.write(L.push(Node)) ' prints 1
-    ' set Node = nothing
+    ' L.push("Welcome")
+    ' L.push("歡迎光臨")
+    ' L.push("Bienvenido")
+    ' L.push("Bem vindo")
+    ' L.push("환영합니다")
+    ' L.push("ようこそ")
     ' 
-    ' function helloWorldDetector(Node)
-    '     helloWorldDetector = false
-    '     if(Node.data = "Hello World") then helloWorldDetector = true
+    ' function bienvenidoDetector(Node)
+    '     bienvenidoDetector = false
+    '     if(Node.data = "Hello World") then bienvenidoDetector = true
     ' end function
     ' 
-    ' Response.write( L.remove("helloWorldDetector") )
+    ' Response.write( L.remove("bienvenidoDetector") )' prints 5
     ' 
     ' set L = nothing
     ' 
@@ -403,7 +459,7 @@ class List_Node
     ' 
     ' Contains:
     ' 
-    '     (variant) - Node data
+    '     (mixed) - Node data
     ' 
     public data
     

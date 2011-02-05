@@ -131,7 +131,7 @@ class Email_Adapter_CDO' implements Email_Interface
     ' 
     '     (Email) - An instance of Email class (id est an Email Object).
     ' 
-    public sub sends(Email)
+    public sub send(Email)
         dim t, c, b
         t = [_getTo](Email)
         c = [_getCC](Email)

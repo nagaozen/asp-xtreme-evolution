@@ -69,6 +69,34 @@ class Kernel
     private sub Class_terminate()
     end sub
     
+    ' Function: getRoute
+    ' 
+    ' {private} Maps the controllers and actions aliases into the application classes and methods.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string) - controller
+    '     (string) - action
+    ' 
+    ' Returns:
+    ' 
+    '     (string[]) - [ system_controller, system_action ]
+    ' 
+    private function getRoute(controller, action)
+        dim i, j
+        for i = 0 to uBound( Application("Routes") )
+            if( strComp(Application("Routes")(i)(0), controller) = 0 ) then
+                controller = Application("Routes")(i)(1)
+                for j = 0 to uBound( Application("Routes")(i)(2) )
+                    if( strComp(Application("Routes")(i)(2)(j)(0), action) = 0 ) then
+                        action = Application("Routes")(i)(2)(j)(1)
+                    end if
+                next
+            end if
+        next
+        getRoute = array(controller, action)
+    end function
+    
     ' Function: initialize
     ' 
     ' Initialize the application configuration, setup the (string)controller,
@@ -81,11 +109,15 @@ class Kernel
     ' 
     public function initialize()
         dim sController, sAction, sArgv
-        sController = cStr(Request.QueryString("controller"))
-        sAction = cStr(Request.QueryString("action"))
-        sArgv = cStr(Request.QueryString("argv"))
+        sController = Request.QueryString("controller")()
+        sAction     = Request.QueryString("action")()
+        sArgv       = Request.QueryString("argv")()
         
-        if( ( not Application("isConfigured") ) or ( strComp(lcase(Request.QueryString("reconfigure")), "true") = 0 ) or ( inStr(lcase(Request.QueryString("argv")), "reconfigure=true") > 0 ) ) then
+        if( _
+               ( not Application("isConfigured") ) _
+            or ( strComp(lcase(Request.QueryString("reconfigure")), "true") = 0 ) _
+            or ( inStr(lcase(Request.QueryString("argv")), "reconfigure=true") > 0 ) _
+        ) then
             Server.execute("/lib/axe/application.configure.asp")
         end if
         
@@ -96,6 +128,10 @@ class Kernel
         if(sAction <> "") then
             Session("action") = sAction
         end if
+        
+        dim route : route = getRoute( Session("controller"), Session("action") )
+        Session("controller") = route(0)
+        Session("action")     = route(1)
         
         if(sArgv <> "") then
             Session("argv") = split(sArgv, "/")
@@ -210,7 +246,7 @@ class Kernel
     ' 
     public function cacheIndex(sController, sAction)
         cacheIndex = -1
-        dim i : for i = 0 to uBound(Application("Cache.items")) - 1
+        dim i : for i = 0 to uBound(Application("Cache.items"))
             if(strComp(sController, Application("Cache.items")(i, 0)) = 0) then
                 if(strComp(sAction, Application("Cache.items")(i, 1)) = 0) then
                     cacheIndex = i

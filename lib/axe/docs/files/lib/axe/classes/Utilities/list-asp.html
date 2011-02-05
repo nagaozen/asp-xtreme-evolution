@@ -530,7 +530,7 @@
                                                     public function unshift(
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    Node
+                                                    mixed
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
                                                     )
@@ -550,7 +550,7 @@
                         <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
                             <tr>
                                 <td class="CDLEntry">
-                                    (List_Node)
+                                    (mixed)
                                 </td>
                                 <td class="CDLDescription">
                                     Element to be inserted
@@ -578,13 +578,15 @@
                                 <pre class="asp">
 <span class="kw1">dim</span> L <span class="sy0">:</span> <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">new</span> List
  
-<span class="kw1">dim</span> Node <span class="sy0">:</span> <span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">new</span> List_node
-Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0">)</span><span class="br0">)</span> <span class="co1">' prints 1</span>
-<span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">nothing</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"Welcome"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"歡迎光臨"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"Bienvenido"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"Bem vindo"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"환영합니다"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"ようこそ"</span><span class="br0">)</span>
  
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">Head</span>.<span class="me1">pNext</span>.<span class="me1">data</span><span class="br0">)</span> <span class="co1">' prints "Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">Head</span>.<span class="me1">pNext</span>.<span class="me1">hasNext</span><span class="br0">)</span> <span class="co1">' prints false</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints "Welcome"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">count</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 5</span>
  
 <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -617,7 +619,7 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                         <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
                             <tr>
                                 <td class="CDLEntry">
-                                    (List_Node)
+                                    (mixed)
                                 </td>
                                 <td class="CDLDescription">
                                     Removed element
@@ -632,12 +634,15 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                                 <pre class="asp">
 <span class="kw1">dim</span> L <span class="sy0">:</span> <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">new</span> List
  
-<span class="kw1">dim</span> Node <span class="sy0">:</span> <span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">new</span> List_node
-Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span>
-L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0">)</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">shift</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">data</span><span class="br0">)</span> <span class="co1">' prints "Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">count</span><span class="br0">)</span> <span class="co1">' prints 0</span>
-<span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">nothing</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"Welcome"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"歡迎光臨"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"Bienvenido"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"Bem vindo"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"환영합니다"</span><span class="br0">)</span>
+L.<span class="me1">unshift</span><span class="br0">(</span><span class="st0">"ようこそ"</span><span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">shift</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints "ようこそ" (yōkoso)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">count</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 5</span>
  
 <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -662,7 +667,7 @@ L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0
                                                     public function push(
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    Node
+                                                    mixed
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
                                                     )
@@ -682,7 +687,7 @@ L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0
                         <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
                             <tr>
                                 <td class="CDLEntry">
-                                    (List_Node)
+                                    (mixed)
                                 </td>
                                 <td class="CDLDescription">
                                     Element to be inserted
@@ -710,13 +715,15 @@ L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0
                                 <pre class="asp">
 <span class="kw1">dim</span> L <span class="sy0">:</span> <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">new</span> List
  
-<span class="kw1">dim</span> Node <span class="sy0">:</span> <span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">new</span> List_node
-Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">push</span><span class="br0">(</span>Node<span class="br0">)</span><span class="br0">)</span> <span class="co1">' prints 1</span>
-<span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">nothing</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Welcome"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"歡迎光臨"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bienvenido"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bem vindo"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"환영합니다"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"ようこそ"</span><span class="br0">)</span>
  
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">Head</span>.<span class="me1">pNext</span>.<span class="me1">data</span><span class="br0">)</span> <span class="co1">' prints "Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">Head</span>.<span class="me1">pNext</span>.<span class="me1">hasNext</span><span class="br0">)</span> <span class="co1">' prints false</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">shift</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints "Welcome"</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">count</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 5</span>
  
 <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -764,12 +771,15 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                                 <pre class="asp">
 <span class="kw1">dim</span> L <span class="sy0">:</span> <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">new</span> List
  
-<span class="kw1">dim</span> Node <span class="sy0">:</span> <span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">new</span> List_node
-Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span>
-L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0">)</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span>.<span class="me1">data</span><span class="br0">)</span> <span class="co1">' prints "Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">count</span><span class="br0">)</span> <span class="co1">' prints 0</span>
-<span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">nothing</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Welcome"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"歡迎光臨"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bienvenido"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bem vindo"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"환영합니다"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"ようこそ"</span><span class="br0">)</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">pop</span><span class="br0">(</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints "ようこそ" (yōkoso)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">count</span> <span class="sy0">&amp;</span> vbNewline<span class="br0">)</span> <span class="co1">' prints 5</span>
  
 <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -842,17 +852,19 @@ L.<span class="me1">unshift</span><span class="br0">(</span>Node<span class="br0
                                 <pre class="asp">
 <span class="kw1">dim</span> L <span class="sy0">:</span> <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">new</span> List
  
-<span class="kw1">dim</span> Node <span class="sy0">:</span> <span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">new</span> List_node
-Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">push</span><span class="br0">(</span>Node<span class="br0">)</span><span class="br0">)</span> <span class="co1">' prints 1</span>
-<span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">nothing</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Welcome"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"歡迎光臨"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bienvenido"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bem vindo"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"환영합니다"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"ようこそ"</span><span class="br0">)</span>
  
-<span class="kw2">function</span> helloWorldDetector<span class="br0">(</span>Node<span class="br0">)</span>
-    helloWorldDetector <span class="sy0">=</span> <span class="kw2">false</span>
-    <span class="kw1">if</span><span class="br0">(</span>Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span><span class="br0">)</span> <span class="kw1">then</span> helloWorldDetector <span class="sy0">=</span> <span class="kw2">true</span>
+<span class="kw2">function</span> bienvenidoDetector<span class="br0">(</span>Node<span class="br0">)</span>
+    bienvenidoDetector <span class="sy0">=</span> <span class="kw2">false</span>
+    <span class="kw1">if</span><span class="br0">(</span>Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Bienvenido"</span><span class="br0">)</span> <span class="kw1">then</span> bienvenidoDetector <span class="sy0">=</span> <span class="kw2">true</span>
 <span class="kw1">end</span> <span class="kw2">function</span>
  
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> L.<span class="me1">search</span><span class="br0">(</span><span class="st0">"helloWorldDetector"</span><span class="br0">)</span>.<span class="me1">data</span> <span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> L.<span class="me1">search</span><span class="br0">(</span><span class="st0">"bienvenidoDetector"</span><span class="br0">)</span> <span class="br0">)</span><span class="co1">' prints "Bienvenido"</span>
  
 <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -925,17 +937,19 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                                 <pre class="asp">
 <span class="kw1">dim</span> L <span class="sy0">:</span> <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">new</span> List
  
-<span class="kw1">dim</span> Node <span class="sy0">:</span> <span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">new</span> List_node
-Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>L.<span class="me1">push</span><span class="br0">(</span>Node<span class="br0">)</span><span class="br0">)</span> <span class="co1">' prints 1</span>
-<span class="kw1">set</span> Node <span class="sy0">=</span> <span class="kw2">nothing</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Welcome"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"歡迎光臨"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bienvenido"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"Bem vindo"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"환영합니다"</span><span class="br0">)</span>
+L.<span class="me1">push</span><span class="br0">(</span><span class="st0">"ようこそ"</span><span class="br0">)</span>
  
-<span class="kw2">function</span> helloWorldDetector<span class="br0">(</span>Node<span class="br0">)</span>
-    helloWorldDetector <span class="sy0">=</span> <span class="kw2">false</span>
-    <span class="kw1">if</span><span class="br0">(</span>Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span><span class="br0">)</span> <span class="kw1">then</span> helloWorldDetector <span class="sy0">=</span> <span class="kw2">true</span>
+<span class="kw2">function</span> bienvenidoDetector<span class="br0">(</span>Node<span class="br0">)</span>
+    bienvenidoDetector <span class="sy0">=</span> <span class="kw2">false</span>
+    <span class="kw1">if</span><span class="br0">(</span>Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">"Hello World"</span><span class="br0">)</span> <span class="kw1">then</span> bienvenidoDetector <span class="sy0">=</span> <span class="kw2">true</span>
 <span class="kw1">end</span> <span class="kw2">function</span>
  
-<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> L.<span class="me1">remove</span><span class="br0">(</span><span class="st0">"helloWorldDetector"</span><span class="br0">)</span> <span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> L.<span class="me1">remove</span><span class="br0">(</span><span class="st0">"bienvenidoDetector"</span><span class="br0">)</span> <span class="br0">)</span><span class="co1">' prints 5</span>
  
 <span class="kw1">set</span> L <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -1106,7 +1120,7 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                         <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
                             <tr>
                                 <td class="CDLEntry">
-                                    (variant)
+                                    (mixed)
                                 </td>
                                 <td class="CDLDescription">
                                     Node data
@@ -1311,6 +1325,11 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="../Parsers/json2-asp.html">json2.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Parsers/jsonschema-asp.html">jsonschema.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -1825,7 +1844,7 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                                             public function unshift(
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            Node
+                                            mixed
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
                                             )
@@ -1863,7 +1882,7 @@ Node.<span class="me1">data</span> <span class="sy0">=</span> <span class="st0">
                                             public function push(
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            Node
+                                            mixed
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
                                             )

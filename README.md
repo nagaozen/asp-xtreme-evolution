@@ -75,8 +75,9 @@ for sure.
 
 ### Added
 
+* routing system based on /app/config.xml
+* new logo and favicon
 * /app/singletons.initialize.asp and /app/singletons.finalize.asp to manage application singletons.
-* brand-new logo and favicon
 * classType and classVersion properties in all classes
 * new View
     - genericView provides an easy shortcut for you to send an entire view content.
@@ -109,6 +110,7 @@ for sure.
     - [Email](/lib/axe/docs/files/lib/axe/classes/Utilities/email-asp.html)
     - [Interface](/lib/axe/docs/files/lib/axe/classes/interface-asp.html)
     - [JSON2](/lib/axe/docs/files/lib/axe/classes/Parsers/json2-asp.html)
+    - [JSONSchema](/lib/axe/docs/files/lib/axe/classes/Parsers/jsonschema-asp.html)
     - [List](/lib/axe/docs/files/lib/axe/classes/Utilities/list-asp.html)
     - [Logger](/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html)
     - [Markdown](/lib/axe/docs/files/lib/axe/classes/Parsers/markdown-asp.html)
@@ -117,7 +119,7 @@ for sure.
     - [RSS](/lib/axe/docs/files/lib/axe/classes/Feeds/rss-asp.html) _(work in progress)_
     - [StringBuilder](/lib/axe/docs/files/lib/axe/classes/Utilities/stringbuilder-asp.html)
     - [Template](/lib/axe/docs/files/lib/axe/classes/Utilities/template-asp.html)
-    - [Textile](/lib/axe/docs/files/lib/axe/classes/Parsers/textile-asp.html) _(not implemented yet)_
+    - [Textile](/lib/axe/docs/files/lib/axe/classes/Parsers/textile-asp.html)
     - [Translator](/lib/axe/docs/files/lib/axe/classes/Utilities/translator-asp.html)
     - [UnitTest](/lib/axe/docs/files/lib/axe/classes/unittest-asp.html)
     - [XSession](/lib/axe/docs/files/lib/axe/classes/Utilities/xsession-asp.html)
@@ -149,7 +151,7 @@ for sure.
 * [SOAP Toolkit](http://www.microsoft.com/downloads/details.aspx?familyid=c943c0dd-ceec-4088-9753-86f052ec8450&displaylang=en "SOAP Toolkit 3.0")
     - [Security Update](http://www.microsoft.com/DownLoads/details.aspx?FamilyID=23d18fd1-34be-4123-ba56-9be2d4be1b23&displaylang=en "SOAP Toolkit 3.0 Security Update")
 * [IIRF](http://iirf.codeplex.com/ "Ionic's ISAPI Rewrite Filter")
-    - updated to 1.2.15 (current latest stable)
+    - updated to 2.1 (current latest stable)
     - enhanced URL-Rewriting
 * a lot of other minor updates to make the Framework better ...
 

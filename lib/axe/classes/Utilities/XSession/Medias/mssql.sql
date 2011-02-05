@@ -143,7 +143,7 @@ GO
 
 /* Stored Procedure: SP_axe_xsession_load
  * 
- * description
+ * Shortcut to CRUD retrieve.
  * 
  * Parameters:
  * 
@@ -163,7 +163,7 @@ GO
 
 /* Stored Procedure: SP_axe_xsession_save
  * 
- * description
+ * Shortcut to CRUD create, update.
  * 
  * Parameters:
  * 

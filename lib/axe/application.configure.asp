@@ -1,4 +1,5 @@
-﻿<%
+﻿<!--#include virtual="/lib/axe/base.asp"-->
+<%
 
 ' File: application.configure.asp
 ' 
@@ -34,6 +35,7 @@ Xml.load(Server.mapPath("/app/config.xml"))
 
 loadCommon Xml
 loadCache Xml
+loadRoutes Xml
 
 Application("isConfigured") = true
 
@@ -54,8 +56,9 @@ set Xml = nothing
 '   <config.xml>
 ' 
 sub loadCommon(Xml)
-    dim Nodelist : set Nodelist = Xml.selectNodes("/configurations/common/child::*")
-    dim Node : for each Node in Nodelist
+    dim Nodelist, Node
+    set Nodelist = Xml.selectNodes("/configurations/common/child::*")
+    for each Node in Nodelist
         Application(Node.nodeName) = Node.text
     next
     set Node = nothing
@@ -75,21 +78,62 @@ end sub
 '   <config.xml>
 ' 
 sub loadCache(Xml)
-    dim Nodelist : set Nodelist = Xml.selectNodes("/configurations/cache/lifetime")
-    dim Node : for each Node in Nodelist
+    dim Nodelist, Node, i : i = 0
+    
+    set Nodelist = Xml.selectNodes("/configurations/cache/lifetime")
+    for each Node in Nodelist
         Application("Cache.lifetime") = Node.text
     next
+    
     set Nodelist = Xml.selectNodes("/configurations/cache/item")
-    dim saCache : redim saCache(Nodelist.length, 2)
-    dim i : i = 0
+    dim saCache : redim saCache(Nodelist.length - 1, 2)
     for each Node in Nodelist
         saCache(i, 0) = Node.firstChild.text
         saCache(i, 1) = Node.lastChild.text
         saCache(i, 2) = dateAdd("yyyy", -1, now())
         i = i + 1
     next
+    
     Application("Cache.items") = saCache
+    
     set Node = nothing
+    set Nodelist = nothing
+end sub
+
+' Subroutine: loadRoutes
+' 
+' Configure the application routes.
+' 
+' Parameters:
+' 
+'   (xml object)Xml - config.xml XML object
+' 
+' See also:
+' 
+'   <config.xml>
+' 
+public sub loadRoutes(Xml)
+    dim Nodelist, Node, Actions, Action, i, j
+    dim aRoutes, aActions
+    
+    set Nodelist = Xml.selectNodes("/configurations/routes/controller")
+    redim aRoutes(Nodelist.length - 1)
+    i = 0
+    for each Node in Nodelist
+        set Actions = Node.selectNodes("action")
+        redim aActions(Actions.length - 1)
+        j = 0
+        for each Action in Actions
+            aActions(j) = array( Action.getAttribute("in"), Action.getAttribute("out") )
+            j = j + 1
+        next
+        set Actions = nothing
+        aRoutes(i) = array(Node.getAttribute("in"), Node.getAttribute("out"), aActions)
+        i = i + 1
+    next
+    
+    Application("Routes") = aRoutes
+    
     set Nodelist = nothing
 end sub
 

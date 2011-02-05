@@ -4,10 +4,13 @@
 
 File: orderly.asp
 
-AXE(ASP Xtreme Evolution) Orderly parser by Zach Carter.
+AXE(ASP Xtreme Evolution) Orderly parser by Zach Carter and Validator by 
+Fabio Zendhi Nagao.
 
 Orderly.ASP leverages javascript to implement, without any modification, Zach 
-Carter's orderly.js <http://github.com/zaach/orderly.js>. AXE documentation and 
+Carter's orderly.js <http://github.com/zaach/orderly.js> plus an additional method
+derived from Kris Zyp validate.js <http://github.com/kriszyp/json-schema/> to 
+validate an object against an Orderly definition. AXE documentation and 
 examples inserted by Fabio Zendhi Nagao (nagaozen).
 
 License:
@@ -94,7 +97,6 @@ dim def : def = join(array( _
     "  string name;", _
     "  string description?;", _
     "  string homepage /^http:/;", _
-    "  integer {1500,3000} invented;", _
     "}*;" _
 ), vbNewline)
 
@@ -129,7 +131,6 @@ dim def : def = join(array( _
     "  string name;", _
     "  string description?;", _
     "  string homepage /^http:/;", _
-    "  integer {1500,3000} invented;", _
     "}*;" _
 ), vbNewline)
 
@@ -148,11 +149,6 @@ Response.write( Orderly.compile(def) )' prints the string below:
 '         "homepage": {
 '             "type": "string",
 '             "pattern": "^http:"
-'         },
-'         "invented": {
-'             "type": "integer",
-'             "minimum": 1500,
-'             "maximum": 3000
 '         }
 '     },
 '     "additionalProperties": true
@@ -1983,7 +1979,66 @@ var Orderly = (function () {
             stream = cwd.join(args[2] || fs.basename(args[1], ".orderly") + ".jsonschema").open("w");
         stream.print(source).close();
     };
+    
     return exports;
+})();
+
+
+
+
+
+/*
+
+Function: validate
+
+This method validates a json object against a JSONSchema.
+
+Parameters:
+
+    (object) - a JavaScript object.
+    (object) - a JSONSchema object.
+
+Returns:
+
+    (object) - { valid: true|false, errors: [] }.
+
+Example:
+
+(start code)
+
+dim def : def = join(array( _
+    "object {", _
+    "  string name;", _
+    "  string description?;", _
+    "  string homepage /^http:/;", _
+    "}*;" _
+), vbNewline)
+
+dim obj : obj = join(array( _
+    "{", _
+    "    ""name"": ""Fabio Zendhi Nagao"",", _
+    "    ""description"": ""A big enthusiast of programming and mathematics."",", _
+    "    ""homepage"": ""http://zend.lojcomm.com.br/""", _
+    "}" _
+), vbNewline)
+
+Response.write( Orderly.validate( JSON.parse(obj), def ).valid )' prints true
+
+(end code)
+
+Notes:
+
+    - This method requires the JSONSchema class to work.
+
+*/
+
+(function(){
+    if(JSONSchema) {
+        Orderly.validate = function(instance, orderly){
+            var Schema = Orderly.parse(orderly);
+            return JSONSchema.validate(instance, Schema);
+        }
+    }
 })()
 
 </script>
