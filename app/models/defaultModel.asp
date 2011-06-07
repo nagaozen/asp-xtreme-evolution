@@ -57,6 +57,8 @@ class DefaultModel
             "    <p>append: <a href='?inspect=true'>?inspect=true</a> in the address bar</p>", _
             "    <h3>Checking how it works</h3>", _
             "    <p>append: <a href='/defaultController/another'>/defaultController/another</a> in the address bar for a valid <code>/Controller/action</code> example</p>", _
+            "    <p>append: <a href='/controller-alias/another-alias'>/controller-alias/another-alias</a> in the address bar for a valid full routing example</p>", _
+            "    <p>append: <a href='/additional-controller-alias/another'>/additional-controller-alias/another</a> in the address bar for a valid simple routing example</p>", _
             "    <p>append: <a href='/foo/bar'>/foo/bar</a> in the address bar for an internal error example</p>", _
             Parser.makeHtml( Core.loadTextFile( Server.mapPath("/lib/axe/docs/CHANGES.md") ) ), _
             "  </message>", _

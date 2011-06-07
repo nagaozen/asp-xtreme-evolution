@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2011 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -174,9 +174,6 @@ class Logger_Adapter_FirePHP' implements Logger_Interface
             
             case "/":
                 [_τ] = "\/"
-            
-            case vbBack:
-                [_τ] = "\b"
             
             case vbFormFeed:
                 [_τ] = "\f"

@@ -145,6 +145,7 @@ var JSONSchema = (function() {
             changing: false
         }); //, coerce: false, existingOnly: false});
     };
+    
     exports.checkPropertyChange = function( /*Any*/ value, /*Object*/ schema, /*String*/ property) {
         // Summary:
         // 		The checkPropertyChange method will check to see if an value can legally be in property with the given schema
@@ -157,12 +158,12 @@ var JSONSchema = (function() {
             changing: property || "property"
         });
     };
+    
     var validate = exports._validate = function( /*Any*/ instance, /*Object*/ schema, /*Object*/ options) {
         if (!options) options = {};
         var _changing = options.changing;
         var errors = [];
         // validate a value against a property definition
-
 
         function checkProp(value, schema, path, i) {
             var l;
@@ -191,7 +192,6 @@ var JSONSchema = (function() {
                 checkProp(value, schema['extends'], path, i);
             }
             // validate a value against a type definition
-
 
             function checkType(type, value) {
                 if (type) {
@@ -223,8 +223,8 @@ var JSONSchema = (function() {
                 return [];
             }
             if (value === undefined) {
-                if (!schema.optional && !schema.get) {
-                    addError("is missing and it is not optional");
+                if (schema.required) {
+                    addError("is missing and it is required");
                 }
             } else {
                 errors = errors.concat(checkType(schema.type, value));
@@ -249,6 +249,9 @@ var JSONSchema = (function() {
                             addError("There must be a maximum of " + schema.maxItems + " in the array");
                         }
                     } else if (schema.properties || schema.additionalProperties) {
+                        if(schema.additionalProperties) {
+                            schema.additionalProperties = false;
+                        }
                         errors.concat(checkObj(value, schema.properties, path, schema.additionalProperties));
                     }
                     if (schema.pattern && typeof value == 'string' && !value.match(schema.pattern)) {
@@ -289,7 +292,6 @@ var JSONSchema = (function() {
         }
         // validate an object against a schema
 
-
         function checkObj(instance, objTypeDef, path, additionalProp) {
             if (typeof objTypeDef == 'object') {
                 if (typeof instance != 'object' || instance instanceof Array) {
@@ -323,7 +325,7 @@ var JSONSchema = (function() {
                     } else {
                         errors.push({
                             property: path,
-                            message: (typeof value) + "The property " + i + " is not defined in the schema and the schema does not allow additional properties"
+                            message: "The property (" + (typeof value) + ")" + i + " is not defined in the schema and the schema does not allow additional properties"
                         });
                     }
                 }

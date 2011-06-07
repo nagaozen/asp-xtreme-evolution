@@ -22,9 +22,6 @@
             <action in="default-alias" out="defaultAction" />
             <action in="another-alias" out="another" />
         </controller>
-        <controller in="additional-controller-alias" out="defaultController">
-            <action in="additional-default-alias" out="defaultAction" />
-            <action in="additional-another-alias" out="another" />
-        </controller>
+        <controller in="additional-controller-alias" out="defaultController" />
     </routes>
 </configurations>

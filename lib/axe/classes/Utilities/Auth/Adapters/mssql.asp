@@ -145,6 +145,7 @@ class Auth_Adapter_MSSQL' implements Auth_Interface
                 authenticate = "SUCCESS"
             end if
         end if
+        Rs.close()
         set Rs = nothing
         
         set Cmd = nothing

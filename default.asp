@@ -35,8 +35,6 @@ lcid     = 1033
 '   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
 
 %>
-<!--#include virtual="/lib/axe/base.asp"-->
-<!--#include virtual="/lib/axe/classes/kernel.asp"-->
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!--#include virtual="/lib/axe/sessions.initialize.asp"-->
 <%

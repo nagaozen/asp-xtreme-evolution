@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2011 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -139,9 +139,11 @@ class Translator
     ' (end code)
     ' 
     public default function getText(message)
-        getText = ""
+        getText = message
         if( not isEmpty( [_δ].get(language) ) ) then
-            getText = [_δ].get(language).get(message)
+            if( not isEmpty( [_δ].get(language).get(message) ) ) then
+                getText = [_δ].get(language).get(message)
+            end if
         end if
     end function
     

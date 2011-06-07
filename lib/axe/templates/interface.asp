@@ -55,7 +55,7 @@ class ${1:Name}_Interface' extends Interface
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set Parent = new Interface
         Parent.requireds = array()

@@ -24,7 +24,7 @@ class ${1:name}' implements ${2:Interface}
     '   (string) - type
     ' 
     public classType
-
+    
     ' Property: classVersion
     ' 
     ' Class version.
@@ -39,7 +39,7 @@ class ${1:name}' implements ${2:Interface}
     
     private sub Class_initialize()
         classType    = typename(Me)
-        classVersion = "1.0.0"
+        classVersion = "1.0.0.0"
         
         set Interface = new $2
         set Interface.Implementation = Me

@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2011 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -118,6 +118,58 @@ class List
         set Foot = nothing
         set Head = nothing
     end sub
+    
+    ' Function: items
+    ' 
+    ' Builds an enumerator to the list nodes.
+    ' 
+    ' Returns:
+    ' 
+    '     (mixed[]) - enumerator
+    ' 
+    ' Example:
+    ' 
+    ' (start code)
+    ' 
+    ' dim L, greet : set L = new List
+    ' 
+    ' L.push("Welcome")
+    ' L.push("歡迎光臨")
+    ' L.push("Bienvenido")
+    ' L.push("Bem vindo")
+    ' L.push("환영합니다")
+    ' L.push("ようこそ")
+    ' 
+    ' for each greet in L.items()
+    '     Response.write( greet & vbNewline )
+    ' next
+    ' 
+    ' set L = nothing
+    ' 
+    ' (end code)
+    ' 
+    public function items()
+        dim a, i, Node
+        
+        redim a(count - 1)
+        i = 0
+        
+        set Node = Head
+        while(Node.hasNext)
+            set Node = Node.pNext
+            
+            if( isObject(Node.data) ) then
+                set a(i) = Node.data
+            else
+                a(i) = Node.data
+            end if
+            
+            i = i + 1
+        wend
+        set Node = nothing
+        
+        items = a
+    end function
     
     ' Function: unshift
     ' 

@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2011 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -227,10 +227,11 @@ class Logger
     '     (Logger_Interface) - Adapter
     ' 
     public sub addAdapter(Adapter)
-        dim Node : set Node = new List_Node
-        set Node.data = Adapter
-        call [_Adapters].push(Node)
-        set Node = nothing
+        ' dim Node : set Node = new List_Node
+        ' set Node.data = Adapter
+        ' call [_Adapters].push(Node)
+        ' set Node = nothing
+        [_Adapters].push(Adapter)
     end sub
     
     ' Subroutine: addFilter
@@ -262,7 +263,7 @@ class Logger
     '     (string)   - log type
     ' 
     public sub write(message, arguments, tp) : call [_ε]
-        set Node = [_Adapters].Head
+        dim Node : set Node = [_Adapters].Head
         dim v : v = [_τ](message).[](arguments)
         if([_isAcceptable](v, tp)) then
             while(Node.hasNext)

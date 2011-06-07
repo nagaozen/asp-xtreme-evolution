@@ -1,6 +1,4 @@
-﻿<!--#include virtual="/lib/axe/base.asp"-->
-<!--#include virtual="/lib/axe/classes/kernel.asp"-->
-<!--#include virtual="/lib/axe/singletons.initialize.asp"-->
+﻿<!--#include virtual="/lib/axe/singletons.initialize.asp"-->
 <!--#include virtual="/lib/axe/shuttle.unload.initialize.asp"-->
 <%
 

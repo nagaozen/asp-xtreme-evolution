@@ -5,7 +5,7 @@
  * License:
  * 
  * This file is part of ASP Xtreme Evolution.
- * Copyright (C) 2007-2009 Fabio Zendhi Nagao
+ * Copyright (C) 2007-2011 Fabio Zendhi Nagao
  * 
  * ASP Xtreme Evolution is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -29,7 +29,7 @@
 
 body {
     padding: 1em;
-    background-color: #2E3436;
+    background-color: #1D1B10;
     font-family: 'Droid Sans', Arial, Helvetica, Clean, sans-serif;
     color: #EEEEEC;
 }
@@ -42,6 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     padding-bottom: .5em;
+    text-align: justify;
 }
 
 strong {
@@ -53,7 +54,7 @@ em {
 }
 
 code {
-    color: #AD7FA8;
+    color: #729FCF;
 }
 
 hr {
@@ -66,13 +67,15 @@ a {
 }
 
 a:hover {
-    color: #729FCF;
+    color: #AD7FA8;
     text-decoration: underline;
 }
 
 h1 {
-    font-size: 197%;
-    letter-spacing: -1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 512%;
+    letter-spacing: -4px;
     color: #FCE94F;
     text-shadow: 2px 2px 2px #8F5902;
 }
@@ -105,7 +108,7 @@ div#container-ft li {
 }
 
 body#defaultView #container {
-    width: 620px;
+    width: 720px;
     padding-right: 1.5em;
     border-right: 4px dotted #555753;
 }
@@ -114,21 +117,35 @@ body#defaultView img {
     margin: 1.5em 0;
 }
 
-body#inspect div#container-bd table,
-body#errors div#container-bd table {
+body#inspect h1 {
+    font-size: 256%;
+    letter-spacing: -2px;
+    padding-bottom: 0.5em;
+}
+
+body#errors h1 {
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+    body#errors h1 strong {
+        font-size: 400%;
+    }
+
+body#errors p {
+    font-size: 131%;
+}
+
+body#inspect div#container-bd table {
     width: 100%;
 }
 
 body#inspect div#container-bd th,
-body#inspect div#container-bd td,
-body#errors div#container-bd th,
-body#errors div#container-bd td {
+body#inspect div#container-bd td {
     padding: 5px;
     font-size: 93%;
 }
 
-body#inspect div#container-bd tr.even,
-body#errors div#container-bd tr.even {
+body#inspect div#container-bd tr.even {
     background-color: #292F31;
 }
 

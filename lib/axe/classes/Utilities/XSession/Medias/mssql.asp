@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2011 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -128,6 +128,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         else
             load = Rs(0).value
         end if
+        Rs.close()
         set Rs = nothing
         
         set Cmd = nothing

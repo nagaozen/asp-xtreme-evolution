@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2011 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -301,6 +301,31 @@ class Acl
         end if
     end sub
     
+    ' Function: is
+    ' 
+    ' Checks if a user belongs to a role.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string) - user identifier
+    '     (string) - role identifier
+    ' 
+    ' Returns:
+    ' 
+    '     (boolean) - true, if he belongs; false otherwise.
+    ' 
+    public function [is](user, role)
+        [is] = false
+        if( not isEmpty( [_Users].get(user) ) ) then
+            dim entry : for each entry in [_Users].get(user).keys()
+                if( entry = role ) then
+                    [is] = true
+                    exit function
+                end if
+            next
+        end if
+    end function
+    
     ' Subroutine: [_ƒ]
     ' 
     ' {private} Adds or removes an "allow" or "deny" rule to the ACL.
@@ -508,8 +533,12 @@ class Acl
         
         this = resource
         do
-            Sd.add this, null
-            this = [_Resources].get(this).get(0)
+            if( isEmpty( [_Resources].get(this) ) ) then
+                this = null
+            else
+                Sd.add this, null
+                this = [_Resources].get(this).get(0)
+            end if
         loop while( not isNull(this) )
         resources = Sd.keys()
         
@@ -599,7 +628,7 @@ class Acl
     ' call AC.assign("nagaozen", array("sorceress", "druid"))
     ' 
     ' call AC.allow("sorceress", "cold-spells", "cast", null)
-    ' call AC.deny("sorceress", ""lightning-spells", "cast", null)
+    ' call AC.deny("sorceress", "lightning-spells", "cast", null)
     ' call AC.deny("sorceress", "fire-spells", "cast", null)
     ' 
     ' call AC.save()

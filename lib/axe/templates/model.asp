@@ -118,35 +118,6 @@ class $<[1]: return $1.capitalize() >Model
         
     end function
     
-    ' Function: toHTML
-    ' 
-    ' Returns a HTML representation of this model.
-    ' 
-    ' Parameters:
-    ' 
-    '     (string) - root node of the recursion
-    ' 
-    ' Returns:
-    ' 
-    '     (string) - HTML representation
-    ' 
-    ' Example:
-    ' 
-    ' (start code)
-    ' 
-    ' dim Model : set Model = new $<[1]: return $1.capitalize() >Model
-    ' '.
-    ' '. initialize it
-    ' '.
-    ' Response.write(Model.toHTML())
-    ' set Model = nothing
-    ' 
-    ' (end code)
-    ' 
-    public function toHTML()
-        
-    end function
-    
 end class
 
 %>
