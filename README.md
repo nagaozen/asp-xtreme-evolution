@@ -37,17 +37,13 @@ Installation
 
 3. If your server does not provide a default cgi-bin folder, create a virtual directory named "cgi-bin" in your domain root pointing to /lib/axe/bin. Don't forget to check "Execute (such as ISAPI applications or CGI)"; Otherwise, move the contents of /lib/axe/bin to your cgi-bin folder.
 
-4. Give only "Read and Write" permission to your /app/cache folder.
+4. Give only "Write" permission to your /app/writables folder. It's ONLY WRITE! DO NOT let users to Read or specially EXECUTE anything.
 
 5. Go to your site properties and in ISAPI Filters tab, click [Add]. Fill the box with the following data:  
    Filter name: IIRF  
    [Browse...] to /lib/axe/bin/IsapiRewrite4.dll  
 
-6. Yet in the site properties, go to the Custom Errors tab and look for 500;100 Default "Internal Server Error - ASP Error". Click [Edit...]  
-   Message type: URL  
-   URL: /app/views/error.asp  
-
-7. Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:
+6. Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:
     * CB Image Resizer (Imager.dll)
     * CB Zip (CBZIP.exe)
     * Ionics ISAPI Rewriting Filter (IsapiRewrite4.dll)
@@ -57,13 +53,13 @@ Installation
     * Don't forget to check "Set extension status to Allowed".
     * If Active Server Pages is not allowed yet, allow it too.
 
-8. If your server does not support MSXML 6.0 yet, install it. It's available at: /lib/axe/bin/msxml6.msi
+7. If your server does not support MSXML 6.0 yet, install it. It's available at: /lib/axe/bin/msxml6.msi
 
-9. Create an application pool for the application views.
+8. Create an application pool for the application views.
 
-10. Set /app/views to the application pool created in step 9.
+9. Set /app/views to the application pool created in step 9.
 
-11. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.
+10. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.
 
 Version 1.4.9.999α
 ------------------
@@ -76,6 +72,7 @@ for sure.
 ### Added
 
 * routing system based on /app/config.xml
+* mvc bootstrapping for controllers
 * new logo and favicon
 * /app/singletons.initialize.asp and /app/singletons.finalize.asp to manage application singletons.
 * classType and classVersion properties in all classes

@@ -80,7 +80,7 @@ end function
 ' Parameters:
 ' 
 '     (string)   - The string template with placeholders
-'     (string[]) - Replacements array
+'     (string[]) - Replacement / Replacements array
 ' 
 ' Returns:
 ' 
@@ -95,6 +95,8 @@ end function
 ' (end code)
 ' 
 function strsubstitute(template, replacements)
+    if( not isArray(replacements) ) then replacements = array(replacements)
+    
     dim Re : set Re = new RegExp
     Re.global = true
     Re.ignoreCase = true
@@ -400,7 +402,7 @@ end function
 ' 
 function guid()
     dim TypeLib : set TypeLib = Server.CreateObject("Scriptlet.TypeLib")
-    guid = left(cstr(TypeLib.Guid), 38)
+    guid = mid(cstr(TypeLib.Guid), 2, 36)
     set TypeLib = nothing
 end function
 

@@ -156,7 +156,7 @@ class Kernel
             dim iCache, sCachePath
             iCache = cacheIndex(Session("controller"), Session("action"))
             if(iCache >= 0) then
-                sCachePath = strsubstitute("/app/cache/__{0}_{1}_{2}__.html", array(Session("controller"), Session("action"), join(Session("argv"), "_")))
+                sCachePath = strsubstitute("/app/writables/cache/__{0}_{1}_{2}__.html", array(Session("controller"), Session("action"), join(Session("argv"), "_")))
                 if(fileExists(Server.mapPath(sCachePath))) then
                     if(dateDiff("h", Application("Cache.items")(iCache, 2), now()) <= Application("Cache.lifetime")) then
                         Session.abandon()
@@ -211,7 +211,7 @@ class Kernel
         if(iCache >= 0) then
             createFile Server.mapPath( _
                 sanitize( _
-                    strsubstitute("/app/cache/__{0}_{1}_{2}__.html", array(Session("controller"), Session("action"), join(Session("argv"), "_"))), _
+                    strsubstitute("/app/writables/cache/__{0}_{1}_{2}__.html", array(Session("controller"), Session("action"), join(Session("argv"), "_"))), _
                     array("\",":","*","?", """","<",">","|"), _
                     array("" ,"" ,"" ,"" , ""  ,"" ,"" ,"") _
                 ) _
@@ -351,7 +351,7 @@ class Kernel
             end with
             set Stream = nothing
         else
-            Err.raise 53, "Evolved AXE runtime error"
+            Err.raise 53, "Evolved AXE runtime error", strsubstitute("File not found. <{0}>", sFilePath)
         end if
     end function
 
@@ -495,16 +495,40 @@ class Kernel
     ' 
     ' See also:
     ' 
-    '   <strictTransform>
+    '   <strictTransform>, <indentML>
+    ' 
+    public function indentedTransform(Xml, Xslt, sOutput, sIndent)
+        dim sPoorlyIndented : sPoorlyIndented = strictTransform(Xml, Xslt)
+        indentedTransform = indentML(sPoorlyIndented, sOutput, sIndent)
+    end function
+
+    ' Function: indentML
+    ' 
+    ' Beautify a markup language string.
+    ' 
+    ' Parameters:
+    ' 
+    '   (string)xml      - The xml string
+    '   (string)sOutput  - The xsl:output directive
+    '   (string)sIndent  - The string which will be used as indentation
+    ' 
+    ' Returns:
+    ' 
+    '   (string) - The evaluated nicely indented transformation
+    ' 
+    ' See also:
+    ' 
+    '   <indentedTransform>
     ' 
     ' Notes:
     ' 
     ' This XSLT is strongly based on Mike J. Brown mike@skew.org ReIndent
     ' work: <http://skew.org/xml/stylesheets/reindent/reindent.xsl>
     ' 
-    public function indentedTransform(Xml, Xslt, sOutput, sIndent)
-        dim sPoorlyIndented : sPoorlyIndented = strictTransform(Xml, Xslt)
-        dim sReIndent : sReIndent = join(array(_
+    public function indentML(sXml, sOutput, sIndent)
+        dim sReIndent, Xml, Xslt
+        
+        sReIndent = join(array(_
             "<?xml version=""1.0"" encoding=""UTF-8""?>", _
             "<xsl:transform xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" version=""1.0"">", _
             "  " & sOutput, _
@@ -553,9 +577,9 @@ class Kernel
             "</xsl:transform>" _
         ))
         
-        set Xml = str2xml(sPoorlyIndented)
+        set Xml = str2xml(sXml)
         set Xslt = str2xml(sReIndent)
-        indentedTransform = strictTransform(Xml, Xslt)
+        indentML = strictTransform(Xml, Xslt)
         set Xslt = nothing
         set Xml = nothing
     end function

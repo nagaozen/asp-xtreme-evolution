@@ -48,7 +48,7 @@
             </div>
             <div id="container-bd">
                 <p>As you can see, just changing <code>&lt;action&gt;</code> on the http://www.domain.com/<code>&lt;Controller&gt;</code>/<code>&lt;action&gt;</code>/<code>&lt;arguments[]&gt;</code> address bar pattern, you call the <code>&lt;action&gt;</code> method of <code>&lt;Controller&gt;</code> passing the <code>&lt;arguments[]&gt;</code> to it. This means you are ready for a spectacular experince with friendly URLs and MVC approach. Check below the easy source code of the standard pages of the framework:</p>
-                <h2>defaultController</h2>
+                <h2>/app/controller/default.asp</h2>
                 <p>A Controller processes and responds to events, typically user actions, and may invoke changes on the model.</p>
                 <pre name="code" class="asp"><%= Session("this").item("defaultController.source") %></pre>
                 <h2>defaultModel</h2>

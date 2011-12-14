@@ -9,7 +9,7 @@ AXE(ASP Xtreme Evolution) JSON parser based on Douglas Crockford json2.js.
 This class is the result of Classic ASP JSON topic revisited by Fabio Zendhi 
 Nagao (nagaozen). JSON2.ASP is a better option over JSON.ASP because it embraces
 the AXE philosophy of real collaboration over the languages. It works under the
-original json parser, so this class is strict in the standard rules, plus it 
+original json parser, so this class is strict in the standard rules, it also 
 brings more of the Javascript json feeling to other ASP languages (eg. no more 
 oJson.getElement("foo") stuff, just oJson.foo and you get it).
 
@@ -50,6 +50,7 @@ Notes:
 
     - Javascript extensions concept inspired by Troy Foster JSON2.ASP work <http://tforster.wik.is/ASP_Classic_Practices_For_The_21st_Century/JSON4ASP>.
     - Javascript JSON parser is the Douglas Crockford json2.js <http://www.JSON.org/json2.js>, without the first line alert(...) and fixing "this.JSON = {};" to "JSON = {};" to make it JScript compatible.
+    - Javascript JSON.toXML is based on the Prof. Stefan Gössner "Converting Between XML and JSON" pragmatic approach <http://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html>.
 
 About:
 
@@ -800,7 +801,7 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
         var xml = [];
         switch( typeof o ) {
             case "object":
-                if(Object.prototype.toString.apply(o) === '[object Array]') {
+                if(o.length) {
                     var a = o;
                     if(a.length === 0) {
                         xml.push("<{tag}/>".substitute({"tag":t}));
@@ -833,7 +834,7 @@ replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
                 break;
             
             default:
-                var s = o.toString();
+                var s = String(o);
                 if(s.length === 0) {
                     xml.push("<{tag}/>".substitute({"tag":t}));
                 } else {

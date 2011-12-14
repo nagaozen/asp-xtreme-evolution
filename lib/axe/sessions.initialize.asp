@@ -36,7 +36,7 @@
 '   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
 ' 
 dim saArgv(0)
-Session("controller") = "defaultController"
+Session("controller") = "default"
 Session("action") = "defaultAction"
 Session("view") = "defaultView"
 Session("argv") = saArgv

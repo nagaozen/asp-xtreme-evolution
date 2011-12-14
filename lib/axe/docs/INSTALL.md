@@ -24,11 +24,7 @@ Installation
    Filter name: IIRF  
    [Browse...] to /lib/axe/bin/IsapiRewrite4.dll  
 
-6. Yet in the site properties, go to the Custom Errors tab and look for 500;100 Default "Internal Server Error - ASP Error". Click [Edit...]  
-   Message type: URL  
-   URL: /app/views/error.asp  
-
-7. Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:
+6. Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:
     * CB Image Resizer (Imager.dll)
     * CB Zip (CBZIP.exe)
     * Ionics ISAPI Rewriting Filter (IsapiRewrite4.dll)
@@ -38,10 +34,10 @@ Installation
     * Don't forget to check "Set extension status to Allowed".
     * If Active Server Pages is not allowed yet, allow it too.
 
-8. If your server does not support MSXML 6.0 yet, install it. It's available at: /lib/axe/bin/msxml6.msi
+7. If your server does not support MSXML 6.0 yet, install it. It's available at: /lib/axe/bin/msxml6.msi
 
-9. Create an application pool for the application views.
+8. Create an application pool for the application views.
 
-10. Set /app/views to the application pool created in step 9.
+9. Set /app/views to the application pool created in step 9.
 
-11. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.
+10. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.

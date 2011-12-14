@@ -30,7 +30,7 @@
                             AXE(ASP Xtreme Evolution) JSON parser based on Douglas Crockford json2.js.
                         </p>
                         <p>
-                            This class is the result of Classic ASP JSON topic revisited by Fabio Zendhi Nagao (nagaozen).&nbsp; JSON2.ASP is a better option over JSON.ASP because it embraces the AXE philosophy of real collaboration over the languages.&nbsp; It works under the original json parser, so this class is strict in the standard rules, plus it brings more of the Javascript json feeling to other ASP languages (eg. no more oJson.getElement(“foo”) stuff, just oJson.foo and you get it).
+                            This class is the result of Classic ASP JSON topic revisited by Fabio Zendhi Nagao (nagaozen).&nbsp; JSON2.ASP is a better option over JSON.ASP because it embraces the AXE philosophy of real collaboration over the languages.&nbsp; It works under the original json parser, so this class is strict in the standard rules, it also brings more of the Javascript json feeling to other ASP languages (eg. no more oJson.getElement(“foo”) stuff, just oJson.foo and you get it).
                         </p>
                         <h4 class="CHeading">
                             License
@@ -121,6 +121,8 @@
                             <li>Javascript extensions concept inspired by Troy Foster JSON2.ASP work <a href="http://tforster.wik.is/ASP_Classic_Practices_For_The_21st_Century/JSON4ASP" class="LURL" target="_top">http://tforster.wik.is<wbr />/ASP_Classic_Practices_For_The_21st_Century<wbr />/JSON4ASP</a>.
                             </li>
                             <li>Javascript JSON parser is the Douglas Crockford json2.js <a href="http://www.JSON.org/json2.js" class="LURL" target="_top">http://www.JSON.org/json2.js</a>, without the first line alert(...) and fixing “this.JSON = {};” to “JSON = {};” to make it JScript compatible.
+                            </li>
+                            <li>Javascript JSON.toXML is based on the Prof.&nbsp; Stefan Gössner “Converting Between XML and JSON” pragmatic approach <a href="http://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html" class="LURL" target="_top">http://www.xml.com<wbr />/pub<wbr />/a<wbr />/2006<wbr />/05<wbr />/31<wbr />/converting-between-xml-and-json.html</a>.
                             </li>
                         </ul>
                         <h4 class="CHeading">
@@ -514,11 +516,6 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                             </div>
                         </div>
                         <div class="MEntry">
-                            <div class="MFile">
-                                <a href="json-asp.html">json.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
                             <div class="MFile" id="MSelected">
                                 json2.asp
                             </div>
@@ -841,7 +838,7 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                                 <div class="MGroupContent" id="MGroupContent15">
                                     <div class="MEntry">
                                         <div class="MFile">
-                                            <a href="../../../../app/controllers/defaultController-asp.html">defaultController.asp</a>
+                                            <a href="../../../../app/controllers/default-asp.html">default.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -861,11 +858,6 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                                                 <div class="MEntry">
                                                     <div class="MFile">
                                                         <a href="../../../../app/views/defaultView-asp.html">defaultView.asp</a>
-                                                    </div>
-                                                </div>
-                                                <div class="MEntry">
-                                                    <div class="MFile">
-                                                        <a href="../../../../app/views/error-asp.html">error.asp</a>
                                                     </div>
                                                 </div>
                                                 <div class="MEntry">
@@ -906,6 +898,11 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
+                                        </div>
+                                    </div>
+                                    <div class="MEntry">
+                                        <div class="MFile">
+                                            <a href="../../mvc-bootstrapper-asp.html">mvc.<wbr />bootstrapper.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -1029,7 +1026,7 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([3, 4, 2], 19);// -->
+            HideAllBut([3, 4, 2, 5], 19);// -->
             //]]>
             </script>
         </div>

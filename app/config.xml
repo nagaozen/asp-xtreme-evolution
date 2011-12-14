@@ -9,19 +9,19 @@
     <cache>
         <lifetime>6</lifetime>
         <item>
-            <controller>defaultController</controller>
+            <controller>default</controller>
             <action>defaultAction</action>
         </item>
         <item>
-            <controller>defaultController</controller>
+            <controller>default</controller>
             <action>another</action>
         </item>
     </cache>
     <routes>
-        <controller in="controller-alias" out="defaultController">
+        <controller in="controller-alias" out="default">
             <action in="default-alias" out="defaultAction" />
             <action in="another-alias" out="another" />
         </controller>
-        <controller in="additional-controller-alias" out="defaultController" />
+        <controller in="additional-controller-alias" out="default" />
     </routes>
 </configurations>
