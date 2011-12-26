@@ -44,6 +44,1517 @@
                         <p>
                             You should have received a copy of the GNU Lesser General Public License along with ASP Xtreme Evolution.&nbsp; If not, see <a href="http://www.gnu.org/licenses/" class="LURL" target="_top">http://www.gnu.org/licenses/</a>.
                         </p>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SMain">
+                                        <td class="SEntry">
+                                            <a href="#csv.asp">csv.asp</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            AXE(ASP Xtreme Evolution) implementation of CSV parser.
+                                        </td>
+                                    </tr>
+                                    <tr class="SClass">
+                                        <td class="SEntry">
+                                            <a href="#CSV">CSV</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Comma-Separated Values (CSV) is an ancient data interchange format.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.writablesPath">writablesPath</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Application writable physical path.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV.codepage">codepage</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Microsoft character encoding numberic identification (codepage)
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.charset">charset</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Microsoft character encoding human friendly identification (charset)
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV.separator">separator</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            CSV separator string.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.fromString" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">fromString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Reads a CSV string and convert it into an ADODB.Recordset.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV.fromFile" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">fromFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Reads a CSV file and convert it into an ADODB.Recordset.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.toString" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">toString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns a RFC4810 compatible CSV with headers string.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.SCHEMA_INI_TEMPLATE">SCHEMA_INI_TEMPLATE</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Schema.ini template
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV._Conn">_Conn</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Because this parser leverages an ADODB.Recordset that requires an open ADODB.Connection object, a shared class scoped connection is required to let users navigate in the CSV.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._DataSourceFolder">_DataSourceFolder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Full physical path to the folder containing the DataSource.csv and the Schema.ini files.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.[_%CE%B5]" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">[_ε]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Checks for a writable assignment.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createSchema" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">_createSchema</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Creates an ANSI encoded Schema.ini file in the same folder as the DataSource.csv file.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._fileExists" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">_fileExists</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Checks if the file exists in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV._loadTextFile" id="link7" onmouseover="ShowTip(event, 'tt7', 'link7')" onmouseout="HideTip('tt7')">_loadTextFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> If the file exists, read it all and return the content.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFile" id="link8" onmouseover="ShowTip(event, 'tt8', 'link8')" onmouseout="HideTip('tt8')">_createFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create/Overwrite a file in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFileStd" id="link9" onmouseover="ShowTip(event, 'tt9', 'link9')" onmouseout="HideTip('tt9')">_createFileStd</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create/Overwrite a file in the file system without any special treatment.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFileWithoutBOM" id="link10" onmouseover="ShowTip(event, 'tt10', 'link10')" onmouseout="HideTip('tt10')">_createFileWithoutBOM</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create/Overwrite a file in the file system removing the Byte Order Mark.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV._deleteFile" id="link11" onmouseover="ShowTip(event, 'tt11', 'link11')" onmouseout="HideTip('tt11')">_deleteFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Delete a file in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFolder" id="link12" onmouseover="ShowTip(event, 'tt12', 'link12')" onmouseout="HideTip('tt12')">_createFolder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create a folder in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#CSV._deleteFolder" id="link13" onmouseover="ShowTip(event, 'tt13', 'link13')" onmouseout="HideTip('tt13')">_deleteFolder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Delete a folder in the file system.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CClass">
+                <div class="CTopic">
+                    <h2 class="CTitle">
+                        <a id="CSV"></a>CSV
+                    </h2>
+                    <div class="CBody">
+                        <p>
+                            Comma-Separated Values (CSV) is an ancient data interchange format.&nbsp; Its widely used in the wild, therefore a must class for any serious framework.&nbsp; This implementation leverages Microsoft Jet OLEDB, so it requires a writable folder to create schema files in order to help the CSV parsing.&nbsp; The best side of using MS Text Driver is that it’s compatible with RFC4180, Excel and other Windows made CSV files.
+                        </p>
+                        <h4 class="CHeading">
+                            About
+                        </h4>
+                        <ul>
+                            <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br" class="LURL" target="_top">http://zend.lojcomm.com.br</a> @ Dec 2011
+                            </li>
+                        </ul>
+                        <div class="Summary">
+                            <div class="STitle">
+                                Summary
+                            </div>
+                            <div class="SBorder">
+                                <table border="0" cellspacing="0" cellpadding="0" class="STable">
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.classType">classType</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class type.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.classVersion">classVersion</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Class version.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.writablesPath">writablesPath</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Application writable physical path.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.codepage">codepage</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Microsoft character encoding numberic identification (codepage)
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.charset">charset</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Microsoft character encoding human friendly identification (charset)
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.separator">separator</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            CSV separator string.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.fromString" id="link14" onmouseover="ShowTip(event, 'tt1', 'link14')" onmouseout="HideTip('tt1')">fromString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Reads a CSV string and convert it into an ADODB.Recordset.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV.fromFile" id="link15" onmouseover="ShowTip(event, 'tt2', 'link15')" onmouseout="HideTip('tt2')">fromFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Reads a CSV file and convert it into an ADODB.Recordset.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.toString" id="link16" onmouseover="ShowTip(event, 'tt3', 'link16')" onmouseout="HideTip('tt3')">toString</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns a RFC4810 compatible CSV with headers string.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Properties">Properties</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.SCHEMA_INI_TEMPLATE">SCHEMA_INI_TEMPLATE</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Schema.ini template
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV._Conn">_Conn</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Because this parser leverages an ADODB.Recordset that requires an open ADODB.Connection object, a shared class scoped connection is required to let users navigate in the CSV.
+                                        </td>
+                                    </tr>
+                                    <tr class="SProperty SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._DataSourceFolder">_DataSourceFolder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Full physical path to the folder containing the DataSource.csv and the Schema.ini files.
+                                        </td>
+                                    </tr>
+                                    <tr class="SGroup">
+                                        <td class="SEntry">
+                                            <a href="#CSV.Functions">Functions</a>
+                                        </td>
+                                        <td class="SDescription"></td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV.[_%CE%B5]" id="link17" onmouseover="ShowTip(event, 'tt4', 'link17')" onmouseout="HideTip('tt4')">[_ε]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Checks for a writable assignment.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createSchema" id="link18" onmouseover="ShowTip(event, 'tt5', 'link18')" onmouseout="HideTip('tt5')">_createSchema</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Creates an ANSI encoded Schema.ini file in the same folder as the DataSource.csv file.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._fileExists" id="link19" onmouseover="ShowTip(event, 'tt6', 'link19')" onmouseout="HideTip('tt6')">_fileExists</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Checks if the file exists in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV._loadTextFile" id="link20" onmouseover="ShowTip(event, 'tt7', 'link20')" onmouseout="HideTip('tt7')">_loadTextFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> If the file exists, read it all and return the content.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFile" id="link21" onmouseover="ShowTip(event, 'tt8', 'link21')" onmouseout="HideTip('tt8')">_createFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create/Overwrite a file in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFileStd" id="link22" onmouseover="ShowTip(event, 'tt9', 'link22')" onmouseout="HideTip('tt9')">_createFileStd</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create/Overwrite a file in the file system without any special treatment.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFileWithoutBOM" id="link23" onmouseover="ShowTip(event, 'tt10', 'link23')" onmouseout="HideTip('tt10')">_createFileWithoutBOM</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create/Overwrite a file in the file system removing the Byte Order Mark.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV._deleteFile" id="link24" onmouseover="ShowTip(event, 'tt11', 'link24')" onmouseout="HideTip('tt11')">_deleteFile</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Delete a file in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#CSV._createFolder" id="link25" onmouseover="ShowTip(event, 'tt12', 'link25')" onmouseout="HideTip('tt12')">_createFolder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Create a folder in the file system.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#CSV._deleteFolder" id="link26" onmouseover="ShowTip(event, 'tt13', 'link26')" onmouseout="HideTip('tt13')">_deleteFolder</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Delete a folder in the file system.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.classType"></a>classType
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class type.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.classVersion"></a>classVersion
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Class version.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (float)
+                                </td>
+                                <td class="CDLDescription">
+                                    version
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.writablesPath"></a>writablesPath
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Application writable physical path.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    application writable physical path.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.codepage"></a>codepage
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Microsoft character encoding numberic identification (codepage)
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (integer)
+                                </td>
+                                <td class="CDLDescription">
+                                    numeric character encoding identification.&nbsp; Defaults to 65001.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.charset"></a>charset
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            Microsoft character encoding human friendly identification (charset)
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    human friendly character encoding identification.&nbsp; Defaults to UTF-8.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.separator"></a>separator
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            CSV separator string.&nbsp; By the RFC4810 it should be ‘,’ but some programs use &lt;TAB&gt; or ‘;’.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    CSV separator.&nbsp; Defaults to ‘,’.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.fromString"></a>fromString
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function fromString(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    str,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    hasHeaders
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    ) : call [_ε]
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Reads a CSV string and convert it into an ADODB.Recordset.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    CSV string
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    if the CSV string has headers or not
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (ADODB.Recordset)
+                                </td>
+                                <td class="CDLDescription">
+                                    In memory CSV model
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
+Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/cache/"</span><span class="br0">)</span>
+Parser.<span class="kw3">charset</span>   <span class="sy0">=</span> <span class="st0">"UTF-8"</span>
+Parser.<span class="me1">codepage</span>  <span class="sy0">=</span> <span class="nu0">65001</span>
+Parser.<span class="me1">separator</span> <span class="sy0">=</span> <span class="st0">";"</span>
+ 
+<span class="kw1">set</span> Data <span class="sy0">=</span> Parser.<span class="me1">fromString</span><span class="br0">(</span> join<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span> _
+    <span class="st0">"id,firstname"</span>, _
+    <span class="st0">"1,Foo"</span>, _
+    <span class="st0">"2,Bar"</span> _
+<span class="br0">)</span>, vbCrLf<span class="br0">)</span>, <span class="kw2">true</span> <span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> dump<span class="br0">(</span>Data<span class="br0">)</span> <span class="br0">)</span>
+Data.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">set</span> Data <span class="sy0">=</span> <span class="kw2">nothing</span>
+ 
+<span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.fromFile"></a>fromFile
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function fromFile(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    path,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    hasHeaders
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Reads a CSV file and convert it into an ADODB.Recordset.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    file system path to the CSV file
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    if the CSV file use headers or not
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (ADODB.Recordset)
+                                </td>
+                                <td class="CDLDescription">
+                                    In memory CSV model
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
+Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/app/writables/"</span><span class="br0">)</span>
+Parser.<span class="kw3">charset</span>   <span class="sy0">=</span> <span class="st0">"Windows-1252"</span>
+Parser.<span class="me1">codepage</span>  <span class="sy0">=</span> <span class="nu0">1252</span>
+Parser.<span class="me1">separator</span> <span class="sy0">=</span> <span class="st0">","</span>
+ 
+<span class="kw1">set</span> Data <span class="sy0">=</span> Parser.<span class="me1">fromFile</span><span class="br0">(</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"file.csv"</span><span class="br0">)</span>, <span class="kw2">true</span> <span class="br0">)</span>
+<span class="kw1">while</span><span class="br0">(</span><span class="kw1">not</span> Data.<span class="kw2">eof</span><span class="br0">)</span>
+    <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> Data<span class="br0">(</span><span class="st0">"firstname"</span><span class="br0">)</span>.<span class="me1">value</span> <span class="br0">)</span>
+    Data.<span class="kw3">moveNext</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">wend</span>
+Data.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">set</span> Data <span class="sy0">=</span> <span class="kw2">nothing</span>
+ 
+<span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.toString"></a>toString
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function toString(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    Rs
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    ) : call [_ε]
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Returns a RFC4810 compatible CSV with headers string.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (ADODB.Recordset)
+                                </td>
+                                <td class="CDLDescription">
+                                    CSV data source
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    CSV
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> Conn, Rs, Parser, csv
+<span class="kw1">set</span> Conn <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">createObject</span><span class="br0">(</span><span class="st0">"ADODB.Connection"</span><span class="br0">)</span>
+Conn.<span class="kw3">open</span><span class="br0">(</span>connectionstring<span class="br0">)</span>
+ 
+<span class="kw1">set</span> Rs <span class="sy0">=</span> Conn.<span class="kw3">execute</span><span class="br0">(</span>...<span class="br0">)</span>
+<span class="kw1">if</span><span class="br0">(</span><span class="kw1">not</span> Rs.<span class="kw2">eof</span><span class="br0">)</span> <span class="kw1">then</span>
+    <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
+    Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/app/writables/"</span><span class="br0">)</span>
+    csv <span class="sy0">=</span> Parser.<span class="me1">toString</span><span class="br0">(</span>Rs<span class="br0">)</span>
+    <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">nothing</span>
+<span class="kw1">end</span> <span class="kw1">if</span>
+<span class="kw1">set</span> Rs <span class="sy0">=</span> <span class="kw2">nothing</span>
+ 
+Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">set</span> Conn <span class="sy0">=</span> <span class="kw2">nothing</span>
+ 
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span>csv<span class="br0">)</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.Properties"></a>Properties
+                    </h3>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.SCHEMA_INI_TEMPLATE"></a>SCHEMA_INI_TEMPLATE
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            <label class="private">private</label> Schema.ini template
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Schema.ini template
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._Conn"></a>_Conn
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            <label class="private">private</label> Because this parser leverages an ADODB.Recordset that requires an open ADODB.Connection object, a shared class scoped connection is required to let users navigate in the CSV.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (ADODB.Connection)
+                                </td>
+                                <td class="CDLDescription">
+                                    Parser connection
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._DataSourceFolder"></a>_DataSourceFolder
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            <label class="private">private</label> Full physical path to the folder containing the DataSource.csv and the Schema.ini files.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Data source physical path
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CGroup">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.Functions"></a>Functions
+                    </h3>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV.[_ε]"></a>[_ε]
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        private sub [_ε]
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Checks for a writable assignment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._createSchema"></a>_createSchema
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_createSchema](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    hasHeaders
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Creates an ANSI encoded Schema.ini file in the same folder as the DataSource.csv file.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    if the CSV file contains header information in the first line or not.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._fileExists"></a>_fileExists
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private function [_fileExists](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFilePath
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Checks if the file exists in the file system.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Full path plus file name with extension
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    true
+                                </td>
+                                <td class="CDLDescription">
+                                    if it’s there
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    false
+                                </td>
+                                <td class="CDLDescription">
+                                    otherwise
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._loadTextFile"></a>_loadTextFile
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private function [_loadTextFile](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFilePath
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> If the file exists, read it all and return the content.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Full path plus file name with extension
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    The file content
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._createFile"></a>_createFile
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_createFile](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFilePath,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sContent
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Create/Overwrite a file in the file system.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Full path plus file name with extension
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    File content
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._createFileStd"></a>_createFileStd
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_createFileStd](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFilePath,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sContent
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Create/Overwrite a file in the file system without any special treatment.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Full path plus file name with extension
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    File content
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._createFileWithoutBOM"></a>_createFileWithoutBOM
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_createFileWithoutBOM](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFilePath,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sContent,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    p0
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Create/Overwrite a file in the file system removing the Byte Order Mark.&nbsp; CSV files doesn’t support them.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Full path plus file name with extension
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    File content
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (integer)
+                                </td>
+                                <td class="CDLDescription">
+                                    How many bytes to jump in order to skip the BOM
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._deleteFile"></a>_deleteFile
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_deleteFile](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFilePath
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Delete a file in the file system.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Full path plus file name with extension
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._createFolder"></a>_createFolder
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_createFolder](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFolderPath
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Create a folder in the file system.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Folder path without the last “\”
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="CSV._deleteFolder"></a>_deleteFolder
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private sub [_deleteFolder](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    sFolderPath
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Delete a folder in the file system.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    Folder path without the last “\”
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -632,6 +2143,355 @@
             HideAllBut([3, 4, 2, 5], 19);// -->
             //]]>
             </script>
+        </div>
+        <div class="CToolTip" id="tt1">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function fromString(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            str,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            hasHeaders
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            ) : call [_ε]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Reads a CSV string and convert it into an ADODB.Recordset.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function fromFile(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            path,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            hasHeaders
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Reads a CSV file and convert it into an ADODB.Recordset.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt3">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function toString(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            Rs
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            ) : call [_ε]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Returns a RFC4810 compatible CSV with headers string.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt4">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                private sub [_ε]
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Checks for a writable assignment.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt5">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_createSchema](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            hasHeaders
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Creates an ANSI encoded Schema.ini file in the same folder as the DataSource.csv file.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt6">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private function [_fileExists](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFilePath
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Checks if the file exists in the file system.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt7">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private function [_loadTextFile](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFilePath
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> If the file exists, read it all and return the content.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt8">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_createFile](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFilePath,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sContent
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Create/Overwrite a file in the file system.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt9">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_createFileStd](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFilePath,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sContent
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Create/Overwrite a file in the file system without any special treatment.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt10">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_createFileWithoutBOM](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFilePath,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sContent,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            p0
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Create/Overwrite a file in the file system removing the Byte Order Mark.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt11">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_deleteFile](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFilePath
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Delete a file in the file system.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt12">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_createFolder](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFolderPath
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Create a folder in the file system.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt13">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private sub [_deleteFolder](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            sFolderPath
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Delete a folder in the file system.
+            </div>
         </div>
         <div id="MSearchResultsWindow">
             <iframe src="" frameborder="0" name="MSearchResults" id="MSearchResults"></iframe><a href="javascript:searchPanel.CloseResultsWindow()" id="MSearchResultsWindowClose">Close</a>
