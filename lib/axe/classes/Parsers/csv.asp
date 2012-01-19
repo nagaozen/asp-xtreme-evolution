@@ -35,6 +35,11 @@
 ' 
 '     - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br> @ Dec 2011
 ' 
+' References:
+' 
+'     - Much ADO About Text Files <http://msdn.microsoft.com/en-us/library/ms974559.aspx> @ MSDN Library
+'     - Common Format and MIME Type for Comma-Separated Values (CSV) Files <http://www.ietf.org/rfc/rfc4180.txt> @ IETF
+' 
 class CSV
 
     ' Property: classType
@@ -115,7 +120,7 @@ class CSV
     ' (start code)
     ' 
     ' set Parser = new CSV
-    ' Parser.writablesPath = Server.mapPath("/cache/")
+    ' Parser.writablesPath = Server.mapPath("/app/writables/")
     ' Parser.charset   = "UTF-8"
     ' Parser.codepage  = 65001
     ' Parser.separator = ";"
@@ -230,7 +235,7 @@ class CSV
     ' 
     ' (end code)
     ' 
-    public function toString(Rs) : call [_ε]
+    public function toString(Rs)
         dim line, csv, i
         
         set csv = new StringBuilder

@@ -221,6 +221,7 @@ class Kernel
         
         ' Display
         if( ( strComp(Application("environment"), "development") = 0 ) and ( ( ( strComp(lcase(Request.QueryString("inspect")), "true") = 0 ) ) or ( inStr(lcase(Request.QueryString("argv")), "inspect=true") > 0 ) ) ) then
+            Response.contentType = "text/html"
             Server.transfer("/app/views/inspect.asp")
         else
             Response.write(Session("this").item("Output.value"))

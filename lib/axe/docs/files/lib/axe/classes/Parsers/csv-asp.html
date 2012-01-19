@@ -288,6 +288,15 @@
                             <li>Written by Fabio Zendhi Nagao <a href="http://zend.lojcomm.com.br" class="LURL" target="_top">http://zend.lojcomm.com.br</a> @ Dec 2011
                             </li>
                         </ul>
+                        <h4 class="CHeading">
+                            References
+                        </h4>
+                        <ul>
+                            <li>Much ADO About Text Files <a href="http://msdn.microsoft.com/en-us/library/ms974559.aspx" class="LURL" target="_top">http://msdn.microsoft.com<wbr />/en-us<wbr />/library<wbr />/ms974559.aspx</a> @ MSDN Library
+                            </li>
+                            <li>Common Format and MIME Type for Comma-Separated Values (CSV) Files <a href="http://www.ietf.org/rfc/rfc4180.txt" class="LURL" target="_top">http://www.ietf.org/rfc/rfc4180.txt</a> @ IETF
+                            </li>
+                        </ul>
                         <div class="Summary">
                             <div class="STitle">
                                 Summary
@@ -741,7 +750,7 @@
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
-Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/cache/"</span><span class="br0">)</span>
+Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/app/writables/"</span><span class="br0">)</span>
 Parser.<span class="kw3">charset</span>   <span class="sy0">=</span> <span class="st0">"UTF-8"</span>
 Parser.<span class="me1">codepage</span>  <span class="sy0">=</span> <span class="nu0">65001</span>
 Parser.<span class="me1">separator</span> <span class="sy0">=</span> <span class="st0">";"</span>
@@ -878,7 +887,7 @@ Data.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                     Rs
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
-                                                    ) : call [_ε]
+                                                    )
                                                 </td>
                                             </tr>
                                         </table>
@@ -2221,7 +2230,7 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                             Rs
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
-                                            ) : call [_ε]
+                                            )
                                         </td>
                                     </tr>
                                 </table>
