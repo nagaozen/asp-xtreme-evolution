@@ -1,4 +1,4 @@
-﻿<%
+<script language="VBScript" runat="server">
 
 ' File: customevent.asp
 ' 
@@ -236,4 +236,4 @@ class CustomEvent
     
 end class
 
-%>
+</script>

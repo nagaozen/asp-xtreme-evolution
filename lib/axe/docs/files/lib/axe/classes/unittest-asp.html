@@ -112,18 +112,34 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#UnitTest.assert" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">assert</a>
+                                            <a href="#UnitTest.build" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">build</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Generate the unit test code.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#UnitTest.assert" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">assert</a>
                                         </td>
                                         <td class="SDescription">
                                             Tests if the coded function or method returns an equal value to the expected value.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent2">
+                                    <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#UnitTest.test" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">test</a>
+                                            <a href="#UnitTest.test" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">test</a>
                                         </td>
                                         <td class="SDescription">
                                             Returns a friendly message of the test.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#UnitTest.[_formatArgument]" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">[_formatArgument]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Format the input argument to be reused in a code generator.
                                         </td>
                                     </tr>
                                 </table>
@@ -207,18 +223,34 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#UnitTest.assert" id="link3" onmouseover="ShowTip(event, 'tt1', 'link3')" onmouseout="HideTip('tt1')">assert</a>
+                                            <a href="#UnitTest.build" id="link5" onmouseover="ShowTip(event, 'tt1', 'link5')" onmouseout="HideTip('tt1')">build</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Generate the unit test code.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#UnitTest.assert" id="link6" onmouseover="ShowTip(event, 'tt2', 'link6')" onmouseout="HideTip('tt2')">assert</a>
                                         </td>
                                         <td class="SDescription">
                                             Tests if the coded function or method returns an equal value to the expected value.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent1">
+                                    <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#UnitTest.test" id="link4" onmouseover="ShowTip(event, 'tt2', 'link4')" onmouseout="HideTip('tt2')">test</a>
+                                            <a href="#UnitTest.test" id="link7" onmouseover="ShowTip(event, 'tt3', 'link7')" onmouseout="HideTip('tt3')">test</a>
                                         </td>
                                         <td class="SDescription">
                                             Returns a friendly message of the test.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#UnitTest.[_formatArgument]" id="link8" onmouseover="ShowTip(event, 'tt4', 'link8')" onmouseout="HideTip('tt4')">[_formatArgument]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Format the input argument to be reused in a code generator.
                                         </td>
                                     </tr>
                                 </table>
@@ -344,6 +376,79 @@
             <div class="CFunction">
                 <div class="CTopic">
                     <h3 class="CTitle">
+                        <a id="UnitTest.build"></a>build
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function build(
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    fn,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    argv
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Generate the unit test code.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    function name
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (variant[])
+                                </td>
+                                <td class="CDLDescription">
+                                    function argument values
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    generated code
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
                         <a id="UnitTest.assert"></a>assert
                     </h3>
                     <div class="CBody">
@@ -425,30 +530,6 @@
                                 </td>
                             </tr>
                         </table>
-                        <h4 class="CHeading">
-                            Example
-                        </h4>
-                        <blockquote>
-                            <div class="code">
-                                <pre class="asp">
-<span class="kw1">dim</span> Tester <span class="sy0">:</span> <span class="kw1">set</span> Tester <span class="sy0">=</span> <span class="kw2">new</span> UnitTest
- 
-<span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">assert</span><span class="br0">(</span><span class="st0">"helloWorld"</span>, <span class="kw2">null</span>, <span class="st0">"Hello World"</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine <span class="co1">' prints true</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">assert</span><span class="br0">(</span><span class="st0">"helloWorld"</span>, <span class="kw2">null</span>, <span class="st0">"Hi World"</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine <span class="co1">' prints false</span>
- 
-Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class="st0">"Math"</span>
- 
-<span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"Testing Math.add"</span> <span class="sy0">&amp;</span> vbNewLine
-<span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"----------------"</span> <span class="sy0">&amp;</span> vbNewLine
-<span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">assert</span><span class="br0">(</span><span class="st0">"add"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="nu0">2</span>,<span class="nu0">2</span><span class="br0">)</span>, <span class="nu0">4</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine <span class="co1">' prints true</span>
-<span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">assert</span><span class="br0">(</span><span class="st0">"add"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="nu0">2</span>,<span class="nu0">0</span><span class="br0">)</span>, <span class="nu0">5</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine <span class="co1">' prints false</span>
- 
-<span class="kw1">set</span> Tester <span class="sy0">=</span> <span class="kw2">nothing</span>
- 
-<span class="kw1">Response</span>.<span class="kw3">write</span> vbNewLine
-</pre>
-                            </div>
-                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -542,30 +623,121 @@ Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class
                         <blockquote>
                             <div class="code">
                                 <pre class="asp">
+<span class="co1">' --[ Definitions ]-------------------------------------------------------------</span>
+ 
+<span class="co1">' NOTE: Usually you will be including the definition from somewhere else.</span>
+ 
+<span class="kw2">function</span> helloWorld<span class="br0">(</span><span class="br0">)</span>
+    helloWorld <span class="sy0">=</span> <span class="st0">"Hello World"</span>
+<span class="kw1">end</span> <span class="kw2">function</span>
+ 
+<span class="kw2">function</span> moron<span class="br0">(</span>arg<span class="br0">)</span>
+    moron <span class="sy0">=</span> arg
+<span class="kw1">end</span> <span class="kw2">function</span>
+ 
+<span class="kw2">class</span> BasicMath
+ 
+    <span class="kw1">public</span> <span class="kw2">function</span> add<span class="br0">(</span>a, b<span class="br0">)</span>
+        add <span class="sy0">=</span> a + b
+    <span class="kw1">end</span> <span class="kw2">function</span>
+ 
+    <span class="kw1">public</span> <span class="kw2">function</span> subtract<span class="br0">(</span>a, b<span class="br0">)</span>
+        subtract <span class="sy0">=</span> a - b
+    <span class="kw1">end</span> <span class="kw2">function</span>
+ 
+    <span class="kw1">public</span> <span class="kw2">function</span> multiply<span class="br0">(</span>a, b<span class="br0">)</span>
+        multiply <span class="sy0">=</span> a <span class="sy0">*</span> b
+    <span class="kw1">end</span> <span class="kw2">function</span>
+ 
+    <span class="kw1">public</span> <span class="kw2">function</span> divide<span class="br0">(</span>p, q<span class="br0">)</span>
+        divide <span class="sy0">=</span> p <span class="sy0">/</span> q
+    <span class="kw1">end</span> <span class="kw2">function</span>
+ 
+<span class="kw1">end</span> <span class="kw2">class</span>
+ 
+<span class="co1">' --[ Testing ]-----------------------------------------------------------------</span>
+ 
 <span class="kw1">dim</span> Tester <span class="sy0">:</span> <span class="kw1">set</span> Tester <span class="sy0">=</span> <span class="kw2">new</span> UnitTest
  
 <span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"Testing functions"</span> <span class="sy0">&amp;</span> vbNewLine
 <span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"-----------------"</span> <span class="sy0">&amp;</span> vbNewLine
 <span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"helloWorld"</span>, <span class="kw2">null</span>, <span class="st0">"Hello World"</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
-<span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"dummy"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"someValue"</span><span class="br0">)</span>, <span class="st0">"anotherValue"</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
+<span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"moron"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">"someValue"</span><span class="br0">)</span>, <span class="st0">"anotherValue"</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
  
 <span class="kw1">Response</span>.<span class="kw3">write</span> vbNewLine
  
-Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class="st0">"Math"</span>
+Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class="st0">"BasicMath"</span>
  
-<span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"Testing Math.add"</span> <span class="sy0">&amp;</span> vbNewLine
-<span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"----------------"</span> <span class="sy0">&amp;</span> vbNewLine
+<span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"Testing BasicMath.add"</span> <span class="sy0">&amp;</span> vbNewLine
+<span class="kw1">Response</span>.<span class="kw3">write</span> <span class="st0">"---------------------"</span> <span class="sy0">&amp;</span> vbNewLine
 <span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"add"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="nu0">2</span>,<span class="nu0">2</span><span class="br0">)</span>, <span class="nu0">4</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
 <span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"add"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="nu0">2</span>,<span class="nu0">0</span><span class="br0">)</span>, <span class="nu0">5</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
 <span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"add"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="nu0">2008</span>,<span class="nu0">1</span><span class="br0">)</span>, <span class="nu0">2009</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
 <span class="kw1">Response</span>.<span class="kw3">write</span> Tester.<span class="me1">test</span><span class="br0">(</span><span class="st0">"add"</span>, <span class="kw3">array</span><span class="br0">(</span><span class="nu0">1</span>,<span class="nu0">2008</span><span class="br0">)</span>, <span class="nu0">2009</span><span class="br0">)</span> <span class="sy0">&amp;</span> vbNewLine
  
 <span class="kw1">set</span> Tester <span class="sy0">=</span> <span class="kw2">nothing</span>
- 
-<span class="kw1">Response</span>.<span class="kw3">write</span> vbNewLine
 </pre>
                             </div>
                         </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="UnitTest.[_formatArgument]"></a>[_formatArgument]
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private function [_formatArgument](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    arg
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Format the input argument to be reused in a code generator.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (variant)
+                                </td>
+                                <td class="CDLDescription">
+                                    argument value
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    argument to be used in the dynamic command.
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -638,6 +810,11 @@ Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="Parsers/csv-asp.html">csv.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="Parsers/handlebars-asp.html">handlebars.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -1164,6 +1341,37 @@ Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class
                                 <table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function build(
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            fn,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            argv
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Generate the unit test code.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt2">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
                                             public function assert(
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
@@ -1192,7 +1400,7 @@ Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class
                 </blockquote>Tests if the coded function or method returns an equal value to the expected value.
             </div>
         </div>
-        <div class="CToolTip" id="tt2">
+        <div class="CToolTip" id="tt3">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -1227,6 +1435,31 @@ Tester.<span class="me1">container</span> <span class="sy0">=</span> <span class
                         </tr>
                     </table>
                 </blockquote>Returns a friendly message of the test.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt4">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private function [_formatArgument](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            arg
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Format the input argument to be reused in a code generator.
             </div>
         </div>
         <div id="MSearchResultsWindow">

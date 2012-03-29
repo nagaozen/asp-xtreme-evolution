@@ -18,16 +18,15 @@ Installation
 
 3. If your server does not provide a default cgi-bin folder, create a virtual directory named "cgi-bin" in your domain root pointing to /lib/axe/bin. Don't forget to check "Execute (such as ISAPI applications or CGI)"; Otherwise, move the contents of /lib/axe/bin to your cgi-bin folder.
 
-4. Give only "Read and Write" permission to your /app/cache folder.
+4. Give only "Read and Write" permission to your /app/writables folder.
 
 5. Go to your site properties and in ISAPI Filters tab, click [Add]. Fill the box with the following data:  
    Filter name: IIRF  
-   [Browse...] to /lib/axe/bin/IsapiRewrite4.dll  
+   [Browse...] to C:\Program Files\Ionic Shade\IIRF 2.1\IIRF.dll  
 
 6. Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:
     * CB Image Resizer (Imager.dll)
     * CB Zip (CBZIP.exe)
-    * Ionics ISAPI Rewriting Filter (IsapiRewrite4.dll)
     
     Notes:
     
@@ -38,6 +37,7 @@ Installation
 
 8. Create an application pool for the application views.
 
-9. Set /app/views to the application pool created in step 9.
+9. Set /app/views to the application pool created in step 8.
 
 10. That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.
+

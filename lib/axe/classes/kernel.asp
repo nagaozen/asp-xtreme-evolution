@@ -1,4 +1,4 @@
-﻿<%
+<script language="VBScript" runat="server">
 
 ' File: kernel.asp
 ' 
@@ -374,7 +374,9 @@ class Kernel
             .open()
             
             .writeText(sContent & vbNewLine)
-            .writeText("<!--// CACHED FILE => Execution time is less than 1µs (Blazing fast performance) //-->")
+            .writeText("<")
+            .writeText("!--// CACHED FILE => Execution time is less than 1µs (Blazing fast performance) //--")
+            .writeText(">")
             .setEOS()
             .position = 0
             .saveToFile sFilePath, adSaveCreateOverwrite
@@ -613,4 +615,4 @@ class Kernel
 
 end class
 
-%>
+</script>

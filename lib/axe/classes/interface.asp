@@ -1,4 +1,4 @@
-﻿<%
+<script language="VBScript" runat="server">
 
 ' File: interface.class.asp
 ' 
@@ -228,4 +228,4 @@ class Interface
     
 end class
 
-%>
+</script>

@@ -1,4 +1,4 @@
-﻿<%
+<script language="VBScript" runat="server">
 
 ' File: unittest.asp
 ' 
@@ -82,19 +82,55 @@ class UnitTest
     ' 
     public Properties
     
-    private result
-    
-    private sub Class_initialize()
-        classType    = typeName(Me)
-        classVersion = "1.0.0.0"
+    ' Function: build
+    ' 
+    ' Generate the unit test code.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string)    - function name
+    '     (variant[]) - function argument values
+    ' 
+    ' Returns:
+    ' 
+    '     (string) - generated code
+    ' 
+    public function build(fn, argv)
+        dim Builder, item, initialize, _
+            arguments, i, _
+            vbscript
         
-        container = ""
-        set Properties = Server.createObject("Scripting.Dictionary")
-    end sub
-    
-    private sub Class_terminate()
-        set Properties = nothing
-    end sub
+        set Builder = new StringBuilder
+        for each item in Properties
+            Builder.append("Obj." & item & " = " & [_formatArgument](Properties.item(item)) & vbNewLine)
+        next
+        initialize = Builder.toString()
+        set Builder = nothing
+        
+        if( isnull(argv) ) then
+            arguments = ""
+        else
+            for i = 0 to ubound(argv)
+                argv(i) = [_formatArgument](argv(i))
+            next
+            arguments = join(argv, ", ")
+        end if
+        
+        if( container = "" ) then
+            vbscript = "[_result] = " & fn & "(" & arguments & ")"
+        else
+            vbscript = join(array( _
+                "dim Obj : set Obj = new " & container, _
+                "", _
+                initialize, _
+                "[_result] = Obj." & fn & "(" & arguments & ")", _
+                "", _
+                "set Obj = nothing" _
+            ), vbNewLine)
+        end if
+        
+        build = vbscript
+    end function
     
     ' Function: assert
     ' 
@@ -111,68 +147,13 @@ class UnitTest
     ' 
     '     (boolean) - true if function or method returns expected, false otherwise
     ' 
-    ' Example:
-    ' 
-    ' (start code)
-    ' 
-    ' dim Tester : set Tester = new UnitTest
-    ' 
-    ' Response.write Tester.assert("helloWorld", null, "Hello World") & vbNewLine ' prints true
-    ' Response.write Tester.assert("helloWorld", null, "Hi World") & vbNewLine ' prints false
-    ' 
-    ' Tester.container = "Math"
-    ' 
-    ' Response.write "Testing Math.add" & vbNewLine
-    ' Response.write "----------------" & vbNewLine
-    ' Response.write Tester.assert("add", array(2,2), 4) & vbNewLine ' prints true
-    ' Response.write Tester.assert("add", array(2,0), 5) & vbNewLine ' prints false
-    ' 
-    ' set Tester = nothing
-    ' 
-    ' Response.write vbNewLine
-    ' 
-    ' (end code)
-    ' 
     public function assert(fn, argv, expected)
         on error resume next
         
-        dim Builder : set Builder = new StringBuilder
-        dim item
-        for each item in Properties
-            Builder.append("Obj." & item & " = " & Properties.item(item) & vbNewLine)
-        next
-        dim initialize : initialize = Builder.toString()
-        set Builder = nothing
+        [_result] = empty
+        execute(build(fn, argv))
         
-        dim arguments
-        if( isnull(argv) ) then
-            arguments = ""
-        else
-            dim i
-            for i = 0 to ubound(argv)
-                select case lcase(typename(argv(i)))
-                    case "string"
-                        argv(i) = """" & argv(i) & """"
-                end select
-            next
-            arguments = join(argv, ", ")
-        end if
-        
-        dim vbscript
-        if( container = "" ) then
-            vbscript = "result = " & fn & "(" & arguments & ")"
-        else
-            vbscript = join(array( _
-                "dim Obj : set Obj = new " & container, _
-                initialize, _
-                "result = Obj." & fn & "(" & arguments & ")", _
-                "set Obj = nothing" _
-            ), vbNewLine)
-        end if
-        
-        execute(vbscript)
-        
-        if( result = expected ) then
+        if( [_result] = expected ) then
             assert = true
         else
             assert = false
@@ -199,27 +180,59 @@ class UnitTest
     ' 
     ' (start code)
     ' 
+    ' ' --[ Definitions ]-------------------------------------------------------------
+    ' 
+    ' ' NOTE: Usually you will be including the definition from somewhere else.
+    ' 
+    ' function helloWorld()
+    '     helloWorld = "Hello World"
+    ' end function
+    ' 
+    ' function moron(arg)
+    '     moron = arg
+    ' end function
+    ' 
+    ' class BasicMath
+    '     
+    '     public function add(a, b)
+    '         add = a + b
+    '     end function
+    '     
+    '     public function subtract(a, b)
+    '         subtract = a - b
+    '     end function
+    '     
+    '     public function multiply(a, b)
+    '         multiply = a * b
+    '     end function
+    '     
+    '     public function divide(p, q)
+    '         divide = p / q
+    '     end function
+    '     
+    ' end class
+    ' 
+    ' ' --[ Testing ]-----------------------------------------------------------------
+    ' 
     ' dim Tester : set Tester = new UnitTest
     ' 
     ' Response.write "Testing functions" & vbNewLine
     ' Response.write "-----------------" & vbNewLine
     ' Response.write Tester.test("helloWorld", null, "Hello World") & vbNewLine
-    ' Response.write Tester.test("dummy", array("someValue"), "anotherValue") & vbNewLine
+    ' Response.write Tester.test("moron", array("someValue"), "anotherValue") & vbNewLine
     ' 
     ' Response.write vbNewLine
     ' 
-    ' Tester.container = "Math"
+    ' Tester.container = "BasicMath"
     ' 
-    ' Response.write "Testing Math.add" & vbNewLine
-    ' Response.write "----------------" & vbNewLine
+    ' Response.write "Testing BasicMath.add" & vbNewLine
+    ' Response.write "---------------------" & vbNewLine
     ' Response.write Tester.test("add", array(2,2), 4) & vbNewLine
     ' Response.write Tester.test("add", array(2,0), 5) & vbNewLine
     ' Response.write Tester.test("add", array(2008,1), 2009) & vbNewLine
     ' Response.write Tester.test("add", array(1,2008), 2009) & vbNewLine
     ' 
     ' set Tester = nothing
-    ' 
-    ' Response.write vbNewLine
     ' 
     ' (end code)
     ' 
@@ -230,10 +243,7 @@ class UnitTest
         else
             dim a : a = argv
             dim i : for i = 0 to ubound(a)
-                select case lcase(typename(a(i)))
-                    case "string"
-                        a(i) = """" & a(i) & """"
-                end select
+                a(i) = [_formatArgument](a(i))
             next
             arguments = join(a, ", ")
         end if
@@ -241,10 +251,45 @@ class UnitTest
         if(assert(fn, argv, expected)) then
             test = "Success: " & container & iif((container = ""), "", ".") & fn & "(" & arguments & ") == (" & lcase(typename(expected)) & ")" & expected
         else
-            test = "Failure: " & container & iif((container = ""), "", ".") & fn & "(" & arguments & ") != (" & lcase(typename(expected)) & ")" & expected & ". Method returns: (" & lcase(typename(result)) & ")" & result
+            test = "Failure: " & container & iif((container = ""), "", ".") & fn & "(" & arguments & ") != (" & lcase(typename(expected)) & ")" & expected & ". Method returns: (" & lcase(typename([_result])) & ")" & [_result]
         end if
+    end function
+    
+    private sub Class_initialize()
+        classType    = typeName(Me)
+        classVersion = "1.0.0.0"
+        
+        container = ""
+        set Properties = Server.createObject("Scripting.Dictionary")
+    end sub
+    
+    private sub Class_terminate()
+        set Properties = nothing
+    end sub
+    
+    private [_result]
+    
+    ' Function: [_formatArgument]
+    ' 
+    ' {private} Format the input argument to be reused in a code generator.
+    ' 
+    ' Parameters:
+    ' 
+    '     (variant) - argument value
+    ' 
+    ' Returns:
+    ' 
+    '     (string) - argument to be used in the dynamic command.
+    ' 
+    private function [_formatArgument](arg)
+        select case lcase(typename(arg))
+            case "string"
+                [_formatArgument] = """" & arg & """"
+            case else
+                [_formatArgument] = arg
+        end select
     end function
     
 end class
 
-%>
+</script>
