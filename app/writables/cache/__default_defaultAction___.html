@@ -29,8 +29,8 @@
             <a href="/lib/axe/docs/">
               <strong>AXE DOCUMENTATION</strong>
             </a> and 
-            <a href="http://msdn.microsoft.com/en-us/library/d1et7k7c(VS.85).aspx">
-              <strong>MICROSOFT SCRIPTING TECHNOLOGIES</strong>
+            <a href="http://msdn.microsoft.com/en-us/library/ms950396.aspx">
+              <strong>MICROSOFT SCRIPTING</strong>
             </a> are always ready to help you.</li>
         </ul>
         <h2 xmlns="">A little about the binary extensions</h2>
@@ -60,21 +60,20 @@ want to check the original projects, here's a list of their sites:</p>
             <p>If your server does not provide a default cgi-bin folder, create a virtual directory named "cgi-bin" in your domain root pointing to /lib/axe/bin. Don't forget to check "Execute (such as ISAPI applications or CGI)"; Otherwise, move the contents of /lib/axe/bin to your cgi-bin folder.</p>
           </li>
           <li>
-            <p>Give only "Write" permission to your /app/writables folder. It's ONLY WRITE! DO NOT let users to Read or specially EXECUTE anything.</p>
+            <p>Give only "Read and Write" permission to your /app/writables folder.</p>
           </li>
           <li>
             <p>Go to your site properties and in ISAPI Filters tab, click [Add]. Fill the box with the following data: 
               <br></br>
 Filter name: IIRF 
               <br></br>
-[Browse...] to /lib/axe/bin/IsapiRewrite4.dll  </p>
+[Browse...] to C:\Program Files\Ionic Shade\IIRF 2.1\IIRF.dll  </p>
           </li>
           <li>
             <p>Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:</p>
             <ul>
               <li>CB Image Resizer (Imager.dll)</li>
               <li>CB Zip (CBZIP.exe)</li>
-              <li>Ionics ISAPI Rewriting Filter (IsapiRewrite4.dll)</li>
             </ul>
             <p>Notes:</p>
             <ul>
@@ -89,7 +88,7 @@ Filter name: IIRF
             <p>Create an application pool for the application views.</p>
           </li>
           <li>
-            <p>Set /app/views to the application pool created in step 9.</p>
+            <p>Set /app/views to the application pool created in step 8.</p>
           </li>
           <li>
             <p>That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.</p>
@@ -119,7 +118,6 @@ for sure.</p>
         <h3 xmlns="">Added</h3>
         <ul xmlns="">
           <li>routing system based on /app/config.xml</li>
-          <li>mvc bootstrapping for controllers</li>
           <li>new logo and favicon</li>
           <li>/app/singletons.initialize.asp and /app/singletons.finalize.asp to manage application singletons.</li>
           <li>classType and classVersion properties in all classes</li>
@@ -174,7 +172,6 @@ for sure.</p>
               </li>
               <li>
                 <a href="/lib/axe/docs/files/lib/axe/classes/Parsers/csv-asp.html">CSV</a>
-                <em>(not implemented yet)</em>
               </li>
               <li>
                 <a href="/lib/axe/docs/files/lib/axe/classes/customevent-asp.html">CustomEvent</a>

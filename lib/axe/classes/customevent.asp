@@ -1,4 +1,4 @@
-<script language="VBScript" runat="server">
+<%
 
 ' File: customevent.asp
 ' 
@@ -7,7 +7,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2011 Fabio Zendhi Nagao
+' Copyright (C) 2007-2012 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -236,4 +236,4 @@ class CustomEvent
     
 end class
 
-</script>
+%>

@@ -41,6 +41,7 @@ for sure.
     - [CSV](/lib/axe/docs/files/lib/axe/classes/Parsers/csv-asp.html)
     - [CustomEvent](/lib/axe/docs/files/lib/axe/classes/customevent-asp.html)
     - [Email](/lib/axe/docs/files/lib/axe/classes/Utilities/email-asp.html)
+    - [Handlebars](/lib/axe/docs/files/lib/axe/classes/Parsers/handlebars-asp.html)
     - [Interface](/lib/axe/docs/files/lib/axe/classes/interface-asp.html)
     - [JSON2](/lib/axe/docs/files/lib/axe/classes/Parsers/json2-asp.html)
     - [JSONSchema](/lib/axe/docs/files/lib/axe/classes/Parsers/jsonschema-asp.html)

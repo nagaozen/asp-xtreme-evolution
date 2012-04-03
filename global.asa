@@ -14,7 +14,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2012 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -39,6 +39,7 @@
 ' 
 sub Application_onStart
     ' Output standards to be used with indentedTransform
+    Application("Xslt.html5") = "<xsl:output method='html' version='1.0' encoding='UTF-8' doctype-system='about:legacy-compat' indent='yes' />"
     Application("Xslt.xhtml") = "<xsl:output method='xml' version='1.0' encoding='UTF-8' omit-xml-declaration='yes' doctype-public='-//W3C//DTD XHTML 1.1//EN' doctype-system='http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd' indent='yes'/>"
     Application("Xslt.text")  = "<xsl:output method='text' version='1.0' encoding='UTF-8' omit-xml-declaration='yes' indent='yes'/>"
     Application("Xslt.xml")   = "<xsl:output method='xml' version='1.0' encoding='UTF-8' indent='yes'/>"

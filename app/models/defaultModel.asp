@@ -8,7 +8,7 @@
 ' License:
 ' 
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+' Copyright (C) 2007-2012 Fabio Zendhi Nagao
 ' 
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
@@ -47,7 +47,7 @@ class DefaultModel
             "      <li>If you are receiving an error: '80020009' without any additional information, increase the metabase 'AspMaxRequestEntityAllowed' parameter size (Default is 204800 bytes).</li>", _
             "      <li>Set the application custom error 500;100 to '/app/views/error.asp' to integrate the framework errors with the IIS ASP errors.</li>", _
             "      <li>There are some very useful templates which all project should use. They are: model.asp, view.asp and controller.asp on /lib/axe/templates folder.</li>", _
-            "      <li><strong>Don't forget, this still VBScript ASP! Be confident in your ASP skills and you will be fine.</strong> Also, the <a href='/lib/axe/docs/'><strong>AXE DOCUMENTATION</strong></a> and <a href='http://msdn.microsoft.com/en-us/library/d1et7k7c(VS.85).aspx'><strong>MICROSOFT SCRIPTING TECHNOLOGIES</strong></a> are always ready to help you.</li>", _
+            "      <li><strong>Don't forget, this still VBScript ASP! Be confident in your ASP skills and you will be fine.</strong> Also, the <a href='/lib/axe/docs/'><strong>AXE DOCUMENTATION</strong></a> and <a href='http://msdn.microsoft.com/en-us/library/ms950396.aspx'><strong>MICROSOFT SCRIPTING</strong></a> are always ready to help you.</li>", _
             "    </ul>", _
             Parser.makeHtml( Core.loadTextFile( Server.mapPath("/lib/axe/docs/INSTALL.md") ) ), _
             "    <h2>Getting started</h2>", _

@@ -5,7 +5,7 @@
  * License:
  * 
  * This file is part of ASP Xtreme Evolution.
- * Copyright (C) 2007-2011 Fabio Zendhi Nagao
+ * Copyright (C) 2007-2012 Fabio Zendhi Nagao
  * 
  * ASP Xtreme Evolution is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -25,16 +25,18 @@
  *     - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
  */
 
-@import url("http://fonts.googleapis.com/css?family=Droid+Sans");
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 body {
     padding: 1em;
     background-color: #1D1B10;
-    font-family: 'Droid Sans', Arial, Helvetica, Clean, sans-serif;
+    font-family: "Ubuntu", Arial, Helvetica, Clean, sans-serif;
     color: #EEEEEC;
 }
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
     padding-top: .5em;
     padding-bottom: .5em;
     font-weight: bold;
@@ -75,21 +77,18 @@ h1 {
     padding-top: 0;
     padding-bottom: 0;
     font-size: 512%;
-    letter-spacing: -4px;
     color: #FCE94F;
     text-shadow: 2px 2px 2px #8F5902;
 }
 
 h2 {
     font-size: 182%;
-    letter-spacing: -1px;
     color: #EDD400;
     text-decoration: underline;
 }
 
 h3 {
     font-size: 167%;
-    letter-spacing: -1px;
     color: #C4A000;
 }
 
@@ -119,7 +118,6 @@ body#defaultView img {
 
 body#inspect h1 {
     font-size: 256%;
-    letter-spacing: -2px;
     padding-bottom: 0.5em;
 }
 
@@ -180,7 +178,8 @@ body#inspect div#inspect-output-container {
     text-decoration: none;
     border-right: 1px solid #fff;
     display: block;
-    padding: 2px 8px;
+/*    padding: 2px 8px;*/
+    padding: 8px 16px;
     text-transform: capitalize;
 }
 
@@ -196,7 +195,7 @@ body#inspect div#inspect-output-container {
 .nav li:hover a {
     color: #000;
     border-right: 0;
-    padding-right: 9px;
+    padding-right: 17px;
 }
 
 .nav li:active {
@@ -219,12 +218,12 @@ body#inspect div#inspect-output-container {
 .nav .selected a, .nav .selected span {
     color: #fff !important;
     border-right: 0;
-    padding-right: 9px;
+    padding-right: 17px;
 }
 
 .nav li:first-child.selected a,
 .nav li:first-child.selected span {
-    padding-left: 7px;
+    padding-left: 15px;
 }
 
 .nav li:first-child {
