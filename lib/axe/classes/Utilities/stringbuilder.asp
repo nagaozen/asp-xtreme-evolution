@@ -32,7 +32,7 @@
 ' 
 ' About:
 ' 
-'   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br> @ January 2009
+'   - Written by Markus Paeschke <http://www.mpaeschke.de> @ November 2012
 ' 
 class StringBuilder
 
@@ -56,21 +56,17 @@ class StringBuilder
     ' 
     public classVersion
 
-    private Stream
+    private stream, counter
 
     private sub Class_initialize()
         classType    = typeName(Me)
-        classVersion = "2.0.0"
-        
-        set Stream = Server.createObject("ADODB.Stream")
-        Stream.type = adTypeText
-        Stream.mode = adModeReadWrite
-        Stream.open()
+        classVersion = "3.0.0"
+
+        Set stream = CreateObject("Scripting.Dictionary")
     end sub
 
     private sub Class_terminate()
-        Stream.close()
-        set Stream = nothing
+        Set stream = Nothing
     end sub
 
     ' Function: reset
@@ -78,25 +74,28 @@ class StringBuilder
     ' Clear the string builder data.
     ' 
     public function reset()
-        Stream.position = 0
-        Stream.setEOS()
+        Call stream.RemoveAll()
+        counter = 0
     end function
 
     ' Subroutine: append
     ' 
-    ' Add the incoming data to the buffer.
+    ' Add the incoming data to the buffer if the data is not empty.
     ' 
     ' Parameters:
     ' 
     '   (string) - String fragments.
     ' 
     public sub append(data)
-        Stream.writeText(data)
+        If Not isNull(data) And data <> "" Then
+            Call stream.Add(counter, cStr(data))
+            counter = counter +1
+        End If
     end sub
 
     ' Function: toString
     ' 
-    ' Reads the entire buffer and return it.
+    ' Join all items in the dictionary to a single string.
     ' 
     ' Returns:
     ' 
@@ -115,8 +114,9 @@ class StringBuilder
     ' (end)
     ' 
     public function toString()
-        Stream.position = 0
-        toString = Stream.readText()
+        If counter.Count > 0 Then
+            toString = Join(stream.Items, "")
+        End If
     end function
 
 end class
