@@ -30,7 +30,9 @@
 ' 
 '   - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
 ' 
+Session("this").removeAll()
 set Session("this") = nothing
+
 Session.abandon()
 
 %>

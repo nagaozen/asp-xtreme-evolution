@@ -99,7 +99,7 @@ class Auth_Interface' extends Interface
     ' 
     ' Returns:
     ' 
-    '     (int) - Auth_Adapter_Interface.RESULT constant
+    '     (string) - Auth_Adapter_Interface.RESULT constant
     ' 
     ' Result constants:
     ' 

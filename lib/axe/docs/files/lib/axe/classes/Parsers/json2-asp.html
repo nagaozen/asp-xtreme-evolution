@@ -99,6 +99,14 @@
                                             This method produces a XML text from a Javascript value.
                                         </td>
                                     </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#JSON.minify">minify</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method can be used as a helper to enable comments in json-like configuration files.
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -166,6 +174,14 @@
                                         </td>
                                         <td class="SDescription">
                                             This method produces a XML text from a Javascript value.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#JSON.minify">minify</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            This method can be used as a helper to enable comments in json-like configuration files.
                                         </td>
                                     </tr>
                                 </table>
@@ -441,6 +457,44 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
 </pre>
                             </div>
                         </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="JSON.minify"></a>minify
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            This method can be used as a helper to enable comments in json-like configuration files.&nbsp; According to Douglas Crockford, using comments are fine if you pipe the code before handing it to your JSON parser.&nbsp; See <a href="https://plus.google.com/118095276221607585885/posts/RK8qyGVaGSr" class="LURL" target="_top">https://plus.google.com<wbr />/118095276221607585885<wbr />/posts<wbr />/RK8qyGVaGSr</a>
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    a json-like configuration string
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (json)
+                                </td>
+                                <td class="CDLDescription">
+                                    valid minified json
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -775,11 +829,6 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="../Utilities/template-asp.html">template.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
                                 <a href="../Utilities/translator-asp.html">translator.asp</a>
                             </div>
                         </div>
@@ -791,6 +840,11 @@ Info.<span class="kw1">set</span> <span class="st0">"complex"</span>, JSON.<span
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="../Utilities/xsession-asp.html">xsession.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/xstring-asp.html">xstring.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">

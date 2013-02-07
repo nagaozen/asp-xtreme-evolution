@@ -68,7 +68,7 @@
                                     </tr>
                                     <tr class="SGroup SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Logger.Properties">Properties</a>
+                                            <a href="#Logger.Properties_and_Functions">Properties and Functions</a>
                                         </td>
                                         <td class="SDescription"></td>
                                     </tr>
@@ -96,6 +96,102 @@
                                             Scripting.Dictionary holding available log priorities.
                                         </td>
                                     </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Logger.addAdapter" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">addAdapter</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Pushes a new Logger_Interface adapter to Adapters list
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.addFilter" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">addFilter</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Add a filter that will be applied before writing the message in this adapter.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Logger.write" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">write</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Main writing routine
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.emerg" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">emerg</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs an emergency
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Logger.alert" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">alert</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs an alert
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.critical" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">critical</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a critical
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Logger.error" id="link7" onmouseover="ShowTip(event, 'tt7', 'link7')" onmouseout="HideTip('tt7')">error</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs an error
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.warn" id="link8" onmouseover="ShowTip(event, 'tt8', 'link8')" onmouseout="HideTip('tt8')">warn</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a warning
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Logger.notice" id="link9" onmouseover="ShowTip(event, 'tt9', 'link9')" onmouseout="HideTip('tt9')">notice</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a notice
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.info" id="link10" onmouseover="ShowTip(event, 'tt10', 'link10')" onmouseout="HideTip('tt10')">info</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a info
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Logger.debug" id="link11" onmouseover="ShowTip(event, 'tt11', 'link11')" onmouseout="HideTip('tt11')">debug</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a debug
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.[_%CE%B5]" id="link12" onmouseover="ShowTip(event, 'tt12', 'link12')" onmouseout="HideTip('tt12')">[_ε]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Checks for an adapter assignment.
+                                        </td>
+                                    </tr>
                                     <tr class="SProperty SIndent2">
                                         <td class="SEntry">
                                             <a href="#Logger.[_Adapters]">[_Adapters]</a>
@@ -117,125 +213,23 @@
                                             <a href="#Logger.[_%CF%84]">[_τ]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Template instance to handle the string formating.
+                                            <label class="private">private</label> XString instance to handle the string formating.
                                         </td>
-                                    </tr>
-                                    <tr class="SGroup SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.Functions">Functions</a>
-                                        </td>
-                                        <td class="SDescription"></td>
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Logger.[_%CE%B5]" id="link1" onmouseover="ShowTip(event, 'tt1', 'link1')" onmouseout="HideTip('tt1')">[_ε]</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            <label class="private">private</label> Checks for an adapter assignment.
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.[_compare]" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">[_compare]</a>
+                                            <a href="#Logger.[_compare]" id="link13" onmouseover="ShowTip(event, 'tt13', 'link13')" onmouseout="HideTip('tt13')">[_compare]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Compares two numbers by an order operator.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
+                                    <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Logger.[_isAcceptable]" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">[_isAcceptable]</a>
+                                            <a href="#Logger.[_isAcceptable]" id="link14" onmouseover="ShowTip(event, 'tt14', 'link14')" onmouseout="HideTip('tt14')">[_isAcceptable]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Check with Filters if a message can be logged.
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.addAdapter" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">addAdapter</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Pushes a new Logger_Interface adapter to Adapters list
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.addFilter" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">addFilter</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Add a filter that will be applied before writing the message in this adapter.
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.write" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">write</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Main writing routine
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.emerg" id="link7" onmouseover="ShowTip(event, 'tt7', 'link7')" onmouseout="HideTip('tt7')">emerg</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs an emergency
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.alert" id="link8" onmouseover="ShowTip(event, 'tt8', 'link8')" onmouseout="HideTip('tt8')">alert</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs an alert
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.critical" id="link9" onmouseover="ShowTip(event, 'tt9', 'link9')" onmouseout="HideTip('tt9')">critical</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a critical
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.error" id="link10" onmouseover="ShowTip(event, 'tt10', 'link10')" onmouseout="HideTip('tt10')">error</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs an error
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.warn" id="link11" onmouseover="ShowTip(event, 'tt11', 'link11')" onmouseout="HideTip('tt11')">warn</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a warning
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.notice" id="link12" onmouseover="ShowTip(event, 'tt12', 'link12')" onmouseout="HideTip('tt12')">notice</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a notice
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.info" id="link13" onmouseover="ShowTip(event, 'tt13', 'link13')" onmouseout="HideTip('tt13')">info</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a info
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent2">
-                                        <td class="SEntry">
-                                            <a href="#Logger.debug" id="link14" onmouseover="ShowTip(event, 'tt14', 'link14')" onmouseout="HideTip('tt14')">debug</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a debug
                                         </td>
                                     </tr>
                                 </table>
@@ -259,7 +253,7 @@
                         <ul>
                             <li>List class (/lib/axe/classes/Utilities/list.asp)
                             </li>
-                            <li>Template class (/lib/axe/classes/Utilities/template.asp)
+                            <li>XString class (/lib/axe/classes/Utilities/xstring.asp)
                             </li>
                         </ul>
                         <h4 class="CHeading">
@@ -277,7 +271,7 @@
                                 <table border="0" cellspacing="0" cellpadding="0" class="STable">
                                     <tr class="SGroup">
                                         <td class="SEntry">
-                                            <a href="#Logger.Properties">Properties</a>
+                                            <a href="#Logger.Properties_and_Functions">Properties and Functions</a>
                                         </td>
                                         <td class="SDescription"></td>
                                     </tr>
@@ -305,6 +299,102 @@
                                             Scripting.Dictionary holding available log priorities.
                                         </td>
                                     </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Logger.addAdapter" id="link15" onmouseover="ShowTip(event, 'tt1', 'link15')" onmouseout="HideTip('tt1')">addAdapter</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Pushes a new Logger_Interface adapter to Adapters list
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.addFilter" id="link16" onmouseover="ShowTip(event, 'tt2', 'link16')" onmouseout="HideTip('tt2')">addFilter</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Add a filter that will be applied before writing the message in this adapter.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Logger.write" id="link17" onmouseover="ShowTip(event, 'tt3', 'link17')" onmouseout="HideTip('tt3')">write</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Main writing routine
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.emerg" id="link18" onmouseover="ShowTip(event, 'tt4', 'link18')" onmouseout="HideTip('tt4')">emerg</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs an emergency
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Logger.alert" id="link19" onmouseover="ShowTip(event, 'tt5', 'link19')" onmouseout="HideTip('tt5')">alert</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs an alert
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.critical" id="link20" onmouseover="ShowTip(event, 'tt6', 'link20')" onmouseout="HideTip('tt6')">critical</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a critical
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Logger.error" id="link21" onmouseover="ShowTip(event, 'tt7', 'link21')" onmouseout="HideTip('tt7')">error</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs an error
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.warn" id="link22" onmouseover="ShowTip(event, 'tt8', 'link22')" onmouseout="HideTip('tt8')">warn</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a warning
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Logger.notice" id="link23" onmouseover="ShowTip(event, 'tt9', 'link23')" onmouseout="HideTip('tt9')">notice</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a notice
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.info" id="link24" onmouseover="ShowTip(event, 'tt10', 'link24')" onmouseout="HideTip('tt10')">info</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a info
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Logger.debug" id="link25" onmouseover="ShowTip(event, 'tt11', 'link25')" onmouseout="HideTip('tt11')">debug</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Logs a debug
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Logger.[_%CE%B5]" id="link26" onmouseover="ShowTip(event, 'tt12', 'link26')" onmouseout="HideTip('tt12')">[_ε]</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            <label class="private">private</label> Checks for an adapter assignment.
+                                        </td>
+                                    </tr>
                                     <tr class="SProperty SIndent1">
                                         <td class="SEntry">
                                             <a href="#Logger.[_Adapters]">[_Adapters]</a>
@@ -326,125 +416,23 @@
                                             <a href="#Logger.[_%CF%84]">[_τ]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Template instance to handle the string formating.
+                                            <label class="private">private</label> XString instance to handle the string formating.
                                         </td>
-                                    </tr>
-                                    <tr class="SGroup">
-                                        <td class="SEntry">
-                                            <a href="#Logger.Functions">Functions</a>
-                                        </td>
-                                        <td class="SDescription"></td>
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Logger.[_%CE%B5]" id="link15" onmouseover="ShowTip(event, 'tt1', 'link15')" onmouseout="HideTip('tt1')">[_ε]</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            <label class="private">private</label> Checks for an adapter assignment.
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.[_compare]" id="link16" onmouseover="ShowTip(event, 'tt2', 'link16')" onmouseout="HideTip('tt2')">[_compare]</a>
+                                            <a href="#Logger.[_compare]" id="link27" onmouseover="ShowTip(event, 'tt13', 'link27')" onmouseout="HideTip('tt13')">[_compare]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Compares two numbers by an order operator.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
+                                    <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Logger.[_isAcceptable]" id="link17" onmouseover="ShowTip(event, 'tt3', 'link17')" onmouseout="HideTip('tt3')">[_isAcceptable]</a>
+                                            <a href="#Logger.[_isAcceptable]" id="link28" onmouseover="ShowTip(event, 'tt14', 'link28')" onmouseout="HideTip('tt14')">[_isAcceptable]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Check with Filters if a message can be logged.
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.addAdapter" id="link18" onmouseover="ShowTip(event, 'tt4', 'link18')" onmouseout="HideTip('tt4')">addAdapter</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Pushes a new Logger_Interface adapter to Adapters list
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.addFilter" id="link19" onmouseover="ShowTip(event, 'tt5', 'link19')" onmouseout="HideTip('tt5')">addFilter</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Add a filter that will be applied before writing the message in this adapter.
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.write" id="link20" onmouseover="ShowTip(event, 'tt6', 'link20')" onmouseout="HideTip('tt6')">write</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Main writing routine
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.emerg" id="link21" onmouseover="ShowTip(event, 'tt7', 'link21')" onmouseout="HideTip('tt7')">emerg</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs an emergency
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.alert" id="link22" onmouseover="ShowTip(event, 'tt8', 'link22')" onmouseout="HideTip('tt8')">alert</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs an alert
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.critical" id="link23" onmouseover="ShowTip(event, 'tt9', 'link23')" onmouseout="HideTip('tt9')">critical</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a critical
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.error" id="link24" onmouseover="ShowTip(event, 'tt10', 'link24')" onmouseout="HideTip('tt10')">error</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs an error
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.warn" id="link25" onmouseover="ShowTip(event, 'tt11', 'link25')" onmouseout="HideTip('tt11')">warn</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a warning
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.notice" id="link26" onmouseover="ShowTip(event, 'tt12', 'link26')" onmouseout="HideTip('tt12')">notice</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a notice
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
-                                        <td class="SEntry">
-                                            <a href="#Logger.info" id="link27" onmouseover="ShowTip(event, 'tt13', 'link27')" onmouseout="HideTip('tt13')">info</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a info
-                                        </td>
-                                    </tr>
-                                    <tr class="SFunction SIndent1">
-                                        <td class="SEntry">
-                                            <a href="#Logger.debug" id="link28" onmouseover="ShowTip(event, 'tt14', 'link28')" onmouseout="HideTip('tt14')">debug</a>
-                                        </td>
-                                        <td class="SDescription">
-                                            Logs a debug
                                         </td>
                                     </tr>
                                 </table>
@@ -456,7 +444,7 @@
             <div class="CGroup">
                 <div class="CTopic">
                     <h3 class="CTitle">
-                        <a id="Logger.Properties"></a>Properties
+                        <a id="Logger.Properties_and_Functions"></a>Properties and Functions
                     </h3>
                 </div>
             </div>
@@ -598,269 +586,6 @@
                                 </td>
                                 <td class="CDLDescription">
                                     Debug: debug messages.&nbsp; Priority 7
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.[_Adapters]"></a>[_Adapters]
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            <label class="private">private</label> In order to really write the messages somewhere, Log requires adapters implementing Logger_Interface specifying how and where to write the data coming through this class.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (Logger_Interface())
-                                </td>
-                                <td class="CDLDescription">
-                                    media adapters
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.[_Filters]"></a>[_Filters]
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            <label class="private">private</label> Filters blocks a message from being written to the log.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (Scripting.Dictionary)
-                                </td>
-                                <td class="CDLDescription">
-                                    filters
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CProperty">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.[_τ]"></a>[_τ]
-                    </h3>
-                    <div class="CBody">
-                        <p>
-                            <label class="private">private</label> Template instance to handle the string formating.
-                        </p>
-                        <h4 class="CHeading">
-                            Contains
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (Template)
-                                </td>
-                                <td class="CDLDescription">
-                                    Object to handle the string formating.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CGroup">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.Functions"></a>Functions
-                    </h3>
-                </div>
-            </div>
-            <div class="CFunction">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.[_ε]"></a>[_ε]
-                    </h3>
-                    <div class="CBody">
-                        <blockquote>
-                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                                <tr>
-                                    <td>
-                                        private sub [_ε]
-                                    </td>
-                                </tr>
-                            </table>
-                        </blockquote>
-                        <p>
-                            <label class="private">private</label> Checks for an adapter assignment.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="CFunction">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.[_compare]"></a>[_compare]
-                    </h3>
-                    <div class="CBody">
-                        <blockquote>
-                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                                <tr>
-                                    <td>
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td class="PBeforeParameters" nowrap="nowrap">
-                                                    private function [_compare](
-                                                </td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    a,
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    b,
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    op
-                                                </td>
-                                                <td class="PAfterParameters" nowrap="nowrap">
-                                                    )
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </blockquote>
-                        <p>
-                            <label class="private">private</label> Compares two numbers by an order operator.
-                        </p>
-                        <h4 class="CHeading">
-                            Parameters
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (number)
-                                </td>
-                                <td class="CDLDescription">
-                                    left side of comparison
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="CDLEntry">
-                                    (number)
-                                </td>
-                                <td class="CDLDescription">
-                                    right side of comparison
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="CDLEntry">
-                                    (string)
-                                </td>
-                                <td class="CDLDescription">
-                                    operator
-                                </td>
-                            </tr>
-                        </table>
-                        <h4 class="CHeading">
-                            Returns
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (boolean)
-                                </td>
-                                <td class="CDLDescription">
-                                    true, if the comparison is true; false, otherwise
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="CFunction">
-                <div class="CTopic">
-                    <h3 class="CTitle">
-                        <a id="Logger.[_isAcceptable]"></a>[_isAcceptable]
-                    </h3>
-                    <div class="CBody">
-                        <blockquote>
-                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                                <tr>
-                                    <td>
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td class="PBeforeParameters" nowrap="nowrap">
-                                                    private function [_isAcceptable](
-                                                </td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    message,
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td class="PParameter" nowrap="nowrap">
-                                                    tp
-                                                </td>
-                                                <td class="PAfterParameters" nowrap="nowrap">
-                                                    )
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </blockquote>
-                        <p>
-                            <label class="private">private</label> Check with Filters if a message can be logged.
-                        </p>
-                        <h4 class="CHeading">
-                            Parameters
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (string)
-                                </td>
-                                <td class="CDLDescription">
-                                    message
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="CDLEntry">
-                                    (string)
-                                </td>
-                                <td class="CDLDescription">
-                                    type
-                                </td>
-                            </tr>
-                        </table>
-                        <h4 class="CHeading">
-                            Returns
-                        </h4>
-                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
-                            <tr>
-                                <td class="CDLEntry">
-                                    (boolean)
-                                </td>
-                                <td class="CDLDescription">
-                                    true, if acceptable; false, otherwise
                                 </td>
                             </tr>
                         </table>
@@ -1542,6 +1267,262 @@
                     </div>
                 </div>
             </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Logger.[_ε]"></a>[_ε]
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        private sub [_ε]
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Checks for an adapter assignment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Logger.[_Adapters]"></a>[_Adapters]
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            <label class="private">private</label> In order to really write the messages somewhere, Log requires adapters implementing Logger_Interface specifying how and where to write the data coming through this class.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (Logger_Interface())
+                                </td>
+                                <td class="CDLDescription">
+                                    media adapters
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Logger.[_Filters]"></a>[_Filters]
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            <label class="private">private</label> Filters blocks a message from being written to the log.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (Scripting.Dictionary)
+                                </td>
+                                <td class="CDLDescription">
+                                    filters
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CProperty">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Logger.[_τ]"></a>[_τ]
+                    </h3>
+                    <div class="CBody">
+                        <p>
+                            <label class="private">private</label> XString instance to handle the string formating.
+                        </p>
+                        <h4 class="CHeading">
+                            Contains
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (XString)
+                                </td>
+                                <td class="CDLDescription">
+                                    Object to handle the string formating.
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Logger.[_compare]"></a>[_compare]
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private function [_compare](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    a,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    b,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    op
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Compares two numbers by an order operator.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (number)
+                                </td>
+                                <td class="CDLDescription">
+                                    left side of comparison
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (number)
+                                </td>
+                                <td class="CDLDescription">
+                                    right side of comparison
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    operator
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    true, if the comparison is true; false, otherwise
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Logger.[_isAcceptable]"></a>[_isAcceptable]
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    private function [_isAcceptable](
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    message,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    tp
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            <label class="private">private</label> Check with Filters if a message can be logged.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    message
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    type
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    true, if acceptable; false, otherwise
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="Footer">
             Documentation by <a href="http://zend.lojcomm.com.br/">Fabio Zendhi Nagao</a>&nbsp; ·&nbsp; Generated by <a href="http://www.naturaldocs.org">Natural Docs</a>, <a href="http://qbnz.com/highlighter/">GeSHi</a>, <a href="http://tidy.sourceforge.net/">Tidy</a> and <a href="http://mootools.net/">MooTools</a>
@@ -1873,11 +1854,6 @@
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="template-asp.html">template.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
                                 <a href="translator-asp.html">translator.asp</a>
                             </div>
                         </div>
@@ -1889,6 +1865,11 @@
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="xsession-asp.html">xsession.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="xstring-asp.html">xstring.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -2139,87 +2120,6 @@
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
                         <tr>
                             <td>
-                                private sub [_ε]
-                            </td>
-                        </tr>
-                    </table>
-                </blockquote><label class="private">private</label> Checks for an adapter assignment.
-            </div>
-        </div>
-        <div class="CToolTip" id="tt2">
-            <div class="CFunction">
-                <blockquote>
-                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                        <tr>
-                            <td>
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td class="PBeforeParameters" nowrap="nowrap">
-                                            private function [_compare](
-                                        </td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            a,
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            b,
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            op
-                                        </td>
-                                        <td class="PAfterParameters" nowrap="nowrap">
-                                            )
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </blockquote><label class="private">private</label> Compares two numbers by an order operator.
-            </div>
-        </div>
-        <div class="CToolTip" id="tt3">
-            <div class="CFunction">
-                <blockquote>
-                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                        <tr>
-                            <td>
-                                <table border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td class="PBeforeParameters" nowrap="nowrap">
-                                            private function [_isAcceptable](
-                                        </td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            message,
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td class="PParameter" nowrap="nowrap">
-                                            tp
-                                        </td>
-                                        <td class="PAfterParameters" nowrap="nowrap">
-                                            )
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </blockquote><label class="private">private</label> Check with Filters if a message can be logged.
-            </div>
-        </div>
-        <div class="CToolTip" id="tt4">
-            <div class="CFunction">
-                <blockquote>
-                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
-                        <tr>
-                            <td>
                                 <table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
@@ -2239,7 +2139,7 @@
                 </blockquote>Pushes a new Logger_Interface adapter to Adapters list
             </div>
         </div>
-        <div class="CToolTip" id="tt5">
+        <div class="CToolTip" id="tt2">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2264,7 +2164,7 @@
                 </blockquote>Add a filter that will be applied before writing the message in this adapter.
             </div>
         </div>
-        <div class="CToolTip" id="tt6">
+        <div class="CToolTip" id="tt3">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2301,7 +2201,7 @@
                 </blockquote>Main writing routine
             </div>
         </div>
-        <div class="CToolTip" id="tt7">
+        <div class="CToolTip" id="tt4">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2332,7 +2232,7 @@
                 </blockquote>Logs an emergency
             </div>
         </div>
-        <div class="CToolTip" id="tt8">
+        <div class="CToolTip" id="tt5">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2363,7 +2263,7 @@
                 </blockquote>Logs an alert
             </div>
         </div>
-        <div class="CToolTip" id="tt9">
+        <div class="CToolTip" id="tt6">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2394,7 +2294,7 @@
                 </blockquote>Logs a critical
             </div>
         </div>
-        <div class="CToolTip" id="tt10">
+        <div class="CToolTip" id="tt7">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2425,7 +2325,7 @@
                 </blockquote>Logs an error
             </div>
         </div>
-        <div class="CToolTip" id="tt11">
+        <div class="CToolTip" id="tt8">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2456,7 +2356,7 @@
                 </blockquote>Logs a warning
             </div>
         </div>
-        <div class="CToolTip" id="tt12">
+        <div class="CToolTip" id="tt9">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2487,7 +2387,7 @@
                 </blockquote>Logs a notice
             </div>
         </div>
-        <div class="CToolTip" id="tt13">
+        <div class="CToolTip" id="tt10">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2518,7 +2418,7 @@
                 </blockquote>Logs a info
             </div>
         </div>
-        <div class="CToolTip" id="tt14">
+        <div class="CToolTip" id="tt11">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2547,6 +2447,87 @@
                         </tr>
                     </table>
                 </blockquote>Logs a debug
+            </div>
+        </div>
+        <div class="CToolTip" id="tt12">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                private sub [_ε]
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Checks for an adapter assignment.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt13">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private function [_compare](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            a,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            b,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            op
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Compares two numbers by an order operator.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt14">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            private function [_isAcceptable](
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            message,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            tp
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote><label class="private">private</label> Check with Filters if a message can be logged.
             </div>
         </div>
         <div id="MSearchResultsWindow">

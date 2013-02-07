@@ -126,9 +126,9 @@ class CSV
     ' Parser.separator = ";"
     ' 
     ' set Data = Parser.fromString( join(array( _
-    '     "id,firstname", _
-    '     "1,Foo", _
-    '     "2,Bar" _
+    '     "id;firstname", _
+    '     "1;Foo", _
+    '     "2;Bar" _
     ' ), vbCrLf), true )
     ' Response.write( dump(Data) )
     ' Data.close()
@@ -287,7 +287,7 @@ class CSV
     ' 
     private SCHEMA_INI_TEMPLATE
 
-    ' Property: _Conn
+    ' Property: [_Conn]
     ' 
     ' {private} Because this parser leverages an ADODB.Recordset that requires
     ' an open ADODB.Connection object, a shared class scoped connection is required
@@ -299,7 +299,7 @@ class CSV
     ' 
     private [_Conn]
 
-    ' Property: _DataSourceFolder
+    ' Property: [_DataSourceFolder]
     ' 
     ' {private} Full physical path to the folder containing the DataSource.csv and the Schema.ini files.
     ' 
@@ -319,7 +319,7 @@ class CSV
         end if
     end sub
 
-    ' Subroutine: _createSchema
+    ' Subroutine: [_createSchema]
     ' 
     ' {private} Creates an ANSI encoded Schema.ini file in the same folder as the DataSource.csv file.
     ' 
@@ -336,7 +336,7 @@ class CSV
         set Fso = nothing
     end sub
 
-    ' Function: _fileExists
+    ' Function: [_fileExists]
     ' 
     ' {private} Checks if the file exists in the file system.
     ' 
@@ -355,7 +355,7 @@ class CSV
         set Fso = nothing
     end function
 
-    ' Function: _loadTextFile
+    ' Function: [_loadTextFile]
     ' 
     ' {private} If the file exists, read it all and return the content.
     ' 
@@ -388,7 +388,7 @@ class CSV
         end if
     end function
 
-    ' Subroutine: _createFile
+    ' Subroutine: [_createFile]
     ' 
     ' {private} Create/Overwrite a file in the file system.
     ' 
@@ -413,7 +413,7 @@ class CSV
         end select
     end sub
 
-    ' Subroutine: _createFileStd
+    ' Subroutine: [_createFileStd]
     ' 
     ' {private} Create/Overwrite a file in the file system without any special treatment.
     ' 
@@ -441,7 +441,7 @@ class CSV
         set Stream = nothing
     end sub
 
-    ' Subroutine: _createFileWithoutBOM
+    ' Subroutine: [_createFileWithoutBOM]
     ' 
     ' {private} Create/Overwrite a file in the file system removing the Byte Order Mark. CSV files doesn't support them.
     ' 
@@ -489,7 +489,7 @@ class CSV
         set Stream = nothing
     end sub
 
-    ' Subroutine: _deleteFile
+    ' Subroutine: [_deleteFile]
     ' 
     ' {private} Delete a file in the file system.
     ' 
@@ -505,7 +505,7 @@ class CSV
         set Fso = nothing
     end sub
 
-    ' Subroutine: _createFolder
+    ' Subroutine: [_createFolder]
     ' 
     ' {private} Create a folder in the file system.
     ' 
@@ -521,7 +521,7 @@ class CSV
         set Fso = nothing
     end sub
 
-    ' Subroutine: _deleteFolder
+    ' Subroutine: [_deleteFolder]
     ' 
     ' {private} Delete a folder in the file system.
     ' 

@@ -93,7 +93,7 @@
                                             <a href="#Acl.[_Users]">[_Users]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> User -&gt; Roles mappings.
+                                            <label class="private">private</label> User → [_Roles] mappings.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent2">
@@ -101,7 +101,7 @@
                                             <a href="#Acl.[_Roles]">[_Roles]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Roles hierarchy.
+                                            <label class="private">private</label> [_Roles] hierarchy.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent2 SMarked">
@@ -109,7 +109,7 @@
                                             <a href="#Acl.[_Resources]">[_Resources]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Resources hierarchy.
+                                            <label class="private">private</label> [_Resources] hierarchy.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent2">
@@ -117,7 +117,7 @@
                                             <a href="#Acl.[_Rules]">[_Rules]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Rules between roles and resources.
+                                            <label class="private">private</label> [_Rules] between roles and resources.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent2 SMarked">
@@ -144,7 +144,39 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.addRole" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">addRole</a>
+                                            <a href="#Acl.getUsers" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">getUsers</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Users registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Acl.getRoles" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">getRoles</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Roles registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Acl.getResources" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">getResources</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Resources registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Acl.getRules" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">getRules</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Rules registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Acl.addRole" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">addRole</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds a role having an identifier unique to the roles registry.
@@ -152,7 +184,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remRole" id="link3" onmouseover="ShowTip(event, 'tt3', 'link3')" onmouseout="HideTip('tt3')">remRole</a>
+                                            <a href="#Acl.remRole" id="link7" onmouseover="ShowTip(event, 'tt7', 'link7')" onmouseout="HideTip('tt7')">remRole</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes the role from the registry.
@@ -160,7 +192,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.addResource" id="link4" onmouseover="ShowTip(event, 'tt4', 'link4')" onmouseout="HideTip('tt4')">addResource</a>
+                                            <a href="#Acl.addResource" id="link8" onmouseover="ShowTip(event, 'tt8', 'link8')" onmouseout="HideTip('tt8')">addResource</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds a resource having an identifier unique to the resources registry.
@@ -168,7 +200,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remResource" id="link5" onmouseover="ShowTip(event, 'tt5', 'link5')" onmouseout="HideTip('tt5')">remResource</a>
+                                            <a href="#Acl.remResource" id="link9" onmouseover="ShowTip(event, 'tt9', 'link9')" onmouseout="HideTip('tt9')">remResource</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes the resource from the registry.
@@ -176,7 +208,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.assign" id="link6" onmouseover="ShowTip(event, 'tt6', 'link6')" onmouseout="HideTip('tt6')">assign</a>
+                                            <a href="#Acl.assign" id="link10" onmouseover="ShowTip(event, 'tt10', 'link10')" onmouseout="HideTip('tt10')">assign</a>
                                         </td>
                                         <td class="SDescription">
                                             Assigns role(s) to the user.
@@ -184,7 +216,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.unassign" id="link7" onmouseover="ShowTip(event, 'tt7', 'link7')" onmouseout="HideTip('tt7')">unassign</a>
+                                            <a href="#Acl.unassign" id="link11" onmouseover="ShowTip(event, 'tt11', 'link11')" onmouseout="HideTip('tt11')">unassign</a>
                                         </td>
                                         <td class="SDescription">
                                             Unnasigns role or roles to the user.
@@ -192,7 +224,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.is" id="link8" onmouseover="ShowTip(event, 'tt8', 'link8')" onmouseout="HideTip('tt8')">is</a>
+                                            <a href="#Acl.is" id="link12" onmouseover="ShowTip(event, 'tt12', 'link12')" onmouseout="HideTip('tt12')">is</a>
                                         </td>
                                         <td class="SDescription">
                                             Checks if a user belongs to a role.
@@ -200,7 +232,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.[_%C6%92]" id="link9" onmouseover="ShowTip(event, 'tt9', 'link9')" onmouseout="HideTip('tt9')">[_ƒ]</a>
+                                            <a href="#Acl.[_%C6%92]" id="link13" onmouseover="ShowTip(event, 'tt13', 'link13')" onmouseout="HideTip('tt13')">[_ƒ]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Adds or removes an “allow” or “deny” rule to the ACL.
@@ -208,7 +240,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.allow" id="link10" onmouseover="ShowTip(event, 'tt10', 'link10')" onmouseout="HideTip('tt10')">allow</a>
+                                            <a href="#Acl.allow" id="link14" onmouseover="ShowTip(event, 'tt14', 'link14')" onmouseout="HideTip('tt14')">allow</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds an “allow” rule to the ACL.
@@ -216,7 +248,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remAllow" id="link11" onmouseover="ShowTip(event, 'tt11', 'link11')" onmouseout="HideTip('tt11')">remAllow</a>
+                                            <a href="#Acl.remAllow" id="link15" onmouseover="ShowTip(event, 'tt15', 'link15')" onmouseout="HideTip('tt15')">remAllow</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes an “allow” rule from the ACL.
@@ -224,7 +256,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.deny" id="link12" onmouseover="ShowTip(event, 'tt12', 'link12')" onmouseout="HideTip('tt12')">deny</a>
+                                            <a href="#Acl.deny" id="link16" onmouseover="ShowTip(event, 'tt16', 'link16')" onmouseout="HideTip('tt16')">deny</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds a “deny” rule to the ACL.
@@ -232,7 +264,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remDeny" id="link13" onmouseover="ShowTip(event, 'tt13', 'link13')" onmouseout="HideTip('tt13')">remDeny</a>
+                                            <a href="#Acl.remDeny" id="link17" onmouseover="ShowTip(event, 'tt17', 'link17')" onmouseout="HideTip('tt17')">remDeny</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes a “deny” rule from the ACL.
@@ -240,7 +272,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.[_%CF%86]" id="link14" onmouseover="ShowTip(event, 'tt14', 'link14')" onmouseout="HideTip('tt14')">[_φ]</a>
+                                            <a href="#Acl.[_%CF%86]" id="link18" onmouseover="ShowTip(event, 'tt18', 'link18')" onmouseout="HideTip('tt18')">[_φ]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Evaluates an access against a roles x resources matrix.
@@ -248,23 +280,31 @@
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.isAllowed" id="link15" onmouseover="ShowTip(event, 'tt15', 'link15')" onmouseout="HideTip('tt15')">isAllowed</a>
+                                            <a href="#Acl.isAllowed" id="link19" onmouseover="ShowTip(event, 'tt19', 'link19')" onmouseout="HideTip('tt19')">isAllowed</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Checks if the user has access to the resource.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent2">
+                                        <td class="SEntry">
+                                            <a href="#Acl.isRoleAllowed" id="link20" onmouseover="ShowTip(event, 'tt20', 'link20')" onmouseout="HideTip('tt20')">isRoleAllowed</a>
                                         </td>
                                         <td class="SDescription">
                                             Checks if the role has access to the resource.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent2">
+                                    <tr class="SFunction SIndent2 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.load" id="link16" onmouseover="ShowTip(event, 'tt16', 'link16')" onmouseout="HideTip('tt16')">load</a>
+                                            <a href="#Acl.load" id="link21" onmouseover="ShowTip(event, 'tt21', 'link21')" onmouseout="HideTip('tt21')">load</a>
                                         </td>
                                         <td class="SDescription">
                                             Retrieves the Acl image from the persistence layer.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent2 SMarked">
+                                    <tr class="SFunction SIndent2">
                                         <td class="SEntry">
-                                            <a href="#Acl.save" id="link17" onmouseover="ShowTip(event, 'tt17', 'link17')" onmouseout="HideTip('tt17')">save</a>
+                                            <a href="#Acl.save" id="link22" onmouseover="ShowTip(event, 'tt22', 'link22')" onmouseout="HideTip('tt22')">save</a>
                                         </td>
                                         <td class="SDescription">
                                             Writes the Acl image in the persistence layer.
@@ -335,7 +375,7 @@
                                             <a href="#Acl.[_Users]">[_Users]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> User -&gt; Roles mappings.
+                                            <label class="private">private</label> User → [_Roles] mappings.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent1">
@@ -343,7 +383,7 @@
                                             <a href="#Acl.[_Roles]">[_Roles]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Roles hierarchy.
+                                            <label class="private">private</label> [_Roles] hierarchy.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent1 SMarked">
@@ -351,7 +391,7 @@
                                             <a href="#Acl.[_Resources]">[_Resources]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Resources hierarchy.
+                                            <label class="private">private</label> [_Resources] hierarchy.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent1">
@@ -359,7 +399,7 @@
                                             <a href="#Acl.[_Rules]">[_Rules]</a>
                                         </td>
                                         <td class="SDescription">
-                                            <label class="private">private</label> Rules between roles and resources.
+                                            <label class="private">private</label> [_Rules] between roles and resources.
                                         </td>
                                     </tr>
                                     <tr class="SProperty SIndent1 SMarked">
@@ -378,7 +418,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.[_%CE%B5]" id="link18" onmouseover="ShowTip(event, 'tt1', 'link18')" onmouseout="HideTip('tt1')">[_ε]</a>
+                                            <a href="#Acl.[_%CE%B5]" id="link23" onmouseover="ShowTip(event, 'tt1', 'link23')" onmouseout="HideTip('tt1')">[_ε]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Checks for an media assignment.
@@ -386,7 +426,39 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.addRole" id="link19" onmouseover="ShowTip(event, 'tt2', 'link19')" onmouseout="HideTip('tt2')">addRole</a>
+                                            <a href="#Acl.getUsers" id="link24" onmouseover="ShowTip(event, 'tt2', 'link24')" onmouseout="HideTip('tt2')">getUsers</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Users registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Acl.getRoles" id="link25" onmouseover="ShowTip(event, 'tt3', 'link25')" onmouseout="HideTip('tt3')">getRoles</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Roles registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Acl.getResources" id="link26" onmouseover="ShowTip(event, 'tt4', 'link26')" onmouseout="HideTip('tt4')">getResources</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Resources registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1 SMarked">
+                                        <td class="SEntry">
+                                            <a href="#Acl.getRules" id="link27" onmouseover="ShowTip(event, 'tt5', 'link27')" onmouseout="HideTip('tt5')">getRules</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Returns the Rules registry.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Acl.addRole" id="link28" onmouseover="ShowTip(event, 'tt6', 'link28')" onmouseout="HideTip('tt6')">addRole</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds a role having an identifier unique to the roles registry.
@@ -394,7 +466,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remRole" id="link20" onmouseover="ShowTip(event, 'tt3', 'link20')" onmouseout="HideTip('tt3')">remRole</a>
+                                            <a href="#Acl.remRole" id="link29" onmouseover="ShowTip(event, 'tt7', 'link29')" onmouseout="HideTip('tt7')">remRole</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes the role from the registry.
@@ -402,7 +474,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.addResource" id="link21" onmouseover="ShowTip(event, 'tt4', 'link21')" onmouseout="HideTip('tt4')">addResource</a>
+                                            <a href="#Acl.addResource" id="link30" onmouseover="ShowTip(event, 'tt8', 'link30')" onmouseout="HideTip('tt8')">addResource</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds a resource having an identifier unique to the resources registry.
@@ -410,7 +482,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remResource" id="link22" onmouseover="ShowTip(event, 'tt5', 'link22')" onmouseout="HideTip('tt5')">remResource</a>
+                                            <a href="#Acl.remResource" id="link31" onmouseover="ShowTip(event, 'tt9', 'link31')" onmouseout="HideTip('tt9')">remResource</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes the resource from the registry.
@@ -418,7 +490,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.assign" id="link23" onmouseover="ShowTip(event, 'tt6', 'link23')" onmouseout="HideTip('tt6')">assign</a>
+                                            <a href="#Acl.assign" id="link32" onmouseover="ShowTip(event, 'tt10', 'link32')" onmouseout="HideTip('tt10')">assign</a>
                                         </td>
                                         <td class="SDescription">
                                             Assigns role(s) to the user.
@@ -426,7 +498,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.unassign" id="link24" onmouseover="ShowTip(event, 'tt7', 'link24')" onmouseout="HideTip('tt7')">unassign</a>
+                                            <a href="#Acl.unassign" id="link33" onmouseover="ShowTip(event, 'tt11', 'link33')" onmouseout="HideTip('tt11')">unassign</a>
                                         </td>
                                         <td class="SDescription">
                                             Unnasigns role or roles to the user.
@@ -434,7 +506,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.is" id="link25" onmouseover="ShowTip(event, 'tt8', 'link25')" onmouseout="HideTip('tt8')">is</a>
+                                            <a href="#Acl.is" id="link34" onmouseover="ShowTip(event, 'tt12', 'link34')" onmouseout="HideTip('tt12')">is</a>
                                         </td>
                                         <td class="SDescription">
                                             Checks if a user belongs to a role.
@@ -442,7 +514,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.[_%C6%92]" id="link26" onmouseover="ShowTip(event, 'tt9', 'link26')" onmouseout="HideTip('tt9')">[_ƒ]</a>
+                                            <a href="#Acl.[_%C6%92]" id="link35" onmouseover="ShowTip(event, 'tt13', 'link35')" onmouseout="HideTip('tt13')">[_ƒ]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Adds or removes an “allow” or “deny” rule to the ACL.
@@ -450,7 +522,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.allow" id="link27" onmouseover="ShowTip(event, 'tt10', 'link27')" onmouseout="HideTip('tt10')">allow</a>
+                                            <a href="#Acl.allow" id="link36" onmouseover="ShowTip(event, 'tt14', 'link36')" onmouseout="HideTip('tt14')">allow</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds an “allow” rule to the ACL.
@@ -458,7 +530,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remAllow" id="link28" onmouseover="ShowTip(event, 'tt11', 'link28')" onmouseout="HideTip('tt11')">remAllow</a>
+                                            <a href="#Acl.remAllow" id="link37" onmouseover="ShowTip(event, 'tt15', 'link37')" onmouseout="HideTip('tt15')">remAllow</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes an “allow” rule from the ACL.
@@ -466,7 +538,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.deny" id="link29" onmouseover="ShowTip(event, 'tt12', 'link29')" onmouseout="HideTip('tt12')">deny</a>
+                                            <a href="#Acl.deny" id="link38" onmouseover="ShowTip(event, 'tt16', 'link38')" onmouseout="HideTip('tt16')">deny</a>
                                         </td>
                                         <td class="SDescription">
                                             Adds a “deny” rule to the ACL.
@@ -474,7 +546,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.remDeny" id="link30" onmouseover="ShowTip(event, 'tt13', 'link30')" onmouseout="HideTip('tt13')">remDeny</a>
+                                            <a href="#Acl.remDeny" id="link39" onmouseover="ShowTip(event, 'tt17', 'link39')" onmouseout="HideTip('tt17')">remDeny</a>
                                         </td>
                                         <td class="SDescription">
                                             Removes a “deny” rule from the ACL.
@@ -482,7 +554,7 @@
                                     </tr>
                                     <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.[_%CF%86]" id="link31" onmouseover="ShowTip(event, 'tt14', 'link31')" onmouseout="HideTip('tt14')">[_φ]</a>
+                                            <a href="#Acl.[_%CF%86]" id="link40" onmouseover="ShowTip(event, 'tt18', 'link40')" onmouseout="HideTip('tt18')">[_φ]</a>
                                         </td>
                                         <td class="SDescription">
                                             <label class="private">private</label> Evaluates an access against a roles x resources matrix.
@@ -490,23 +562,31 @@
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.isAllowed" id="link32" onmouseover="ShowTip(event, 'tt15', 'link32')" onmouseout="HideTip('tt15')">isAllowed</a>
+                                            <a href="#Acl.isAllowed" id="link41" onmouseover="ShowTip(event, 'tt19', 'link41')" onmouseout="HideTip('tt19')">isAllowed</a>
+                                        </td>
+                                        <td class="SDescription">
+                                            Checks if the user has access to the resource.
+                                        </td>
+                                    </tr>
+                                    <tr class="SFunction SIndent1">
+                                        <td class="SEntry">
+                                            <a href="#Acl.isRoleAllowed" id="link42" onmouseover="ShowTip(event, 'tt20', 'link42')" onmouseout="HideTip('tt20')">isRoleAllowed</a>
                                         </td>
                                         <td class="SDescription">
                                             Checks if the role has access to the resource.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent1">
+                                    <tr class="SFunction SIndent1 SMarked">
                                         <td class="SEntry">
-                                            <a href="#Acl.load" id="link33" onmouseover="ShowTip(event, 'tt16', 'link33')" onmouseout="HideTip('tt16')">load</a>
+                                            <a href="#Acl.load" id="link43" onmouseover="ShowTip(event, 'tt21', 'link43')" onmouseout="HideTip('tt21')">load</a>
                                         </td>
                                         <td class="SDescription">
                                             Retrieves the Acl image from the persistence layer.
                                         </td>
                                     </tr>
-                                    <tr class="SFunction SIndent1 SMarked">
+                                    <tr class="SFunction SIndent1">
                                         <td class="SEntry">
-                                            <a href="#Acl.save" id="link34" onmouseover="ShowTip(event, 'tt17', 'link34')" onmouseout="HideTip('tt17')">save</a>
+                                            <a href="#Acl.save" id="link44" onmouseover="ShowTip(event, 'tt22', 'link44')" onmouseout="HideTip('tt22')">save</a>
                                         </td>
                                         <td class="SDescription">
                                             Writes the Acl image in the persistence layer.
@@ -582,7 +662,7 @@
                     </h3>
                     <div class="CBody">
                         <p>
-                            <label class="private">private</label> User -&gt; Roles mappings.
+                            <label class="private">private</label> User → [_Roles] mappings.
                         </p>
                         <h4 class="CHeading">
                             Contains
@@ -607,7 +687,7 @@
                     </h3>
                     <div class="CBody">
                         <p>
-                            <label class="private">private</label> Roles hierarchy.
+                            <label class="private">private</label> [_Roles] hierarchy.
                         </p>
                         <h4 class="CHeading">
                             Contains
@@ -632,7 +712,7 @@
                     </h3>
                     <div class="CBody">
                         <p>
-                            <label class="private">private</label> Resources hierarchy.
+                            <label class="private">private</label> [_Resources] hierarchy.
                         </p>
                         <h4 class="CHeading">
                             Contains
@@ -657,7 +737,7 @@
                     </h3>
                     <div class="CBody">
                         <p>
-                            <label class="private">private</label> Rules between roles and resources.
+                            <label class="private">private</label> [_Rules] between roles and resources.
                         </p>
                         <h4 class="CHeading">
                             Contains
@@ -731,6 +811,142 @@
             <div class="CFunction">
                 <div class="CTopic">
                     <h3 class="CTitle">
+                        <a id="Acl.getUsers"></a>getUsers
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getUsers()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Returns the Users registry.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (Object)
+                                </td>
+                                <td class="CDLDescription">
+                                    Users
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Acl.getRoles"></a>getRoles
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getRoles()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Returns the Roles registry.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (Object)
+                                </td>
+                                <td class="CDLDescription">
+                                    Roles
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Acl.getResources"></a>getResources
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getResources()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Returns the Resources registry.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (Object)
+                                </td>
+                                <td class="CDLDescription">
+                                    Resources
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Acl.getRules"></a>getRules
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        public function getRules()
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Returns the Rules registry.
+                        </p>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (Object)
+                                </td>
+                                <td class="CDLDescription">
+                                    Rules
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
                         <a id="Acl.addRole"></a>addRole
                     </h3>
                     <div class="CBody">
@@ -743,12 +959,18 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub addRole(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    id,
+                                                    role,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     parent
                                                 </td>
@@ -803,8 +1025,11 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub remRole(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    id
+                                                    role
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
                                                     )
@@ -849,12 +1074,18 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub addResource(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    id,
+                                                    resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     parent
                                                 </td>
@@ -909,8 +1140,11 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub remResource(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    id
+                                                    resource
                                                 </td>
                                                 <td class="PAfterParameters" nowrap="nowrap">
                                                     )
@@ -955,12 +1189,18 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub assign(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    id,
+                                                    user,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     roles
                                                 </td>
@@ -1015,12 +1255,18 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub unassign(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
-                                                    id,
+                                                    user,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     roles
                                                 </td>
@@ -1075,12 +1321,18 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function [is](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     user,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     role
                                                 </td>
@@ -1148,36 +1400,54 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_ƒ](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     role,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byRef&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     assert,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     action,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     access
                                                 </td>
@@ -1264,24 +1534,36 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub allow(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     role,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byRef&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     assert
                                                 </td>
@@ -1352,18 +1634,27 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub remAllow(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     role,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege
                                                 </td>
@@ -1426,24 +1717,36 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub deny(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     role,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byRef&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     assert
                                                 </td>
@@ -1514,18 +1817,27 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public sub remDeny(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     role,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege
                                                 </td>
@@ -1588,18 +1900,27 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private function [_φ](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     roles,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resources,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege
                                                 </td>
@@ -1675,18 +1996,27 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function isAllowed(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     user,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     resource,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     privilege
                                                 </td>
@@ -1700,7 +2030,7 @@
                             </table>
                         </blockquote>
                         <p>
-                            Checks if the role has access to the resource.
+                            Checks if the user has access to the resource.
                         </p>
                         <h4 class="CHeading">
                             Parameters
@@ -1756,6 +2086,119 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
  
 <span class="kw1">call</span> AC.<span class="me1">load</span><span class="br0">(</span><span class="br0">)</span>
 <span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> AC.<span class="me1">isAllowed</span><span class="br0">(</span><span class="st0">"nagaozen"</span>, <span class="st0">"fire-spells"</span>, <span class="st0">"cast"</span><span class="br0">)</span> <span class="br0">)</span>
+ 
+<span class="kw1">set</span> AC <span class="sy0">=</span> <span class="kw2">nothing</span>
+</pre>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="CFunction">
+                <div class="CTopic">
+                    <h3 class="CTitle">
+                        <a id="Acl.isRoleAllowed"></a>isRoleAllowed
+                    </h3>
+                    <div class="CBody">
+                        <blockquote>
+                            <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                                <tr>
+                                    <td>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td class="PBeforeParameters" nowrap="nowrap">
+                                                    public function isRoleAllowed(
+                                                </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    role,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    resource,
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
+                                                <td class="PParameter" nowrap="nowrap">
+                                                    privilege
+                                                </td>
+                                                <td class="PAfterParameters" nowrap="nowrap">
+                                                    )
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </blockquote>
+                        <p>
+                            Checks if the role has access to the resource.
+                        </p>
+                        <h4 class="CHeading">
+                            Parameters
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    role identifier
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    resource identifier
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="CDLEntry">
+                                    (string)
+                                </td>
+                                <td class="CDLDescription">
+                                    privilege identifier
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Returns
+                        </h4>
+                        <table border="0" cellspacing="0" cellpadding="0" class="CDescriptionList">
+                            <tr>
+                                <td class="CDLEntry">
+                                    (boolean)
+                                </td>
+                                <td class="CDLDescription">
+                                    true, if it’s allowed; false otherwise
+                                </td>
+                            </tr>
+                        </table>
+                        <h4 class="CHeading">
+                            Example
+                        </h4>
+                        <blockquote>
+                            <div class="code">
+                                <pre class="asp">
+<span class="kw1">dim</span> AC <span class="sy0">:</span> <span class="kw1">set</span> AC <span class="sy0">=</span> <span class="kw2">new</span> ACL
+<span class="kw1">set</span> AC.<span class="me1">Media</span> <span class="sy0">=</span> <span class="kw2">new</span> ACL_Media_MSSQL
+AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <span class="sy0">=</span> <span class="st0">"Provider=SQLOLEDB;..."</span>
+ 
+<span class="kw1">call</span> AC.<span class="me1">load</span><span class="br0">(</span><span class="br0">)</span>
+<span class="kw1">Response</span>.<span class="kw3">write</span><span class="br0">(</span> AC.<span class="me1">isRoleAllowed</span><span class="br0">(</span><span class="st0">"sorceress"</span>, <span class="st0">"fire-spells"</span>, <span class="st0">"cast"</span><span class="br0">)</span> <span class="br0">)</span>
  
 <span class="kw1">set</span> AC <span class="sy0">=</span> <span class="kw2">nothing</span>
 </pre>
@@ -2206,11 +2649,6 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
-                                <a href="template-asp.html">template.asp</a>
-                            </div>
-                        </div>
-                        <div class="MEntry">
-                            <div class="MFile">
                                 <a href="translator-asp.html">translator.asp</a>
                             </div>
                         </div>
@@ -2222,6 +2660,11 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="xsession-asp.html">xsession.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="xstring-asp.html">xstring.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -2485,17 +2928,75 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
                         <tr>
                             <td>
+                                public function getUsers()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Returns the Users registry.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt3">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getRoles()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Returns the Roles registry.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt4">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getResources()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Returns the Resources registry.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt5">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                public function getRules()
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Returns the Rules registry.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt6">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
                                 <table border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub addRole(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            id,
+                                            role,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             parent
                                         </td>
@@ -2510,7 +3011,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Adds a role having an identifier unique to the roles registry.
             </div>
         </div>
-        <div class="CToolTip" id="tt3">
+        <div class="CToolTip" id="tt7">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2521,8 +3022,11 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub remRole(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            id
+                                            role
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
                                             )
@@ -2535,7 +3039,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Removes the role from the registry.
             </div>
         </div>
-        <div class="CToolTip" id="tt4">
+        <div class="CToolTip" id="tt8">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2546,12 +3050,18 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub addResource(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            id,
+                                            resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             parent
                                         </td>
@@ -2566,7 +3076,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Adds a resource having an identifier unique to the resources registry.
             </div>
         </div>
-        <div class="CToolTip" id="tt5">
+        <div class="CToolTip" id="tt9">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2577,8 +3087,11 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub remResource(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            id
+                                            resource
                                         </td>
                                         <td class="PAfterParameters" nowrap="nowrap">
                                             )
@@ -2591,7 +3104,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Removes the resource from the registry.
             </div>
         </div>
-        <div class="CToolTip" id="tt6">
+        <div class="CToolTip" id="tt10">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2602,12 +3115,18 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub assign(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            id,
+                                            user,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             roles
                                         </td>
@@ -2622,7 +3141,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Assigns role(s) to the user.
             </div>
         </div>
-        <div class="CToolTip" id="tt7">
+        <div class="CToolTip" id="tt11">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2633,12 +3152,18 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub unassign(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
-                                            id,
+                                            user,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             roles
                                         </td>
@@ -2653,7 +3178,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Unnasigns role or roles to the user.
             </div>
         </div>
-        <div class="CToolTip" id="tt8">
+        <div class="CToolTip" id="tt12">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2664,12 +3189,18 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function [is](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             user,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             role
                                         </td>
@@ -2684,7 +3215,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Checks if a user belongs to a role.
             </div>
         </div>
-        <div class="CToolTip" id="tt9">
+        <div class="CToolTip" id="tt13">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2695,36 +3226,54 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_ƒ](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             role,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byRef&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             assert,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             action,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             access
                                         </td>
@@ -2739,7 +3288,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote><label class="private">private</label> Adds or removes an “allow” or “deny” rule to the ACL.
             </div>
         </div>
-        <div class="CToolTip" id="tt10">
+        <div class="CToolTip" id="tt14">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2750,24 +3299,36 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub allow(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             role,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byRef&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             assert
                                         </td>
@@ -2782,7 +3343,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Adds an “allow” rule to the ACL.
             </div>
         </div>
-        <div class="CToolTip" id="tt11">
+        <div class="CToolTip" id="tt15">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2793,18 +3354,27 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub remAllow(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             role,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege
                                         </td>
@@ -2819,7 +3389,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Removes an “allow” rule from the ACL.
             </div>
         </div>
-        <div class="CToolTip" id="tt12">
+        <div class="CToolTip" id="tt16">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2830,24 +3400,36 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub deny(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             role,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byRef&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             assert
                                         </td>
@@ -2862,7 +3444,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Adds a “deny” rule to the ACL.
             </div>
         </div>
-        <div class="CToolTip" id="tt13">
+        <div class="CToolTip" id="tt17">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2873,18 +3455,27 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public sub remDeny(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             role,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege
                                         </td>
@@ -2899,7 +3490,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Removes a “deny” rule from the ACL.
             </div>
         </div>
-        <div class="CToolTip" id="tt14">
+        <div class="CToolTip" id="tt18">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2910,18 +3501,27 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private function [_φ](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             roles,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resources,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege
                                         </td>
@@ -2936,7 +3536,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote><label class="private">private</label> Evaluates an access against a roles x resources matrix.
             </div>
         </div>
-        <div class="CToolTip" id="tt15">
+        <div class="CToolTip" id="tt19">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2947,18 +3547,73 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function isAllowed(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             user,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             resource,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            privilege
+                                        </td>
+                                        <td class="PAfterParameters" nowrap="nowrap">
+                                            )
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </blockquote>Checks if the user has access to the resource.
+            </div>
+        </div>
+        <div class="CToolTip" id="tt20">
+            <div class="CFunction">
+                <blockquote>
+                    <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td class="PBeforeParameters" nowrap="nowrap">
+                                            public function isRoleAllowed(
+                                        </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            role,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
+                                        <td class="PParameter" nowrap="nowrap">
+                                            resource,
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             privilege
                                         </td>
@@ -2973,7 +3628,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Checks if the role has access to the resource.
             </div>
         </div>
-        <div class="CToolTip" id="tt16">
+        <div class="CToolTip" id="tt21">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">
@@ -2986,7 +3641,7 @@ AC.<span class="me1">Media</span>.<span class="me1">connectionString</span> <spa
                 </blockquote>Retrieves the Acl image from the persistence layer.
             </div>
         </div>
-        <div class="CToolTip" id="tt17">
+        <div class="CToolTip" id="tt22">
             <div class="CFunction">
                 <blockquote>
                     <table border="0" cellspacing="0" cellpadding="0" class="Prototype">

@@ -65,12 +65,93 @@ end function
 ' 
 ' (end code)
 ' 
-function iif(expr, truepart, falsepart)
+function iif(byVal expr, byRef truepart, byRef falsepart)
     if(expr) then
         iif = truepart
     else
         iif = falsepart
     end if
+end function
+
+' Function: getDate
+' 
+' A location independent date generation function.
+' 
+' Parameters:
+' 
+'     (integer) - year
+'     (integer) - month
+'     (integer) - day
+'     (integer[]) - optional [ hour, minute, second ]
+' 
+' Returns:
+' 
+'     (Date) - date
+' 
+' Example:
+' 
+' (start code)
+' 
+' dim shortDate, generalDate
+' shortDate   = getDate(1982, 08, 31, null)
+' generalDate = getDate(1982, 08, 31, array(03, 15, 00))
+' 
+' (end code)
+' 
+public function getDate(byVal yyyy, byVal mm, byVal dd, byRef time)
+    dim dt, tm, h, n, s
+
+    dt = dateSerial(yyyy, mm, dd)
+    if( not isNull(time) ) then
+        if( isArray(time) ) then
+            h = time(0)
+            n = time(1)
+            s = time(2)
+            tm = timeSerial(h, n, s)
+        end if
+    end if
+
+    if( isEmpty(tm) ) then
+        getDate = dt
+    else
+        getDate = cdate( dt & " " & tm )
+    end if
+end function
+
+' Function: formatDate
+' 
+' Outputs the date into a specific format.
+' 
+' Parameters:
+' 
+'     (Date)   - date
+'     (string) - format
+' 
+' Returns:
+' 
+'     (string) - formated date
+' 
+' Example:
+' 
+' (start code)
+' 
+' dim generalDate
+' generalDate = getDate(1982, 08, 31, array(03, 15, 00))
+' Response.write formatDate(generalDate, "dd/mm/yyyy") ' prints "31/08/1982"
+' Response.write formatDate(generalDate, "mm/dd/yyyy h:n:s") ' prints "08/31/1982 03:15:00"
+' 
+' (end code)
+' 
+function formatDate(byVal dt, byVal fmt)
+    formatDate = fmt
+
+    formatDate = replace(formatDate, "yyyy", year(dt))
+    formatDate = replace(formatDate, "mm", right("00" & month(dt), 2))
+    formatDate = replace(formatDate, "dd", right("00" & day(dt), 2))
+
+    formatDate = replace(formatDate, "h", right("00" & hour(dt), 2))
+    formatDate = replace(formatDate, "n", right("00" & minute(dt), 2))
+    formatDate = replace(formatDate, "s", right("00" & second(dt), 2))
 end function
 
 ' Function: strsubstitute
@@ -94,24 +175,17 @@ end function
 ' 
 ' (end code)
 ' 
-function strsubstitute(template, replacements)
+function strsubstitute(byVal template, byVal replacements)
     if( not isArray(replacements) ) then replacements = array(replacements)
     
-    dim Re : set Re = new RegExp
-    Re.global = true
-    Re.ignoreCase = true
-    Re.pattern = "{\d+}"
-    
-    dim Matches, Match, index : set Matches = Re.execute(template)
-    for each Match in Matches
-        index = replace(replace(Match, "{", ""), "}", "")
-        template = replace(template, Match.value, replacements(clng(index)))
+    dim str, i
+    str = template
+    for i = 0 to ubound(replacements)
+        if( not isNull( replacements(i) ) ) then
+            str = replace(str, "{" & i & "}", replacements(i))
+        end if
     next
-    set Matches = nothing
-    
-    set Re = nothing
-    
-    strsubstitute = template
+    strsubstitute = str
 end function
 
 ' Function: sanitize
@@ -137,7 +211,7 @@ end function
 ' 
 ' (end code)
 ' 
-public function sanitize(value, placeholders, replacements)
+public function sanitize(byVal value, byRef placeholders, byRef replacements)
     if( ( vartype( placeholders ) < 8192 ) or ( vartype( replacements ) < 8192 ) ) then
         sanitize = "2nd and 3rd arguments should be arrays"
         exit function
@@ -175,7 +249,7 @@ end function
 ' 
 ' (end code)
 ' 
-function isOdd(n)
+function isOdd(byVal n)
     isOdd = cbool(n mod 2)
 end function
 
@@ -200,7 +274,7 @@ end function
 ' 
 ' (end code)
 ' 
-function isEven(n)
+function isEven(byVal n)
     isEven = (not isOdd(n))
 end function
 
@@ -225,7 +299,7 @@ end function
 ' 
 ' (end code)
 ' 
-function max(a)
+function max(byRef a)
     dim i : i = 1
     max = a(0)
     while( i <= ubound(a) )
@@ -257,7 +331,7 @@ end function
 ' 
 ' (end code)
 ' 
-function min(a)
+function min(byRef a)
     dim i : i = 1
     min = a(0)
     while( i <= ubound(a) )
@@ -289,7 +363,7 @@ end function
 ' 
 ' (end code)
 ' 
-function floor(n)
+function floor(byVal n)
     dim r : r = round(n)
     if( cdbl(r) > cdbl(n) ) then
         r = r - 1
@@ -318,7 +392,7 @@ end function
 ' 
 ' (end code)
 ' 
-function ceiling(n)
+function ceiling(byVal n)
     dim f : f = floor(n)
     if( cdbl(f) = cdbl(n) ) then
         ceiling = f
@@ -348,7 +422,7 @@ end function
 ' 
 ' (end code)
 ' 
-function hex2dec(value)
+function hex2dec(byVal value)
     hex2dec = 0
     dim i, u, d
     i = 0 : u = len(value)
@@ -380,7 +454,7 @@ end function
 ' 
 ' (end code)
 ' 
-function dec2hex(value)
+function dec2hex(byVal value)
     dec2hex = hex(value)
 end function
 
@@ -490,7 +564,7 @@ end function
 ' 
 ' (end code)
 ' 
-function dump(mixed)
+function dump(byRef mixed)
     select case lcase(typename(mixed))
         case "string":
             dump = "(" & typename(mixed) & ") """ & mixed & """"
@@ -515,7 +589,7 @@ function dump(mixed)
     end select
 end function
 
-function dump_hdlArray(arr)
+function dump_hdlArray(byRef arr)
     dim entry : dump_hdlArray = ""
     for each entry in arr
         dump_hdlArray = dump_hdlArray & "," & dump(entry)
@@ -523,7 +597,7 @@ function dump_hdlArray(arr)
     dump_hdlArray = "(Array) [" & mid(dump_hdlArray, 2) & "]"
 end function
 
-function dump_hdlDictionary(Dic)
+function dump_hdlDictionary(byRef Dic)
     dim key : dump_hdlDictionary = ""
     for each key in Dic.keys()
         dump_hdlDictionary = dump_hdlDictionary & ",""" & key & """: " & dump(Dic(key))
@@ -531,7 +605,7 @@ function dump_hdlDictionary(Dic)
     dump_hdlDictionary = "(Dictionary) {" & mid(dump_hdlDictionary, 2) & "}"
 end function
 
-function dump_hdlRecordset(Rs)
+function dump_hdlRecordset(byRef Rs)
     dim i, row : dump_hdlRecordset = ""
     while( not Rs.eof )
         row = ""
@@ -544,7 +618,7 @@ function dump_hdlRecordset(Rs)
     dump_hdlRecordset = "(Recorset) [" & mid(dump_hdlRecordset, 2) & "]"
 end function
 
-function dump_hdlStream(St)
+function dump_hdlStream(byRef St)
     if(St.type = 1) then
         dump_hdlStream = "(Stream) adTypeBinary"
     else

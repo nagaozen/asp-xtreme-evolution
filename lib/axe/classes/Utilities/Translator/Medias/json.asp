@@ -127,7 +127,7 @@ class Translator_Media_Json' implements Translator_Interface
                 
                 .loadFromFile(path)
                 .position = 0
-                load = .readText()
+                load = JSON.minify( .readText() )
                 
                 .close()
             end with

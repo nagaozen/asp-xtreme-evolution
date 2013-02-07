@@ -1,32 +1,32 @@
 ﻿<%
 
 ' File: inspect.asp
-' 
+'
 ' This view provide resources for developers to analyse the current data source,
 ' transformation and output which is being sent to the user.
-' 
+'
 ' License:
-' 
+'
 ' This file is part of ASP Xtreme Evolution.
-' Copyright (C) 2007-2012 Fabio Zendhi Nagao
-' 
+' Copyright (C) 2007-2009 Fabio Zendhi Nagao
+'
 ' ASP Xtreme Evolution is free software: you can redistribute it and/or modify
 ' it under the terms of the GNU Lesser General Public License as published by
 ' the Free Software Foundation, either version 3 of the License, or
 ' (at your option) any later version.
-' 
+'
 ' ASP Xtreme Evolution is distributed in the hope that it will be useful,
 ' but WITHOUT ANY WARRANTY; without even the implied warranty of
 ' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ' GNU Lesser General Public License for more details.
-' 
+'
 ' You should have received a copy of the GNU Lesser General Public License
 ' along with ASP Xtreme Evolution. If not, see <http://www.gnu.org/licenses/>.
-' 
+'
 ' About:
-' 
+'
 '     - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/> @ December 2007
-' 
+'
 
 %>
 <!--#include virtual="/lib/axe/singletons.initialize.asp"-->
@@ -48,10 +48,10 @@
             <div id="container-hd">
                 <h1>Inspecting(&#8220;/<% Response.write Session("controller") & "/" & Session("action") & "/" & join(Session("argv"), "/") %>&#8221;)</h1>
                 <ul class="nav">
-                    <li class="selected"><a id="inspect-sv-anchor" href="#" onclick="dE(this, 'inspect-sv-');return false;">Server Variables</a></li>
-                    <li><a id="inspect-xml-anchor" href="#" onclick="dE(this, 'inspect-xml-');return false;">XML</a></li>
-                    <li><a id="inspect-xslt-anchor" href="#" onclick="dE(this, 'inspect-xslt-');return false;">XSLT</a></li>
-                    <li><a id="inspect-output-anchor" href="#" onclick="dE(this, 'inspect-output-');return false;">Output</a></li>
+                    <li class='<%= iif( Request.Cookies("inspect_last_visible") = "inspect-sv-", "selected", "" ) %>'><a id="inspect-sv-anchor" href="#" onclick="dE(this, 'inspect-sv-');return false;">Server Variables</a></li>
+                    <li class='<%= iif( Request.Cookies("inspect_last_visible") = "inspect-xml-", "selected", "" ) %>'><a id="inspect-xml-anchor" href="#" onclick="dE(this, 'inspect-xml-');return false;">XML</a></li>
+                    <li class='<%= iif( Request.Cookies("inspect_last_visible") = "inspect-xslt-", "selected", "" ) %>'><a id="inspect-xslt-anchor" href="#" onclick="dE(this, 'inspect-xslt-');return false;">XSLT</a></li>
+                    <li class='<%= iif( Request.Cookies("inspect_last_visible") = "inspect-output-", "selected", "" ) %>'><a id="inspect-output-anchor" href="#" onclick="dE(this, 'inspect-output-');return false;">Output</a></li>
                 </ul>
                 <hr />
             </div>
@@ -103,38 +103,72 @@ next
         <script type="text/javascript" src="/lib/axe/assets/js/dp.SyntaxHighlighter/Scripts/shBrushXml.js"></script>
         <script type="text/javascript">
             // <![CDATA[
-            
-            var idCurrentVisible = "inspect-sv-";
+
+            var idCurrentVisible = '<%= iif( Request.Cookies("inspect_last_visible") <> "", Request.Cookies("inspect_last_visible"), "inspect-sv-" ) %>';
             function dE(e, id) {
                 if( idCurrentVisible == id + "container" ) { return; }
-                
+
                 removeClass(document.getElementById(idCurrentVisible + "anchor").parentNode, "selected");
                 addClass(e.parentNode, "selected");
-                
+
                 document.getElementById(idCurrentVisible + "container").style.display = "none";
                 document.getElementById(id + "container").style.display = "block";
-                
+
                 idCurrentVisible = id;
+                createCookie("inspect_last_visible", id, 1);
             }
-            
+
+            dp.SyntaxHighlighter.ClipboardSwf = "/lib/axe/assets/js/dp.SyntaxHighlighter/Scripts/clipboard.swf";
+            dp.SyntaxHighlighter.HighlightAll("code");
+
+            document.getElementById(idCurrentVisible + "container").style.display = "block";
+
+
+
+
+
+            // Element classes helpers
             function hasClass(e, cls) {
                 return e.className.match(new RegExp("(^|\\s)" + cls + "(?:\\s|$)"));
             }
-            
+
             function addClass(e, cls) {
                 if(!this.hasClass(e,cls)) e.className += ' ' + cls;
             }
-            
+
             function removeClass(e, cls) {
                 if(hasClass(e,cls)) {
                     var reg = new RegExp("(^|\\s)" + cls + "(?:\\s|$)");
                     e.className = e.className.replace(reg, ' ');
                 }
             }
-            
-            dp.SyntaxHighlighter.ClipboardSwf = "/lib/axe/assets/js/dp.SyntaxHighlighter/Scripts/clipboard.swf";
-            dp.SyntaxHighlighter.HighlightAll("code");
-            
+
+            // Cookies helpers
+            function createCookie(name, value, days) {
+                if(days) {
+                    var date = new Date();
+                    date.setTime(date.getTime()+(days*24*60*60*1000));
+                    var expires = "; expires="+date.toGMTString();
+                }
+                else var expires = "";
+                document.cookie = name+"="+value+expires+"; path=/";
+            }
+
+            function readCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0;i < ca.length;i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                }
+                return null;
+            }
+
+            function eraseCookie(name) {
+                createCookie(name,"",-1);
+            }
+
             // ]]>
         </script>
     </body>

@@ -138,6 +138,21 @@ class Email_Adapter_CDO' implements Email_Interface
         b = [_getBCC](Email)
         
         dim Message : set Message = Server.createObject("CDO.Message")
+
+        if( Email.Options.exists("Configuration") ) then
+            dim Config, i, pair
+
+            set Config = Server.createObject("CDO.Configuration")
+            with Config.Fields
+                for i = 0 to ubound( Email.Options("Configuration") )
+                    pair = Email.Options("Configuration")(i)
+                    .item(pair(0)) = pair(1)
+                next
+            end with
+
+            set Message.Configuration = Config
+        end if
+
         Message.from = Email.from
         Message.to = t
         if(len(c) > 0) then Message.cc = c
@@ -154,6 +169,11 @@ class Email_Adapter_CDO' implements Email_Interface
             next
         end if
         call Message.send()
+
+        if( Email.Options.exists("Configuration") ) then
+            set Config = nothing
+        end if
+
         set Message = nothing
     end sub
     

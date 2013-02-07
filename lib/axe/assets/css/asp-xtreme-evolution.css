@@ -117,7 +117,11 @@ body#defaultView img {
 }
 
 body#inspect h1 {
-    font-size: 256%;
+    font-size: 512%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
     padding-bottom: 0.5em;
 }
 
@@ -139,14 +143,15 @@ body#inspect div#container-bd table {
 
 body#inspect div#container-bd th,
 body#inspect div#container-bd td {
+    font-family: "Envy Code R", "Monaco", "Bitstream Vera Sans Mono Roman", "DejaVu Sans Mono", "Courier New", Monospace;
     padding: 5px;
-    font-size: 93%;
 }
 
 body#inspect div#container-bd tr.even {
     background-color: #292F31;
 }
 
+body#inspect div#inspect-sv-container,
 body#inspect div#inspect-xml-container,
 body#inspect div#inspect-xslt-container,
 body#inspect div#inspect-output-container {
@@ -164,8 +169,8 @@ body#inspect div#inspect-output-container {
     list-style-type: none;
     float: left;
     background: #f3f3f3;
-    background-image: -moz-linear-gradient(top, #f9f9f9, #e3e3e3);
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f9f9f9),color-stop(1, #e3e3e3));
+    background: -moz-linear-gradient(top, #f9f9f9, #e3e3e3);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f9f9f9),color-stop(1, #e3e3e3));
     border-top: 1px solid #bbb;
     border-bottom: 1px solid #aaa;
     border-right: 1px solid #bbb;
@@ -178,7 +183,6 @@ body#inspect div#inspect-output-container {
     text-decoration: none;
     border-right: 1px solid #fff;
     display: block;
-/*    padding: 2px 8px;*/
     padding: 8px 16px;
     text-transform: capitalize;
 }
@@ -187,9 +191,11 @@ body#inspect div#inspect-output-container {
 .nav li:hover:first-child,
 .nav li:hover:last-child {
     border-color: #888;
+    background: -moz-linear-gradient(top, #ffffff, #ebebeb);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #ebebeb));
 }
 
-.nav .selected:first-child:hover a {
+.nav li.selected:first-child:hover a {
 }
 
 .nav li:hover a {
@@ -199,23 +205,24 @@ body#inspect div#inspect-output-container {
 }
 
 .nav li:active {
-    background-image: -moz-linear-gradient(top, #666, #999);
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #666),color-stop(.4, #888),color-stop(.6, #888),color-stop(1, #999));
+    background: -moz-linear-gradient(top, #666, #999);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #666),color-stop(.4, #888),color-stop(.6, #888),color-stop(1, #999));
 }
 
 .nav li:active a {
     color: #fff;
 }
 
-.nav .selected {
+.nav li.selected,
+.nav li.selected:hover {
     border-left: 1px solid #777;
     background: #666;
     border-color: #888;
-    background-image: -moz-linear-gradient(top, #999, #666);
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #999),color-stop(.4, #888),color-stop(.6, #888),color-stop(1, #666));
+    background: -moz-linear-gradient(top, #999, #666);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #999),color-stop(.4, #888),color-stop(.6, #888),color-stop(1, #666));
 }
 
-.nav .selected a, .nav .selected span {
+.nav li.selected a, .nav li.selected span {
     color: #fff !important;
     border-right: 0;
     padding-right: 17px;
@@ -223,7 +230,7 @@ body#inspect div#inspect-output-container {
 
 .nav li:first-child.selected a,
 .nav li:first-child.selected span {
-    padding-left: 15px;
+    padding-left: 17px;
 }
 
 .nav li:first-child {

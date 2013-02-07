@@ -32,7 +32,7 @@
 ' Dependencies:
 ' 
 '   - List class (/lib/axe/classes/Utilities/list.asp)
-'   - Template class (/lib/axe/classes/Utilities/template.asp)
+'   - XString class (/lib/axe/classes/Utilities/xstring.asp)
 ' 
 ' About:
 ' 
@@ -81,142 +81,6 @@ class Logger
     '     (DEBUG)  - Debug: debug messages. Priority 7
     ' 
     public Priorities
-    
-    ' Property: [_Adapters]
-    ' 
-    ' {private} In order to really write the messages somewhere, Log requires 
-    ' adapters  implementing Logger_Interface specifying how and where to write 
-    ' the data coming through this class.
-    ' 
-    ' Contains:
-    ' 
-    '     (Logger_Interface()) - media adapters
-    ' 
-    private [_Adapters]
-    
-    ' Property: [_Filters]
-    ' 
-    ' {private} Filters blocks a message from being written to the log.
-    ' 
-    ' Contains:
-    ' 
-    '     (Scripting.Dictionary) - filters
-    ' 
-    private [_Filters]
-    
-    ' Property: [_τ]
-    ' 
-    ' {private} Template instance to handle the string formating.
-    ' 
-    ' Contains:
-    ' 
-    '     (Template) - Object to handle the string formating.
-    ' 
-    private [_τ]
-    
-    ' Subroutine: [_ε]
-    ' 
-    ' {private} Checks for an adapter assignment.
-    ' 
-    private sub [_ε]
-        if([_Adapters].count = 0) then
-            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Missing an Email_Interface adapter."
-        end if
-    end sub
-    
-    private sub Class_initialize()
-        classType    = typename(Me)
-        classVersion = "1.0.0.0"
-        
-        set Priorities = Server.createObject("Scripting.Dictionary")
-        Priorities.add "EMERG",  0
-        Priorities.add "ALERT",  1
-        Priorities.add "CRIT",   2
-        Priorities.add "ERROR",  3
-        Priorities.add "WARN",   4
-        Priorities.add "NOTICE", 5
-        Priorities.add "INFO",   6
-        Priorities.add "DEBUG",  7
-        
-        set [_Adapters] = new List
-        set [_Filters] = Server.createObject("Scripting.Dictionary")
-        set [_τ] = new Template
-    end sub
-    
-    private sub Class_terminate()
-        set [_τ] = nothing
-        set [_Filters] = nothing
-        set [_Adapters] = nothing
-        
-        set Priorities = nothing
-    end sub
-    
-    ' Function: [_compare]
-    ' 
-    ' {private} Compares two numbers by an order operator.
-    ' 
-    ' Parameters:
-    ' 
-    '     (number) - left side of comparison
-    '     (number) - right side of comparison
-    '     (string) - operator
-    ' 
-    ' Returns:
-    ' 
-    '     (boolean) - true, if the comparison is true; false, otherwise
-    ' 
-    private function [_compare](a, b, op)
-        if( op = ">" or op = "gt" ) then
-            [_compare] = ( a > b )
-        elseif( op = ">=" or op = "ge" ) then
-            [_compare] = ( a >= b )
-        elseif( op = "=" or op = "==" or op = "eq" ) then
-            [_compare] = ( a = b )
-        elseif( op = "!=" or op = "<>" or op = "ne" ) then
-            [_compare] = ( a <> b )
-        elseif( op = "<=" or op = "le" ) then
-            [_compare] = ( a <= b )
-        elseif( op = "<" or op = "lt" ) then
-            [_compare] = ( a < b )
-        else
-            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Invalid operator."
-        end if
-    end function
-    
-    ' Function: [_isAcceptable]
-    ' 
-    ' {private} Check with Filters if a message can be logged.
-    ' 
-    ' Parameters:
-    ' 
-    '     (string) - message
-    '     (string) - type
-    ' 
-    ' Returns:
-    ' 
-    '     (boolean) - true, if acceptable; false, otherwise
-    ' 
-    private function [_isAcceptable](message, tp)
-        [_isAcceptable] = true
-        dim filter, kind
-        for each filter in [_Filters].items()
-            if(not isArray(filter)) then
-                Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Invalid filter."
-            end if
-            
-            kind = lcase(typename(filter(0)))
-            if( instr(kind, "regexp") > 0 ) then
-                [_isAcceptable] = filter(0).test(message)
-            elseif( kind = "integer" ) then
-                [_isAcceptable] = [_compare](Priorities(tp), filter(0) , filter(1))
-            elseif( kind = "string" ) then
-                [_isAcceptable] = false
-                dim i : for i = 0 to ubound(filter)
-                    if( tp = filter(i) ) then [_isAcceptable] = true
-                next
-            end if
-        next
-    end function
     
     ' Subroutine: addAdapter
     ' 
@@ -377,6 +241,142 @@ class Logger
     public sub debug(message, arguments)
         call write(message, arguments, "DEBUG")
     end sub
+    
+    private sub Class_initialize()
+        classType    = typename(Me)
+        classVersion = "1.0.0.0"
+        
+        set Priorities = Server.createObject("Scripting.Dictionary")
+        Priorities.add "EMERG",  0
+        Priorities.add "ALERT",  1
+        Priorities.add "CRIT",   2
+        Priorities.add "ERROR",  3
+        Priorities.add "WARN",   4
+        Priorities.add "NOTICE", 5
+        Priorities.add "INFO",   6
+        Priorities.add "DEBUG",  7
+        
+        set [_Adapters] = new List
+        set [_Filters] = Server.createObject("Scripting.Dictionary")
+        set [_τ] = new XString
+    end sub
+    
+    private sub Class_terminate()
+        set [_τ] = nothing
+        set [_Filters] = nothing
+        set [_Adapters] = nothing
+        
+        set Priorities = nothing
+    end sub
+    
+    ' Subroutine: [_ε]
+    ' 
+    ' {private} Checks for an adapter assignment.
+    ' 
+    private sub [_ε]
+        if([_Adapters].count = 0) then
+            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Missing an Email_Interface adapter."
+        end if
+    end sub
+    
+    ' Property: [_Adapters]
+    ' 
+    ' {private} In order to really write the messages somewhere, Log requires 
+    ' adapters  implementing Logger_Interface specifying how and where to write 
+    ' the data coming through this class.
+    ' 
+    ' Contains:
+    ' 
+    '     (Logger_Interface()) - media adapters
+    ' 
+    private [_Adapters]
+    
+    ' Property: [_Filters]
+    ' 
+    ' {private} Filters blocks a message from being written to the log.
+    ' 
+    ' Contains:
+    ' 
+    '     (Scripting.Dictionary) - filters
+    ' 
+    private [_Filters]
+    
+    ' Property: [_τ]
+    ' 
+    ' {private} XString instance to handle the string formating.
+    ' 
+    ' Contains:
+    ' 
+    '     (XString) - Object to handle the string formating.
+    ' 
+    private [_τ]
+    
+    ' Function: [_compare]
+    ' 
+    ' {private} Compares two numbers by an order operator.
+    ' 
+    ' Parameters:
+    ' 
+    '     (number) - left side of comparison
+    '     (number) - right side of comparison
+    '     (string) - operator
+    ' 
+    ' Returns:
+    ' 
+    '     (boolean) - true, if the comparison is true; false, otherwise
+    ' 
+    private function [_compare](a, b, op)
+        if( op = ">" or op = "gt" ) then
+            [_compare] = ( a > b )
+        elseif( op = ">=" or op = "ge" ) then
+            [_compare] = ( a >= b )
+        elseif( op = "=" or op = "==" or op = "eq" ) then
+            [_compare] = ( a = b )
+        elseif( op = "!=" or op = "<>" or op = "ne" ) then
+            [_compare] = ( a <> b )
+        elseif( op = "<=" or op = "le" ) then
+            [_compare] = ( a <= b )
+        elseif( op = "<" or op = "lt" ) then
+            [_compare] = ( a < b )
+        else
+            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Invalid operator."
+        end if
+    end function
+    
+    ' Function: [_isAcceptable]
+    ' 
+    ' {private} Check with Filters if a message can be logged.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string) - message
+    '     (string) - type
+    ' 
+    ' Returns:
+    ' 
+    '     (boolean) - true, if acceptable; false, otherwise
+    ' 
+    private function [_isAcceptable](message, tp)
+        [_isAcceptable] = true
+        dim filter, kind
+        for each filter in [_Filters].items()
+            if(not isArray(filter)) then
+                Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Invalid filter."
+            end if
+            
+            kind = lcase(typename(filter(0)))
+            if( instr(kind, "regexp") > 0 ) then
+                [_isAcceptable] = filter(0).test(message)
+            elseif( kind = "integer" ) then
+                [_isAcceptable] = [_compare](Priorities(tp), filter(0) , filter(1))
+            elseif( kind = "string" ) then
+                [_isAcceptable] = false
+                dim i : for i = 0 to ubound(filter)
+                    if( tp = filter(i) ) then [_isAcceptable] = true
+                next
+            end if
+        next
+    end function
     
 end class
 

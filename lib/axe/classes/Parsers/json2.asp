@@ -226,6 +226,25 @@ set Info = nothing
 
 (end code)
 
+
+
+
+
+Function: minify
+
+This method can be used as a helper to enable comments in json-like 
+configuration files. According to Douglas Crockford, using comments are fine if
+you pipe the code before handing it to your JSON parser. See 
+<https://plus.google.com/118095276221607585885/posts/RK8qyGVaGSr>
+
+Parameters:
+
+    (string) - a json-like configuration string
+
+Returns:
+
+    (json) - valid minified json
+
 */
 
 if(!Object.prototype.get) {
@@ -281,7 +300,7 @@ if(!String.prototype.sanitize) {
 if(!String.prototype.substitute) {
     String.prototype.substitute = function(object, regexp){
         return this.replace(regexp || (/\\?\{([^{}]+)\}/g), function(match, name){
-            if (match.charAt(0) == '\\') return match.slice(1);
+            if(match.charAt(0) == '\\') return match.slice(1);
             return (object[name] != undefined) ? object[name] : '';
         });
     }
@@ -415,10 +434,10 @@ if(!String.prototype.substitute) {
 
             myData = JSON.parse(text, function (key, value) {
                 var a;
-                if (typeof value === 'string') {
+                if(typeof value === 'string') {
                     a =
 /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-                    if (a) {
+                    if(a) {
                         return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
                             +a[5], +a[6]));
                     }
@@ -428,11 +447,11 @@ if(!String.prototype.substitute) {
 
             myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
                 var d;
-                if (typeof value === 'string' &&
+                if(typeof value === 'string' &&
                         value.slice(0, 5) === 'Date(' &&
                         value.slice(-1) === ')') {
                     d = new Date(value.slice(5, -1));
-                    if (d) {
+                    if(d) {
                         return d;
                     }
                 }
@@ -458,7 +477,7 @@ if(!String.prototype.substitute) {
 // methods in a closure to avoid creating global variables.
 
 var JSON;
-if (!JSON) {
+if(!JSON) {
     JSON = {};
 }
 
@@ -470,7 +489,7 @@ if (!JSON) {
         return n < 10 ? '0' + n : n;
     }
 
-    if (typeof Date.prototype.toJSON !== 'function') {
+    if(typeof Date.prototype.toJSON !== 'function') {
 
         Date.prototype.toJSON = function (key) {
 
@@ -538,7 +557,7 @@ if (!JSON) {
 
 // If the value has a toJSON method, call it to obtain a replacement value.
 
-        if (value && typeof value === 'object' &&
+        if(value && typeof value === 'object' &&
                 typeof value.toJSON === 'function') {
             value = value.toJSON(key);
         }
@@ -546,7 +565,7 @@ if (!JSON) {
 // If we were called with a replacer function, then call the replacer to
 // obtain a replacement value.
 
-        if (typeof rep === 'function') {
+        if(typeof rep === 'function') {
             value = rep.call(holder, key, value);
         }
 
@@ -579,7 +598,7 @@ if (!JSON) {
 // Due to a specification blunder in ECMAScript, typeof null is 'object',
 // so watch out for that case.
 
-            if (!value) {
+            if(!value) {
                 return 'null';
             }
 
@@ -590,7 +609,7 @@ if (!JSON) {
 
 // Is the value an array?
 
-            if (Object.prototype.toString.apply(value) === '[object Array]') {
+            if(Object.prototype.toString.apply(value) === '[object Array]') {
 
 // The value is an array. Stringify every element. Use null as a placeholder
 // for non-JSON values.
@@ -614,13 +633,13 @@ if (!JSON) {
 
 // If the replacer is an array, use it to select the members to be stringified.
 
-            if (rep && typeof rep === 'object') {
+            if(rep && typeof rep === 'object') {
                 length = rep.length;
                 for (i = 0; i < length; i += 1) {
-                    if (typeof rep[i] === 'string') {
+                    if(typeof rep[i] === 'string') {
                         k = rep[i];
                         v = str(k, value);
-                        if (v) {
+                        if(v) {
                             partial.push(quote(k) + (gap ? ': ' : ':') + v);
                         }
                     }
@@ -630,9 +649,9 @@ if (!JSON) {
 // Otherwise, iterate through all of the keys in the object.
 
                 for (k in value) {
-                    if (Object.prototype.hasOwnProperty.call(value, k)) {
+                    if(Object.prototype.hasOwnProperty.call(value, k)) {
                         v = str(k, value);
-                        if (v) {
+                        if(v) {
                             partial.push(quote(k) + (gap ? ': ' : ':') + v);
                         }
                     }
@@ -654,7 +673,7 @@ if (!JSON) {
 
 // If the JSON object does not yet have a stringify method, give it one.
 
-    if (typeof JSON.stringify !== 'function') {
+    if(typeof JSON.stringify !== 'function') {
         JSON.stringify = function (value, replacer, space) {
 
 // The stringify method takes a value and an optional replacer, and an optional
@@ -670,14 +689,14 @@ if (!JSON) {
 // If the space parameter is a number, make an indent string containing that
 // many spaces.
 
-            if (typeof space === 'number') {
+            if(typeof space === 'number') {
                 for (i = 0; i < space; i += 1) {
                     indent += ' ';
                 }
 
 // If the space parameter is a string, it will be used as the indent string.
 
-            } else if (typeof space === 'string') {
+            } else if(typeof space === 'string') {
                 indent = space;
             }
 
@@ -685,7 +704,7 @@ if (!JSON) {
 // Otherwise, throw an error.
 
             rep = replacer;
-            if (replacer && typeof replacer !== 'function' &&
+            if(replacer && typeof replacer !== 'function' &&
                     (typeof replacer !== 'object' ||
                     typeof replacer.length !== 'number')) {
                 throw new Error('JSON.stringify');
@@ -701,7 +720,7 @@ if (!JSON) {
 
 // If the JSON object does not yet have a parse method, give it one.
 
-    if (typeof JSON.parse !== 'function') {
+    if(typeof JSON.parse !== 'function') {
         JSON.parse = function (text, reviver) {
 
 // The parse method takes a text and an optional reviver function, and returns
@@ -715,11 +734,11 @@ if (!JSON) {
 // that modifications can be made.
 
                 var k, v, value = holder[key];
-                if (value && typeof value === 'object') {
+                if(value && typeof value === 'object') {
                     for (k in value) {
-                        if (Object.prototype.hasOwnProperty.call(value, k)) {
+                        if(Object.prototype.hasOwnProperty.call(value, k)) {
                             v = walk(value, k);
-                            if (v !== undefined) {
+                            if(v !== undefined) {
                                 value[k] = v;
                             } else {
                                 delete value[k];
@@ -737,7 +756,7 @@ if (!JSON) {
 
             text = String(text);
             cx.lastIndex = 0;
-            if (cx.test(text)) {
+            if(cx.test(text)) {
                 text = text.replace(cx, function (a) {
                     return '\\u' +
                         ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
@@ -757,7 +776,7 @@ if (!JSON) {
 // we look to see that the remaining characters are only whitespace or ']' or
 // ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
 
-            if (/^[\],:{}\s]*$/
+            if(/^[\],:{}\s]*$/
                     .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
                         .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
                         .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
@@ -793,6 +812,7 @@ if (!JSON) {
 
 
 
+// Implement toXML
 (function(){
 
     function __sanitize(value) {
@@ -806,7 +826,9 @@ if (!JSON) {
         var xml = [];
         switch( typeof o ) {
             case "object":
-                if(o.length) {
+                if( null === o ) {
+                    xml.push("<{tag}/>".substitute({"tag":t}));// ??? right? wrong?
+                } else if(o.length) {
                     var a = o;
                     if(a.length === 0) {
                         xml.push("<{tag}/>".substitute({"tag":t}));
@@ -829,9 +851,12 @@ if (!JSON) {
                     } else {
                         xml.push(">");
                         for(var i = 0, len = childs.length; i < len; i++) {
-                            if(p === "#text") { xml.push(__sanitize(o[childs[i]])); }
-                            else if(p === "#cdata") { xml.push("<![CDATA[{code}]]>".substitute({"code": o[childs[i]].toString()})); }
-                            else if(p.charAt(0) !== "@") { xml.push(__toXML(o[childs[i]], childs[i])); }
+                            if(p === "#text")
+                                { xml.push(__sanitize(o[childs[i]])); }
+                            else if(p === "#cdata")
+                                { xml.push("<![CDATA[{code}]]>".substitute({"code": o[childs[i]].toString()})); }
+                            else if(p.charAt(0) !== "@")
+                                { xml.push(__toXML(o[childs[i]], childs[i])); }
                         }
                         xml.push("</{tag}>".substitute({"tag":t}));
                     }
@@ -843,13 +868,13 @@ if (!JSON) {
                 if(s.length === 0) {
                     xml.push("<{tag}/>".substitute({"tag":t}));
                 } else {
-                    xml.push("<{tag}>{value}</{tag}>".substitute({"tag":t, "value":__sanitize(s)}));
+                    xml.push("<{tag}>{value}</{tag}>".substitute({"tag":t, "value":s}));
                 }
         }
         return xml.join('');
     }
 
-    if (typeof JSON.toXML !== 'function') {
+    if(typeof JSON.toXML !== 'function') {
         JSON.toXML = function(json, container){
             //container = container || "";
             var xml = [];
@@ -864,6 +889,64 @@ if (!JSON) {
         }
     }
 
+})();
+
+
+
+
+
+
+
+
+
+
+// Implement minify ( strip comments from json-like configuration files )
+(function(){
+    if(typeof JSON.minify !== 'function') {
+        JSON.minify = function(json) {
+            var tokenizer = /"|(\/\*)|(\*\/)|(\/\/)|\n|\r/g,
+                in_string = false,
+                in_multiline_comment = false,
+                in_singleline_comment = false,
+                tmp, tmp2, new_str = [], ns = 0, from = 0, lc, rc;
+            
+            tokenizer.lastIndex = 0;
+            
+            while( tmp = tokenizer.exec(json) ) {
+                lc = RegExp.leftContext;
+                rc = RegExp.rightContext;
+                if(!in_multiline_comment && !in_singleline_comment) {
+                    tmp2 = lc.substring(from);
+                    if(!in_string) {
+                        tmp2 = tmp2.replace(/(\n|\r|\s)*/g,"");
+                    }
+                    new_str[ns++] = tmp2;
+                }
+                from = tokenizer.lastIndex;
+                
+                if(tmp[0] == "\"" && !in_multiline_comment && !in_singleline_comment) {
+                    tmp2 = lc.match(/(\\)*$/);
+                    if(!in_string || !tmp2 || (tmp2[0].length % 2) == 0) { // start of string with ", or unescaped " character found to end string
+                        in_string = !in_string;
+                    }
+                    from--; // include " character in next catch
+                    rc = json.substring(from);
+                } else if(tmp[0] == "/*" && !in_string && !in_multiline_comment && !in_singleline_comment) {
+                    in_multiline_comment = true;
+                } else if(tmp[0] == "*/" && !in_string && in_multiline_comment && !in_singleline_comment) {
+                    in_multiline_comment = false;
+                } else if(tmp[0] == "//" && !in_string && !in_multiline_comment && !in_singleline_comment) {
+                    in_singleline_comment = true;
+                } else if((tmp[0] == "\n" || tmp[0] == "\r") && !in_string && !in_multiline_comment && in_singleline_comment) {
+                    in_singleline_comment = false;
+                } else if(!in_multiline_comment && !in_singleline_comment && !(/\n|\r|\s/.test(tmp[0]))) {
+                    new_str[ns++] = tmp[0];
+                }
+            }
+            new_str[ns++] = rc;
+            return new_str.join("");
+        }
+    }
 })();
 
 </script>

@@ -68,16 +68,6 @@ class Email
     ' 
     public Adapter
     
-    ' Subroutine: [_ε]
-    ' 
-    ' {private} Checks for an adapter assignment.
-    ' 
-    private sub [_ε]
-        if( isEmpty(Adapter) ) then
-            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Missing an Email_Interface adapter."
-        end if
-    end sub
-    
     ' Property: from
     ' 
     ' From field is used to indicate source or origin.
@@ -163,24 +153,16 @@ class Email
     ' 
     public Attachments
     
-    private sub Class_initialize()
-        classType    = typename(Me)
-        classVersion = "1.0.0.0"
-        
-        set Tos = Server.createObject("Scripting.Dictionary")
-        set Ccs = Server.createObject("Scripting.Dictionary")
-        set Bccs = Server.createObject("Scripting.Dictionary")
-        set Attachments = Server.createObject("Scripting.Dictionary")
-        
-        isHTML = true
-    end sub
-    
-    private sub Class_terminate()
-        set Attachments = nothing
-        set Bccs = nothing
-        set Ccs = nothing
-        set Tos = nothing
-    end sub
+    ' Property: Options
+    ' 
+    ' This collection is used to hold optional information to be used in the 
+    ' Adapter. Like: SmtpServer address, Username, Password etc.
+    ' 
+    ' Contains:
+    ' 
+    '     (Scripting.Dictionary) - options collection
+    ' 
+    public Options
     
     ' Subroutine: addTo
     ' 
@@ -308,6 +290,37 @@ class Email
     ' 
     public sub send() : call [_ε]
         call Adapter.send(Me)
+    end sub
+    
+    private sub Class_initialize()
+        classType    = typename(Me)
+        classVersion = "1.0.0.0"
+        
+        set Tos = Server.createObject("Scripting.Dictionary")
+        set Ccs = Server.createObject("Scripting.Dictionary")
+        set Bccs = Server.createObject("Scripting.Dictionary")
+        set Attachments = Server.createObject("Scripting.Dictionary")
+        set Options = Server.createObject("Scripting.Dictionary")
+        
+        isHTML = true
+    end sub
+    
+    private sub Class_terminate()
+        set Options = nothing
+        set Attachments = nothing
+        set Bccs = nothing
+        set Ccs = nothing
+        set Tos = nothing
+    end sub
+    
+    ' Subroutine: [_ε]
+    ' 
+    ' {private} Checks for an adapter assignment.
+    ' 
+    private sub [_ε]
+        if( isEmpty(Adapter) ) then
+            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Missing an Email_Interface adapter."
+        end if
     end sub
     
 end class

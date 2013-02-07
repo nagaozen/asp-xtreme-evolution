@@ -53,11 +53,11 @@ for sure.
     - [Paginator](/lib/axe/docs/files/lib/axe/classes/Utilities/paginator-asp.html)
     - [RSS](/lib/axe/docs/files/lib/axe/classes/Feeds/rss-asp.html) _(work in progress)_
     - [StringBuilder](/lib/axe/docs/files/lib/axe/classes/Utilities/stringbuilder-asp.html)
-    - [Template](/lib/axe/docs/files/lib/axe/classes/Utilities/template-asp.html)
     - [Textile](/lib/axe/docs/files/lib/axe/classes/Parsers/textile-asp.html)
     - [Translator](/lib/axe/docs/files/lib/axe/classes/Utilities/translator-asp.html)
     - [UnitTest](/lib/axe/docs/files/lib/axe/classes/unittest-asp.html)
     - [XSession](/lib/axe/docs/files/lib/axe/classes/Utilities/xsession-asp.html)
+    - [XString](/lib/axe/docs/files/lib/axe/classes/Utilities/xstring-asp.html)
 * new services
     - [Akismet](/lib/axe/docs/files/lib/axe/classes/Services/akismet-asp.html)
     - [reCaptcha](/lib/axe/docs/files/lib/axe/classes/Services/recaptcha-asp.html)
