@@ -284,6 +284,19 @@ if(!Object.prototype.keys) {
     }
 }
 
+if(!Object.prototype.exists) {
+    Object.prototype.exists = function(s) {
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+				if(key===s){
+					return true;
+				}
+            }
+        }
+		return false
+	}
+}
+
 if(!String.prototype.sanitize) {
     String.prototype.sanitize = function(a, b) {
         var len = a.length,
