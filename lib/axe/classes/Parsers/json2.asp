@@ -851,9 +851,9 @@ if(!JSON) {
                     } else {
                         xml.push(">");
                         for(var i = 0, len = childs.length; i < len; i++) {
-                            if(p === "#text")
+                            if(childs[i] === "#text")
                                 { xml.push(__sanitize(o[childs[i]])); }
-                            else if(p === "#cdata")
+                            else if(childs[i] === "#cdata")
                                 { xml.push("<![CDATA[{code}]]>".substitute({"code": o[childs[i]].toString()})); }
                             else if(p.charAt(0) !== "@")
                                 { xml.push(__toXML(o[childs[i]], childs[i])); }
