@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ASP Xtreme Evolution by nagaozen</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ASP Xtreme Evolution</h1>
+        <p>Classic ASP on steroids. Create modern Active Server Pages the right way.</p>
+
+        <p class="view"><a href="https://github.com/nagaozen/asp-xtreme-evolution">View the Project on GitHub <small>nagaozen/asp-xtreme-evolution</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/nagaozen/asp-xtreme-evolution/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nagaozen/asp-xtreme-evolution/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nagaozen/asp-xtreme-evolution">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="asp-xtreme-evolution" class="anchor" href="#asp-xtreme-evolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>ASP Xtreme Evolution</h1>
+
+<p>The ASP Xtreme Evolution goal is to be a versatile MVC/MVVM URL-Friendly base for Classic ASP applications with some additional features that are not ASP native. It should implement things that are common to most applications removing the pain of starting a new software and helping you to structure it so that you get things right from the beginning. Our key concepts are choice and freedom over limiting conventions, polyglotism, sustained quality, extensibility which we try to implement in a clean, maintainable and extensible way.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU Lesser General Public License
+along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+
+<h2>
+<a id="a-little-about-the-binary-extensions" class="anchor" href="#a-little-about-the-binary-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>A little about the binary extensions</h2>
+
+<p>First of all, ASP Xtreme Evolution is based in some extensions, but don't worry
+it's all free or open source and already comes with the package. Although, if you
+want to check the original projects, here's a list of their sites:</p>
+
+<ul>
+<li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=993c0bcf-3bcf-4009-be21-27e85e1857b1&amp;displaylang=en">Microsoft Core XML Services (MSXML) 6.0</a></li>
+<li><a href="http://iirf.codeplex.com/">Ionics Isapi Rewrite Filter</a></li>
+<li><a href="http://www.crazybeavers.se/downloads/">Crazy Beavers Imager Resizer and Zip</a></li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li><p>Unzip the entire zip package in your HD and upload it to your domain FTP.</p></li>
+<li><p>If the domain is not registered in the server yet, register it in IIS pointing it's root to the folder where default.asp is located. Don't forget to check "Run scripts (such as ASP)".</p></li>
+<li><p>If your server does not provide a default cgi-bin folder, create a virtual directory named "cgi-bin" in your domain root pointing to /lib/axe/bin. Don't forget to check "Execute (such as ISAPI applications or CGI)"; Otherwise, move the contents of /lib/axe/bin to your cgi-bin folder.</p></li>
+<li><p>Give only "Read and Write" permission to your /app/writables folder.</p></li>
+<li><p>Go to your site properties and in ISAPI Filters tab, click [Add]. Fill the box with the following data:<br>
+Filter name: IIRF<br>
+[Browse...] to C:\Program Files\Ionic Shade\IIRF 2.1\IIRF.dll  </p></li>
+<li>
+<p>Go to your Web Service Extensions and Add the binaries that comes with the package. They are located at /lib/axe/bin and their names are:</p>
+
+<ul>
+<li>CB Image Resizer (Imager.dll)</li>
+<li>CB Zip (CBZIP.exe)</li>
+</ul>
+
+<p>Notes:</p>
+
+<ul>
+<li>Don't forget to check "Set extension status to Allowed".</li>
+<li>If Active Server Pages is not allowed yet, allow it too.</li>
+</ul>
+</li>
+<li><p>If your server does not support MSXML 6.0 yet, install it. It's available at: /lib/axe/bin/msxml6.msi</p></li>
+<li><p>Create an application pool for the application views.</p></li>
+<li><p>Set /app/views to the application pool created in step 8.</p></li>
+<li><p>That's it! Open a Web browser and type your domain. The "Welcome to ASP Xtreme Evolution" page should open.</p></li>
+</ol>
+
+<h2>
+<a id="version-149999α" class="anchor" href="#version-149999%CE%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.4.9.999α</h2>
+
+<h3>
+<a id="fixes" class="anchor" href="#fixes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fixes</h3>
+
+<p>Mmmm, I really don't have a track of the fixes 8'( but changed a lot of things 
+for sure.</p>
+
+<h3>
+<a id="added" class="anchor" href="#added" aria-hidden="true"><span class="octicon octicon-link"></span></a>Added</h3>
+
+<ul>
+<li>routing system based on /app/config.xml</li>
+<li>new logo and favicon</li>
+<li>/app/singletons.initialize.asp and /app/singletons.finalize.asp to manage application singletons.</li>
+<li>classType and classVersion properties in all classes</li>
+<li>new View
+
+<ul>
+<li>genericView provides an easy shortcut for you to send an entire view content.</li>
+</ul>
+</li>
+<li>
+<a href="/lib/axe/docs/files/lib/axe/base-asp.html">new functions</a>
+
+<ul>
+<li>axeInfo()</li>
+<li>iif(expr, truepart, falsepart)</li>
+<li>strsubstitute(template, replacements)</li>
+<li>sanitize(value, placeholders, replacements)</li>
+<li>isOdd(n)</li>
+<li>isEven(n)</li>
+<li>max(a)</li>
+<li>min(a)</li>
+<li>floor(n)</li>
+<li>ceiling(n)</li>
+<li>hex2dec(value)</li>
+<li>dec2hex(value)</li>
+<li>guid()</li>
+<li>dump(variable)</li>
+<li>lambda(fn)</li>
+<li>Kernel.exception(message) (reason: framework error system is now based on the same of asp.dll)</li>
+<li><a href="/lib/axe/docs/files/lib/axe/base-math-asp.html">and a lot more basic math functions...</a></li>
+</ul>
+</li>
+<li>new classes
+
+<ul>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/acl-asp.html">ACL</a></li>
+<li>
+<a href="/lib/axe/docs/files/lib/axe/classes/Feeds/atom-asp.html">Atom</a> <em>(not implemented yet)</em>
+</li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/auth-asp.html">Auth</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/base64-asp.html">Base64</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/color-asp.html">Color</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/csv-asp.html">CSV</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/customevent-asp.html">CustomEvent</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/email-asp.html">Email</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/handlebars-asp.html">Handlebars</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/interface-asp.html">Interface</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/json2-asp.html">JSON2</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/jsonschema-asp.html">JSONSchema</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/list-asp.html">List</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/logger-asp.html">Logger</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/markdown-asp.html">Markdown</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/mustache-asp.html">Mustache</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/orderly-asp.html">Orderly</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/paginator-asp.html">Paginator</a></li>
+<li>
+<a href="/lib/axe/docs/files/lib/axe/classes/Feeds/rss-asp.html">RSS</a> <em>(work in progress)</em>
+</li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/stringbuilder-asp.html">StringBuilder</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Parsers/textile-asp.html">Textile</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/translator-asp.html">Translator</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/unittest-asp.html">UnitTest</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/xsession-asp.html">XSession</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Utilities/xstring-asp.html">XString</a></li>
+</ul>
+</li>
+<li>new services
+
+<ul>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Services/akismet-asp.html">Akismet</a></li>
+<li><a href="/lib/axe/docs/files/lib/axe/classes/Services/recaptcha-asp.html">reCaptcha</a></li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="changes" class="anchor" href="#changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changes</h3>
+
+<ul>
+<li>Changed folders structure
+
+<ul>
+<li>Moved /assets/default to /lib/axe/assets</li>
+<li>Moved /app/docs to /lib/axe/docs</li>
+<li>Moved /app/bin to /lib/axe/bin</li>
+<li>Moved /app/core/lib to /lib/axe/classes</li>
+<li>Moved /app/core to /lib/axe</li>
+</ul>
+</li>
+<li>Changed classes filename structure
+
+<ul>
+<li>renamed filename.class.asp to filename.asp</li>
+</ul>
+</li>
+<li>Moved everything from ANSI to UTF-8. It's now possible to write 長尾 (nagao). <em>Note:</em> changing the encode is easy as updating default.asp and global.asa</li>
+<li>Changed both Kernel.loadTextFile and Kernel.createFile from FSO to Stream for better UTF-8 support.</li>
+<li>updated classes
+
+<ul>
+<li>
+<a href="/lib/axe/docs/files/lib/axe/classes/Parsers/json-asp.html">JSON</a> (more methods and fixes!)</li>
+</ul>
+</li>
+<li>Updated error.asp (better coding, new behavior).</li>
+<li>defaultView.asp displays both INSTALL.md and CHANGES.md content</li>
+<li>INSTALL.md and CHANGES.md are now written in Markdown syntax.</li>
+<li>removed Application("Msxml.version") and fixed the version to 6.0.</li>
+<li>removed iif() from classes.</li>
+<li>better templates!</li>
+<li>better documentation! It's updated to use <a href="http://www.naturaldocs.org/" title="NaturalDocs">NaturalDocs v1.4</a>. Of course it still uses <a href="http://qbnz.com/highlighter/" title="GeSHi">GeSHi</a> and <a href="http://tidy.sourceforge.net/" title="Tidy">Tidy</a> too.</li>
+<li>
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=c943c0dd-ceec-4088-9753-86f052ec8450&amp;displaylang=en" title="SOAP Toolkit 3.0">SOAP Toolkit</a>
+
+<ul>
+<li><a href="http://www.microsoft.com/DownLoads/details.aspx?FamilyID=23d18fd1-34be-4123-ba56-9be2d4be1b23&amp;displaylang=en" title="SOAP Toolkit 3.0 Security Update">Security Update</a></li>
+</ul>
+</li>
+<li>
+<a href="http://iirf.codeplex.com/" title="Ionic's ISAPI Rewrite Filter">IIRF</a>
+
+<ul>
+<li>updated to 2.1 (current latest stable)</li>
+<li>enhanced URL-Rewriting</li>
+</ul>
+</li>
+<li>a lot of other minor updates to make the Framework better ...</li>
+</ul>
+
+<h3>
+<a id="removed" class="anchor" href="#removed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removed</h3>
+
+<ul>
+<li>removed functions
+
+<ul>
+<li>Kernel.urlDecode(s) (reason: that function was not compatible with all types of Encoding.)</li>
+<li>Kernel.htmlDecode(s) (reason: not required for Kernel.)</li>
+<li>Kernel.sanitize(s) (reason: using base.asp one instead.)</li>
+<li>Kernel.addError(sError) (reason: framework error system is now based on the same of asp.dll)</li>
+<li>Kernel.hasErrors(saErrors) (reason: same as above)</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="version-1011" class="anchor" href="#version-1011" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.0.1.1</h2>
+
+<h3>
+<a id="fixes-1" class="anchor" href="#fixes-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fixes</h3>
+
+<ul>
+<li>Fixed the empty shuttle bug. This error was occuring everytime you call a view without adding keys to the Session("this")</li>
+<li>Fixed a bug in the JSON Class getChildNodes method which wasn't working for objects with depth &gt;= 3. Thanks for Sven Neumann for pointing it.</li>
+</ul>
+
+<h3>
+<a id="changes-1" class="anchor" href="#changes-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changes</h3>
+
+<ul>
+<li>Enhanced the rewriting rules (last one was writing logs and executing 3 tests for all request.).</li>
+<li>Enhanced standardization to fit W3C Level Double-A Conformance to Web Content Accessibility Guidelines 1.0.</li>
+<li>Added [object Array] detection in JSON Class. It's required because if you define ['one','two,three','four'] in the old one getElement returns the "one,two,three,four" string.</li>
+</ul>
+
+<h2>
+<a id="version-1010" class="anchor" href="#version-1010" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.0.1.0</h2>
+
+<h3>
+<a id="fixes-2" class="anchor" href="#fixes-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fixes</h3>
+
+<ul>
+<li>Fixed last slash bug for complete URL Rewrite (/Controller/action/args/).</li>
+<li>Fixed no special chars bug (no '%') in urlDecode.</li>
+<li>A misspell in Imager Class.</li>
+<li>Fixed the evil "operation timed out" error creating another Application pool for the view folder. <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q316451">More info</a>.</li>
+<li>To fix the "80020009" error change AspMaxRequestEntityAllowed parameter in the C:\WINDOWS\system32\inetsrv\MetaBase.xml from 200000 to something between [0, 1073741824] bytes and iisreset.</li>
+<li>Fixed Memory Leak in the Server View Requests.</li>
+</ul>
+
+<h3>
+<a id="added-1" class="anchor" href="#added-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Added</h3>
+
+<ul>
+<li>Model, View and Controller Templates.</li>
+<li>My standard favicon in the Framework pages.</li>
+</ul>
+
+<h3>
+<a id="changes-2" class="anchor" href="#changes-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changes</h3>
+
+<ul>
+<li>Changed Controllers Standard Structure to create scopes per action.</li>
+<li>Created a new Welcome page (changes in the defaultView and defaultModel).</li>
+<li>Removed all NON-ASCII characters and changed the standard encode from UTF-8 to ASCII.</li>
+</ul>
+
+<h2>
+<a id="version-1000" class="anchor" href="#version-1000" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.0.0.0</h2>
+
+<ul>
+<li>Initial Release</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nagaozen">nagaozen</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
