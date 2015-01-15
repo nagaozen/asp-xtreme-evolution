@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 ' File: csv.asp
 ' 
@@ -120,7 +120,7 @@ class CSV
     ' (start code)
     ' 
     ' set Parser = new CSV
-    ' Parser.writablesPath = Server.mapPath("/app/writables/")
+    ' Parser.writablesPath = Server.mapPath("/instance/writables/")
     ' Parser.charset   = "UTF-8"
     ' Parser.codepage  = 65001
     ' Parser.separator = ";"
@@ -138,7 +138,7 @@ class CSV
     ' 
     ' (end code)
     ' 
-    public function fromString(str, hasHeaders) : call [_ε]
+    public function fromString(byVal str, byVal hasHeaders) : call [_ε]
         if( not isEmpty([_DataSourceFolder]) ) then
             call [_deleteFile]([_DataSourceFolder] & "\Schema.ini")
             call [_deleteFile]([_DataSourceFolder] & "\DataSource.csv")
@@ -177,7 +177,7 @@ class CSV
     ' (start code)
     ' 
     ' set Parser = new CSV
-    ' Parser.writablesPath = Server.mapPath("/app/writables/")
+    ' Parser.writablesPath = Server.mapPath("/instance/writables/")
     ' Parser.charset   = "Windows-1252"
     ' Parser.codepage  = 1252
     ' Parser.separator = ","
@@ -194,7 +194,7 @@ class CSV
     ' 
     ' (end code)
     ' 
-    public function fromFile(path, hasHeaders)
+    public function fromFile(byVal path, byVal hasHeaders)
         dim csv : csv = [_loadTextFile](path)
         set fromFile = fromString(csv, hasHeaders)
     end function
@@ -222,7 +222,7 @@ class CSV
     ' set Rs = Conn.execute(...)
     ' if(not Rs.eof) then
     '     set Parser = new CSV
-    '     Parser.writablesPath = Server.mapPath("/app/writables/")
+    '     Parser.writablesPath = Server.mapPath("/instance/writables/")
     '     csv = Parser.toString(Rs)
     '     set Parser = nothing
     ' end if
@@ -235,7 +235,7 @@ class CSV
     ' 
     ' (end code)
     ' 
-    public function toString(Rs)
+    public function toString(byRef Rs)
         dim line, csv, i
         
         set csv = new StringBuilder
@@ -327,7 +327,7 @@ class CSV
     ' 
     '   (boolean) - if the CSV file contains header information in the first line or not.
     ' 
-    private sub [_createSchema](hasHeaders)
+    private sub [_createSchema](byVal hasHeaders)
         dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
         dim File : set File = Fso.createTextFile([_DataSourceFolder] & "\Schema.ini", true, false)
         File.write( strsubstitute( SCHEMA_INI_TEMPLATE, array(separator, hasHeaders) ) )
@@ -349,10 +349,10 @@ class CSV
     '   true  - if it's there
     '   false - otherwise
     ' 
-    private function [_fileExists](sFilePath)
-        dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
-        [_fileExists] = Fso.fileExists(sFilePath)
-        set Fso = nothing
+    private function [_fileExists](byVal sFilePath)
+        with ( Server.createObject("Scripting.FileSystemObject") )
+            [_fileExists] = .fileExists(sFilePath)
+        end with
     end function
 
     ' Function: [_loadTextFile]
@@ -367,7 +367,7 @@ class CSV
     ' 
     '   (string) - The file content
     ' 
-    private function [_loadTextFile](sFilePath)
+    private function [_loadTextFile](byVal sFilePath)
         if([_fileExists](sFilePath)) then
             dim Stream : set Stream = Server.createObject("ADODB.Stream")
             with Stream
@@ -397,7 +397,7 @@ class CSV
     '   (string) - Full path plus file name with extension
     '   (string) - File content
     ' 
-    private sub [_createFile](sFilePath, sContent)
+    private sub [_createFile](byVal sFilePath, byVal sContent)
         select case charset
             case "UTF-8":
                 call [_createFileWithoutBOM](sFilePath, sContent, 3)
@@ -422,7 +422,7 @@ class CSV
     '   (string) - Full path plus file name with extension
     '   (string) - File content
     ' 
-    private sub [_createFileStd](sFilePath, sContent)
+    private sub [_createFileStd](byVal sFilePath, byVal sContent)
         dim Stream : set Stream = Server.createObject("ADODB.Stream")
         with Stream
             .type = adTypeText
@@ -451,7 +451,7 @@ class CSV
     '   (string)  - File content
     '   (integer) - How many bytes to jump in order to skip the BOM
     ' 
-    private sub [_createFileWithoutBOM](sFilePath, sContent, p0)
+    private sub [_createFileWithoutBOM](byVal sFilePath, byVal sContent, byVal p0)
         dim Stream, bin
         
         set Stream = Server.createObject("ADODB.Stream")
@@ -497,7 +497,7 @@ class CSV
     ' 
     '   (string) - Full path plus file name with extension
     ' 
-    private sub [_deleteFile](sFilePath)
+    private sub [_deleteFile](byVal sFilePath)
         dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
         if(Fso.fileExists(sFilePath)) then
             call Fso.deleteFile(sFilePath, true)
@@ -513,7 +513,7 @@ class CSV
     ' 
     '   (string) - Folder path without the last "\"
     ' 
-    private sub [_createFolder](sFolderPath)
+    private sub [_createFolder](byVal sFolderPath)
         dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
         if( not Fso.folderExists(sFolderPath) ) then
             Fso.createFolder(sFolderPath)
@@ -529,7 +529,7 @@ class CSV
     ' 
     '   (string) - Folder path without the last "\"
     ' 
-    private sub [_deleteFolder](sFolderPath)
+    private sub [_deleteFolder](byVal sFolderPath)
         dim Fso : set Fso = Server.createObject("Scripting.FileSystemObject")
         if(Fso.folderExists(sFolderPath)) then
             call Fso.deleteFolder(sFolderPath, true)

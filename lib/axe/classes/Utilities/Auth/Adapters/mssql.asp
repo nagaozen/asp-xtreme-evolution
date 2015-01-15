@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 ' File: mssql.asp
 ' 
@@ -128,7 +128,7 @@ class Auth_Adapter_MSSQL' implements Auth_Interface
         Conn.open(connectionstring)
         
         set Cmd = Server.createObject("ADODB.Command")
-        Cmd.activeConnection = Conn
+        set Cmd.activeConnection = Conn
         Cmd.commandType = adCmdStoredProc
         Cmd.commandText = "SP_axe_auth_authenticate"
         
@@ -148,6 +148,7 @@ class Auth_Adapter_MSSQL' implements Auth_Interface
         Rs.close()
         set Rs = nothing
         
+        set Cmd.activeConnection = nothing
         set Cmd = nothing
         
         Conn.close()

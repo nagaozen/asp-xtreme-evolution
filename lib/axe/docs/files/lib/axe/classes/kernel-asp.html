@@ -107,7 +107,7 @@
                                             <a href="#Kernel.initialize" id="link2" onmouseover="ShowTip(event, 'tt2', 'link2')" onmouseout="HideTip('tt2')">initialize</a>
                                         </td>
                                         <td class="SDescription">
-                                            Initialize the application configuration, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
+                                            Initialize the application settings, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
                                         </td>
                                     </tr>
                                     <tr class="SFunction SIndent2 SMarked">
@@ -324,7 +324,7 @@
                                             <a href="#Kernel.initialize" id="link21" onmouseover="ShowTip(event, 'tt2', 'link21')" onmouseout="HideTip('tt2')">initialize</a>
                                         </td>
                                         <td class="SDescription">
-                                            Initialize the application configuration, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
+                                            Initialize the application settings, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
                                         </td>
                                     </tr>
                                     <tr class="SFunction SIndent1 SMarked">
@@ -622,7 +622,7 @@
                             </table>
                         </blockquote>
                         <p>
-                            Initialize the application configuration, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
+                            Initialize the application settings, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
                         </p>
                         <h4 class="CHeading">
                             Returns
@@ -803,7 +803,7 @@
                             See also
                         </h4>
                         <p>
-                            &lt;config.xml&gt;
+                            &lt;settings.xml&gt;
                         </p>
                     </div>
                 </div>
@@ -903,6 +903,9 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function fileExists(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath
                                                 </td>
@@ -969,6 +972,9 @@
                                             <tr>
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function loadTextFile(
+                                                </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath
@@ -1556,6 +1562,12 @@
                             <a href="#Kernel.indentedTransform" class="LFunction" id="link42" onmouseover="ShowTip(event, 'tt16', 'link42')" onmouseout="HideTip('tt16')">indentedTransform</a>
                         </p>
                         <h4 class="CHeading">
+                            Important
+                        </h4>
+                        <p>
+                            `CDATA` section elements SHOULD be listed at `xsl:output cdata-section-elements` parameter to keep its cdata state.&nbsp; Otherwise its going to be transformed into `#text` nodes.
+                        </p>
+                        <h4 class="CHeading">
                             Notes
                         </h4>
                         <p>
@@ -1725,6 +1737,11 @@
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="Parsers/csv-asp.html">csv.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="Parsers/gfm-asp.html">gfm.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -1962,6 +1979,11 @@
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
+                                <a href="Utilities/es5shim-asp.html">es5shim.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
                                 <a href="Utilities/image-asp.html">image.asp</a>
                             </div>
                         </div>
@@ -1993,6 +2015,11 @@
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="Utilities/upload-asp.html">upload.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="Utilities/xregexp-asp.html">xregexp.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -2047,8 +2074,8 @@
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent17')">Miscellaneous</a>
-                    <div class="MGroupContent" id="MGroupContent17">
+                    <a href="javascript:ToggleMenu('MGroupContent18')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent18">
                         <div class="MEntry">
                             <div class="MGroup">
                                 <a href="javascript:ToggleMenu('MGroupContent15')">App</a>
@@ -2056,11 +2083,6 @@
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../../app/controllers/default-asp.html">default.asp</a>
-                                        </div>
-                                    </div>
-                                    <div class="MEntry">
-                                        <div class="MFile">
-                                            <a href="../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -2110,8 +2132,30 @@
                         </div>
                         <div class="MEntry">
                             <div class="MGroup">
-                                <a href="javascript:ToggleMenu('MGroupContent16')">Lib</a>
-                                <div class="MGroupContent" id="MGroupContent16">
+                                <a href="javascript:ToggleMenu('MGroupContent17')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent17">
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent16')">App</a>
+                                            <div class="MGroupContent" id="MGroupContent16">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../app/controllers/default-asp.html">default.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../app/views/inspect-asp.html">inspect.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../app/models/welcomeModel-asp.html">welcomeModel.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../application-configure-asp.html">application.<wbr />configure.asp</a>
@@ -2170,8 +2214,8 @@
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent18')">Index</a>
-                    <div class="MGroupContent" id="MGroupContent18">
+                    <a href="javascript:ToggleMenu('MGroupContent19')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent19">
                         <div class="MEntry">
                             <div class="MIndex">
                                 <a href="../../../../index/General.html">Everything</a>
@@ -2243,7 +2287,7 @@
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([1, 2], 19);// -->
+            HideAllBut([1, 2], 20);// -->
             //]]>
             </script>
         </div>
@@ -2288,7 +2332,7 @@
                             </td>
                         </tr>
                     </table>
-                </blockquote>Initialize the application configuration, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
+                </blockquote>Initialize the application settings, setup the (string)controller, (string)action and the (string[])argv sessions which will be used to run the MVC architecture.
             </div>
         </div>
         <div class="CToolTip" id="tt3">
@@ -2410,6 +2454,9 @@
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function fileExists(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath
                                         </td>
@@ -2434,6 +2481,9 @@
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function loadTextFile(
+                                        </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath

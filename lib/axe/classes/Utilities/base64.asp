@@ -33,6 +33,7 @@
 ' About:
 ' 
 '     - Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br> @ Oct 2008
+'     - More about Data Types Supported by the MSXML Parser @ <http://support.microsoft.com/kb/289842>
 ' 
 class Base64
     

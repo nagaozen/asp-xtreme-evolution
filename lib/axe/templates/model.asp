@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 ' File: ${1:name}Model.asp
 ' 

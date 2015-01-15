@@ -166,7 +166,7 @@ class Paginator
     ' 
     public function make()
         if( isEmpty(url) ) then
-            Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Please provide the Paginator 'url' property."
+            Err.raise 5, typename(Me) & " runtime error", "Invalid procedure call or argument. Please provide the Paginator 'url' property."
         end if
         
         dim a, b, half
@@ -202,9 +202,10 @@ class Paginator
             Stream.writeText( strsubstitute("<li class='paginator-previous'><a href='{0}'><span>{1}</span></a></li>" & vbNewline, array(replace(url, "{page}", clng(page - 1)), prv)) )
         end if
         
-        if(page - half > 1) then
+        if(a > 1) then
             Stream.writeText( strsubstitute("<li class='paginator-first'><a href='{0}'><span>{1}</span></a></li>" & vbNewline, array(replace(url, "{page}", clng(1)), 1)) )
-            Stream.writeText("<li class='paginator-gap'><span>...</span></li>" & vbNewline)
+            if(a > 2) then _
+                Stream.writeText("<li class='paginator-gap'><span>...</span></li>" & vbNewline)
         end if
         
         dim i : for i = a to b
@@ -215,8 +216,9 @@ class Paginator
             end if
         next
         
-        if(page + half < pages) then
-            Stream.writeText("<li class='paginator-gap'><span>...</span></li>" & vbNewline)
+        if(b < pages) then
+            if( b + 1 < pages ) then _
+                Stream.writeText("<li class='paginator-gap'><span>...</span></li>" & vbNewline)
             Stream.writeText( strsubstitute("<li class='paginator-last'><a href='{0}'><span>{1}</span></a></li>" & vbNewline, array(replace(url, "{page}", clng(pages)), pages)) )
         end if
         

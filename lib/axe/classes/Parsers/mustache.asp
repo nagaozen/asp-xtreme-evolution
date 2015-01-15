@@ -1,4 +1,4 @@
-<script language="Javascript" runat="server">
+﻿<script language="Javascript" runat="server">
 
 /*
 
@@ -6,8 +6,8 @@ File: mustache.asp
 
 AXE(ASP Xtreme Evolution) Mustache parser based on Jan Lehnardt mustache.js.
 
-Mustache.ASP embraces the AXE philosophy of real collaboration over the 
-languages. It works under the mustache.js parser, so this class gets the fixes 
+Mustache.ASP embraces the AXE philosophy of real collaboration over the
+languages. It works over the mustache.js parser, so this class gets the fixes
 and updates directly from the original mustache.js author.
 
 License:
@@ -92,7 +92,7 @@ Parameters:
 
     (string)   - Mustache template
     (Object)   - A javascript object
-    (string)   - Partials (optional)
+    (Object)   - Partials (optional)
     (function) - Javascript function to be used as send
 
 Returns:
@@ -147,442 +147,577 @@ set DS = nothing
 
 
 
-/*
-  mustache.js — Logic-less templates in JavaScript
+/*!
+ * mustache.js - Logic-less {{mustache}} templates with JavaScript
+ * http://github.com/janl/mustache.js
+ */
 
-  See http://mustache.github.com/ for more info.
-*/
+/*global define: false*/
 
-var Mustache = function () {
-  var _toString = Object.prototype.toString;
+var Mustache = function (mustache) {
 
-  Array.isArray = Array.isArray || function (obj) {
-    return _toString.call(obj) == "[object Array]";
+  var Object_toString = Object.prototype.toString;
+  var isArray = Array.isArray || function (object) {
+    return Object_toString.call(object) === '[object Array]';
+  };
+
+  function isFunction(object) {
+    return typeof object === 'function';
   }
 
-  var _trim = String.prototype.trim, trim;
-
-  if (_trim) {
-    trim = function (text) {
-      return text == null ? "" : _trim.call(text);
-    }
-  } else {
-    var trimLeft, trimRight;
-
-    // IE doesn't match non-breaking spaces with \s.
-    if ((/\S/).test("\xA0")) {
-      trimLeft = /^[\s\xA0]+/;
-      trimRight = /[\s\xA0]+$/;
-    } else {
-      trimLeft = /^\s+/;
-      trimRight = /\s+$/;
-    }
-
-    trim = function (text) {
-      return text == null ? "" :
-        text.toString().replace(trimLeft, "").replace(trimRight, "");
-    }
+  function escapeRegExp(string) {
+    return string.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
   }
 
-  var escapeMap = {
+  // Workaround for https://issues.apache.org/jira/browse/COUCHDB-577
+  // See https://github.com/janl/mustache.js/issues/189
+  var RegExp_test = RegExp.prototype.test;
+  function testRegExp(re, string) {
+    return RegExp_test.call(re, string);
+  }
+
+  var nonSpaceRe = /\S/;
+  function isWhitespace(string) {
+    return !testRegExp(nonSpaceRe, string);
+  }
+  
+  var entityMap = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
     '"': '&quot;',
-    "'": '&#39;'
+    "'": '&#39;',
+    "/": '&#x2F;'
   };
 
-  function escapeHTML(string) {
-    return String(string).replace(/&(?!#?\w+;)|[<>"']/g, function (s) {
-      return escapeMap[s] || s;
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'\/]/g, function (s) {
+      return entityMap[s];
     });
   }
 
-  var regexCache = {};
-  var Renderer = function () {};
+  var whiteRe = /\s*/;
+  var spaceRe = /\s+/;
+  var equalsRe = /\s*=/;
+  var curlyRe = /\s*\}/;
+  var tagRe = /#|\^|\/|>|\{|&|=|!/;
 
-  Renderer.prototype = {
-    otag: "{{",
-    ctag: "}}",
-    pragmas: {},
-    buffer: [],
-    pragmas_implemented: {
-      "IMPLICIT-ITERATOR": true
-    },
-    context: {},
+  /**
+   * Breaks up the given `template` string into a tree of tokens. If the `tags`
+   * argument is given here it must be an array with two string values: the
+   * opening and closing tags used in the template (e.g. [ "<%", "%>" ]). Of
+   * course, the default is to use mustaches (i.e. mustache.tags).
+   *
+   * A token is an array with at least 4 elements. The first element is the
+   * mustache symbol that was used inside the tag, e.g. "#" or "&". If the tag
+   * did not contain a symbol (i.e. {{myValue}}) this element is "name". For
+   * all text that appears outside a symbol this element is "text".
+   *
+   * The second element of a token is its "value". For mustache tags this is
+   * whatever else was inside the tag besides the opening symbol. For text tokens
+   * this is the text itself.
+   *
+   * The third and fourth elements of the token are the start and end indices,
+   * respectively, of the token in the original template.
+   *
+   * Tokens that are the root node of a subtree contain two more elements: 1) an
+   * array of tokens in the subtree and 2) the index in the original template at
+   * which the closing tag for that section begins.
+   */
+  function parseTemplate(template, tags) {
+    if (!template)
+      return [];
 
-    render: function (template, context, partials, in_recursion) {
-      // reset buffer & set context
-      if (!in_recursion) {
-        this.context = context;
-        this.buffer = []; // TODO: make this non-lazy
+    var sections = [];     // Stack to hold section tokens
+    var tokens = [];       // Buffer to hold the tokens
+    var spaces = [];       // Indices of whitespace tokens on the current line
+    var hasTag = false;    // Is there a {{tag}} on the current line?
+    var nonSpace = false;  // Is there a non-space char on the current line?
+
+    // Strips all whitespace tokens array for the current line
+    // if there was a {{#tag}} on it and otherwise only space.
+    function stripSpace() {
+      if (hasTag && !nonSpace) {
+        while (spaces.length)
+          delete tokens[spaces.pop()];
+      } else {
+        spaces = [];
       }
 
-      // fail fast
-      if (!this.includes("", template)) {
-        if (in_recursion) {
-          return template;
+      hasTag = false;
+      nonSpace = false;
+    }
+
+    var openingTagRe, closingTagRe, closingCurlyRe;
+    function compileTags(tags) {
+      if (typeof tags === 'string')
+        tags = tags.split(spaceRe, 2);
+
+      if (!isArray(tags) || tags.length !== 2)
+        throw new Error('Invalid tags: ' + tags);
+
+      openingTagRe = new RegExp(escapeRegExp(tags[0]) + '\\s*');
+      closingTagRe = new RegExp('\\s*' + escapeRegExp(tags[1]));
+      closingCurlyRe = new RegExp('\\s*' + escapeRegExp('}' + tags[1]));
+    }
+
+    compileTags(tags || mustache.tags);
+
+    var scanner = new Scanner(template);
+
+    var start, type, value, chr, token, openSection;
+    while (!scanner.eos()) {
+      start = scanner.pos;
+
+      // Match any text between tags.
+      value = scanner.scanUntil(openingTagRe);
+
+      if (value) {
+        for (var i = 0, valueLength = value.length; i < valueLength; ++i) {
+          chr = value.charAt(i);
+
+          if (isWhitespace(chr)) {
+            spaces.push(tokens.length);
+          } else {
+            nonSpace = true;
+          }
+
+          tokens.push([ 'text', chr, start, start + 1 ]);
+          start += 1;
+
+          // Check for whitespace on the current line.
+          if (chr === '\n')
+            stripSpace();
+        }
+      }
+
+      // Match the opening tag.
+      if (!scanner.scan(openingTagRe))
+        break;
+
+      hasTag = true;
+
+      // Get the tag type.
+      type = scanner.scan(tagRe) || 'name';
+      scanner.scan(whiteRe);
+
+      // Get the tag value.
+      if (type === '=') {
+        value = scanner.scanUntil(equalsRe);
+        scanner.scan(equalsRe);
+        scanner.scanUntil(closingTagRe);
+      } else if (type === '{') {
+        value = scanner.scanUntil(closingCurlyRe);
+        scanner.scan(curlyRe);
+        scanner.scanUntil(closingTagRe);
+        type = '&';
+      } else {
+        value = scanner.scanUntil(closingTagRe);
+      }
+
+      // Match the closing tag.
+      if (!scanner.scan(closingTagRe))
+        throw new Error('Unclosed tag at ' + scanner.pos);
+
+      token = [ type, value, start, scanner.pos ];
+      tokens.push(token);
+
+      if (type === '#' || type === '^') {
+        sections.push(token);
+      } else if (type === '/') {
+        // Check section nesting.
+        openSection = sections.pop();
+
+        if (!openSection)
+          throw new Error('Unopened section "' + value + '" at ' + start);
+
+        if (openSection[1] !== value)
+          throw new Error('Unclosed section "' + openSection[1] + '" at ' + start);
+      } else if (type === 'name' || type === '{' || type === '&') {
+        nonSpace = true;
+      } else if (type === '=') {
+        // Set the tags for the next time around.
+        compileTags(value);
+      }
+    }
+
+    // Make sure there are no open sections when we're done.
+    openSection = sections.pop();
+
+    if (openSection)
+      throw new Error('Unclosed section "' + openSection[1] + '" at ' + scanner.pos);
+
+    return nestTokens(squashTokens(tokens));
+  }
+
+  /**
+   * Combines the values of consecutive text tokens in the given `tokens` array
+   * to a single token.
+   */
+  function squashTokens(tokens) {
+    var squashedTokens = [];
+
+    var token, lastToken;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      if (token) {
+        if (token[0] === 'text' && lastToken && lastToken[0] === 'text') {
+          lastToken[1] += token[1];
+          lastToken[3] = token[3];
         } else {
-          this.send(template);
-          return;
+          squashedTokens.push(token);
+          lastToken = token;
         }
       }
+    }
 
-      // get the pragmas together
-      template = this.render_pragmas(template);
+    return squashedTokens;
+  }
 
-      // render the template
-      var html = this.render_section(template, context, partials);
+  /**
+   * Forms the given array of `tokens` into a nested tree structure where
+   * tokens that represent a section have two additional items: 1) an array of
+   * all tokens that appear in that section and 2) the index in the original
+   * template that represents the end of that section.
+   */
+  function nestTokens(tokens) {
+    var nestedTokens = [];
+    var collector = nestedTokens;
+    var sections = [];
 
-      // render_section did not find any sections, we still need to render the tags
-      if (html === false) {
-        html = this.render_tags(template, context, partials, in_recursion);
+    var token, section;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      switch (token[0]) {
+      case '#':
+      case '^':
+        collector.push(token);
+        sections.push(token);
+        collector = token[4] = [];
+        break;
+      case '/':
+        section = sections.pop();
+        section[5] = token[2];
+        collector = sections.length > 0 ? sections[sections.length - 1][4] : nestedTokens;
+        break;
+      default:
+        collector.push(token);
       }
+    }
 
-      if (in_recursion) {
-        return html;
-      } else {
-        this.sendLines(html);
-      }
-    },
+    return nestedTokens;
+  }
 
-    /*
-      Sends parsed lines
-    */
-    send: function (line) {
-      if (line !== "") {
-        this.buffer.push(line);
-      }
-    },
+  /**
+   * A simple string scanner that is used by the template parser to find
+   * tokens in template strings.
+   */
+  function Scanner(string) {
+    this.string = string;
+    this.tail = string;
+    this.pos = 0;
+  }
 
-    sendLines: function (text) {
-      if (text) {
-        var lines = text.split("\n");
-        for (var i = 0; i < lines.length; i++) {
-          this.send(lines[i]);
+  /**
+   * Returns `true` if the tail is empty (end of string).
+   */
+  Scanner.prototype.eos = function () {
+    return this.tail === "";
+  };
+
+  /**
+   * Tries to match the given regular expression at the current position.
+   * Returns the matched text if it can match, the empty string otherwise.
+   */
+  Scanner.prototype.scan = function (re) {
+    var match = this.tail.match(re);
+
+    if (!match || match.index !== 0)
+      return '';
+
+    var string = match[0];
+
+    this.tail = this.tail.substring(string.length);
+    this.pos += string.length;
+
+    return string;
+  };
+
+  /**
+   * Skips all text until the given regular expression can be matched. Returns
+   * the skipped string, which is the entire tail if no match can be made.
+   */
+  Scanner.prototype.scanUntil = function (re) {
+    var index = this.tail.search(re), match;
+
+    switch (index) {
+    case -1:
+      match = this.tail;
+      this.tail = "";
+      break;
+    case 0:
+      match = "";
+      break;
+    default:
+      match = this.tail.substring(0, index);
+      this.tail = this.tail.substring(index);
+    }
+
+    this.pos += match.length;
+
+    return match;
+  };
+
+  /**
+   * Represents a rendering context by wrapping a view object and
+   * maintaining a reference to the parent context.
+   */
+  function Context(view, parentContext) {
+    this.view = view == null ? {} : view;
+    this.cache = { '.': this.view };
+    this.parent = parentContext;
+  }
+
+  /**
+   * Creates a new context using the given view with this context
+   * as the parent.
+   */
+  Context.prototype.push = function (view) {
+    return new Context(view, this);
+  };
+
+  /**
+   * Returns the value of the given name in this context, traversing
+   * up the context hierarchy if the value is absent in this context's view.
+   */
+  Context.prototype.lookup = function (name) {
+    var cache = this.cache;
+
+    var value;
+    if (name in cache) {
+      value = cache[name];
+    } else {
+      var context = this, names, index;
+
+      while (context) {
+        if (name.indexOf('.') > 0) {
+          value = context.view;
+          names = name.split('.');
+          index = 0;
+
+          while (value != null && index < names.length)
+            value = value[names[index++]];
+        } else {
+          value = context.view[name];
         }
-      }
-    },
 
-    /*
-      Looks for %PRAGMAS
-    */
-    render_pragmas: function (template) {
-      // no pragmas
-      if (!this.includes("%", template)) {
-        return template;
+        if (value != null)
+          break;
+
+        context = context.parent;
       }
 
-      var that = this;
-      var regex = this.getCachedRegex("render_pragmas", function (otag, ctag) {
-        return new RegExp(otag + "%([\\w-]+) ?([\\w]+=[\\w]+)?" + ctag, "g");
-      });
+      cache[name] = value;
+    }
 
-      return template.replace(regex, function (match, pragma, options) {
-        if (!that.pragmas_implemented[pragma]) {
-          throw({message:
-            "This implementation of mustache doesn't understand the '" +
-            pragma + "' pragma"});
-        }
-        that.pragmas[pragma] = {};
-        if (options) {
-          var opts = options.split("=");
-          that.pragmas[pragma][opts[0]] = opts[1];
-        }
-        return "";
-        // ignore unknown pragmas silently
-      });
-    },
+    if (isFunction(value))
+      value = value.call(this.view);
 
-    /*
-      Tries to find a partial in the curent scope and render it
-    */
-    render_partial: function (name, context, partials) {
-      name = trim(name);
-      if (!partials || partials[name] === undefined) {
-        throw({message: "unknown_partial '" + name + "'"});
-      }
-      if (!context || typeof context[name] != "object") {
-        return this.render(partials[name], context, partials, true);
-      }
-      return this.render(partials[name], context[name], partials, true);
-    },
+    return value;
+  };
 
-    /*
-      Renders inverted (^) and normal (#) sections
-    */
-    render_section: function (template, context, partials) {
-      if (!this.includes("#", template) && !this.includes("^", template)) {
-        // did not render anything, there were no sections
-        return false;
-      }
+  /**
+   * A Writer knows how to take a stream of tokens and render them to a
+   * string, given a context. It also maintains a cache of templates to
+   * avoid the need to parse the same template twice.
+   */
+  function Writer() {
+    this.cache = {};
+  }
 
-      var that = this;
+  /**
+   * Clears all cached templates in this writer.
+   */
+  Writer.prototype.clearCache = function () {
+    this.cache = {};
+  };
 
-      var regex = this.getCachedRegex("render_section", function (otag, ctag) {
-        // This regex matches _the first_ section ({{#foo}}{{/foo}}), and captures the remainder
-        return new RegExp(
-          "^([\\s\\S]*?)" +         // all the crap at the beginning that is not {{*}} ($1)
+  /**
+   * Parses and caches the given `template` and returns the array of tokens
+   * that is generated from the parse.
+   */
+  Writer.prototype.parse = function (template, tags) {
+    var cache = this.cache;
+    var tokens = cache[template];
 
-          otag +                    // {{
-          "(\\^|\\#)\\s*(.+?)\\s*" +//  #foo (# == $2, foo == $3), not greedy
-          ctag +                    // }}
+    if (tokens == null)
+      tokens = cache[template] = parseTemplate(template, tags);
 
-          "\n*([\\s\\S]*?)" +       // between the tag ($2). leading newlines are dropped
+    return tokens;
+  };
 
-          otag +                    // {{
-          "\\/\\s*\\3\\s*" +        //  /foo (backreference to the opening tag).
-          ctag +                    // }}
+  /**
+   * High-level method that is used to render the given `template` with
+   * the given `view`.
+   *
+   * The optional `partials` argument may be an object that contains the
+   * names and templates of partials that are used in the template. It may
+   * also be a function that is used to load partial templates on the fly
+   * that takes a single argument: the name of the partial.
+   */
+  Writer.prototype.render = function (template, view, partials) {
+    var tokens = this.parse(template);
+    var context = (view instanceof Context) ? view : new Context(view);
+    return this.renderTokens(tokens, context, partials, template);
+  };
 
-          "\\s*([\\s\\S]*)$",       // everything else in the string ($4). leading whitespace is dropped.
+  /**
+   * Low-level method that renders the given array of `tokens` using
+   * the given `context` and `partials`.
+   *
+   * Note: The `originalTemplate` is only ever used to extract the portion
+   * of the original template that was contained in a higher-order section.
+   * If the template doesn't use higher-order sections, this argument may
+   * be omitted.
+   */
+  Writer.prototype.renderTokens = function (tokens, context, partials, originalTemplate) {
+    var buffer = '';
 
-        "g");
-      });
+    // This function is used to render an arbitrary template
+    // in the current context by higher-order sections.
+    var self = this;
+    function subRender(template) {
+      return self.render(template, context, partials);
+    }
 
+    var token, value;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
 
-      // for each {{#foo}}{{/foo}} section do...
-      return template.replace(regex, function (match, before, type, name, content, after) {
-        // before contains only tags, no sections
-        var renderedBefore = before ? that.render_tags(before, context, partials, true) : "",
+      switch (token[0]) {
+      case '#':
+        value = context.lookup(token[1]);
 
-        // after may contain both sections and tags, so use full rendering function
-            renderedAfter = after ? that.render(after, context, partials, true) : "",
+        if (!value)
+          continue;
 
-        // will be computed below
-            renderedContent,
-
-            value = that.find(name, context);
-
-        if (type === "^") { // inverted section
-          if (!value || Array.isArray(value) && value.length === 0) {
-            // false or empty list, render it
-            renderedContent = that.render(content, context, partials, true);
-          } else {
-            renderedContent = "";
+        if (isArray(value)) {
+          for (var j = 0, valueLength = value.length; j < valueLength; ++j) {
+            buffer += this.renderTokens(token[4], context.push(value[j]), partials, originalTemplate);
           }
-        } else if (type === "#") { // normal section
-          if (Array.isArray(value)) { // Enumerable, Let's loop!
-            renderedContent = that.map(value, function (row) {
-              return that.render(content, that.create_context(row), partials, true);
-            }).join("");
-          } else if (that.is_object(value)) { // Object, Use it as subcontext!
-            renderedContent = that.render(content, that.create_context(value),
-              partials, true);
-          } else if (typeof value == "function") {
-            // higher order section
-            renderedContent = value.call(context, content, function (text) {
-              return that.render(text, context, partials, true);
-            });
-          } else if (value) { // boolean section
-            renderedContent = that.render(content, context, partials, true);
-          } else {
-            renderedContent = "";
-          }
+        } else if (typeof value === 'object' || typeof value === 'string') {
+          buffer += this.renderTokens(token[4], context.push(value), partials, originalTemplate);
+        } else if (isFunction(value)) {
+          if (typeof originalTemplate !== 'string')
+            throw new Error('Cannot use higher-order sections without the original template');
+
+          // Extract the portion of the original template that the section contains.
+          value = value.call(context.view, originalTemplate.slice(token[3], token[5]), subRender);
+
+          if (value != null)
+            buffer += value;
+        } else {
+          buffer += this.renderTokens(token[4], context, partials, originalTemplate);
         }
 
-        return renderedBefore + renderedContent + renderedAfter;
-      });
-    },
+        break;
+      case '^':
+        value = context.lookup(token[1]);
 
-    /*
-      Replace {{foo}} and friends with values from our view
-    */
-    render_tags: function (template, context, partials, in_recursion) {
-      // tit for tat
-      var that = this;
+        // Use JavaScript's definition of falsy. Include empty arrays.
+        // See https://github.com/janl/mustache.js/issues/186
+        if (!value || (isArray(value) && value.length === 0))
+          buffer += this.renderTokens(token[4], context, partials, originalTemplate);
 
-      var new_regex = function () {
-        return that.getCachedRegex("render_tags", function (otag, ctag) {
-          return new RegExp(otag + "(=|!|>|&|\\{|%)?([^#\\^]+?)\\1?" + ctag + "+", "g");
-        });
-      };
+        break;
+      case '>':
+        if (!partials)
+          continue;
 
-      var regex = new_regex();
-      var tag_replace_callback = function (match, operator, name) {
-        switch(operator) {
-        case "!": // ignore comments
-          return "";
-        case "=": // set new delimiters, rebuild the replace regexp
-          that.set_delimiters(name);
-          regex = new_regex();
-          return "";
-        case ">": // render partial
-          return that.render_partial(name, context, partials);
-        case "{": // the triple mustache is unescaped
-        case "&": // & operator is an alternative unescape method
-          return that.find(name, context);
-        default: // escape the value
-          return escapeHTML(that.find(name, context));
-        }
-      };
-      var lines = template.split("\n");
-      for(var i = 0; i < lines.length; i++) {
-        lines[i] = lines[i].replace(regex, tag_replace_callback, this);
-        if (!in_recursion) {
-          this.send(lines[i]);
-        }
+        value = isFunction(partials) ? partials(token[1]) : partials[token[1]];
+
+        if (value != null)
+          buffer += this.renderTokens(this.parse(value), context, partials, value);
+
+        break;
+      case '&':
+        value = context.lookup(token[1]);
+
+        if (value != null)
+          buffer += value;
+
+        break;
+      case 'name':
+        value = context.lookup(token[1]);
+
+        if (value != null)
+          buffer += mustache.escape(value);
+
+        break;
+      case 'text':
+        buffer += token[1];
+        break;
       }
+    }
 
-      if (in_recursion) {
-        return lines.join("\n");
-      }
-    },
+    return buffer;
+  };
 
-    set_delimiters: function (delimiters) {
-      var dels = delimiters.split(" ");
-      this.otag = this.escape_regex(dels[0]);
-      this.ctag = this.escape_regex(dels[1]);
-    },
+  mustache.name = "mustache.js";
+  mustache.version = "0.8.1";
+  mustache.tags = [ "{{", "}}" ];
 
-    escape_regex: function (text) {
-      // thank you Simon Willison
-      if (!arguments.callee.sRE) {
-        var specials = [
-          '/', '.', '*', '+', '?', '|',
-          '(', ')', '[', ']', '{', '}', '\\'
-        ];
-        arguments.callee.sRE = new RegExp(
-          '(\\' + specials.join('|\\') + ')', 'g'
-        );
-      }
-      return text.replace(arguments.callee.sRE, '\\$1');
-    },
+  // All high-level mustache.* functions use this writer.
+  var defaultWriter = new Writer();
 
-    /*
-      find `name` in current `context`. That is find me a value
-      from the view object
-    */
-    find: function (name, context) {
-      name = trim(name);
+  /**
+   * Clears all cached templates in the default writer.
+   */
+  mustache.clearCache = function () {
+    return defaultWriter.clearCache();
+  };
 
-      // Checks whether a value is thruthy or false or 0
-      function is_kinda_truthy(bool) {
-        return bool === false || bool === 0 || bool;
-      }
+  /**
+   * Parses and caches the given template in the default writer and returns the
+   * array of tokens it contains. Doing this ahead of time avoids the need to
+   * parse templates on the fly as they are rendered.
+   */
+  mustache.parse = function (template, tags) {
+    return defaultWriter.parse(template, tags);
+  };
 
-      var value;
+  /**
+   * Renders the `template` with the given `view` and `partials` using the
+   * default writer.
+   */
+  mustache.render = function (template, view, partials) {
+    return defaultWriter.render(template, view, partials);
+  };
 
-      // check for dot notation eg. foo.bar
-      if (name.match(/([a-z_]+)\./ig)) {
-        var childValue = this.walk_context(name, context);
-        if (is_kinda_truthy(childValue)) {
-          value = childValue;
-        }
-      } else {
-        if (is_kinda_truthy(context[name])) {
-          value = context[name];
-        } else if (is_kinda_truthy(this.context[name])) {
-          value = this.context[name];
-        }
-      }
+  // This is here for backwards compatibility with 0.4.x.
+  mustache.to_html = function (template, view, partials, send) {
+    var result = mustache.render(template, view, partials);
 
-      if (typeof value == "function") {
-        return value.apply(context);
-      }
-      if (value !== undefined) {
-        return value;
-      }
-      // silently ignore unkown variables
-      return "";
-    },
-
-    walk_context: function (name, context) {
-      var path = name.split('.');
-      // if the var doesn't exist in current context, check the top level context
-      var value_context = (context[path[0]] != undefined) ? context : this.context;
-      var value = value_context[path.shift()];
-      while (value != undefined && path.length > 0) {
-        value_context = value;
-        value = value[path.shift()];
-      }
-      // if the value is a function, call it, binding the correct context
-      if (typeof value == "function") {
-        return value.apply(value_context);
-      }
-      return value;
-    },
-
-    // Utility methods
-
-    /* includes tag */
-    includes: function (needle, haystack) {
-      return haystack.indexOf(this.otag + needle) != -1;
-    },
-
-    // by @langalex, support for arrays of strings
-    create_context: function (_context) {
-      if (this.is_object(_context)) {
-        return _context;
-      } else {
-        var iterator = ".";
-        if (this.pragmas["IMPLICIT-ITERATOR"]) {
-          iterator = this.pragmas["IMPLICIT-ITERATOR"].iterator;
-        }
-        var ctx = {};
-        ctx[iterator] = _context;
-        return ctx;
-      }
-    },
-
-    is_object: function (a) {
-      return a && typeof a == "object";
-    },
-
-    /*
-      Why, why, why? Because IE. Cry, cry cry.
-    */
-    map: function (array, fn) {
-      if (typeof array.map == "function") {
-        return array.map(fn);
-      } else {
-        var r = [];
-        var l = array.length;
-        for(var i = 0; i < l; i++) {
-          r.push(fn(array[i]));
-        }
-        return r;
-      }
-    },
-
-    getCachedRegex: function (name, generator) {
-      var byOtag = regexCache[this.otag];
-      if (!byOtag) {
-        byOtag = regexCache[this.otag] = {};
-      }
-
-      var byCtag = byOtag[this.ctag];
-      if (!byCtag) {
-        byCtag = byOtag[this.ctag] = {};
-      }
-
-      var regex = byCtag[name];
-      if (!regex) {
-        regex = byCtag[name] = generator(this.otag, this.ctag);
-      }
-
-      return regex;
+    if (isFunction(send)) {
+      send(result);
+    } else {
+      return result;
     }
   };
 
-  return({
-    name: "mustache.js",
-    version: "0.4.3-dev",
+  // Export the escaping function so that the user may override it.
+  // See https://github.com/janl/mustache.js/issues/244
+  mustache.escape = escapeHtml;
 
-    /*
-      Turns a template and view into HTML
-    */
-    to_html: function (template, view, partials, send_fun) {
-      var renderer = new Renderer();
-      if (send_fun) {
-        renderer.send = send_fun;
-      }
-      renderer.render(template, view || {}, partials);
-      if (!send_fun) {
-        return renderer.buffer.join("\n");
-      }
-    }
-  });
-}();
+  // Export these mainly for testing, but also for advanced usage.
+  mustache.Scanner = Scanner;
+  mustache.Context = Context;
+  mustache.Writer = Writer;
+
+  return mustache;
+
+}({});
 
 </script>
-

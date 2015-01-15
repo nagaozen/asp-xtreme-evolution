@@ -688,12 +688,18 @@
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function fromString(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     str,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     hasHeaders
                                                 </td>
@@ -750,7 +756,7 @@
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
-Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/app/writables/"</span><span class="br0">)</span>
+Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/instance/writables/"</span><span class="br0">)</span>
 Parser.<span class="kw3">charset</span>   <span class="sy0">=</span> <span class="st0">"UTF-8"</span>
 Parser.<span class="me1">codepage</span>  <span class="sy0">=</span> <span class="nu0">65001</span>
 Parser.<span class="me1">separator</span> <span class="sy0">=</span> <span class="st0">";"</span>
@@ -786,12 +792,18 @@ Data.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function fromFile(
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     path,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     hasHeaders
                                                 </td>
@@ -848,7 +860,7 @@ Data.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                             <div class="code">
                                 <pre class="asp">
 <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
-Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/app/writables/"</span><span class="br0">)</span>
+Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/instance/writables/"</span><span class="br0">)</span>
 Parser.<span class="kw3">charset</span>   <span class="sy0">=</span> <span class="st0">"Windows-1252"</span>
 Parser.<span class="me1">codepage</span>  <span class="sy0">=</span> <span class="nu0">1252</span>
 Parser.<span class="me1">separator</span> <span class="sy0">=</span> <span class="st0">","</span>
@@ -882,6 +894,9 @@ Data.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                             <tr>
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     public function toString(
+                                                </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byRef&nbsp;
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     Rs
@@ -937,7 +952,7 @@ Conn.<span class="kw3">open</span><span class="br0">(</span>connectionstring<spa
 <span class="kw1">set</span> Rs <span class="sy0">=</span> Conn.<span class="kw3">execute</span><span class="br0">(</span>...<span class="br0">)</span>
 <span class="kw1">if</span><span class="br0">(</span><span class="kw1">not</span> Rs.<span class="kw2">eof</span><span class="br0">)</span> <span class="kw1">then</span>
     <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">new</span> CSV
-    Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/app/writables/"</span><span class="br0">)</span>
+    Parser.<span class="me1">writablesPath</span> <span class="sy0">=</span> <span class="kw1">Server</span>.<span class="kw3">mapPath</span><span class="br0">(</span><span class="st0">"/instance/writables/"</span><span class="br0">)</span>
     csv <span class="sy0">=</span> Parser.<span class="me1">toString</span><span class="br0">(</span>Rs<span class="br0">)</span>
     <span class="kw1">set</span> Parser <span class="sy0">=</span> <span class="kw2">nothing</span>
 <span class="kw1">end</span> <span class="kw1">if</span>
@@ -1078,6 +1093,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_createSchema](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     hasHeaders
                                                 </td>
@@ -1123,6 +1141,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                             <tr>
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private function [_fileExists](
+                                                </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath
@@ -1191,6 +1212,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private function [_loadTextFile](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath
                                                 </td>
@@ -1250,12 +1274,18 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_createFile](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sContent
                                                 </td>
@@ -1310,12 +1340,18 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_createFileStd](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sContent
                                                 </td>
@@ -1370,18 +1406,27 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_createFileWithoutBOM](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sContent,
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     p0
                                                 </td>
@@ -1444,6 +1489,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_deleteFile](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFilePath
                                                 </td>
@@ -1490,6 +1538,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_createFolder](
                                                 </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
+                                                </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFolderPath
                                                 </td>
@@ -1535,6 +1586,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                             <tr>
                                                 <td class="PBeforeParameters" nowrap="nowrap">
                                                     private sub [_deleteFolder](
+                                                </td>
+                                                <td class="PType" nowrap="nowrap">
+                                                    byVal&nbsp;
                                                 </td>
                                                 <td class="PParameter" nowrap="nowrap">
                                                     sFolderPath
@@ -1636,6 +1690,11 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                         <div class="MEntry">
                             <div class="MFile" id="MSelected">
                                 csv.asp
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="gfm-asp.html">gfm.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -1873,6 +1932,11 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                         </div>
                         <div class="MEntry">
                             <div class="MFile">
+                                <a href="../Utilities/es5shim-asp.html">es5shim.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
                                 <a href="../Utilities/image-asp.html">image.asp</a>
                             </div>
                         </div>
@@ -1904,6 +1968,11 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                         <div class="MEntry">
                             <div class="MFile">
                                 <a href="../Utilities/upload-asp.html">upload.asp</a>
+                            </div>
+                        </div>
+                        <div class="MEntry">
+                            <div class="MFile">
+                                <a href="../Utilities/xregexp-asp.html">xregexp.asp</a>
                             </div>
                         </div>
                         <div class="MEntry">
@@ -1958,8 +2027,8 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent17')">Miscellaneous</a>
-                    <div class="MGroupContent" id="MGroupContent17">
+                    <a href="javascript:ToggleMenu('MGroupContent18')">Miscellaneous</a>
+                    <div class="MGroupContent" id="MGroupContent18">
                         <div class="MEntry">
                             <div class="MGroup">
                                 <a href="javascript:ToggleMenu('MGroupContent15')">App</a>
@@ -1967,11 +2036,6 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../../../app/controllers/default-asp.html">default.asp</a>
-                                        </div>
-                                    </div>
-                                    <div class="MEntry">
-                                        <div class="MFile">
-                                            <a href="../../../../app/models/defaultModel-asp.html">defaultModel.asp</a>
                                         </div>
                                     </div>
                                     <div class="MEntry">
@@ -2021,8 +2085,30 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                         </div>
                         <div class="MEntry">
                             <div class="MGroup">
-                                <a href="javascript:ToggleMenu('MGroupContent16')">Lib</a>
-                                <div class="MGroupContent" id="MGroupContent16">
+                                <a href="javascript:ToggleMenu('MGroupContent17')">Lib</a>
+                                <div class="MGroupContent" id="MGroupContent17">
+                                    <div class="MEntry">
+                                        <div class="MGroup">
+                                            <a href="javascript:ToggleMenu('MGroupContent16')">App</a>
+                                            <div class="MGroupContent" id="MGroupContent16">
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/controllers/default-asp.html">default.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/views/inspect-asp.html">inspect.asp</a>
+                                                    </div>
+                                                </div>
+                                                <div class="MEntry">
+                                                    <div class="MFile">
+                                                        <a href="../../app/models/welcomeModel-asp.html">welcomeModel.asp</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="MEntry">
                                         <div class="MFile">
                                             <a href="../../application-configure-asp.html">application.<wbr />configure.asp</a>
@@ -2081,8 +2167,8 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
             </div>
             <div class="MEntry">
                 <div class="MGroup">
-                    <a href="javascript:ToggleMenu('MGroupContent18')">Index</a>
-                    <div class="MGroupContent" id="MGroupContent18">
+                    <a href="javascript:ToggleMenu('MGroupContent19')">Index</a>
+                    <div class="MGroupContent" id="MGroupContent19">
                         <div class="MEntry">
                             <div class="MIndex">
                                 <a href="../../../../../index/General.html">Everything</a>
@@ -2154,7 +2240,7 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
             </div><script language="JavaScript" type="text/javascript">
 //<![CDATA[
             <!--
-            HideAllBut([3, 4, 2], 19);// -->
+            HideAllBut([3, 4, 2], 20);// -->
             //]]>
             </script>
         </div>
@@ -2169,12 +2255,18 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function fromString(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             str,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             hasHeaders
                                         </td>
@@ -2200,12 +2292,18 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function fromFile(
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             path,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             hasHeaders
                                         </td>
@@ -2230,6 +2328,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             public function toString(
+                                        </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byRef&nbsp;
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             Rs
@@ -2269,6 +2370,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_createSchema](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             hasHeaders
                                         </td>
@@ -2293,6 +2397,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private function [_fileExists](
+                                        </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath
@@ -2319,6 +2426,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private function [_loadTextFile](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath
                                         </td>
@@ -2344,12 +2454,18 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_createFile](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sContent
                                         </td>
@@ -2375,12 +2491,18 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_createFileStd](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sContent
                                         </td>
@@ -2406,18 +2528,27 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_createFileWithoutBOM](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sContent,
                                         </td>
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             p0
                                         </td>
@@ -2442,6 +2573,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_deleteFile](
+                                        </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFilePath
@@ -2468,6 +2602,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_createFolder](
                                         </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
+                                        </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFolderPath
                                         </td>
@@ -2492,6 +2629,9 @@ Conn.<span class="kw3">close</span><span class="br0">(</span><span class="br0">)
                                     <tr>
                                         <td class="PBeforeParameters" nowrap="nowrap">
                                             private sub [_deleteFolder](
+                                        </td>
+                                        <td class="PType" nowrap="nowrap">
+                                            byVal&nbsp;
                                         </td>
                                         <td class="PParameter" nowrap="nowrap">
                                             sFolderPath

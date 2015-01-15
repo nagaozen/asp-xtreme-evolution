@@ -3,7 +3,7 @@
  * Custom NaturalDocs stylesheet for zend.lojcomm.com.br works.
  * 
  * Written by Fabio Zendhi Nagao <http://zend.lojcomm.com.br/>
- * January 2008
+ * May 2014
  * 
  * License:
  * 
@@ -32,6 +32,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+/* --( import fonts )-------------------------------------------------------- */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
 /* --( execute reset fonts )------------------------------------------------- */
 /* Copyright (c) 2007, Yahoo! Inc. All rights reserved.
@@ -64,7 +68,8 @@ dl dd {
 
 /* --( layout )-------------------------------------------------------------- */
 body {
-    font-family: 'Droid Sans', arial, serif;
+    font-family: 'Open Sans Condensed', serif;
+    font-size: 15px;
     color: #2E3436;
 }
 
@@ -72,6 +77,18 @@ body.ContentPage,
 body.IndexPage {
     background-color: #2E3436;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 5px;
+    margin-bottom: .5em;
+}
+
+h1 { font-size: 420%; }
+h2 { font-size: 260%; }
+h3 { font-size: 180%; }
+h4 { font-size: 140%; }
+h5 { font-size: 120%; }
+h6 { font-size: 100%; }
 
 a:link,
 a:visited { color: #729FCF;}
@@ -109,9 +126,8 @@ blockquote {
 
     .MTitle {
         padding: 10px;
-        font-weight: bold;
+        font: 120% "Share Tech Mono", sans-serif;
         color: #FCE94F;
-        letter-spacing: -1px;
         text-align: center;
     }
 
@@ -141,7 +157,6 @@ blockquote {
         padding: 3px 5px;
         color: #EEEEEC;
         font-weight: bold;
-        letter-spacing: -1px;
         text-align: right;
         text-decoration: none;
     }
@@ -264,29 +279,20 @@ blockquote {
     }
 
     #MainTopic .CTitle {
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: #BABDB6;
-        font-size: 197%;
-        color: #FFF;
-        text-shadow: 2px 2px 2px #555753;
+        color: #000;
     }
 
     .CTitle {
-        margin-bottom: 10px;
-        padding: 5px;
-        font-size: 123.1%;
-        font-weight: bold;
         color: #2e3436;
     }
-        .CGroup .CTitle { background-color: #D3D7CF; }
-        .CClass .CTitle { background-color: #4E9A06; color: #FFF; }
-        .CProperty .CTitle { background-color: #DBEEF3; text-shadow: 2px 2px 2px #92CDDC; }
-        .CFunction .CTitle { background-color: #E5E0EC; text-shadow: 2px 2px 2px #B2A2C7; }
-        .CInterface .CTitle { background-color: #F2DCDB; text-shadow: 2px 2px 2px #D99694; }
-        .CDatabase .CTitle { background-color: #C6D9F0; text-shadow: 2px 2px 2px #548DD4; }
-        .CDatabaseTable .CTitle { background-color: #DBE5F1; text-shadow: 2px 2px 2px #95B3D7; }
-        .CSection .CTitle  { background-color: #FDEADA; text-shadow: 2px 2px 2px #FAC08F; }
+        .CGroup .CTitle { border-bottom: 2px solid #D3D7CF; margin-bottom: .5em; }
+        .CClass .CTitle { border-bottom: 2px solid #4E9A06; margin-bottom: .5em; }
+        .CProperty .CTitle { border-bottom: 2px solid #DBEEF3; margin-bottom: .5em; }
+        .CFunction .CTitle { border-bottom: 2px solid #E5E0EC; margin-bottom: .5em; }
+        .CInterface .CTitle { border-bottom: 2px solid #F2DCDB; margin-bottom: .5em; }
+        .CDatabase .CTitle { border-bottom: 2px solid #C6D9F0; margin-bottom: .5em; }
+        .CDatabaseTable .CTitle { border-bottom: 2px solid #DBE5F1; margin-bottom: .5em; }
+        .CSection .CTitle  { border-bottom: 2px solid #FDEADA; margin-bottom: .5em; }
 
     .CBody {
         margin: 0 10px;
@@ -308,11 +314,9 @@ blockquote {
     .CToolTip blockquote { overflow: hidden; }
 
     .CHeading {
-        border-top: 1px dotted #D3D7CF;
-        border-bottom: 1px dotted #D3D7CF;
+        border-bottom: 1px solid #D3D7CF;
         margin-bottom: 5px;
         padding: 4px 0;
-        font-weight: bold;
         color: #2E3436;
     }
 
@@ -334,7 +338,7 @@ blockquote {
         -moz-box-shadow: 1px 1px 5px #CCC;
         -webkit-box-shadow: 1px 1px 5px #CCC;
         
-        font: 85% Monaco, "Bitstream Vera Sans Mono Roman", "DejaVu Sans Mono", "Courier New", Monospace;
+        font: 85% "Share Tech Mono", monospace;
         overflow: auto;
     }
 
@@ -352,7 +356,7 @@ blockquote {
         width: 100%;
     }
 
-        .CDLEntry { width: 20%; font: 85% Monaco, "Courier New", Courier, MonoSpace; color: #4E9A06; }
+        .CDLEntry { width: 20%; font: 85% "Share Tech Mono", monospace; color: #4E9A06; }
         .CDLDescription { width: 80%; }
 
 
@@ -360,7 +364,7 @@ blockquote {
 .Prototype {
     margin: 10px;
     background-color: #eeeeec;
-    font-family: Monaco, "Courier New", Courier, MonoSpace;
+    font-family: "Share Tech Mono", monospace;
 }
 
     .PDefaultValue,
@@ -408,8 +412,7 @@ blockquote {
 }
 
     .STitle {
-        border-top: 1px dotted #D3D7CF;
-        border-bottom: 1px dotted #D3D7CF;
+        border-bottom: 1px solid #D3D7CF;
         margin-bottom: 5px;
         padding: 4px 0;
         font-weight: bold;
@@ -433,7 +436,7 @@ blockquote {
             font-size: 85%;
         }
 
-        .SEntry { width: 25%; font-family: Monaco, "Courier New", Courier, MonoSpace; }
+        .SEntry { width: 25%; font-family: "Share Tech Mono", monospace; }
         .SDescription { width: 75%; }
 
         .SMarked { background-color: #D7E3BC; }
@@ -565,7 +568,7 @@ body.ContentPage #Footer,
 body.IndexPage #Footer { text-align: right; margin: 5px }
 
 /* mootools enhacements */
-a.toTop{ float:right; font: 75% Monaco, "Courier New", Courier, MonoSpace; text-transform: uppercase; color: #2E3436; }
+a.toTop { float:right; font-size: 40%; text-transform: uppercase; color: #2E3436; }
 
 /* labels */
 label.protected {

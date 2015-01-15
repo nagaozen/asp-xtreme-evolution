@@ -8,7 +8,7 @@ for sure.
 
 ### Added
 
-* routing system based on /app/config.xml
+* routing system based on /instance/config/settings.xml
 * new logo and favicon
 * /app/singletons.initialize.asp and /app/singletons.finalize.asp to manage application singletons.
 * classType and classVersion properties in all classes

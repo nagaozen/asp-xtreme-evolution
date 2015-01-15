@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 ' File: mvc.bootstrapper.asp
 ' 

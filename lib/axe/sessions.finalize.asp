@@ -33,6 +33,7 @@
 Session("this").removeAll()
 set Session("this") = nothing
 
+Session.Contents.removeAll()
 Session.abandon()
 
 %>

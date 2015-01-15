@@ -1,4 +1,4 @@
-<script language="Javascript" runat="server">
+﻿<script language="Javascript" runat="server">
 
 /*
 
@@ -48,9 +48,9 @@ data-interchange language.
 
 Notes:
 
-    - Javascript extensions concept inspired by Troy Foster JSON2.ASP work <http://tforster.wik.is/ASP_Classic_Practices_For_The_21st_Century/JSON4ASP>.
-    - Javascript JSON parser is the Douglas Crockford json2.js <http://www.JSON.org/json2.js>, without the first line alert(...) and fixing "this.JSON = {};" to "JSON = {};" to make it JScript compatible.
-    - Javascript JSON.toXML is based on the Prof. Stefan Gössner "Converting Between XML and JSON" pragmatic approach <http://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html>.
+    - JSON parse/stringify from the Douglas Crockford json2.js <https://raw.githubusercontent.com/douglascrockford/JSON-js/master/json2.js>.
+    - JSON.toXML is based on the Prof. Stefan Gössner "Converting Between XML and JSON" pragmatic approach <http://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html>.
+    - JSON.minify is based on <https://github.com/getify/JSON.minify/blob/master/minify.json.js> and exists because of <https://plus.google.com/+DouglasCrockfordEsq/posts/RK8qyGVaGSr>.
 
 About:
 
@@ -277,10 +277,22 @@ if(!Object.prototype.keys) {
         var d = new ActiveXObject("Scripting.Dictionary");
         for(var key in this) {
             if(this.hasOwnProperty(key)) {
-                d.add(key, null);
+                d.add(key, this[key]);
             }
         }
         return d.keys();
+    }
+}
+
+if(!Object.prototype.values) {
+    Object.prototype.values = function() {
+        var d = new ActiveXObject("Scripting.Dictionary");
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                d.add(key, this[key]);
+            }
+        }
+        return d.items();
     }
 }
 
@@ -317,7 +329,7 @@ if(!String.prototype.substitute) {
 
 /*
     json2.js
-    2011-10-19
+    2014-02-04
 
     Public Domain.
 
@@ -434,10 +446,10 @@ if(!String.prototype.substitute) {
 
             myData = JSON.parse(text, function (key, value) {
                 var a;
-                if(typeof value === 'string') {
+                if (typeof value === 'string') {
                     a =
 /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
-                    if(a) {
+                    if (a) {
                         return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
                             +a[5], +a[6]));
                     }
@@ -447,11 +459,11 @@ if(!String.prototype.substitute) {
 
             myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
                 var d;
-                if(typeof value === 'string' &&
+                if (typeof value === 'string' &&
                         value.slice(0, 5) === 'Date(' &&
                         value.slice(-1) === ')') {
                     d = new Date(value.slice(5, -1));
-                    if(d) {
+                    if (d) {
                         return d;
                     }
                 }
@@ -476,8 +488,7 @@ if(!String.prototype.substitute) {
 // Create a JSON object only if one does not already exist. We create the
 // methods in a closure to avoid creating global variables.
 
-var JSON;
-if(!JSON) {
+if (typeof JSON !== 'object') {
     JSON = {};
 }
 
@@ -489,9 +500,9 @@ if(!JSON) {
         return n < 10 ? '0' + n : n;
     }
 
-    if(typeof Date.prototype.toJSON !== 'function') {
+    if (typeof Date.prototype.toJSON !== 'function') {
 
-        Date.prototype.toJSON = function (key) {
+        Date.prototype.toJSON = function () {
 
             return isFinite(this.valueOf())
                 ? this.getUTCFullYear()     + '-' +
@@ -505,24 +516,16 @@ if(!JSON) {
 
         String.prototype.toJSON      =
             Number.prototype.toJSON  =
-            Boolean.prototype.toJSON = function (key) {
+            Boolean.prototype.toJSON = function () {
                 return this.valueOf();
             };
     }
 
-    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+    var cx,
+        escapable,
         gap,
         indent,
-        meta = {    // table of character substitutions
-            '\b': '\\b',
-            '\t': '\\t',
-            '\n': '\\n',
-            '\f': '\\f',
-            '\r': '\\r',
-            '"' : '\\"',
-            '\\': '\\\\'
-        },
+        meta,
         rep;
 
 
@@ -557,7 +560,7 @@ if(!JSON) {
 
 // If the value has a toJSON method, call it to obtain a replacement value.
 
-        if(value && typeof value === 'object' &&
+        if (value && typeof value === 'object' &&
                 typeof value.toJSON === 'function') {
             value = value.toJSON(key);
         }
@@ -565,7 +568,7 @@ if(!JSON) {
 // If we were called with a replacer function, then call the replacer to
 // obtain a replacement value.
 
-        if(typeof rep === 'function') {
+        if (typeof rep === 'function') {
             value = rep.call(holder, key, value);
         }
 
@@ -598,7 +601,7 @@ if(!JSON) {
 // Due to a specification blunder in ECMAScript, typeof null is 'object',
 // so watch out for that case.
 
-            if(!value) {
+            if (!value) {
                 return 'null';
             }
 
@@ -609,7 +612,7 @@ if(!JSON) {
 
 // Is the value an array?
 
-            if(Object.prototype.toString.apply(value) === '[object Array]') {
+            if (Object.prototype.toString.apply(value) === '[object Array]') {
 
 // The value is an array. Stringify every element. Use null as a placeholder
 // for non-JSON values.
@@ -633,13 +636,13 @@ if(!JSON) {
 
 // If the replacer is an array, use it to select the members to be stringified.
 
-            if(rep && typeof rep === 'object') {
+            if (rep && typeof rep === 'object') {
                 length = rep.length;
                 for (i = 0; i < length; i += 1) {
-                    if(typeof rep[i] === 'string') {
+                    if (typeof rep[i] === 'string') {
                         k = rep[i];
                         v = str(k, value);
-                        if(v) {
+                        if (v) {
                             partial.push(quote(k) + (gap ? ': ' : ':') + v);
                         }
                     }
@@ -649,9 +652,9 @@ if(!JSON) {
 // Otherwise, iterate through all of the keys in the object.
 
                 for (k in value) {
-                    if(Object.prototype.hasOwnProperty.call(value, k)) {
+                    if (Object.prototype.hasOwnProperty.call(value, k)) {
                         v = str(k, value);
-                        if(v) {
+                        if (v) {
                             partial.push(quote(k) + (gap ? ': ' : ':') + v);
                         }
                     }
@@ -673,7 +676,17 @@ if(!JSON) {
 
 // If the JSON object does not yet have a stringify method, give it one.
 
-    if(typeof JSON.stringify !== 'function') {
+    if (typeof JSON.stringify !== 'function') {
+        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+        meta = {    // table of character substitutions
+            '\b': '\\b',
+            '\t': '\\t',
+            '\n': '\\n',
+            '\f': '\\f',
+            '\r': '\\r',
+            '"' : '\\"',
+            '\\': '\\\\'
+        };
         JSON.stringify = function (value, replacer, space) {
 
 // The stringify method takes a value and an optional replacer, and an optional
@@ -689,14 +702,14 @@ if(!JSON) {
 // If the space parameter is a number, make an indent string containing that
 // many spaces.
 
-            if(typeof space === 'number') {
+            if (typeof space === 'number') {
                 for (i = 0; i < space; i += 1) {
                     indent += ' ';
                 }
 
 // If the space parameter is a string, it will be used as the indent string.
 
-            } else if(typeof space === 'string') {
+            } else if (typeof space === 'string') {
                 indent = space;
             }
 
@@ -704,7 +717,7 @@ if(!JSON) {
 // Otherwise, throw an error.
 
             rep = replacer;
-            if(replacer && typeof replacer !== 'function' &&
+            if (replacer && typeof replacer !== 'function' &&
                     (typeof replacer !== 'object' ||
                     typeof replacer.length !== 'number')) {
                 throw new Error('JSON.stringify');
@@ -720,7 +733,8 @@ if(!JSON) {
 
 // If the JSON object does not yet have a parse method, give it one.
 
-    if(typeof JSON.parse !== 'function') {
+    if (typeof JSON.parse !== 'function') {
+        cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
         JSON.parse = function (text, reviver) {
 
 // The parse method takes a text and an optional reviver function, and returns
@@ -734,11 +748,11 @@ if(!JSON) {
 // that modifications can be made.
 
                 var k, v, value = holder[key];
-                if(value && typeof value === 'object') {
+                if (value && typeof value === 'object') {
                     for (k in value) {
-                        if(Object.prototype.hasOwnProperty.call(value, k)) {
+                        if (Object.prototype.hasOwnProperty.call(value, k)) {
                             v = walk(value, k);
-                            if(v !== undefined) {
+                            if (v !== undefined) {
                                 value[k] = v;
                             } else {
                                 delete value[k];
@@ -756,7 +770,7 @@ if(!JSON) {
 
             text = String(text);
             cx.lastIndex = 0;
-            if(cx.test(text)) {
+            if (cx.test(text)) {
                 text = text.replace(cx, function (a) {
                     return '\\u' +
                         ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
@@ -776,7 +790,7 @@ if(!JSON) {
 // we look to see that the remaining characters are only whitespace or ']' or
 // ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
 
-            if(/^[\],:{}\s]*$/
+            if (/^[\],:{}\s]*$/
                     .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
                         .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
                         .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
@@ -815,6 +829,20 @@ if(!JSON) {
 // Implement toXML
 (function(){
 
+/*
+IMPORTANT: XML 1.0 name token is defined here <http://www.w3.org/TR/2008/REC-xml-20081126/#NT-Nmtoken>
+            [#x10000-#xEFFFF] range is left out because ECMA 262 language specification (ECMAScript Edition 3)
+            doesn't have a way to represent them as Regular Expressions Ranges.
+*/
+    function __tagize(value) {
+        if( /^[_:A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][-.·_:0-9A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\u0300-\u036F\u203F-\u2040]*$/.test(value) ) {
+            return value;
+        } else {
+            // NOTE: just naively assuming that `value` has an invalid NameStartChar
+            return "_INVALID_NAMESTARTCHAR_" + value;
+        }
+    }
+
     function __sanitize(value) {
         return value.sanitize(
             ['&',    '<',   '>',    '\'',    '"'],
@@ -823,42 +851,48 @@ if(!JSON) {
     };
 
     function __toXML(o, t) {
-        var xml = [];
+        var xml = []
+          , a   = []
+          , p, i, len
+        ;
+
         switch( typeof o ) {
             case "object":
                 if( null === o ) {
-                    xml.push("<{tag}/>".substitute({"tag":t}));// ??? right? wrong?
+                    xml.push("<{tag}/>".substitute({"tag":__tagize(t)}));
                 } else if(o.length) {
-                    var a = o;
+                    a = o;
                     if(a.length === 0) {
-                        xml.push("<{tag}/>".substitute({"tag":t}));
+                        xml.push("<{tag}/>".substitute({"tag":__tagize(t)}));
                     } else {
-                        for(var i = 0, len = a.length; i < len; i++) {
+                        for(i = 0, len = a.length; i < len; i++) {
                             xml.push(__toXML(a[i], t));
                         }
                     }
                 } else {
-                    xml.push("<{tag}".substitute({"tag":t}));
-                    var childs = [];
-                    for(var p in o) {
+                    xml.push("<{tag}".substitute({"tag":__tagize(t)}));
+                    a = [];
+                    for(p in o) {
                         if(o.hasOwnProperty(p)) {
-                            if(p.charAt(0) === "@") xml.push(" {param}='{content}'".substitute({"param":p.substr(1), "content":__sanitize(o[p].toString())}));
-                            else childs.push(p);
+                            if(p.charAt(0) === "@") xml.push(" {param}='{content}'".substitute({"param":__tagize(p.substr(1)), "content":__sanitize(o[p].toString())}));
+                            else a.push(p);
                         }
                     }
-                    if(childs.length === 0) {
+                    if(a.length === 0) {
                         xml.push("/>");
                     } else {
                         xml.push(">");
-                        for(var i = 0, len = childs.length; i < len; i++) {
-                            if(p === "#text")
-                                { xml.push(__sanitize(o[childs[i]])); }
-                            else if(p === "#cdata")
-                                { xml.push("<![CDATA[{code}]]>".substitute({"code": o[childs[i]].toString()})); }
-                            else if(p.charAt(0) !== "@")
-                                { xml.push(__toXML(o[childs[i]], childs[i])); }
+                        for(i = 0, len = a.length; i < len; i++) {
+                            p = a[i];
+                            if(p === "#text") {
+                                xml.push(__sanitize(o[p]));
+                            } else if(p === "#cdata") {
+                                xml.push("<![CDATA[{code}]]>".substitute({"code": o[p]}));
+                            } else {
+                                xml.push(__toXML(o[p], p));
+                            }
                         }
-                        xml.push("</{tag}>".substitute({"tag":t}));
+                        xml.push("</{tag}>".substitute({"tag":__tagize(t)}));
                     }
                 }
                 break;
@@ -866,22 +900,22 @@ if(!JSON) {
             default:
                 var s = String(o);
                 if(s.length === 0) {
-                    xml.push("<{tag}/>".substitute({"tag":t}));
+                    xml.push("<{tag}/>".substitute({"tag":__tagize(t)}));
                 } else {
-                    xml.push("<{tag}>{value}</{tag}>".substitute({"tag":t, "value":s}));
+                    xml.push("<{tag}>{value}</{tag}>".substitute({"tag":__tagize(t), "value":__sanitize(s)}));
                 }
         }
         return xml.join('');
     }
 
     if(typeof JSON.toXML !== 'function') {
-        JSON.toXML = function(json, container){
+        JSON.toXML = function(o, container){
             //container = container || "";
             var xml = [];
             if(container) xml.push("<{tag}>".substitute({"tag":container}));
-            for(var p in json) {
-                if(json.hasOwnProperty(p)) {
-                    xml.push(__toXML(json[p], p));
+            for(var p in o) {
+                if(o.hasOwnProperty(p)) {
+                    xml.push(__toXML(o[p], p));
                 }
             }
             if(container) xml.push("</{tag}>".substitute({"tag":container}));

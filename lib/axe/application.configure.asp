@@ -31,7 +31,9 @@
 ' 
 dim Xml : set Xml = Server.createObject("MSXML2.DOMDocument.6.0")
 Xml.async = false
-Xml.load(Server.mapPath("/app/config.xml"))
+Xml.load Server.mapPath("/instance/config/settings.xml")
+
+Application.lock
 
 loadCommon Xml
 loadCache Xml
@@ -39,25 +41,27 @@ loadRoutes Xml
 
 Application("isConfigured") = true
 
+Application.unlock
+
 set Xml = nothing
 
 
 
 ' Subroutine: loadCommon
 ' 
-' Loads common application configurations.
+' Loads common application settings.
 ' 
 ' Parameters:
 ' 
-'   (xml object)Xml - config.xml XML object
+'   (xml object)Xml - settings.xml XML object
 ' 
 ' See also:
 ' 
-'   <config.xml>
+'   <settings.xml>
 ' 
 sub loadCommon(Xml)
     dim Nodelist, Node
-    set Nodelist = Xml.selectNodes("/configurations/common/child::*")
+    set Nodelist = Xml.selectNodes("/settings/common/child::*")
     for each Node in Nodelist
         Application(Node.nodeName) = Node.text
     next
@@ -71,21 +75,21 @@ end sub
 ' 
 ' Parameters:
 ' 
-'   (xml object)Xml - config.xml XML object
+'   (xml object)Xml - settings.xml XML object
 ' 
 ' See also:
 ' 
-'   <config.xml>
+'   <settings.xml>
 ' 
 sub loadCache(Xml)
     dim Nodelist, Node, i : i = 0
     
-    set Nodelist = Xml.selectNodes("/configurations/cache/lifetime")
+    set Nodelist = Xml.selectNodes("/settings/cache/lifetime")
     for each Node in Nodelist
         Application("Cache.lifetime") = Node.text
     next
     
-    set Nodelist = Xml.selectNodes("/configurations/cache/item")
+    set Nodelist = Xml.selectNodes("/settings/cache/item")
     dim saCache : redim saCache(Nodelist.length - 1, 2)
     for each Node in Nodelist
         saCache(i, 0) = Node.firstChild.text
@@ -106,17 +110,17 @@ end sub
 ' 
 ' Parameters:
 ' 
-'   (xml object)Xml - config.xml XML object
+'   (xml object)Xml - settings.xml XML object
 ' 
 ' See also:
 ' 
-'   <config.xml>
+'   <settings.xml>
 ' 
 public sub loadRoutes(Xml)
     dim Nodelist, Node, Actions, Action, i, j
     dim aRoutes, aActions
     
-    set Nodelist = Xml.selectNodes("/configurations/routes/controller")
+    set Nodelist = Xml.selectNodes("/settings/routes/controller")
     redim aRoutes(Nodelist.length - 1)
     i = 0
     for each Node in Nodelist

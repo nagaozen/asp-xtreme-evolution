@@ -44,7 +44,7 @@ lcid     = 1033
 Core.initialize().process().dispatch()
 
 ' Print a comment with the execution time for optimizing purposes
-if( Response.contentType = "text/html" ) then
+if( lcase(Response.contentType) = "text/html" ) then
     Response.write "<!--// This page required " & timer - Session("Request.time") & " seconds of execution time //-->"
 end if
 

@@ -1,0 +1,31 @@
+﻿{
+  "name": "axe_inspect",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "glyphs": [
+    {
+      "uid": "f978da58836f23373882916f05fb70b4",
+      "css": "doc",
+      "code": 59393,
+      "src": "linecons"
+    },
+    {
+      "uid": "484b4ad2058d17849f205c4054b6f315",
+      "css": "cog",
+      "code": 59392,
+      "src": "linecons"
+    },
+    {
+      "uid": "02ad0683eaa9826f396fa7ccf1f1fb25",
+      "css": "database",
+      "code": 59394,
+      "src": "linecons"
+    },
+    {
+      "uid": "6cc796276697d8a75ae21bb2df4badc9",
+      "css": "beaker",
+      "code": 59395,
+      "src": "linecons"
+    }
+  ]
+}

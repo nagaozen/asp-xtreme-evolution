@@ -130,6 +130,20 @@ class Image
     ' 
     '   (int) - Width
     ' 
+    ' Example:
+    ' 
+    ' (start code)
+    ' 
+    ' with (new Image)
+    '     .imagerUri = "http://localhost/cgi-bin/Imager.dll"
+    '     .image = Server.mapPath("image.png")
+    '     .processBinary = false
+    '     call .go()
+    '     Response.Write .originalWidth
+    ' end with
+    ' 
+    ' (end)
+    ' 
     public originalWidth
 
     ' Property: originalHeight

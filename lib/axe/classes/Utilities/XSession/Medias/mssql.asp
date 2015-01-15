@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 ' File: mssql.asp
 ' 
@@ -115,7 +115,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         Conn.open(connectionstring)
         
         set Cmd = Server.createObject("ADODB.Command")
-        Cmd.activeConnection = Conn
+        set Cmd.activeConnection = Conn
         Cmd.commandType = adCmdStoredProc
         Cmd.commandText = "SP_axe_xsession_load"
         
@@ -131,6 +131,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         Rs.close()
         set Rs = nothing
         
+        set Cmd.activeConnection = nothing
         set Cmd = nothing
         
         Conn.close()
@@ -159,7 +160,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         Conn.open(connectionstring)
         
         set Cmd = Server.createObject("ADODB.Command")
-        Cmd.activeConnection = Conn
+        set Cmd.activeConnection = Conn
         Cmd.commandType = adCmdStoredProc
         Cmd.commandText = "SP_axe_xsession_save"
         
@@ -171,6 +172,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         set Rs = Cmd.execute()
         set Rs = nothing
         
+        set Cmd.activeConnection = nothing
         set Cmd = nothing
         
         Conn.close()

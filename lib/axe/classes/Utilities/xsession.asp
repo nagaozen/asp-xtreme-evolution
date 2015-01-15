@@ -1,4 +1,4 @@
-<%
+﻿<%
 
 ' File: xsession.asp
 ' 
@@ -116,7 +116,7 @@ class XSession
         id = Request.Cookies("XSESSION_UID")
         if( id = "" ) then
             id = guid()
-            Response.Cookies("XSESSION_UID") = id
+            XCookies.setItem "XSESSION_UID", id, 8 * 3600, false, "/", false, true
         end if
         
         set [_Ω] = JSON.parse("{}")
