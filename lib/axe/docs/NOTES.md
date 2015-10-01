@@ -1,4 +1,4 @@
-Important Notes
+﻿Important Notes
 ---------------
 
 - Read **ALL** items of Installation Section, it's important. Really.

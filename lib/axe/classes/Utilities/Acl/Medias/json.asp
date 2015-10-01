@@ -55,7 +55,7 @@ class Acl_Media_Json' implements Acl_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

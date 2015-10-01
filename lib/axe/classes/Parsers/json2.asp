@@ -107,7 +107,7 @@ Response.write(Info.complex.imaginary & vbNewline) ' prints 2
 
 ' You can also enumerate object properties ...
 
-dim key : for each key in Info.keys()
+dim key : for each key in Info.enumerate()
     Response.write( key & vbNewline )
 next
 
@@ -255,7 +255,7 @@ if(!Object.prototype.get) {
 
 if(!Object.prototype.set) {
     Object.prototype.set = function(k,v) {
-        if(typeof(v) == "unknown") {
+        if(typeof(v) === "unknown") {
             try {
                 v = (new VBArray(v)).toArray();
             } catch(e) {
@@ -272,8 +272,8 @@ if(!Object.prototype.purge) {
     }
 }
 
-if(!Object.prototype.keys) {
-    Object.prototype.keys = function() {
+if(!Object.prototype.enumerate) {
+    Object.prototype.enumerate = function() {
         var d = new ActiveXObject("Scripting.Dictionary");
         for(var key in this) {
             if(this.hasOwnProperty(key)) {
@@ -281,18 +281,6 @@ if(!Object.prototype.keys) {
             }
         }
         return d.keys();
-    }
-}
-
-if(!Object.prototype.values) {
-    Object.prototype.values = function() {
-        var d = new ActiveXObject("Scripting.Dictionary");
-        for(var key in this) {
-            if(this.hasOwnProperty(key)) {
-                d.add(key, this[key]);
-            }
-        }
-        return d.items();
     }
 }
 

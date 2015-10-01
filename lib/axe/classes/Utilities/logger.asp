@@ -56,10 +56,10 @@ class Logger
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
-    
+
     ' Property: Priorities
     ' 
     ' Scripting.Dictionary holding available log priorities. The built-in 
@@ -81,7 +81,7 @@ class Logger
     '     (DEBUG)  - Debug: debug messages. Priority 7
     ' 
     public Priorities
-    
+
     ' Subroutine: addAdapter
     ' 
     ' Pushes a new Logger_Interface adapter to Adapters list
@@ -97,7 +97,7 @@ class Logger
         ' set Node = nothing
         [_Adapters].push(Adapter)
     end sub
-    
+
     ' Subroutine: addFilter
     ' 
     ' Add a filter that will be applied before writing the message in this adapter.
@@ -115,7 +115,7 @@ class Logger
     public sub addFilter(mixed)
         [_Filters].add [_Filters].count, mixed
     end sub
-    
+
     ' Subroutine: write
     ' 
     ' Main writing routine
@@ -137,7 +137,7 @@ class Logger
         end if
         set Node = nothing
     end sub
-    
+
     ' Subroutine: emerg
     ' 
     ' Logs an emergency
@@ -150,7 +150,7 @@ class Logger
     public sub emerg(message, arguments)
         call write(message, arguments, "EMERG")
     end sub
-    
+
     ' Subroutine: alert
     ' 
     ' Logs an alert
@@ -163,7 +163,7 @@ class Logger
     public sub alert(message, arguments)
         call write(message, arguments, "ALERT")
     end sub
-    
+
     ' Subroutine: critical
     ' 
     ' Logs a critical
@@ -176,7 +176,7 @@ class Logger
     public sub critical(message, arguments)
         call write(message, arguments, "CRIT")
     end sub
-    
+
     ' Subroutine: error
     ' 
     ' Logs an error
@@ -189,7 +189,7 @@ class Logger
     public sub error(message, arguments)
         call write(message, arguments, "ERROR")
     end sub
-    
+
     ' Subroutine: warn
     ' 
     ' Logs a warning
@@ -202,7 +202,7 @@ class Logger
     public sub warn(message, arguments)
         call write(message, arguments, "WARN")
     end sub
-    
+
     ' Subroutine: notice
     ' 
     ' Logs a notice
@@ -215,7 +215,7 @@ class Logger
     public sub notice(message, arguments)
         call write(message, arguments, "NOTICE")
     end sub
-    
+
     ' Subroutine: info
     ' 
     ' Logs a info
@@ -228,7 +228,7 @@ class Logger
     public sub info(message, arguments)
         call write(message, arguments, "INFO")
     end sub
-    
+
     ' Subroutine: debug
     ' 
     ' Logs a debug
@@ -241,11 +241,23 @@ class Logger
     public sub debug(message, arguments)
         call write(message, arguments, "DEBUG")
     end sub
-    
+
+    ' Subroutine: log
+    ' 
+    ' An alias for info. Useful for client/server shared components.
+    ' 
+    ' Parameters:
+    ' 
+    '     (string)   - message without placeholders
+    ' 
+    public sub log(message)
+        call write(message, array(), "DEBUG")
+    end sub
+
     private sub Class_initialize()
         classType    = typename(Me)
         classVersion = "1.0.0.0"
-        
+
         set Priorities = Server.createObject("Scripting.Dictionary")
         Priorities.add "EMERG",  0
         Priorities.add "ALERT",  1
@@ -255,12 +267,12 @@ class Logger
         Priorities.add "NOTICE", 5
         Priorities.add "INFO",   6
         Priorities.add "DEBUG",  7
-        
+
         set [_Adapters] = new List
         set [_Filters] = Server.createObject("Scripting.Dictionary")
         set [_τ] = new XString
     end sub
-    
+
     private sub Class_terminate()
         set [_τ] = nothing
         set [_Filters] = nothing
@@ -268,7 +280,7 @@ class Logger
         
         set Priorities = nothing
     end sub
-    
+
     ' Subroutine: [_ε]
     ' 
     ' {private} Checks for an adapter assignment.
@@ -278,7 +290,7 @@ class Logger
             Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Missing an Email_Interface adapter."
         end if
     end sub
-    
+
     ' Property: [_Adapters]
     ' 
     ' {private} In order to really write the messages somewhere, Log requires 
@@ -290,7 +302,7 @@ class Logger
     '     (Logger_Interface()) - media adapters
     ' 
     private [_Adapters]
-    
+
     ' Property: [_Filters]
     ' 
     ' {private} Filters blocks a message from being written to the log.
@@ -300,7 +312,7 @@ class Logger
     '     (Scripting.Dictionary) - filters
     ' 
     private [_Filters]
-    
+
     ' Property: [_τ]
     ' 
     ' {private} XString instance to handle the string formating.
@@ -310,7 +322,7 @@ class Logger
     '     (XString) - Object to handle the string formating.
     ' 
     private [_τ]
-    
+
     ' Function: [_compare]
     ' 
     ' {private} Compares two numbers by an order operator.
@@ -342,7 +354,7 @@ class Logger
             Err.raise 5, "Evolved AXE runtime error", "Invalid procedure call or argument. Invalid operator."
         end if
     end function
-    
+
     ' Function: [_isAcceptable]
     ' 
     ' {private} Check with Filters if a message can be logged.
@@ -377,7 +389,7 @@ class Logger
             end if
         next
     end function
-    
+
 end class
 
 %>

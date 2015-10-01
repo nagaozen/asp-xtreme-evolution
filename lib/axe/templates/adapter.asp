@@ -31,7 +31,7 @@ class ${1:name}' implements ${2:Interface}
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

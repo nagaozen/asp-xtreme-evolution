@@ -55,7 +55,7 @@ class Translator_Media_Json' implements Translator_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

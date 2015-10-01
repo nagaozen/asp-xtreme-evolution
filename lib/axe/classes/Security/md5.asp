@@ -79,7 +79,7 @@ class MD5
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

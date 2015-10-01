@@ -72,7 +72,7 @@ class Email_Interface' extends Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

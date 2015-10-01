@@ -26,7 +26,7 @@ class $<[1]: return $1.capitalize() >Model
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

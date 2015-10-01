@@ -43,6 +43,10 @@ table {
 	margin: 0;
 }
 
+th, td {
+    padding: .5em;
+}
+
 table thead tr th,
 table thead tr td {
 	display: table-cell;

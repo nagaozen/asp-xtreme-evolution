@@ -60,7 +60,7 @@ class Upload
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
 
@@ -254,7 +254,7 @@ class Upload_File
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
 

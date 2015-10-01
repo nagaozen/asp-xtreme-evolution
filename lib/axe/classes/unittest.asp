@@ -57,7 +57,7 @@ class UnitTest
     ' 
     ' Contains:
     ' 
-    '     (float) - version
+    '     (string) - version
     ' 
     public classVersion
     

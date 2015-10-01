@@ -55,7 +55,7 @@ class XSession_Media_Json' implements XSession_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

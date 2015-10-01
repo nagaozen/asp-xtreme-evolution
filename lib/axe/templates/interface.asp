@@ -47,7 +47,7 @@ class ${1:Name}_Interface' extends Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

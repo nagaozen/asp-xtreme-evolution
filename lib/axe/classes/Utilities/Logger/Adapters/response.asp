@@ -55,7 +55,7 @@ class Logger_Adapter_Response' implements Logger_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

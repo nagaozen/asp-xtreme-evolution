@@ -1,4 +1,4 @@
-## Version 8.4
+﻿## Version 8.4
 
 We've got the new [demo page][]! The obvious new feature is the new look, but
 apart from that it's got smarter: by presenting languages in groups it avoids

@@ -55,7 +55,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     
@@ -117,7 +117,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         set Cmd = Server.createObject("ADODB.Command")
         set Cmd.activeConnection = Conn
         Cmd.commandType = adCmdStoredProc
-        Cmd.commandText = "SP_axe_xsession_load"
+        Cmd.commandText = "USP_axe_xsession_load"
         
         Cmd.Parameters.append Cmd.createParameter("@uid", adGuid, adParamInput, 16)
         Cmd.Parameters("@uid").value = id
@@ -162,7 +162,7 @@ class XSession_Media_MSSQL' implements XSession_Interface
         set Cmd = Server.createObject("ADODB.Command")
         set Cmd.activeConnection = Conn
         Cmd.commandType = adCmdStoredProc
-        Cmd.commandText = "SP_axe_xsession_save"
+        Cmd.commandText = "USP_axe_xsession_save"
         
         Cmd.Parameters.append Cmd.createParameter("@uid", adGuid, adParamInput, 16)
         Cmd.Parameters.append Cmd.createParameter("@content", adLongVarWChar, adParamInput, 1073741823)

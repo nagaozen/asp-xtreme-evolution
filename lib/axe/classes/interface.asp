@@ -51,7 +51,7 @@ class Interface
     '
     ' Contains:
     '
-    '   (float) - version
+    '   (string) - version
     '
     public classVersion
 

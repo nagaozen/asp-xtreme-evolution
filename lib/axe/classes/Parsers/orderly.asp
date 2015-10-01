@@ -1837,6 +1837,6 @@ Notes:
             return JSONSchema.validate(instance, Schema);
         }
     }
-})()
+}());
 
 </script>

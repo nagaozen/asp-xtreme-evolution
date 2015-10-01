@@ -58,7 +58,7 @@ class CustomEvent
     '
     ' Contains:
     '
-    '   (float) - version
+    '   (string) - version
     '
     public classVersion
 

@@ -64,7 +64,7 @@ class Logger_Adapter_FirePHP' implements Logger_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

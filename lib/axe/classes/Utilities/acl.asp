@@ -60,7 +60,7 @@ class Acl
     '
     ' Contains:
     '
-    '   (float) - version
+    '   (string) - version
     '
     public classVersion
 
@@ -232,7 +232,7 @@ class Acl
         dim user, parent, child
 
         ' remove from users
-        for each user in [_Users].keys()
+        for each user in [_Users].enumerate()
             call unassign(user, role)
         next
 
@@ -243,7 +243,7 @@ class Acl
         end if
 
         ' remove role children
-        for each child in [_Roles].get(role).get(1).keys()
+        for each child in [_Roles].get(role).get(1).enumerate()
             call remRole(child)
         next
 
@@ -303,7 +303,7 @@ class Acl
         end if
 
         ' remove resource children
-        for each child in [_Resources].get(resource).get(1).keys()
+        for each child in [_Resources].get(resource).get(1).enumerate()
             call remResource(child)
         next
 
@@ -311,7 +311,7 @@ class Acl
         call [_Resources].purge(resource)
 
         ' remove from rules
-        for each role in [_Rules].keys()
+        for each role in [_Rules].enumerate()
             [_Rules].get(role).purge(resource)
         next
     end sub
@@ -366,7 +366,7 @@ class Acl
                 call [_Users].get(user).purge(role)
             next
 
-            if( ubound( [_Users].get(user).keys() ) = -1 ) then
+            if( ubound( [_Users].get(user).enumerate() ) = -1 ) then
                 call [_Users].purge(user)
             end if
         end if
@@ -388,7 +388,7 @@ class Acl
     public function [is](byVal user, byVal role)
         [is] = false
         if( not isEmpty( [_Users].get(user) ) ) then
-            dim entry : for each entry in [_Users].get(user).keys()
+            dim entry : for each entry in [_Users].get(user).enumerate()
                 if( entry = role ) then
                     [is] = true
                     exit function
@@ -441,11 +441,11 @@ class Acl
                 call [_Rules].get(role).get(resource).purge(privilege)
         end select
 
-        if( ubound( [_Rules].get(role).get(resource).keys() ) = -1 ) then
+        if( ubound( [_Rules].get(role).get(resource).enumerate() ) = -1 ) then
             call [_Rules].get(role).purge(resource)
         end if
 
-        if( ubound( [_Rules].get(role).keys() ) = -1 ) then
+        if( ubound( [_Rules].get(role).enumerate() ) = -1 ) then
             call [_Rules].purge(role)
         end if
     end sub
@@ -586,34 +586,33 @@ class Acl
     public function isAllowed(byVal user, byVal resource, byVal privilege)
         isAllowed = null
 
-        dim Sd : set Sd = Server.createObject("Scripting.Dictionary")
         dim this, role, roles, resources
 
-        if( not isEmpty( [_Users].get(user) ) ) then
-            for each role in [_Users].get(user).keys()
-                this = role
-                do
-                    Sd.add this, null
-                    this = [_Roles].get(this).get(0)
-                loop while( not isNull(this) )
-            next
-        end if
-        roles = Sd.keys()
-
-        call Sd.removeAll()
-
-        this = resource
-        do
-            if( isEmpty( [_Resources].get(this) ) ) then
-                this = null
-            else
-                Sd.add this, null
-                this = [_Resources].get(this).get(0)
+        with Server.createObject("Scripting.Dictionary")
+            if( not isEmpty( [_Users].get(user) ) ) then
+                for each role in [_Users].get(user).enumerate()
+                    this = role
+                    do
+                        .add this, null
+                        this = [_Roles].get(this).get(0)
+                    loop while( not isNull(this) )
+                next
             end if
-        loop while( not isNull(this) )
-        resources = Sd.keys()
+            roles = .keys()
 
-        set Sd = nothing
+            call .removeAll()
+
+            this = resource
+            do
+                if( isEmpty( [_Resources].get(this) ) ) then
+                    this = null
+                else
+                    .add this, null
+                    this = [_Resources].get(this).get(0)
+                end if
+            loop while( not isNull(this) )
+            resources = .keys()
+        end with
 
         if( ( not isEmpty(roles) ) and ( not isEmpty(resources) ) ) then
             isAllowed = [_φ](roles, resources, privilege)
@@ -656,34 +655,33 @@ class Acl
     public function isRoleAllowed(byVal role, byVal resource, byVal privilege)
         isRoleAllowed = null
 
-        dim Sd : set Sd = Server.createObject("Scripting.Dictionary")
         dim this, roles, resources
 
-        call Sd.removeAll()
+        with Server.createObject("Scripting.Dictionary")
+            call .removeAll()
 
-        this = role
-        do
-            if( isEmpty( [_Roles].get(this) ) ) then
-                this = null
-            else
-                Sd.add this, null
-                this = [_Roles].get(this).get(0)
-            end if
-        loop while( not isNull(this) )
-        roles = Sd.keys()
+            this = role
+            do
+                if( isEmpty( [_Roles].get(this) ) ) then
+                    this = null
+                else
+                    .add this, null
+                    this = [_Roles].get(this).get(0)
+                end if
+            loop while( not isNull(this) )
+            roles = .keys()
 
-        this = resource
-        do
-            if( isEmpty( [_Resources].get(this) ) ) then
-                this = null
-            else
-                Sd.add this, null
-                this = [_Resources].get(this).get(0)
-            end if
-        loop while( not isNull(this) )
-        resources = Sd.keys()
-
-        set Sd = nothing
+            this = resource
+            do
+                if( isEmpty( [_Resources].get(this) ) ) then
+                    this = null
+                else
+                    .add this, null
+                    this = [_Resources].get(this).get(0)
+                end if
+            loop while( not isNull(this) )
+            resources = .keys()
+        end with
 
         if( ( not isEmpty(roles) ) and ( not isEmpty(resources) ) ) then
             isRoleAllowed = [_φ](roles, resources, privilege)

@@ -96,7 +96,7 @@ class Rijndael
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

@@ -56,7 +56,7 @@ class Auth_Adapter_MSSQL' implements Auth_Interface
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     
@@ -130,7 +130,7 @@ class Auth_Adapter_MSSQL' implements Auth_Interface
         set Cmd = Server.createObject("ADODB.Command")
         set Cmd.activeConnection = Conn
         Cmd.commandType = adCmdStoredProc
-        Cmd.commandText = "SP_axe_auth_authenticate"
+        Cmd.commandText = "USP_axe_auth_authenticate"
         
         Cmd.Parameters.append Cmd.createParameter("@usr", adVarWChar, adParamInput, 128)
         Cmd.Parameters("@usr").value = usr

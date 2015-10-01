@@ -61,7 +61,7 @@ class ReCaptcha
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
     

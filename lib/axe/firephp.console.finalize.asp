@@ -1,5 +1,5 @@
 ﻿<%
 
-set Console = nothing
+set console = nothing
 
 %>

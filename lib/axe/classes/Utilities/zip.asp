@@ -56,7 +56,7 @@ class Zip
     ' 
     ' Contains:
     ' 
-    '   (float) - version
+    '   (string) - version
     ' 
     public classVersion
 

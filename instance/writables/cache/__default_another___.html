@@ -135,7 +135,7 @@ class WelcomeModel
         dim Parser : set Parser = new Markdown
         
         dim sXml : sXml = join(array( _
-            "&lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;", _
+            "&lt;?xml version='1.0' encoding='UTF-8'?&gt;", _
             "&lt;messages&gt;", _
             "  &lt;message&gt;", _
             "    &lt;img src='/lib/axe/assets/img/logomark-icons.jpg' alt='ASP Xtreme Evolution' title='ASP Xtreme Evolution' /&gt;", _
@@ -143,14 +143,7 @@ class WelcomeModel
             "    &lt;h2&gt;Engine information&lt;/h2&gt;", _
             "    &lt;p&gt;" & axeInfo() & "&lt;/p&gt;", _
             "    &lt;p&gt;LCID: " & Session.lcid & " - Codepage: " & Session.codepage & " - Charset: " & Response.charset & "&lt;/p&gt;", _
-            "    &lt;h2&gt;Important Notes&lt;/h2&gt;", _
-            "    &lt;ul&gt;", _
-            "      &lt;li&gt;This page doesn't mean that you installed the entire Framework right, but just a part of it. Don't be lazy and follow the INSTALL.md to the end (a copy of it is also available below).&lt;/li&gt;", _
-            "      &lt;li&gt;If you are receiving an error: '80020009' without any additional information, increase the metabase 'AspMaxRequestEntityAllowed' parameter size (Default is 204800 bytes).&lt;/li&gt;", _
-            "      &lt;li&gt;Set the application custom error 500;100 to '/app/views/error.asp' to integrate the framework errors with the IIS ASP errors.&lt;/li&gt;", _
-            "      &lt;li&gt;There are some very useful templates which all project should use. They are: model.asp, view.asp and controller.asp on /lib/axe/templates folder.&lt;/li&gt;", _
-            "      &lt;li&gt;&lt;strong&gt;Don't forget, this still VBScript ASP! Be confident in your ASP skills and you will be fine.&lt;/strong&gt; Also, the &lt;a href='/lib/axe/docs/'&gt;&lt;strong&gt;AXE DOCUMENTATION&lt;/strong&gt;&lt;/a&gt; and &lt;a href='http://msdn.microsoft.com/en-us/library/ms950396.aspx'&gt;&lt;strong&gt;MICROSOFT SCRIPTING&lt;/strong&gt;&lt;/a&gt; are always ready to help you.&lt;/li&gt;", _
-            "    &lt;/ul&gt;", _
+            Parser.makeHtml( Core.loadTextFile( Server.mapPath("/lib/axe/docs/NOTES.md") ) ), _
             Parser.makeHtml( Core.loadTextFile( Server.mapPath("/lib/axe/docs/INSTALL.md") ) ), _
             "    &lt;h2&gt;Getting started&lt;/h2&gt;", _
             "    &lt;h3&gt;Reconfiguring the Application&lt;/h3&gt;", _

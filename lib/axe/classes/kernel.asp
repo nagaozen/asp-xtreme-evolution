@@ -57,7 +57,7 @@ class Kernel
     '
     ' Contains:
     '
-    '   (float) - version
+    '   (string) - version
     '
     public classVersion
 
