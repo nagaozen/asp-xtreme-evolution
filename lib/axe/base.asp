@@ -42,6 +42,35 @@ function axeInfo()
     axeInfo = Application("name") & " v" & Application("version") & " running over " & ScriptEngine & " v" & ScriptEngineMajorVersion & "." & ScriptEngineMinorVersion & "." & ScriptEngineBuildVersion
 end function
 
+' Function: envVar
+' 
+' Retrieves the value of an environment variable.
+' 
+' Parameters:
+' 
+'     (string) - The name of the environment variable.
+' 
+' Returns:
+' 
+'     (string) - The value of the specified environment variable.
+' 
+' Example:
+' 
+' (start code)
+' 
+' with Server.createObject("ADODB.Connection")
+'   .open envVar("CONNECTION_STRING")
+'   .close
+' end with
+' 
+' (end code)
+' 
+function envVar(byVal name)
+  with createObject("WScript.Shell")
+    envVar = .expandEnvironmentStrings(name)
+  end with
+end function
+
 ' Function: iif
 ' 
 ' Mimics the C ternary operator ?:
